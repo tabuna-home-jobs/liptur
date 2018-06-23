@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Orchid\Platform\Core\Models\TermTaxonomy;
+use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Core\Models\Post;
 
 class AboutController extends Controller
@@ -78,7 +78,7 @@ class AboutController extends Controller
      */
     public function investor()
     {
-        $offers = TermTaxonomy::category()->slug('Investor')->first()->allChildrenTerm()->with(['posts' => function ($query) {
+        $offers = Taxonomy::category()->slug('Investor')->first()->allChildrenTerm()->with(['posts' => function ($query) {
             $query->orderBy('publish_at', 'desc');
         }])->get();
 

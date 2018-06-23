@@ -5,7 +5,7 @@ namespace App\Http\Forms\Posts;
 use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
 use Orchid\Platform\Core\Models\Page;
-use Orchid\PLatform\Core\Models\TermTaxonomy;
+use Orchid\PLatform\Core\Models\Taxonomy;
 use Orchid\Platform\Forms\Form;
 
 class BaseFormPage extends Form
@@ -51,7 +51,7 @@ class BaseFormPage extends Form
         $post->taxonomies()->where('taxonomy', 'category')->detach();
         $category = [];
         foreach ($this->request->get('category', []) as $value) {
-            $test = TermTaxonomy::select('id', 'term_id')->find($value);
+            $test = Taxonomy::select('id', 'term_id')->find($value);
             $category[] = $test;
         }
         $post->taxonomies()->saveMany($category);
