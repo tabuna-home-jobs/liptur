@@ -1,0 +1,10 @@
+/node_modules
+/public/storage
+/resources/assets/vendor
+/vendor
+.idea
+Homestead.json
+Homestead.yaml
+.env
+/public/panoram/
+*.lock

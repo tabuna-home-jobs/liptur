@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'volovskiy'     => ['name' => 'Воловский район', 'sort' => 10],
+    'gryazi'        => ['name' => 'Грязинский район', 'sort' => 10],
+    'dankovsky'     => ['name' => 'Данковский район', 'sort' => 10],
+    'bobrinskii'    => ['name' => 'Добринский район', 'sort' => 10],
+    'bobrovskij'    => ['name' => 'Добровский район', 'sort' => 10],
+    'bolgorukovsky' => ['name' => 'Долгоруковский район', 'sort' => 10],
+    'eletskii'      => ['name' => 'Елец', 'sort' => 3],
+    'zadonsk'       => ['name' => 'Задонск', 'sort' => 2],
+    'izmalkovsky'   => ['name' => 'Измалковский район', 'sort' => 10],
+    'krasninskoe'   => ['name' => 'Краснинский район', 'sort' => 10],
+    'lebedyansky'   => ['name' => 'Лебедянский район', 'sort' => 10],
+    'levTolstoy'    => ['name' => 'Лев-Толстовский район', 'sort' => 10],
+    'lipetsk'       => ['name' => 'Липецк', 'sort' => 1],
+    'stanovlyansky' => ['name' => 'Становлянский район', 'sort' => 10],
+    'terbunsky'     => ['name' => 'Тербунский район', 'sort' => 10],
+    'usman'         => ['name' => 'Усманский район', 'sort' => 10],
+    'khlevensky'    => ['name' => 'Хлевенский район', 'sort' => 10],
+    'chaplyginsky'  => ['name' => 'Чаплыгинский район', 'sort' => 10],
+    'tambov'        => ['name' => 'Тамбовский район', 'sort' => 50],
+    'eletskii_area' => ['name' => 'Елецкий район', 'sort' => 6],
+    'zadonsk_area'  => ['name' => 'Задонский район', 'sort' => 5],
+    'lipetsk_area'  => ['name' => 'Липецкий район', 'sort' => 4],
+];

@@ -1,0 +1,126 @@
+.img-post {
+  height: 200px;
+  object-fit: cover;
+  /*height: 100%;*/
+}
+
+.image-wrapper {
+
+  img {
+    animation: fadeinIMAGE 800ms;
+  }
+
+  @keyframes fadeinIMAGE {
+    0% {
+      filter: blur(10px);
+      opacity: 0.4;
+    }
+    25% {
+      filter: blur(7px);
+      opacity: 0.55;
+    }
+    25% {
+      filter: blur(5px);
+      opacity: 0.70;
+    }
+    100% {
+      filter: blur(3px);
+      opacity: 0.85;
+    }
+  }
+
+  @-moz-keyframes fadeinIMAGE { /* Firefox */
+    0% {
+      filter: blur(10px);
+      opacity: 0.4;
+    }
+    25% {
+      filter: blur(7px);
+      opacity: 0.55;
+    }
+    25% {
+      filter: blur(5px);
+      opacity: 0.70;
+    }
+    100% {
+      filter: blur(3px);
+      opacity: 0.85;
+    }
+  }
+
+  @-webkit-keyframes fadeinIMAGE { /* Safari and Chrome */
+    0% {
+      filter: blur(10px);
+      opacity: 0.4;
+    }
+    25% {
+      filter: blur(7px);
+      opacity: 0.55;
+    }
+    25% {
+      filter: blur(5px);
+      opacity: 0.70;
+    }
+    100% {
+      filter: blur(3px);
+      opacity: 0.85;
+    }
+  }
+
+  @-o-keyframes fadeinIMAGE { /* Opera */
+    0% {
+      filter: blur(10px);
+      opacity: 0.4;
+    }
+    25% {
+      filter: blur(7px);
+      opacity: 0.55;
+    }
+    25% {
+      filter: blur(5px);
+      opacity: 0.70;
+    }
+    100% {
+      filter: blur(3px);
+      opacity: 0.85;
+    }
+  }
+
+  &:hover {
+    i {
+      transition: 460ms all;
+      opacity: 1 !important;
+    }
+  }
+
+  .photo-next {
+    position: absolute;
+    width: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    i {
+      opacity: 0;
+      font-size: 2em;
+      transition: 660ms all;
+      color: @brand-white;
+      text-shadow: @brand-dark 0 0 2px;
+    }
+
+    &.right {
+      right: 0;
+      top: 0;
+      bottom: 0;
+      justify-content: flex-end;
+    }
+
+    &.left {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      justify-content: flex-start;
+    }
+
+  }
+}

@@ -1,0 +1,69 @@
+#reservation .mrgftop{
+    margin:  30px 0 0 0;
+}
+#reservation .form-group{
+    padding: 20px 0 0 0;
+}
+#reservation .quantity-holder{
+    width: 72px;
+    height: 40px;
+    float: right;
+    border: 1px solid #ccc;
+    border-radius:4px;
+}
+#reservation .quantity-holder input{
+    border:none;
+    width: 37px;
+    height: 38px;
+    float: left;
+    line-height: 38px;
+    font-size: 14px;
+    color:#262626;
+    padding: 0 0 0 8px;
+    text-align: center;
+}
+#reservation .quantity-holder span{
+    float: left;
+    color:#737373;
+    height: 40px;
+    line-height: 40px;
+    font-size:16px;
+    width: 15px;
+    padding: 0 0 0 10px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    font-weight: bold;
+}
+#reservation .quantity-holder span.btn-plus{
+    padding: 0 0 0 0;
+}
+#reservation label{
+    color: #7C7C7C;
+    font-size: 15px;
+}
+#reservation .data-holder{
+    float: right;
+    border: 1px solid #ccc;
+    border-radius:4px;
+    width: 140px;
+    height: 40px;
+    background: url('/img/ico-calendar-red.png') no-repeat 105px 10px;
+}
+#reservation .data-holder input{
+    width: 127px;
+    float: left;
+    line-height: 38px;
+    font-size: 12px;
+    padding: 0 0 0 13px;
+    color:#262626;
+    border:none;
+    background: none;
+
+}
+#reservation .h3{
+    border-bottom: 1px solid #f05050;
+    padding: 10px 30px 35px 30px;
+    color:#262626;
+}

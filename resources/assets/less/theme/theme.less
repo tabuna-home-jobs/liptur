@@ -1,0 +1,1055 @@
+//
+// Carousel
+// --------------------------------------------------
+
+// Wrapper for the slide container and indicators
+
+@mobile: ~"screen and (max-width: 768px)";
+
+/*.gm-style-iw {
+  overflow-x: hidden !important;
+  line-height: 1.35;
+  white-space: nowrap;
+}*/
+
+/*.gm-style-iw div * {
+  overflow-x: hidden !important;
+  line-height: 1.35em;
+}*/
+
+/*.gm-style-iw {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.gm-style-iw > div {
+  overflow: visible !important;
+}
+
+.card-maps  {
+  overflow: hidden !important;
+}*/
+/*
+.card-maps {
+  line-height:1.35;
+overflow:hidden!important;
+//white-space:nowrap;
+
+}*/
+
+#delete_route {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+}
+
+@media @mobile {
+  #map_pusher {
+    width: 100vw;
+    height: auto;
+  }
+
+  body {
+    overflow-y: scroll!important;
+  }
+}
+
+.modal-dialog {
+  z-index: 11;
+}
+
+.modal-backdrop {
+  z-index: 0;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #F05050;
+}
+
+.save_infowindow_btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 140px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 25px;
+  color: #F05050;
+
+  &:hover {
+    background-color: #f58a8a;
+    color: white;
+  }
+}
+
+#search_res_window {
+  z-index: 20;
+  display: none;
+  position: absolute;
+  left: 400px;
+  top: 376px;
+  background: #f3f1ed;
+  height: 210px;
+  width: 372px;
+  --webkit-box-shadow: 15px 22px 59px -14px rgba(79,76,79,1);
+  --moz-box-shadow: 15px 22px 59px -14px rgba(79,76,79,1);
+  box-shadow: 15px 22px 59px -14px rgba(79,76,79,1);
+
+  @media @mobile {
+    width: 100vw;
+    position: initial;
+  }
+}
+
+#search_res_window_header {
+  position: relative;
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15%;
+  text-align: center;
+  background-color: #F05050;
+  color: white;
+}
+
+#close_search_btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+}
+
+#search_result_wrapper {
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.search_result {
+  background-color: white;
+  margin: 3px 0;
+  color: black;
+  height: 32%;
+  font-size: 12px;
+  padding: 5px;
+  cursor: pointer;
+  overflow-y: scroll;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+}
+
+.search_result span {
+  display: block;
+  margin: 2px;
+}
+
+#collapsed_div {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 185px;
+  width: 372px;
+  height: auto;
+  min-height: 235px;
+  background: #f3f1ed;
+  border: 1px black;
+  --webkit-box-shadow: 15px 22px 59px -14px rgba(79,76,79,1);
+  --moz-box-shadow: 15px 22px 59px -14px rgba(79,76,79,1);
+  box-shadow: 15px 22px 59px -14px rgba(79,76,79,1);
+
+  @media @mobile {
+    position: initial;
+    width: 100vw;
+  }
+}
+
+#collapsed_div_header {
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  text-align: center;
+  background-color: #F05050;
+  color: white;
+}
+
+#dinamic_content_wrapper {
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  height: auto;
+  max-height: 217px;
+  width: 100%;
+  background-color: #f3f1ed;
+  border-right: 2px solid white;
+}
+
+.dinamic_routes_content {
+  width: 100%;
+  height: 75%;
+  margin: 2% 0;
+  overflow-y: scroll;
+}
+
+#add_route_instruction {
+  height:37px;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+  overflow-y: hidden;
+  font-size: 13px;
+}
+
+.user_route {
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  height: 60px;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom: 3%;
+}
+
+.route_img {
+  width: 25%;
+  height: 100%;
+}
+
+.dynamic_image {
+  width: 100%;
+  height: 100%;
+}
+
+.route_name {
+  width: 70%;
+  height: 100%;
+  padding: 1%;
+  color: black;
+  font-size: 12px;
+  overflow-y: scroll;
+}
+
+.route_name span {
+  display: block;
+}
+
+.route_delete_btn_container {
+  width: 5%;
+  background-color: #F05050;
+}
+
+#delete_route_btn {
+  width: 100%;
+  height: 100%;
+  background-color: #F05050;
+  border: none;
+  border-radius: 5px;
+  color: white;
+
+  &:hover {
+    background-color: #f58a8a;
+  }
+}
+
+#add_route_wrapper {
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 98%;
+  height: 103px;
+  background-color: white;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#find_route_input{
+  height: 50px;
+  width: 98%;
+  border: 2px dashed;
+  border-color: #F05050;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  color: black;
+  padding:5px 10px;
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
+
+#find_route_btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+
+
+
+#save_reset_buttons {
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: 70px;
+  background-color: white;
+  bottom: 0;
+}
+
+#save_reset_buttons .save_reset_btn {
+  width: 40%;
+  background-color: white!important;
+  color: #F05050!important;
+  border: 1px solid red!important;
+  border-radius: 25px;
+  margin: 0 25px;
+  padding: 10px 20px;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #f58a8a!important;
+    color: white!important;
+    border: none!important;
+  }
+}
+
+#success_response_div {
+  width:98%;
+  height: 50%;
+  color: limegreen;
+  background-color: white;
+  text-align: center;
+}
+
+#error_response_div {
+  width:98%;
+  height: 10%;
+  margin-top: 70px;
+  color: red;
+  background-color: white;
+  text-align: center;
+}
+
+.is-collapsed {
+  display: none;
+}
+
+.create-route-text {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1;
+}
+
+
+#route_window_toggler {
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+  width: 5vw;
+  height: 105px;
+  float: left;
+  background-color: #F05050;
+  color: white;
+
+  &:hover {
+    background-color: #f58a8a;
+  }
+
+  @media @mobile {
+    width: 15vw;
+    height: 85px;
+  }
+}
+
+.route_toggler_inner-wrapper {
+  display: -webkit-flex; /* Safari */
+  --webkit-align-items: center; /* Safari 7.0+ */
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  justify-content: center;
+  cursor: pointer;
+  height: 100%;
+}
+
+.dashed-circle {
+  position: relative;
+  background: none;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+  user-select: none;
+  --webkit-user-select: none;
+  cursor: pointer;
+}
+
+.dashed-circle--border,
+.dashed-circle--text {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+}
+
+.dashed-circle--border {
+  border: 2px dashed white;
+  border-radius: 50%;
+}
+
+.dashed-circle--text {
+  font-family: sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  > .item {
+    float: right;
+    display: none;
+    position: relative;
+    .transition(.6s ease-in-out left);
+
+    // Account for jankitude on images
+    > img,
+    > a > img {
+      &:extend(.img-responsive);
+      line-height: 1;
+      object-fit: cover;
+    }
+
+    // WebKit CSS3 transforms for supported devices
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      .transition-transform(~'0.6s ease-in-out');
+      .backface-visibility(~'hidden');
+      .perspective(1000px);
+
+      &.next,
+      &.active.right {
+        .translate3d(100%, 0, 0);
+        left: 0;
+      }
+
+      &.prev,
+      &.active.left {
+        .translate3d(-100%, 0, 0);
+        left: 0;
+      }
+
+      &.next.left,
+      &.prev.right,
+      &.active {
+        .translate3d(0, 0, 0);
+        left: 0;
+      }
+    }
+  }
+
+  > .active,
+  > .next,
+  > .prev {
+    display: block;
+  }
+
+  > .active {
+    left: 0;
+  }
+
+  > .next,
+  > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  > .next {
+    left: 100%;
+  }
+  > .prev {
+    left: -100%;
+  }
+  > .next.left,
+  > .prev.right {
+    left: 0;
+  }
+
+  > .active.left {
+    left: -100%;
+  }
+  > .active.right {
+    left: 100%;
+  }
+
+}
+
+
+/*
+.container-owl-carousel .owl-carousel{
+  margin-left: 0;
+  width: 100%;
+}
+
+.container-owl-carousel .owl-carousel .owl-item img{
+  width: auto;
+}*/
+// Left/right controls for nav
+// ---------------------------
+
+.carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: @carousel-control-width;
+  .opacity(@carousel-control-opacity);
+  font-size: @carousel-control-font-size;
+  color: @carousel-control-color;
+  text-align: center;
+  text-shadow: @carousel-text-shadow;
+  background-color: rgba(0, 0, 0, 0); // Fix IE9 click-thru bug
+  // We can't have this transition here because WebKit cancels the carousel
+  // animation if you trip this while in the middle of another animation.
+
+  // Set gradients for backgrounds
+  &.left {
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.5); @end-color: rgba(0,0,0,.0001));
+  }
+  &.right {
+    left: auto;
+    right: 0;
+    #gradient > .horizontal(@start-color: rgba(0,0,0,.0001); @end-color: rgba(0,0,0,.5));
+  }
+
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: @carousel-control-color;
+    text-decoration: none;
+    .opacity(.9);
+  }
+
+  // Toggles
+  .icon-prev,
+  .icon-next,
+  .fa-angle-left,
+  .fa-angle-right {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    z-index: 5;
+    display: inline-block;
+  }
+  .icon-prev,
+  .fa-angle-left {
+    left: 50%;
+    margin-left: -10px;
+  }
+  .icon-next,
+  .fa-angle-right {
+    right: 50%;
+    margin-right: -10px;
+  }
+  .icon-prev,
+  .icon-next {
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    font-family: serif;
+  }
+
+  .icon-prev {
+    &:before {
+      content: '\2039'; // SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
+    }
+  }
+  .icon-next {
+    &:before {
+      content: '\203a'; // SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
+    }
+  }
+}
+
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    border: 1px solid @brand-dark;
+    border-radius: 10px;
+    cursor: pointer;
+
+    // IE8-9 hack for event handling
+    //
+    // Internet Explorer 8-9 does not support clicks on elements without a set
+    // `background-color`. We cannot use `filter` since that's not viewed as a
+    // background color by the browser. Thus, a hack is needed.
+    // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
+    //
+    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+    // set alpha transparency for the best results possible.
+    background-color: #000 \9; // IE8
+    background-color: rgba(0, 0, 0, 0); // IE9
+  }
+  .active {
+    margin: 0;
+    width: 12px;
+    height: 12px;
+    background-color: @brand-dark;
+  }
+}
+
+// Optional captions
+// -----------------------------
+// Hidden by default for smaller viewports
+.carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: @carousel-caption-color;
+  text-align: center;
+  text-shadow: @carousel-text-shadow;
+  & .btn {
+    text-shadow: none; // No shadow for button elements in carousel-caption
+  }
+}
+
+// Scale up controls for tablets and up
+@media screen and (min-width: @screen-sm-min) {
+
+  // Scale up the controls a smidge
+  .carousel-control {
+    .fa-angle-left,
+    .fa-angle-right,
+    .icon-prev,
+    .icon-next {
+      width: (@carousel-control-font-size * 1.5);
+      height: (@carousel-control-font-size * 1.5);
+      margin-top: (@carousel-control-font-size / -2);
+      font-size: (@carousel-control-font-size * 1.5);
+    }
+    .fa-angle-left,
+    .icon-prev {
+      margin-left: (@carousel-control-font-size / -2);
+    }
+    .fa-angle-right,
+    .icon-next {
+      margin-right: (@carousel-control-font-size / -2);
+    }
+  }
+
+  // Show and left align the captions
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+
+  // Move up the indicators
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+
+.btn-grey {
+  opacity: 0.8;
+  .button-variant(@brand-dark, @brand-light, @brand-light);
+  &:hover {
+    transition: 300ms;
+    opacity: 1;
+    .button-variant(#fff, @brand-dark, @brand-dark);
+  }
+  &:not(:hover) {
+    transition: 500ms;
+  }
+}
+
+.panel-hover {
+  position: relative;
+  word-wrap: break-word;
+  min-height: 100px;
+  &:hover {
+    color: @brand-white;
+
+    .panel-hover-body {
+      color: @brand-light;
+    }
+    a {
+      color: @brand-white !important;
+    }
+    transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 0 0 70% 0;
+    background-color: @brand-danger;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.05);
+  }
+  &:not(hover) {
+    transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .panel-hover-icon {
+    position: absolute;
+    float: right;
+    right: 0;
+    padding: 0.5vw 1vw;
+    bottom: 0;
+    font-size: 2em;
+  }
+
+  .panel-hover-body {
+    display: block;
+    padding-top: 0.8vw;
+    padding-bottom: 0.8vw;
+    color: @text-muted;
+    font-size: 0.8em;
+  }
+  .panel-hover-title {
+    font-size: 1em;
+    line-height: 1.1;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+}
+
+/*
+ * Разрез
+*/
+
+.pageOption {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 30em;
+}
+
+.option, .option img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.option {
+  overflow: hidden;
+  position: absolute;
+  transform: skewX(-25deg);
+  transform-origin: 0% 100%;
+}
+
+.option img, .option:after {
+  transform: skewX(25deg);
+  transform-origin: inherit;
+}
+
+/*
+ * Разрез
+*/
+
+.bg-img-map {
+  background: url('/img/map.jpg') #000 no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/*
+ * .breadcrumb
+ */
+
+.breadcrumb {
+  //padding: 15px 0 0;
+  margin-bottom: 0;
+  list-style: none;
+  background-color: inherit;
+  font-size: 10pt;
+  font-weight: 300;
+  color: @text-muted;
+  a {
+    transition: 340ms;
+    color: @brand-white;
+    opacity: 0.7;
+    &:hover {
+      color: @brand-white;
+      opacity: 1;
+    }
+  }
+
+  .active {
+    color: #fff;
+    opacity: 0.5;
+  }
+
+}
+
+.block-items {
+  padding: 0;
+  height: 200px;
+  overflow: hidden;
+  a {
+    display: block;
+    height: 100%;
+    &:hover {
+      background: @brand-light;
+      transition: 500ms;
+    }
+    &:not(hover) {
+      transition: 500ms;
+    }
+  }
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  --webkit-user-select: none;
+  --moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: @brand-danger;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+.slide-md {
+  max-height: 300px;
+  .item {
+    max-height: 300px;
+  }
+}
+
+.paralax-3 {
+  background: url('/img/hero10.jpg') fixed;
+  min-height: 700px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+}
+
+.paralax-4 {
+  background: url('/img/hero2.jpg') fixed;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+}
+
+.top-desc-block {
+  time {
+    display: block;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    &:empty {
+      visibility: hidden;
+    }
+
+    span {
+      display: block;
+    }
+
+    .date {
+      padding: 30px 0;
+      color: @brand-danger;
+      min-height: 120pt;
+
+    }
+    .time {
+      .padder-v;
+      .h4;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      color: @brand-white;
+      background: @brand-danger;
+    }
+
+  }
+
+}
+
+.list-group-item.active {
+  border-left: 2px solid;
+  background: inherit !important;
+  color: @brand-black !important;
+  &:hover {
+    background: inherit;
+  }
+}
+
+#header .navbar-nav > li > .dropdown-menu {
+  border-right: none;
+  border-left: none;
+}
+
+.user-avatar {
+  img {
+    .img-circle;
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+  }
+}
+
+#photo-albums {
+  img {
+    height: 185px;
+    background-position: center 35%;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .down-load-link {
+    .color-variant(@brand-black, 5%, 10%, 5%, 10%) !important;
+    .font-variant(@brand-black) !important;
+  }
+
+  .image-wrapper {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+#view-photo {
+
+
+  @media (min-width: 768px) {
+    .modal-content {
+      width: 768px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .modal-content {
+      width: 992px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .modal-content {
+      width: 1200px;
+    }
+  }
+
+
+  img {
+    pointer-events: none;
+    max-height: 80vh;
+    user-select: none;
+  }
+}
+
+
+
+.maps-style {
+
+  [placeholder]:focus::-webkit-input-placeholder {
+    transition: opacity 0.3s 0.3s ease;
+    opacity: 0;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome */
+    color: #F05050;
+    text-align: center;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #F05050;
+    text-align: center;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #F05050;
+    text-align: center;
+  }
+  :-moz-placeholder { /* Firefox 4 - 18 */
+    color: #F05050;
+    text-align: center;
+  }
+
+
+  .owl-carousel {
+    width: 95vw;
+    margin-left: 5vw;
+
+
+    @media @mobile {
+      width: 86vw;
+      margin-left: 14vw;
+    }
+  }
+}
