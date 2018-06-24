@@ -7,5 +7,5 @@ class LeisureTitzType extends LeisureType
     /**
      * @var string
      */
-    public $name = "Досуг";
+    public $name = 'Досуг';
 }

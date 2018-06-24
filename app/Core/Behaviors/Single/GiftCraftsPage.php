@@ -44,5 +44,4 @@ class GiftCraftsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

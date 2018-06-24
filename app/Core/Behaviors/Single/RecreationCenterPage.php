@@ -44,5 +44,4 @@ class RecreationCenterPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

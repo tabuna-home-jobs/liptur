@@ -49,5 +49,4 @@ class CompetitionPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

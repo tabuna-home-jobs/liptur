@@ -44,5 +44,4 @@ class MuseumsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

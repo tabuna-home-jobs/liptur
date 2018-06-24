@@ -1,4 +1,6 @@
-<?php namespace App\Core\Behaviors\Many;
+<?php
+
+namespace App\Core\Behaviors\Many;
 
 use Orchid\Platform\Behaviors\Many;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
@@ -6,7 +8,6 @@ use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 class InvestorType extends Many
 {
-
     /**
      * @var string
      */
@@ -29,6 +30,7 @@ class InvestorType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -40,6 +42,7 @@ class InvestorType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -85,9 +88,8 @@ class InvestorType extends Many
         ];
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

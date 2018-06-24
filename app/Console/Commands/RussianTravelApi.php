@@ -48,13 +48,15 @@ class RussianTravelApi extends Command
     protected $client;
 
     /**
-     * Current page
+     * Current page.
+     *
      * @var int
      */
     protected $page = 1;
 
     /**
-     * Fist id post
+     * Fist id post.
+     *
      * @var
      */
     protected $fistId;
@@ -95,9 +97,6 @@ class RussianTravelApi extends Command
         }
         $this->limit = $this->limit->value;
 
-
-
-
         $this->uploadNews();
         $setting = Setting::find('russian-travel');
         $setting->value = $this->limit;
@@ -114,14 +113,14 @@ class RussianTravelApi extends Command
 
         foreach ($content->items as $item) {
 
-            /**
+            /*
              * Первый id
              */
             if (is_null($this->fistId)) {
                 $this->fistId = $item->id;
             }
 
-            /**
+            /*
              * Лимит
              */
             if ($item->id < $this->limit['news'] || $item->id == $this->limit['news']) {
@@ -135,7 +134,7 @@ class RussianTravelApi extends Command
 
             $Slugs = Post::where('slug', str_slug($itemContent->item->title))->count();
             if ($Slugs != 0) {
-                $Slugs = str_slug($itemContent->item->title)->slug . '-' . ($Slugs + 1);
+                $Slugs = str_slug($itemContent->item->title)->slug.'-'.($Slugs + 1);
             } else {
                 $Slugs = str_slug($itemContent->item->title);
             }
@@ -150,10 +149,10 @@ class RussianTravelApi extends Command
                         'title'       => $itemContent->item->title,
                         'body'        => $itemContent->item->desc,
                         'description' => str_strip_limit_words($itemContent->item->desc, 200),
-                        'keywords'    => "новости туризма, новости россии, " .
-                            $itemContent->item->local->name . " новости , " .
-                            $itemContent->item->district->name . " новости, " .
-                            $itemContent->item->region->name . " новости,",
+                        'keywords'    => 'новости туризма, новости россии, '.
+                            $itemContent->item->local->name.' новости , '.
+                            $itemContent->item->district->name.' новости, '.
+                            $itemContent->item->region->name.' новости,',
                         'source'      => 'https://russia.travel',
                     ],
                 ],
@@ -171,13 +170,12 @@ class RussianTravelApi extends Command
             foreach ($itemContent->item->images as $image) {
                 $this->uploadImage($image, $post->id);
             }
-
         }
 
         if ($this->page == $content->_meta->pageCount) {
             $this->page = 1;
 
-            return null;
+            return;
         } else {
             $this->page++;
             $this->uploadNews();
@@ -194,15 +192,14 @@ class RussianTravelApi extends Command
     {
         $imageSrc = $image->image->src;
         $imageInfo = pathinfo($imageSrc);
-        $name = sha1(time() . $imageInfo['filename']);
+        $name = sha1(time().$imageInfo['filename']);
 
         $imageDate = $this->date;
-        $imageStoragePath = 'app/public/' . $imageDate . '/' . $name . '.' . $imageInfo['extension'];
-        $externalImagePath = 'https://russia.travel' . $imageSrc;
+        $imageStoragePath = 'app/public/'.$imageDate.'/'.$name.'.'.$imageInfo['extension'];
+        $externalImagePath = 'https://russia.travel'.$imageSrc;
 
         $client = $this->client;
 
         return $this->saveImage($post_id, $client, $externalImagePath, $imageStoragePath, $imageDate, $imageInfo, $name);
     }
-
 }

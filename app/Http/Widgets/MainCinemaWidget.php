@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
@@ -8,7 +10,6 @@ use Orchid\Platform\Widget\Widget;
 
 class MainCinemaWidget extends Widget
 {
-
     /**
      * @return mixed
      */
@@ -16,10 +17,10 @@ class MainCinemaWidget extends Widget
     {
         $locale = App::getLocale();
 
-        $cinema = Cache::remember('widget-afisha-' . $locale, Carbon::now()->addHour(), function () use ($locale) {
+        $cinema = Cache::remember('widget-afisha-'.$locale, Carbon::now()->addHour(), function () use ($locale) {
             return Post::where('type', 'film')
-                ->whereNotNull('content->' . $locale)
-                ->where('content->' . $locale . '->IsNonStop', false)
+                ->whereNotNull('content->'.$locale)
+                ->where('content->'.$locale.'->IsNonStop', false)
                 ->orderBy('publish_at', 'DESC')
                 ->with('attachment')
                 ->get();

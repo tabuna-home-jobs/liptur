@@ -1,7 +1,9 @@
-<?php namespace App\Http\Forms\Posts;
+<?php
 
-use Orchid\Platform\Forms\Form;
+namespace App\Http\Forms\Posts;
+
 use Orchid\Platform\Core\Models\Post;
+use Orchid\Platform\Forms\Form;
 
 class Options extends Form
 {
@@ -23,7 +25,7 @@ class Options extends Form
         $icon = collect(config('icon.attributes'))->sort();
 
         $options = $post ? $post->options : [];
-        if (key_exists('option', $options)) {
+        if (array_key_exists('option', $options)) {
             $options = $options['option'];
         }
 
@@ -32,5 +34,4 @@ class Options extends Form
             'icons'   => $icon,
         ]);
     }
-
 }

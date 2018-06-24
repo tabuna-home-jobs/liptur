@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Behaviors;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Orchid\Platform\Core\Models\Post;
 
-
 class SearchController extends Controller
 {
-
     /**
      * @var
      */
@@ -34,7 +31,7 @@ class SearchController extends Controller
     {
 
         //$posts = Post::published()->where('content', 'like', '%' . $request->query('query') . '%')->paginate()->items();
-        $posts = Post::published()->whereRaw('LOWER(content) LIKE ?', '%' . mb_strtolower($request->query('query')) . '%')->paginate()->items();
+        $posts = Post::published()->whereRaw('LOWER(content) LIKE ?', '%'.mb_strtolower($request->query('query')).'%')->paginate()->items();
         //dd($posts);
 
         foreach ($posts as $key => $value) {
@@ -51,7 +48,6 @@ class SearchController extends Controller
                     }
 
                     // $posts[$key]->url = route($posts[$key]->url,$value->slug);
-
                 } else {
                     unset($posts[$key]);
                 }
@@ -60,8 +56,6 @@ class SearchController extends Controller
             } catch (\Exception $exception) {
                 unset($posts[$key]);
             }
-
-
         }
 
         $posts = array_values($posts);
@@ -71,11 +65,10 @@ class SearchController extends Controller
 
     public function places(SearchRequest $request)
     {
-
         $places = DB::table('posts')
             ->whereNotIn('type', ['gift_crafts', 'reserves', 'leisure', 'contact', 'festivals', 'news', 'event', 'holidays', 'test', 'tour', 'page', 'investor', 'secondary-carousel', 'press', 'film', 'guides', 'info', 'shrines', 'people', 'investor', 'event_calendar', 'carousel', 'docs', 'contest', 'advertising', 'agencie', 'bid', 'competition', 'concerts'])
-            ->whereRaw('LOWER(content->"$.' . App::getLocale() . '.name") like ?',
-                '%' . mb_strtolower($request->input('query')) . '%')
+            ->whereRaw('LOWER(content->"$.'.App::getLocale().'.name") like ?',
+                '%'.mb_strtolower($request->input('query')).'%')
             ->get();
 
         $items = [];
@@ -88,7 +81,6 @@ class SearchController extends Controller
         $place = collect();
 
         foreach ($markers as $marker) {
-
             $place->push([
                 'id'          => $marker->id,
                 'slug'        => $marker->slug,

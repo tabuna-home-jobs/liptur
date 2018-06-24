@@ -20,7 +20,6 @@ class ForgotPasswordController extends Controller
 
     use SendsPasswordResetEmails;
 
-
     /**
      * Where to redirect users after login / registration.
      *
@@ -30,7 +29,6 @@ class ForgotPasswordController extends Controller
 
     /**
      * Create a new controller instance.
-     *
      */
     public function __construct()
     {

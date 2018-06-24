@@ -10,7 +10,6 @@ class MailNewsletter extends Mailable
 {
     use Queueable, SerializesModels;
 
-
     /**
      * @var
      */

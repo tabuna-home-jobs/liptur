@@ -1,4 +1,6 @@
-<?php namespace App\Http\Filters\Hotel;
+<?php
+
+namespace App\Http\Filters\Hotel;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
@@ -12,12 +14,9 @@ class TypeFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-
     }
-
 
     public function display()
     {
-
     }
 }

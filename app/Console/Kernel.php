@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
      *
      * @return void
      */
@@ -46,7 +46,6 @@ class Kernel extends ConsoleKernel
         $schedule->command('newsletter:send')->weeklyOn(5, '10:00');
         $schedule->command('queue:work --daemon --once')->withoutOverlapping();
         $schedule->command('cache:clear')->hourly();
-
     }
 
     /**

@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 //use Orchid\Platform\Core\Models\Post;
 
-
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -28,7 +27,6 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
 
         parent::boot();
     }
@@ -85,7 +83,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->firstOrFail();
             // });
         });
-
     }
 
     /**
@@ -128,6 +125,5 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             require base_path('routes/dashboard.php');
         });
-
     }
 }

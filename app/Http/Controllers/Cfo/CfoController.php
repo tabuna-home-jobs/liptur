@@ -11,13 +11,12 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Core\Models\Role;
+use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Dashboard;
 
 class CfoController extends Controller
 {
-
     /**
      * AboutController constructor.
      */
@@ -39,6 +38,7 @@ class CfoController extends Controller
         }
         //$users = User::whereIn('id', $rawUsers)->get();
         $users = User::whereIn('id', $tmp)->get();
+
         return view('listings.cfo', [
             'users' => $users,
         ]);
@@ -55,9 +55,10 @@ class CfoController extends Controller
         $typeObject = Dashboard::getPosts()->find($typeRequest) ?? abort(404);
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest)
             ->simplePaginate(5);
+
         return view('cfo.catalog', [
             'elements' => $elements,
             'type'     => $typeObject,
@@ -74,9 +75,8 @@ class CfoController extends Controller
      */
     public function gallery(User $user)
     {
-
         return view('cfo.gallery', [
-            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->' . App::getLocale())->with('attachment')->paginate(20),
+            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
             'user'    => $user,
         ]);
     }
@@ -84,7 +84,7 @@ class CfoController extends Controller
     public function invest(User $user)
     {
         return view('cfo.page', [
-            'content' => isset($user->cfo['cfo'][App::getLocale()]['invest']) ? $user->cfo['cfo'][App::getLocale()]['invest'] : "Нет текста",
+            'content' => isset($user->cfo['cfo'][App::getLocale()]['invest']) ? $user->cfo['cfo'][App::getLocale()]['invest'] : 'Нет текста',
             'user'    => $user,
         ]);
     }
@@ -92,7 +92,7 @@ class CfoController extends Controller
     public function contacts(User $user)
     {
         return view('cfo.page', [
-            'content' => isset($user->cfo['cfo'][App::getLocale()]['contacts']) ? $user->cfo['cfo'][App::getLocale()]['contacts'] : "Нет текста",
+            'content' => isset($user->cfo['cfo'][App::getLocale()]['contacts']) ? $user->cfo['cfo'][App::getLocale()]['contacts'] : 'Нет текста',
             'user'    => $user,
         ]);
     }
@@ -130,11 +130,11 @@ class CfoController extends Controller
 
             Storage::disk('public')->makeDirectory($date);
 
-            $name = sha1($time . $name);
-            $fullPath = storage_path('app/public' . DIRECTORY_SEPARATOR . $date . DIRECTORY_SEPARATOR . $name . '.jpg');
+            $name = sha1($time.$name);
+            $fullPath = storage_path('app/public'.DIRECTORY_SEPARATOR.$date.DIRECTORY_SEPARATOR.$name.'.jpg');
             $img->save($fullPath, 60);
 
-            $user->setAttribute('cfo->avatar', '/storage/' . $date . '/' . $name . '.jpg');
+            $user->setAttribute('cfo->avatar', '/storage/'.$date.'/'.$name.'.jpg');
         }
 
         $user->save();
@@ -142,7 +142,5 @@ class CfoController extends Controller
         Alert::success('Вы успешно изменили профиль');
 
         return back();
-
     }
-
 }

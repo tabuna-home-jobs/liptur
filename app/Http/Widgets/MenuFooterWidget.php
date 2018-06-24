@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
@@ -23,14 +25,13 @@ class MenuFooterWidget extends Widget
      */
     public function __construct()
     {
-        $this->menu = Cache::remember('footer-menu-' . App::getLocale(), Carbon::now()->addHour(), function () {
+        $this->menu = Cache::remember('footer-menu-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Menu::where('lang', App::getLocale())
                 ->whereNull('parent')
                 ->where('type', 'footer')
                 ->with('children')
                 ->get();
         });
-
 
         $this->chunk = ceil($this->menu->count() / 4);
     }
@@ -45,5 +46,4 @@ class MenuFooterWidget extends Widget
             'chunk' => $this->chunk,
         ]);
     }
-
 }

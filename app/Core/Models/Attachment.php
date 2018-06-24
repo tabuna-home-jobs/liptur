@@ -9,7 +9,6 @@ use Orchid\Platform\Core\Models\Comment;
 
 class Attachment extends BaseAttachment
 {
-
     use LikeableTrait;
 
     /**
@@ -27,5 +26,4 @@ class Attachment extends BaseAttachment
     {
         return $this->hasMany(Comment::class, 'attachment_id');
     }
-
 }

@@ -1,11 +1,12 @@
-<?php namespace App\Http\Filters\Common;
+<?php
+
+namespace App\Http\Filters\Common;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
 
 class RegionFilters extends Filter
 {
-
     /**
      * @var string
      */
@@ -18,7 +19,7 @@ class RegionFilters extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->where('content->' . $this->lang . '->region', $this->request->get('region'));
+        return $builder->where('content->'.$this->lang.'->region', $this->request->get('region'));
     }
 
     /**

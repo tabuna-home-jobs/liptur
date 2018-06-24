@@ -31,6 +31,7 @@ class LeisureType extends Many
     public $image = '/img/category/leisure.jpg';
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -69,6 +70,7 @@ class LeisureType extends Many
         }
         if ($name == 'display') {
             $this->setName();
+
             return true;
         }
     }
@@ -80,7 +82,8 @@ class LeisureType extends Many
         if ($user && $user->inRole('titz')) {
             return 'Досуг';
         }
-        return "Активный отдых";
+
+        return 'Активный отдых';
     }
 
     private function setName()
@@ -90,6 +93,7 @@ class LeisureType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -175,13 +179,14 @@ class LeisureType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */
     public function status()
     {
         $this->setName();
+
         return [
             'publish' => 'Опубликовано',
             'draft'   => 'Черновик',

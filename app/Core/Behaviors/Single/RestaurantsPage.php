@@ -12,7 +12,6 @@ class RestaurantsPage extends Single
      */
     public $name = 'Гастрономия';
 
-
     public $description = 'Рестораны, кафе, бары';
 
     /**
@@ -47,5 +46,4 @@ class RestaurantsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

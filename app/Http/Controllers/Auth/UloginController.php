@@ -10,11 +10,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 /**
- * Class UloginController
+ * Class UloginController.
  */
 class UloginController extends Controller
 {
-
     /**
      * Login user through social network.
      *
@@ -36,7 +35,7 @@ class UloginController extends Controller
 
         //Get information about user.
 
-        $data = file_get_contents('http://ulogin.ru/token.php?token=' . $request->get('token') . '&host=' . $_SERVER['HTTP_HOST']);
+        $data = file_get_contents('http://ulogin.ru/token.php?token='.$request->get('token').'&host='.$_SERVER['HTTP_HOST']);
 
         $user = json_decode($data, true);
 
@@ -45,16 +44,14 @@ class UloginController extends Controller
 
         //If user exist
         if (isset($userData->id)) {
-
             $this->guard()->login($userData);
 
             return Redirect::back();
-
         } else {
 
             //Create new user in DB
             $newUser = User::create([
-                'name'     => $user['first_name'] . ' ' . $user['last_name'],
+                'name'     => $user['first_name'].' '.$user['last_name'],
                 'avatar'   => $user['photo'],
                 'identity' => $user['identity'],
                 'email'    => $user['email'],
@@ -63,6 +60,7 @@ class UloginController extends Controller
 
             event(new Registered($newUser));
             $this->guard()->login($newUser);
+
             return Redirect::back();
         }
     }

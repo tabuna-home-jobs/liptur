@@ -25,6 +25,7 @@ class BeachType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -52,14 +53,13 @@ class BeachType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         //DistanceFilters::class,
     ];
 
-
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -117,7 +117,6 @@ class BeachType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -139,7 +138,7 @@ class BeachType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

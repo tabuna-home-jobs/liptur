@@ -35,12 +35,14 @@ class DocsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array

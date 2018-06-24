@@ -1,4 +1,6 @@
-<?php namespace App\Core\Behaviors\Many;
+<?php
+
+namespace App\Core\Behaviors\Many;
 
 use App\Http\Filters\Common\RegionFilters;
 use App\Http\Forms\Posts\Options;
@@ -13,7 +15,6 @@ use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 class TourType extends Many
 {
-
     /**
      * @var string
      */
@@ -36,6 +37,7 @@ class TourType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -53,14 +55,13 @@ class TourType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         //DistanceFilters::class,
     ];
 
-
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -80,7 +81,6 @@ class TourType extends Many
             'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
             'open' => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -132,7 +132,6 @@ class TourType extends Many
             'title'       => 'Туры Липецкой области',
             'description' => 'Туры и экскурсии по Липецкой области',
 
-
             'icon' => 'icon-lip-route',
             'time' => false,
         ]);
@@ -147,7 +146,7 @@ class TourType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

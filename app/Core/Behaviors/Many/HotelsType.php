@@ -38,6 +38,7 @@ class HotelsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -48,7 +49,8 @@ class HotelsType extends Many
     public $category = true;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -61,16 +63,15 @@ class HotelsType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         CategoryFilters::class,
         //DistanceFilters::class,
         ServiceFilters::class,
     ];
 
-
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -81,7 +82,6 @@ class HotelsType extends Many
             'content.*.body' => 'required|string',
         ];
     }
-
 
     /**
      * @return array
@@ -102,12 +102,10 @@ class HotelsType extends Many
             'price'           => 'tag:input|type:text|name:price|max:255|required|title:Стоимость|help:Записывается в свободной форме',
             'number-of-seats' => 'tag:input|type:numeric|name:number-of-seats|title:Число мест|help:Записывается в свободной форме',
 
-
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
 
             'booking' => 'tag:input|type:text|name:booking|max:500|title:Booking.com|help:Ссылка без параметров на страницу сайта',
-
 
             'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
@@ -149,7 +147,6 @@ class HotelsType extends Many
         return collect([
             'name' => 'Гостиницы',
 
-
             'title'       => 'Гостиницы Липецкой области',
             'description' => 'Места размещения, для жителей и гостей региона',
             'icon'        => 'icon-lip-hotel',
@@ -167,9 +164,8 @@ class HotelsType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

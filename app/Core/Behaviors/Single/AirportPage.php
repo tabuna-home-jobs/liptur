@@ -44,6 +44,4 @@ class AirportPage extends Single
             UploadPostForm::class,
         ];
     }
-
-
 }

@@ -44,5 +44,4 @@ class CenterPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

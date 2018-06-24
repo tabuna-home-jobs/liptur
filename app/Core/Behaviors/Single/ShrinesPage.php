@@ -44,5 +44,4 @@ class ShrinesPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

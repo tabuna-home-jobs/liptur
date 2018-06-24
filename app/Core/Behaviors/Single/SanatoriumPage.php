@@ -44,5 +44,4 @@ class SanatoriumPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

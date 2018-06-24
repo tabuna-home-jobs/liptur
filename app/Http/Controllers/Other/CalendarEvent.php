@@ -9,7 +9,6 @@ use Orchid\Platform\Core\Models\Post;
 
 class CalendarEvent extends Controller
 {
-
     /**
      * CalendarEvent constructor.
      */
@@ -24,11 +23,10 @@ class CalendarEvent extends Controller
     public function index()
     {
         $elements = Post::published()->where('type', 'event_calendar')
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->whereDate('publish_at', '<', time())
             ->orderBy('id', 'DESC')
             ->get();
-
 
         $types = dashboard_posts();
 
@@ -40,11 +38,9 @@ class CalendarEvent extends Controller
             }
         }
 
-
         if (is_null($typeObject)) {
             abort(404);
         }
-
 
         $elements->transform(function ($item, $key) {
             $open = Carbon::parse($item['content'][App::getLocale()]['open']);
@@ -53,7 +49,6 @@ class CalendarEvent extends Controller
 
             return $item;
         });
-
 
         $time = Carbon::now();
         $Month = [];
@@ -68,7 +63,6 @@ class CalendarEvent extends Controller
             $i++;
         }
 
-
         return view('listings.catalog-event', [
             'elements' => $elements,
             'type'     => $typeObject,
@@ -77,7 +71,6 @@ class CalendarEvent extends Controller
             'page'     => getPage('event_calendar'),
         ]);
     }
-
 
     /**
      * @param      $typeRequest
@@ -100,13 +93,11 @@ class CalendarEvent extends Controller
             abort(404);
         }
 
-
         return view('pages.item', [
             'item' => $item,
             'type' => $typeObject,
         ]);
     }
-
 
     /**
      * @param $category
@@ -115,8 +106,6 @@ class CalendarEvent extends Controller
      */
     public function category($category)
     {
-
-
         $elements = $category->post()
             ->whereNotNull(App::getLocale())
             ->whereDate('publish_at', '<', time())
@@ -127,7 +116,5 @@ class CalendarEvent extends Controller
             'elements' => $elements,
             'name'     => $category->getContent('name'),
         ]);
-
     }
-
 }

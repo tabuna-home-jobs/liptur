@@ -49,5 +49,4 @@ class ATMPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

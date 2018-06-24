@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
@@ -7,27 +9,25 @@ use Orchid\Platform\Widget\Widget;
 
 class MainCategoryWidget extends Widget
 {
-
-
     /**
-     * Коллекция типов
+     * Коллекция типов.
+     *
      * @var static
      */
     public $types;
 
     /**
-     * Часть
+     * Часть.
+     *
      * @var float
      */
     public $chunk;
-
 
     /**
      * MainCategoryWidget constructor.
      */
     public function __construct()
     {
-
         $this->types = Cache::remember('main-category-list', Carbon::now()->addHour(2), function () {
             $types = collect(dashboard_posts())->where('category', true);
             $types->map(function ($item, $key) {
@@ -44,7 +44,6 @@ class MainCategoryWidget extends Widget
             //$this->types = $this->types->sortByDesc('count');
         });
 
-
         $this->chunk = round($this->types->count() / 3);
     }
 
@@ -58,5 +57,4 @@ class MainCategoryWidget extends Widget
             'chunk' => $this->chunk,
         ]);
     }
-
 }

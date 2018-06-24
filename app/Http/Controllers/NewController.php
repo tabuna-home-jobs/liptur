@@ -10,7 +10,6 @@ use Orchid\Platform\Core\Models\Post;
 
 class NewController extends Controller
 {
-
     /**
      * NewController constructor.
      */
@@ -26,30 +25,26 @@ class NewController extends Controller
      */
     public function index(Request $request)
     {
-
         if ($request->has('date')) {
             $date = Carbon::parse($request->date);
             $news = Post::published()->where('type', 'news')
-                ->whereNotNull('options->locale->' . App::getLocale())
-                ->whereDate('publish_at', $date->format("Y-m-d"))
+                ->whereNotNull('options->locale->'.App::getLocale())
+                ->whereDate('publish_at', $date->format('Y-m-d'))
                 ->orderBy('publish_at', 'DESC')
                 ->get();
         } else {
             $date = Carbon::now();
             $news = Post::published()->where('type', 'news')
-                ->whereNotNull('options->locale->' . App::getLocale())
+                ->whereNotNull('options->locale->'.App::getLocale())
                 ->orderBy('publish_at', 'DESC')
                 ->simplePaginate(14);
         }
-
 
         return view('listings.news', [
             'news' => $news,
             'date' => $date,
             'page' => getPage('news'),
         ]);
-
-
     }
 
     /**
@@ -76,18 +71,17 @@ class NewController extends Controller
     }
 
     /**
-     * RSS
+     * RSS.
      */
     public function rss()
     {
-
-        $feed = App::make("feed");
-        $feed->setCache(60, 'rss-news-' . App::getLocale());
+        $feed = App::make('feed');
+        $feed->setCache(60, 'rss-news-'.App::getLocale());
 
         if (!$feed->isCached()) {  // creating rss feed with our most recent 20 posts
 
             $news = Post::where('type', 'news')
-                ->whereNotNull('options->locale->' . App::getLocale())
+                ->whereNotNull('options->locale->'.App::getLocale())
                 ->whereDate('publish_at', '<', time())
                 ->orderBy('publish_at', 'DESC')
                 ->limit(20)
@@ -96,7 +90,7 @@ class NewController extends Controller
             // set your feed's title, description, link, pubdate and language
             $feed->title = 'Липецкий туристический портал';
             $feed->description = 'Липецкий туристический портал';
-            $feed->logo = config('app.url') . '/img/tour/logo.png';
+            $feed->logo = config('app.url').'/img/tour/logo.png';
             $feed->link = url('rss');
             $feed->setDateFormat('datetime'); // 'datetime', 'timestamp' or 'carbon'
             //$feed->pubdate = $posts[0]->created_at;
@@ -115,12 +109,8 @@ class NewController extends Controller
                     $new->getContent('body')
                 );
             }
-
         }
 
         return $feed->render('atom');
-
     }
-
-
 }

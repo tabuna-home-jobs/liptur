@@ -44,5 +44,4 @@ class ConcertsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

@@ -10,7 +10,6 @@ class ResetPasswordNotification extends Notification
 {
     use Queueable;
 
-
     /**
      * The password reset token.
      *
@@ -31,7 +30,7 @@ class ResetPasswordNotification extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed $notifiable
+     * @param mixed $notifiable
      *
      * @return array
      */
@@ -43,14 +42,12 @@ class ResetPasswordNotification extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed $notifiable
+     * @param mixed $notifiable
      *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
-        return (new MailResetPassword($notifiable, $this->token));
+        return new MailResetPassword($notifiable, $this->token);
     }
-
-
 }

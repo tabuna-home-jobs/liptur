@@ -1,11 +1,12 @@
-<?php namespace App\Http\Filters\Common;
+<?php
+
+namespace App\Http\Filters\Common;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
 
 class DistanceFilters extends Filter
 {
-
     /**
      * @var string
      */
@@ -22,7 +23,7 @@ class DistanceFilters extends Filter
             return $builder;
         }
 
-        return $builder->where('content->' . $this->lang . '->distance', '<', $this->request->get('distance'));
+        return $builder->where('content->'.$this->lang.'->distance', '<', $this->request->get('distance'));
     }
 
     /**

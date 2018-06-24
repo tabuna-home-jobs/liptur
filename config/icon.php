@@ -108,7 +108,6 @@ return [
         'icon-lip-abike'             => 'Велосипед',
     ],
 
-
     'map' => [
 
     ],
