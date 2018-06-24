@@ -46,7 +46,7 @@ class User extends BaseUser
     /**
      * Send the password reset notification.
      *
-     * @param  string $token
+     * @param string $token
      *
      * @return void
      */

@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use App\Core\Models\Post;
 use Carbon\Carbon;
@@ -8,7 +10,6 @@ use Orchid\Platform\Widget\Widget;
 
 class MainCarouselWidget extends Widget
 {
-
     /**
      * @return mixed
      */
@@ -16,9 +17,9 @@ class MainCarouselWidget extends Widget
     {
         $locale = App::getLocale();
 
-        $carousel = Cache::remember('main-carousel-' . $locale, 5, function () use ($locale) {
+        $carousel = Cache::remember('main-carousel-'.$locale, 5, function () use ($locale) {
             return Post::where('type', 'carousel')
-                ->whereNotNull('content->' . $locale)
+                ->whereNotNull('content->'.$locale)
                 ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
                 ->orderBy('publish_at', 'ASC')
                 ->limit(10)
@@ -30,7 +31,5 @@ class MainCarouselWidget extends Widget
                 'carousel' => $carousel,
             ]);
         }
-
     }
-
 }

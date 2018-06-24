@@ -7,7 +7,6 @@ use App\Core\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class UsersRouteController extends Controller
 {
     /**
@@ -29,13 +28,13 @@ class UsersRouteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $route = new Route;
+        $route = new Route();
         $route->user_id = Auth::user()->id;
 
         $route->places = serialize(json_decode($request->data, true));

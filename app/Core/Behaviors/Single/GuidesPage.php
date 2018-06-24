@@ -44,5 +44,4 @@ class GuidesPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

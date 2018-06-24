@@ -31,12 +31,14 @@ class GrangesType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -48,6 +50,7 @@ class GrangesType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -72,7 +75,6 @@ class GrangesType extends Many
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
             'place'    => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
-
 
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
             'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
@@ -112,7 +114,6 @@ class GrangesType extends Many
         return 'item';
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -121,10 +122,8 @@ class GrangesType extends Many
         return collect([
             'name' => 'Усадьбы',
 
-
             'title'       => 'Усадьбы Липецкой области',
             'description' => 'Справочник усадеб Липецкой области: заметки, фотографии, информация',
-
 
             'icon'   => 'icon-lip-temple',
             'svg'    => '/dist/svg/maps/temple.svg',
@@ -133,9 +132,8 @@ class GrangesType extends Many
         ]);
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

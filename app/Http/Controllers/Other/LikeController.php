@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 class LikeController extends Controller
 {
-
     /**
      * @param Post $post
      */

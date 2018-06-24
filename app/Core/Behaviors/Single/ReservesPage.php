@@ -44,5 +44,4 @@ class ReservesPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

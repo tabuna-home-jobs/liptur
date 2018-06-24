@@ -49,5 +49,4 @@ class DocsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

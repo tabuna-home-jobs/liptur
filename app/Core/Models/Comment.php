@@ -6,7 +6,6 @@ use Orchid\Platform\Core\Models\Comment as CommentBase;
 
 class Comment extends CommentBase
 {
-
     /**
      * @var array
      */
@@ -18,5 +17,4 @@ class Comment extends CommentBase
         'approved',
         'attachment_id',
     ];
-
 }

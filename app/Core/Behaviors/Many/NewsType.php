@@ -23,7 +23,6 @@ class NewsType extends Many
      */
     public $description = 'Базовый тип новости';
 
-
     /**
      * @var string
      */
@@ -41,12 +40,13 @@ class NewsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
 
     /**
-     * HTTP data filters
+     * HTTP data filters.
      *
      * @var array
      */
@@ -57,9 +57,9 @@ class NewsType extends Many
         TitzFilter::class,
     ];
 
-
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -113,7 +113,6 @@ class NewsType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -134,9 +133,8 @@ class NewsType extends Many
         return 'new';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

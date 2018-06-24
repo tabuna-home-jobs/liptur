@@ -35,6 +35,7 @@ class ShrinesType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -45,7 +46,8 @@ class ShrinesType extends Many
     public $category = true;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -58,13 +60,13 @@ class ShrinesType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         //DistanceFilters::class,
     ];
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -87,7 +89,6 @@ class ShrinesType extends Many
             'open'  => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
             'close' => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
             'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -123,7 +124,6 @@ class ShrinesType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -146,9 +146,8 @@ class ShrinesType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

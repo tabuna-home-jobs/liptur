@@ -1,4 +1,6 @@
-<?php namespace App\Core\Behaviors\Many;
+<?php
+
+namespace App\Core\Behaviors\Many;
 
 use Orchid\Platform\Behaviors\Many;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
@@ -6,7 +8,6 @@ use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 class CarouselType extends Many
 {
-
     /**
      * @var string
      */
@@ -29,12 +30,14 @@ class CarouselType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array

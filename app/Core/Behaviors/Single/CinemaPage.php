@@ -39,5 +39,4 @@ class CinemaPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

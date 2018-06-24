@@ -1,4 +1,6 @@
-<?php namespace App\Http\Filters\Cfo;
+<?php
+
+namespace App\Http\Filters\Cfo;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -6,7 +8,6 @@ use Orchid\Platform\Filters\Filter;
 
 class CfoFilter extends Filter
 {
-
     /**
      * @var bool
      */
@@ -26,7 +27,5 @@ class CfoFilter extends Filter
         }
 
         return $builder;
-
     }
-
 }

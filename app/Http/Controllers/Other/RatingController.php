@@ -10,7 +10,6 @@ use willvincent\Rateable\Rating;
 
 class RatingController extends Controller
 {
-
     /**
      * @param Post    $post
      * @param Request $request
@@ -33,12 +32,11 @@ class RatingController extends Controller
             ->first();
 
         if (is_null($rating)) {
-            $rating = new Rating;
+            $rating = new Rating();
             $rating->rating = $request->get('rating');
             $rating->user_id = Auth::id();
             $post->ratings()->save($rating);
         } else {
-
             $rating->rating = $request->get('rating');
             $rating->save();
         }
@@ -53,6 +51,5 @@ class RatingController extends Controller
             'message' => 'Мы отобразим ваше впечаетление в рейтинге',
             'type'    => 'success',
         ];
-
     }
 }

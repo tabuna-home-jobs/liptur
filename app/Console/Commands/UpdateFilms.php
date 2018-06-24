@@ -62,7 +62,7 @@ class UpdateFilms extends Command
     }
 
     /**
-     * Основной обработчик
+     * Основной обработчик.
      */
     public function handle()
     {
@@ -74,7 +74,8 @@ class UpdateFilms extends Command
     }
 
     /**
-     * Текущий город
+     * Текущий город.
+     *
      * @return mixed
      */
     private function getCurrentCity()
@@ -83,7 +84,7 @@ class UpdateFilms extends Command
 
         $caseCityName = mb_convert_case($lowerCityName, MB_CASE_TITLE, 'UTF-8');
 
-        $this->output->writeln('Начало импорта фильмов для города ' . $caseCityName);
+        $this->output->writeln('Начало импорта фильмов для города '.$caseCityName);
 
         return $this->getCity($lowerCityName);
     }
@@ -101,7 +102,7 @@ class UpdateFilms extends Command
         $setting = Setting::find('upload-films');
 
         if (!is_null($setting)) {
-            $this->output->writeln('Метка времени: ' . $nowTime);
+            $this->output->writeln('Метка времени: '.$nowTime);
             $setting->value = [
                 'time' => $nowTime,
             ];
@@ -116,11 +117,11 @@ class UpdateFilms extends Command
         }
 
         foreach ($movies->List as $movie) {
-            $exists = Post::where('content->' . App::getLocale() . '->ObjectID', '=', $movie->ObjectID)->first();
+            $exists = Post::where('content->'.App::getLocale().'->ObjectID', '=', $movie->ObjectID)->first();
             $newSlug = SlugService::createSlug(Post::class, 'slug', $movie->Name);
 
             if (is_null($exists)) {
-                $this->output->writeln('Новый: ' . $movie->Name);
+                $this->output->writeln('Новый: '.$movie->Name);
 
                 $post = Post::create([
                     'user_id'    => 1,
@@ -144,7 +145,7 @@ class UpdateFilms extends Command
                 }
                 $this->uploadImage($post, $post->getContent('Thumbnail'));
             } else {
-                $this->output->writeln('Обновление: ' . $movie->Name);
+                $this->output->writeln('Обновление: '.$movie->Name);
                 $exists->touch();
             }
         }
@@ -159,21 +160,21 @@ class UpdateFilms extends Command
     private function uploadImage($post, $imageSrc)
     {
         if (empty($imageSrc)) {
-            $this->output->writeln($post->getContent('Name') . " - нет изображения");
+            $this->output->writeln($post->getContent('Name').' - нет изображения');
 
             return;
         }
 
         $post_id = $post->id;
         $imageInfo = pathinfo($imageSrc);
-        $name = sha1(time() . $imageInfo['filename']);
+        $name = sha1(time().$imageInfo['filename']);
 
         if (!isset($imageInfo['extension'])) {
             $imageInfo['extension'] = 'jpg';
         }
 
         $imageDate = $this->date;
-        $imageStoragePath = 'app/public/' . $imageDate . '/' . $name . '.' . $imageInfo['extension'];
+        $imageStoragePath = 'app/public/'.$imageDate.'/'.$name.'.'.$imageInfo['extension'];
 
         $client = $this->client;
 

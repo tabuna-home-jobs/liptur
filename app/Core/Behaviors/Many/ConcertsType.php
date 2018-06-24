@@ -27,6 +27,7 @@ class ConcertsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -46,7 +47,6 @@ class ConcertsType extends Many
      */
     public $category = false;
 
-
     /**
      * @var array
      */
@@ -54,7 +54,6 @@ class ConcertsType extends Many
         SearchFilter::class,
         StatusFilter::class,
         CreatedFilter::class,
-
 
         RegionFilters::class,
         //DistanceFilters::class,
@@ -72,6 +71,7 @@ class ConcertsType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -98,7 +98,6 @@ class ConcertsType extends Many
             'region' => 'tag:region|name:region|title:Регион',
 
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
-
 
             'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
@@ -152,7 +151,7 @@ class ConcertsType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

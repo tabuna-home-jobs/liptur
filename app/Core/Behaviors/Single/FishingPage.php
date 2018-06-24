@@ -44,5 +44,4 @@ class FishingPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

@@ -44,5 +44,4 @@ class ContactPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

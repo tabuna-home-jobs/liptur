@@ -35,6 +35,7 @@ class TaxiType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -45,7 +46,8 @@ class TaxiType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -58,13 +60,13 @@ class TaxiType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         //DistanceFilters::class,
     ];
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -84,7 +86,6 @@ class TaxiType extends Many
         return [
             'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-
 
             'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
             'phone' => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
@@ -146,9 +147,8 @@ class TaxiType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

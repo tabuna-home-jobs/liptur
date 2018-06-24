@@ -38,6 +38,7 @@ class MonumentsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -48,7 +49,8 @@ class MonumentsType extends Many
     public $category = true;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -69,6 +71,7 @@ class MonumentsType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -86,7 +89,6 @@ class MonumentsType extends Many
     public function fields(): array
     {
         if (Auth::user()->inRole('cfo')) {
-
             return [
                 'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
                 'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
@@ -100,6 +102,7 @@ class MonumentsType extends Many
 
             ];
         }
+
         return [
             'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body'  => 'tag:wysiwyg|name:body|max:255|required|rows:10',
@@ -162,7 +165,7 @@ class MonumentsType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */
@@ -171,6 +174,7 @@ class MonumentsType extends Many
         if (Auth::user()->inRole('cfo')) {
             return $this->renderCfoStatuses();
         }
+
         return [
             'publish' => 'Опубликовано',
             'draft'   => 'Черновик',
@@ -180,7 +184,7 @@ class MonumentsType extends Many
     }
 
     /**
-     * render cfo statuses
+     * render cfo statuses.
      *
      * @return array
      */

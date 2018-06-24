@@ -7,7 +7,6 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-
 class Handler extends ExceptionHandler
 {
     /**
@@ -29,7 +28,7 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception $exception
+     * @param \Exception $exception
      *
      * @return void
      */
@@ -41,14 +40,13 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Exception               $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception               $exception
      *
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
-
         if ($this->isHttpException($exception) && config('app.debug')) {
             return $this->renderHttpException($exception);
         }
@@ -59,14 +57,14 @@ class Handler extends ExceptionHandler
     /**
      * Render the given HttpException.
      *
-     * @param  \Symfony\Component\HttpKernel\Exception\HttpException $exception
+     * @param \Symfony\Component\HttpKernel\Exception\HttpException $exception
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     protected function renderHttpException(HttpException $exception)
     {
-        if (view()->exists('errors.' . $exception->getStatusCode())) {
-            return response()->view('errors.' . $exception->getStatusCode(), [], $exception->getStatusCode());
+        if (view()->exists('errors.'.$exception->getStatusCode())) {
+            return response()->view('errors.'.$exception->getStatusCode(), [], $exception->getStatusCode());
         } else {
             abort(404);
         }
@@ -75,8 +73,8 @@ class Handler extends ExceptionHandler
     /**
      * Convert an authentication exception into an unauthenticated response.
      *
-     * @param  \Illuminate\Http\Request                 $request
-     * @param  \Illuminate\Auth\AuthenticationException $exception
+     * @param \Illuminate\Http\Request                 $request
+     * @param \Illuminate\Auth\AuthenticationException $exception
      *
      * @return \Illuminate\Http\Response
      */
@@ -88,5 +86,4 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('login');
     }
-
 }

@@ -44,5 +44,4 @@ class ContestPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

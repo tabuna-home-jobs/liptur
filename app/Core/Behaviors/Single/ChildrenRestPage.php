@@ -44,5 +44,4 @@ class ChildrenRestPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

@@ -10,8 +10,8 @@ class CacheResponse
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
      *
      * @return mixed
      */
@@ -19,7 +19,6 @@ class CacheResponse
     {
         $response = $next($request);
         $time = Carbon::now();
-
 
         $response->setMaxAge(3600);
         $response->setLastModified($time->subMinutes(5));

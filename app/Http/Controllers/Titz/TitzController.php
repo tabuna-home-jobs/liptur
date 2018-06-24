@@ -11,13 +11,12 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Core\Models\Role;
+use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Dashboard;
 
 class TitzController extends Controller
 {
-
     /**
      * AboutController constructor.
      */
@@ -57,7 +56,7 @@ class TitzController extends Controller
 
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest)
             ->simplePaginate(5);
 
@@ -81,7 +80,7 @@ class TitzController extends Controller
 
         $elements = Post::where('type', 'news')
             ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply('news')
             ->simplePaginate(5);
 
@@ -101,9 +100,8 @@ class TitzController extends Controller
      */
     public function gallery(User $user)
     {
-
         return view('titz.gallery', [
-            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->' . App::getLocale())->with('attachment')->paginate(20),
+            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
             'user'    => $user,
         ]);
     }
@@ -141,11 +139,11 @@ class TitzController extends Controller
 
             Storage::disk('public')->makeDirectory($date);
 
-            $name = sha1($time . $name);
-            $fullPath = storage_path('app/public' . DIRECTORY_SEPARATOR . $date . DIRECTORY_SEPARATOR . $name . '.jpg');
+            $name = sha1($time.$name);
+            $fullPath = storage_path('app/public'.DIRECTORY_SEPARATOR.$date.DIRECTORY_SEPARATOR.$name.'.jpg');
             $img->save($fullPath, 60);
 
-            $user->setAttribute('titz->avatar', '/storage/' . $date . '/' . $name . '.jpg');
+            $user->setAttribute('titz->avatar', '/storage/'.$date.'/'.$name.'.jpg');
         }
 
         $user->save();
@@ -153,7 +151,5 @@ class TitzController extends Controller
         Alert::success('Вы успешно изменили профиль');
 
         return back();
-
     }
-
 }

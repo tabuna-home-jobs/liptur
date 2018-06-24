@@ -11,7 +11,6 @@ use Orchid\Platform\Http\Filters\StatusFilter;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
-
 class RailwayType extends Many
 {
     /**
@@ -36,6 +35,7 @@ class RailwayType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -46,7 +46,8 @@ class RailwayType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -59,13 +60,13 @@ class RailwayType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         //DistanceFilters::class,
     ];
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -86,11 +87,9 @@ class RailwayType extends Many
             'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
 
-
             'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
             'phone' => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
             'site'  => 'tag:input|type:url|name:site|title:Официальный сайт',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -147,5 +146,4 @@ class RailwayType extends Many
     {
         return 'item';
     }
-
 }

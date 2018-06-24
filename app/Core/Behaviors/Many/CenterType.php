@@ -35,13 +35,14 @@ class CenterType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
 
-
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -59,13 +60,13 @@ class CenterType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         //DistanceFilters::class,
     ];
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -126,7 +127,6 @@ class CenterType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -148,9 +148,8 @@ class CenterType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

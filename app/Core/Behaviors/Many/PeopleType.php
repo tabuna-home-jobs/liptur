@@ -31,6 +31,7 @@ class PeopleType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -42,6 +43,7 @@ class PeopleType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -94,7 +96,6 @@ class PeopleType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -115,9 +116,8 @@ class PeopleType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

@@ -1,132 +1,98 @@
-<?php return array (
-  'anhskohbo/no-captcha' => 
-  array (
-    'providers' => 
-    array (
+<?php
+
+return [
+  'anhskohbo/no-captcha' => [
+    'providers' => [
       0 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
-    ),
-  ),
-  'cartalyst/tags' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'cartalyst/tags' => [
+    'providers' => [
       0 => 'Cartalyst\\Tags\\TagsServiceProvider',
-    ),
-  ),
-  'cviebrock/eloquent-sluggable' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'cviebrock/eloquent-sluggable' => [
+    'providers' => [
       0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
-    ),
-  ),
-  'fideloper/proxy' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'fideloper/proxy' => [
+    'providers' => [
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
-    ),
-  ),
-  'intervention/image' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'intervention/image' => [
+    'providers' => [
       0 => 'Intervention\\Image\\ImageServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'Image' => 'Intervention\\Image\\Facades\\Image',
-    ),
-  ),
-  'jenssegers/date' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'jenssegers/date' => [
+    'providers' => [
       0 => 'Jenssegers\\Date\\DateServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'Date' => 'Jenssegers\\Date\\Date',
-    ),
-  ),
-  'laravel/scout' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'laravel/scout' => [
+    'providers' => [
       0 => 'Laravel\\Scout\\ScoutServiceProvider',
-    ),
-  ),
-  'laravel/socialite' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'laravel/socialite' => [
+    'providers' => [
       0 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
-    ),
-  ),
-  'laravel/tinker' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'laravel/tinker' => [
+    'providers' => [
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ),
-  ),
-  'mcamara/laravel-localization' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'mcamara/laravel-localization' => [
+    'providers' => [
       0 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'LaravelLocalization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
-    ),
-  ),
-  'nunomaduro/collision' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'nunomaduro/collision' => [
+    'providers' => [
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    ),
-  ),
-  'orchid/platform' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'orchid/platform' => [
+    'providers' => [
       0 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'Dashboard' => 'Orchid\\Platform\\Facades\\Dashboard',
-    ),
-  ),
-  'roumen/feed' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'roumen/feed' => [
+    'providers' => [
       0 => 'Roumen\\Feed\\FeedServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'Feed' => 'Roumen\\Feed\\Feed',
-    ),
-  ),
-  'watson/active' => 
-  array (
-    'providers' => 
-    array (
+    ],
+  ],
+  'watson/active' => [
+    'providers' => [
       0 => 'Watson\\Active\\ActiveServiceProvider',
-    ),
-    'aliases' => 
-    array (
+    ],
+    'aliases' => [
       'Active' => 'Watson\\Watson\\Facades\\Active',
-    ),
-  ),
-);
+    ],
+  ],
+];

@@ -1,4 +1,6 @@
-<?php namespace App\Http\Filters\Common;
+<?php
+
+namespace App\Http\Filters\Common;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
@@ -6,8 +8,6 @@ use Orchid\Platform\Filters\Filter;
 
 class DateFilters extends Filter
 {
-
-
     /**
      * @param Builder $builder
      *
@@ -15,18 +15,15 @@ class DateFilters extends Filter
      */
     public function run(Builder $builder): Builder
     {
-
         if ($this->request->get('archive', false)) {
             return $builder
-                ->orderByRaw('content->"$.' . $this->lang . '.close"', 'desc');
+                ->orderByRaw('content->"$.'.$this->lang.'.close"', 'desc');
         }
 
         return $builder
-            ->whereRaw('content->"$.' . $this->lang . '.close"  > "' . Carbon::today()->toDateString() . '"')
-            ->orderByRaw('content->"$.' . $this->lang . '.open"', 'ASC');
-
+            ->whereRaw('content->"$.'.$this->lang.'.close"  > "'.Carbon::today()->toDateString().'"')
+            ->orderByRaw('content->"$.'.$this->lang.'.open"', 'ASC');
     }
-
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -37,6 +34,4 @@ class DateFilters extends Filter
             'request' => $this->request,
         ]);
     }
-
-
 }

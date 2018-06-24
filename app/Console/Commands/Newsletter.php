@@ -53,14 +53,14 @@ class Newsletter extends Command
     public function handle()
     {
         $this->events = Post::where('type', 'festivals')
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
             ->limit(2)
             ->with(['attachment'])
             ->get();
 
         $this->news = Post::where('type', 'news')
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->whereDate('publish_at', '>=', Carbon::today()->subWeek()->toDateString())
             ->whereDate('publish_at', '<=', Carbon::now()->addWeek()->toDateString())
             ->with(['likeCounter', 'attachment'])
@@ -74,7 +74,6 @@ class Newsletter extends Command
                 $this->send($subscription->email);
             }
         });
-
     }
 
     /**
@@ -85,5 +84,4 @@ class Newsletter extends Command
         $message = (new MailNewsletter($this->events, $this->news))->onQueue('emails');
         Mail::to($email)->queue($message);
     }
-
 }

@@ -9,7 +9,6 @@ use Orchid\Platform\Core\Models\Post;
 
 class CommentController extends Controller
 {
-
     /**
      * @param Post           $post
      * @param CommentRequest $request
@@ -28,5 +27,4 @@ class CommentController extends Controller
 
         return back();
     }
-
 }

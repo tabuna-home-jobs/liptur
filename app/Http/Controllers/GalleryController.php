@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Cache;
 
 class GalleryController extends Controller
 {
-
     /**
      * GalleryController constructor.
      */
@@ -27,7 +26,6 @@ class GalleryController extends Controller
     public function index()
     {
         $mostPopular = Cache::remember('most-popular-gallery', 30, function () {
-
             $popular = Attachment::whereIn('extension', [
                 'jpg',
                 'png',
@@ -40,7 +38,6 @@ class GalleryController extends Controller
                 ->limit(16)
                 ->get();
 
-
             $popular->map(function ($attach) {
                 $attach->url = $attach->url('medium');
                 $attach->original_url = $attach->url();
@@ -49,12 +46,11 @@ class GalleryController extends Controller
             });
 
             return $popular;
-
         });
 
         return view('listings.gallery', [
-            'gallery'      => Post::type('gallery')->whereNotNull('content->' . App::getLocale())->with('attachment')->paginate(20),
-            'countGallery' => Post::type('gallery')->whereNotNull('content->' . App::getLocale())->count(),
+            'gallery'      => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
+            'countGallery' => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->count(),
             'mostPopular'  => $mostPopular,
         ]);
     }
@@ -110,14 +106,10 @@ class GalleryController extends Controller
             'attachment_id' => $id,
         ]);
 
-
         $attachment = Attachment::where('id', $id)->with(['likeCounter', 'likes', 'comments.author'])->first();
         $attachment->url = $attachment->url('high');
         $attachment->original_url = $attachment->url();
 
         return response()->json($attachment);
-
-
     }
-
 }

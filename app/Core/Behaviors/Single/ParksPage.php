@@ -44,5 +44,4 @@ class ParksPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

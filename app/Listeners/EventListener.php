@@ -8,7 +8,6 @@ class EventListener
 {
     /**
      * Create the event listener.
-     *
      */
     public function __construct()
     {
@@ -18,7 +17,7 @@ class EventListener
     /**
      * Handle the event.
      *
-     * @param  SomeEvent $event
+     * @param SomeEvent $event
      *
      * @return void
      */

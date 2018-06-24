@@ -22,7 +22,6 @@ class BankPage extends Single
      */
     public $icon = 'fa fa-university';
 
-
     /**
      * @return array
      */
@@ -36,7 +35,6 @@ class BankPage extends Single
         ];
     }
 
-
     /**
      * @return array
      */
@@ -46,5 +44,4 @@ class BankPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

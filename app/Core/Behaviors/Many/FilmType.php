@@ -35,6 +35,7 @@ class FilmType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'Name';
@@ -45,7 +46,8 @@ class FilmType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = false;
@@ -62,6 +64,7 @@ class FilmType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -106,7 +109,6 @@ class FilmType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -136,9 +138,7 @@ class FilmType extends Many
      */
     public function getAdditionalData($data)
     {
-
-        return Cache::remember('movie-id-' . $data['movieId'], 20, function () use ($data) {
-
+        return Cache::remember('movie-id-'.$data['movieId'], 20, function () use ($data) {
             $lowerCityName = env('RAMBLER_CITY_NAME', 'липецк');
 
             $city = $this->getCity($lowerCityName);
@@ -171,9 +171,7 @@ class FilmType extends Many
                 'schedule' => $schedGroups,
                 'theaters' => $theaterGroups,
             ];
-
         });
-
     }
 
     /**

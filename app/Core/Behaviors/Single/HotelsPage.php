@@ -44,5 +44,4 @@ class HotelsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

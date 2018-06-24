@@ -12,12 +12,11 @@
 if (!function_exists('str_limit_words')) {
     function str_limit_words($str, $size = 100, $end = '...')
     {
-        return mb_substr($str, 0, mb_strrpos(mb_substr($str, 0, $size, 'utf-8'), ' ', 'utf-8'), 'utf-8') . ' ' . $end;
+        return mb_substr($str, 0, mb_strrpos(mb_substr($str, 0, $size, 'utf-8'), ' ', 'utf-8'), 'utf-8').' '.$end;
     }
 }
 
-
-/**
+/*
  * The str_limit function limits the number of characters in a string.
  *
  * @param $str
@@ -33,8 +32,7 @@ if (!function_exists('str_strip_limit_words')) {
     }
 }
 
-
-/**
+/*
  * TODO: Написать нормально!
  */
 
@@ -55,7 +53,7 @@ if (!function_exists('str_date_top')) {
 
         $oneMoth = $open['month'] == $close['month'];
         $oneDay = $open['day'] == $close['day'];
-        $oneTime = $open['hour'] . $open['minute'] == $close['hour'] . $close['minute'];
+        $oneTime = $open['hour'].$open['minute'] == $close['hour'].$close['minute'];
 
         if ($oneMoth && $oneDay && $oneTime) {
             return 'one'; //Одна дата
@@ -84,7 +82,6 @@ if (!function_exists('date_block')) {
         ];
     }
 }
-
 
 if (!function_exists('date_time_block')) {
     function date_time_block($dateTime)

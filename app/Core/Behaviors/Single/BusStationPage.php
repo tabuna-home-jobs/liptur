@@ -44,5 +44,4 @@ class BusStationPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

@@ -31,6 +31,7 @@ class ATMType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -41,13 +42,15 @@ class ATMType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -66,7 +69,6 @@ class ATMType extends Many
         return [
             'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'open' => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -124,7 +126,7 @@ class ATMType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

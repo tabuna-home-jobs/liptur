@@ -49,5 +49,4 @@ class EventCalendarPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

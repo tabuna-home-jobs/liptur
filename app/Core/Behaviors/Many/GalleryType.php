@@ -1,4 +1,6 @@
-<?php namespace App\Core\Behaviors\Many;
+<?php
+
+namespace App\Core\Behaviors\Many;
 
 use App\Http\Filters\Cfo\CfoFilter;
 use App\Http\Filters\Titz\TitzFilter;
@@ -12,7 +14,6 @@ use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 class GalleryType extends Many
 {
-
     /**
      * @var string
      */
@@ -35,6 +36,7 @@ class GalleryType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -45,7 +47,7 @@ class GalleryType extends Many
     public $groupname = 'Другое';
 
     /**
-     * HTTP data filters
+     * HTTP data filters.
      *
      * @var array
      */
@@ -59,6 +61,7 @@ class GalleryType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -103,7 +106,7 @@ class GalleryType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */
@@ -112,6 +115,7 @@ class GalleryType extends Many
         if (Auth::user()->inRole('cfo')) {
             return $this->renderCfoStatuses();
         }
+
         return [
             'publish' => 'Опубликовано',
             'draft'   => 'Черновик',
@@ -121,7 +125,7 @@ class GalleryType extends Many
     }
 
     /**
-     * render cfo statuses
+     * render cfo statuses.
      *
      * @return array
      */

@@ -1,7 +1,9 @@
-<?php namespace App\Http\Forms\Posts;
+<?php
 
-use Orchid\Platform\Forms\Form;
+namespace App\Http\Forms\Posts;
+
 use Orchid\Platform\Core\Models\Post;
+use Orchid\Platform\Forms\Form;
 
 class Template extends Form
 {

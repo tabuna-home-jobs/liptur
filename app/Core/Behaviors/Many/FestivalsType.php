@@ -29,6 +29,7 @@ class FestivalsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -74,6 +75,7 @@ class FestivalsType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -113,6 +115,7 @@ class FestivalsType extends Many
 
             ];
         }
+
         return [
             'name'      => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body'      => 'tag:wysiwyg|name:body|max:255|required|rows:10',
@@ -183,7 +186,7 @@ class FestivalsType extends Many
     }
 
     /**
-     * render cfo statuses
+     * render cfo statuses.
      *
      * @return array
      */
@@ -196,7 +199,7 @@ class FestivalsType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

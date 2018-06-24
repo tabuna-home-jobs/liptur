@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use App\Core\Models\Post;
 use Carbon\Carbon;
@@ -14,10 +16,9 @@ class SecondarySlider extends Widget
      */
     public function run()
     {
-
-        $carousel = Cache::remember('secondary-carousel-' . App::getLocale(), 5, function () {
+        $carousel = Cache::remember('secondary-carousel-'.App::getLocale(), 5, function () {
             return Post::where('type', 'secondary-carousel')
-                ->whereNotNull('options->locale->' . App::getLocale())
+                ->whereNotNull('options->locale->'.App::getLocale())
                 ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
                 ->orderBy('publish_at', 'ASC')
                 ->limit(10)

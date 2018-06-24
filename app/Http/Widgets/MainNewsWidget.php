@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use App\Core\Models\Post;
 use Carbon\Carbon;
@@ -13,9 +15,9 @@ class MainNewsWidget extends Widget
      */
     public function run()
     {
-        $news = Cache::remember('main-news-' . App::getLocale(), Carbon::now()->addHour(), function () {
+        $news = Cache::remember('main-news-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Post::published()->where('type', 'news')
-                ->whereNotNull('options->locale->' . App::getLocale())
+                ->whereNotNull('options->locale->'.App::getLocale())
                 ->whereDate('publish_at', '<', time())
                 ->orderBy('publish_at', 'DESC')
                 ->limit(3)
@@ -28,5 +30,4 @@ class MainNewsWidget extends Widget
             ]);
         }
     }
-
 }

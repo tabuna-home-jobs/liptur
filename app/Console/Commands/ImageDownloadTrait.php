@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Orchid\Platform\Core\Models\Attachment;
 
-
 trait ImageDownloadTrait
 {
     /**
@@ -28,7 +27,7 @@ trait ImageDownloadTrait
             'sink' => storage_path($imageStoragePath),
         ]);
 
-        $path = '/' . $imageDate . '/';
+        $path = '/'.$imageDate.'/';
 
         foreach (config('content.images', []) as $key => $value) {
             $this->saveImageProcessing(
@@ -65,20 +64,19 @@ trait ImageDownloadTrait
      */
     protected function saveImageProcessing($image, $name = null, $width = null, $height = null, $quality = 100)
     {
-        $newName = $image['name'] . '_' . $name . '.' . $image['info']['extension'];
+        $newName = $image['name'].'_'.$name.'.'.$image['info']['extension'];
 
         $name = $image['name'];
 
-        $full_path = storage_path('app/public/' . '/' . $this->date . '/' . $newName);
+        $full_path = storage_path('app/public/'.'/'.$this->date.'/'.$newName);
 
-        $path = storage_path('app/public/' . '/' . $this->date . '/' . $name . '.' . $image['info']['extension']);
+        $path = storage_path('app/public/'.'/'.$this->date.'/'.$name.'.'.$image['info']['extension']);
 
         chmod($path, 0777);
 
         Image::make($path)->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
-
         })->save($full_path, $quality);
     }
 }

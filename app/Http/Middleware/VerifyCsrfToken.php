@@ -11,7 +11,6 @@ class VerifyCsrfToken extends BaseVerifier
      *
      * @var array
      */
-
     protected $except = [
         'ulogin',
         'ru/ulogin',

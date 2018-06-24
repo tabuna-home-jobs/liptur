@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Core\Models\Post;
+use Orchid\Platform\Core\Models\Taxonomy;
 
 class AboutController extends Controller
 {
-
     /**
      * AboutController constructor.
      */
@@ -87,5 +86,4 @@ class AboutController extends Controller
             'page'   => getPage('investor'),
         ]);
     }
-
 }
