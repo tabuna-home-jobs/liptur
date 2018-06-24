@@ -67,7 +67,7 @@
     @if(!is_null($post))
         <p>
             {{trans('dashboard::post/general.changed')}}: <span
-                    title="{{$post->updated_at}}">{{$post->updated_at->diffForHumans()}}</span>
+                    title="{{$post->updated_at}}">{{$post->updated_at}}</span>
         </p>
         <div class="line line-dashed b-b line-lg"></div>
     @endif

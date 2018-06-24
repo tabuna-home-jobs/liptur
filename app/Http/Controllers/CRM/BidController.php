@@ -10,8 +10,8 @@ use App\Mail\Info;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Orchid\Alert\Facades\Alert;
-use Orchid\Core\Models\Role;
+use Orchid\Platform\Facades\Alert;
+use Orchid\Platform\Core\Models\Role;
 
 class BidController extends Controller
 {

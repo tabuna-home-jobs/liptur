@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
-
+        Orchid\Platform\Providers\FoundationServiceProvider::class,
         //
 
         /*

@@ -36,7 +36,7 @@ class EventPage extends Single
             'title'       => 'tag:input|type:text|name:title|max:255|required|title:Article Title|help:SEO title',
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Short description',
             'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Keywords|help:SEO keywords',
-            'robot'       => 'tag:robot|name:robot|max:255|required|title:Indexing|help:Allow search bots to index page',
+
         ];
     }
 

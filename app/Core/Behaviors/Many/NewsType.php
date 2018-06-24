@@ -85,7 +85,7 @@ class NewsType extends Many
             'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Вверхней части странице',
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
             'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Записывайте через запятую',
-            'robot'       => 'tag:robot|name:robot|max:255|required|title:Индексация|help:Разрешить поисковым роботам индесацию страницы',
+
         ];
     }
 

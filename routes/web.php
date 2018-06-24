@@ -85,8 +85,8 @@ $router->group([
     |--------------------------------------------------------------------------
     |
      */
-    $this->get('afisha', 'AfishaController@index')->name('afisha');
-    $this->get('afisha/{item}', 'AfishaController@category')->name('afisha.show');
+    //$this->get('afisha', 'AfishaController@index')->name('afisha');
+    //$this->get('afisha/{item}', 'AfishaController@category')->name('afisha.show');
 
     /*
     |--------------------------------------------------------------------------
@@ -184,3 +184,4 @@ $router->group([
     $this->get('search', 'SearchController@index')->name('search');
     $this->post('search/places', 'SearchController@places')->name('search.places');
 });
+

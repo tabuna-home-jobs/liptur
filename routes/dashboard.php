@@ -12,12 +12,15 @@
 |
 */
 
-$router->group([
-    'prefix' => 'dashboard/liptur',
-], function () {
+$this->domain(config('platform.domain'))->group(function () {
+    $this->group([
+        'middleware' => config('platform.middleware.private'),
+        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/bids'),
+    ], function (\Illuminate\Routing\Router $router) {
+        
+        $router->get('/', 'CRM\BidController@index')->name('dashboard.liptur.bids');
+        $router->post('/deny/{post}', 'CRM\BidController@deny')->name('dashboard.liptur.bids.deny');
+        $router->post('/success/{post}', 'CRM\BidController@success')->name('dashboard.liptur.bids.success');
 
-    $this->get('/bids', 'CRM\BidController@index')->name('dashboard.liptur.bids');
-    $this->post('/bids/deny/{post}', 'CRM\BidController@deny')->name('dashboard.liptur.bids.deny');
-    $this->post('/bids/success/{post}', 'CRM\BidController@success')->name('dashboard.liptur.bids.success');
-
+    });
 });

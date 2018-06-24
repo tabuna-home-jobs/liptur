@@ -14,7 +14,7 @@
             @endif
 
     >
-        @foreach($region as $key => $item)
+        @foreach(collect(config('region')) as $key => $item)
             <option value="{{$key}}" @if(isset($value) && $key == $value) selected @endif>{{$item['name']}}</option>
         @endforeach
     </select>

@@ -1,6 +1,6 @@
 <?php namespace App\Http\Forms\Posts;
 
-use Orchid\Forms\Form;
+use Orchid\Platform\Forms\Form;
 use Orchid\Platform\Core\Models\Post;
 
 class Category extends Form

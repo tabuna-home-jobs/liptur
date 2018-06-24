@@ -19,41 +19,40 @@ class RatingController extends Controller
      */
     public function store(Post $post, Request $request)
     {
-
-        if (Auth::check()) {
-
-            $rating = Rating::where('rateable_type', Post::class)
-                ->where('user_id', Auth::id())
-                ->where('rateable_id', $post->id)
-                ->first();
-
-            if (is_null($rating)) {
-                $rating = new Rating;
-                $rating->rating = $request->get('rating');
-                $rating->user_id = Auth::id();
-                $post->ratings()->save($rating);
-            } else {
-
-                $rating->rating = $request->get('rating');
-                $rating->save();
-            }
-
-            $options = $post->options;
-            $options['rating'] = round($post->averageRating(), 2);
-            $post->options = $options;
-            $post->save();
-
+        if (!Auth::check()) {
             return [
-                'title'   => 'Спасибо',
-                'message' => 'Мы отобразим ваше впечаетление в рейтинге',
-                'type'    => 'success',
+                'title'   => 'Ошибка',
+                'message' => 'Что бы влиять на рейтинг необходимо авторизоваться',
+                'type'    => 'error',
             ];
         }
 
+        $rating = Rating::where('rateable_type', Post::class)
+            ->where('user_id', Auth::id())
+            ->where('rateable_id', $post->id)
+            ->first();
+
+        if (is_null($rating)) {
+            $rating = new Rating;
+            $rating->rating = $request->get('rating');
+            $rating->user_id = Auth::id();
+            $post->ratings()->save($rating);
+        } else {
+
+            $rating->rating = $request->get('rating');
+            $rating->save();
+        }
+
+        $options = $post->options;
+        $options['rating'] = round($post->averageRating(), 2);
+        $post->options = $options;
+        $post->save();
+
         return [
-            'title'   => 'Ошибка',
-            'message' => 'Что бы влиять на рейтинг необходимо авторизоваться',
-            'type'    => 'error',
+            'title'   => 'Спасибо',
+            'message' => 'Мы отобразим ваше впечаетление в рейтинге',
+            'type'    => 'success',
         ];
+
     }
 }

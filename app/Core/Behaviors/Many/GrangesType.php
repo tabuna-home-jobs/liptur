@@ -76,7 +76,7 @@ class GrangesType extends Many
 
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
             'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
-            'robot'       => 'tag:robot|name:robot|max:255|required|title:Индексация|help:Разрешить поисковым роботам индесацию страницы',
+
         ];
     }
 

@@ -123,7 +123,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::group([
-            'middleware' => ['web', 'dashboard', 'access'],
+            'middleware' => ['web', 'dashboard'],
             'namespace'  => $this->namespace,
         ], function ($router) {
             require base_path('routes/dashboard.php');

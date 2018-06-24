@@ -2,7 +2,7 @@
 
 namespace App\Fields;
 
-use Orchid\Field\Field;
+use Orchid\Platform\Fields\Field;
 
 class RegionField extends Field
 {
@@ -12,17 +12,38 @@ class RegionField extends Field
     public $view = 'fields.region';
 
     /**
-     * HTML tag.
+     * Default attributes value.
      *
-     * @var string
+     * @var array
      */
-    protected $tag = 'select';
+    public $attributes = [
+        'class' => 'form-control',
+    ];
     /**
-     * The rows attribute specifies the visible height of a text area, in lines.
+     * Required Attributes.
      *
-     * @var
+     * @var array
      */
-    protected $rows;
+    public $required = [
+        'name',
+    ];
+    /**
+     * Attributes available for a particular tag.
+     *
+     * @var array
+     */
+    public $inlineAttributes = [
+        'accesskey',
+        'autofocus',
+        'disabled',
+        'form',
+        'multiple',
+        'name',
+        'required',
+        'size',
+        'tabindex',
+    ];
+
 
     /**
      * @param null $attributes

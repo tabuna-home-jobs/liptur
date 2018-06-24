@@ -65,6 +65,15 @@ class RussianTravelApi extends Command
     public function __construct()
     {
         parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
         $this->client = new Client([
             'base_uri' => 'https://api.russia.travel/api/',
             'timeout'  => 10,
@@ -86,15 +95,9 @@ class RussianTravelApi extends Command
         }
         $this->limit = $this->limit->value;
 
-    }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
+
+
         $this->uploadNews();
         $setting = Setting::find('russian-travel');
         $setting->value = $this->limit;
