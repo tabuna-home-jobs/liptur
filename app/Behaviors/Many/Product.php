@@ -9,7 +9,7 @@ use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Platform\Platform\Fields\TD;
 
 /**
- * Class Product
+ * Class Product.
  */
 class Product extends Many
 {
@@ -31,6 +31,7 @@ class Product extends Many
      * @var string
      */
     public $slugFields = 'name';
+
     /**
      * Rules Validation.
      *
@@ -80,7 +81,6 @@ class Product extends Many
                 ->name('maintainer')
                 ->title('Производитель товара'),
 
-
             Field::tag('input')
                 ->type('numeric')
                 ->name('width')
@@ -96,7 +96,6 @@ class Product extends Many
                 ->name('gravity')
                 ->required()
                 ->title('Вес'),
-
 
             Field::tag('checkbox')
                 ->name('free')
@@ -140,6 +139,7 @@ class Product extends Many
             */
         ];
     }
+
     /**
      * @return array
      */
@@ -150,6 +150,7 @@ class Product extends Many
             UploadPostForm::class,
         ];
     }
+
     /**
      * Grid View for post type.
      */
