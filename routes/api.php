@@ -11,10 +11,7 @@
 |
 */
 
-
 Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function ($router) {
-
     $router->post('newsletter', 'NewsletterController@subscription');
     $router->post('reservation', 'ReservationController@subscription');
-
 });

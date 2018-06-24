@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use App\Core\Models\Post;
 use Carbon\Carbon;
@@ -8,7 +10,6 @@ use Orchid\Platform\Widget\Widget;
 
 class LastEventsSidebarWidget extends Widget
 {
-
     /**
      * @param int $limit
      *
@@ -16,15 +17,14 @@ class LastEventsSidebarWidget extends Widget
      */
     public function run($limit = 6)
     {
-
         $locale = App::getLocale();
 
-        $events = Cache::remember('sidebar-events-' . $locale . '-' . $limit, Carbon::now()->addHour(), function () use ($locale, $limit) {
+        $events = Cache::remember('sidebar-events-'.$locale.'-'.$limit, Carbon::now()->addHour(), function () use ($locale, $limit) {
             return Post::published()
                 ->where('type', 'festivals')
-                ->whereNotNull('content->' . $locale)
-                ->whereRaw('content->"$.' . $locale . '.open"  < "' . Carbon::now()->addMonth(2)->toDateString() . '"')
-                ->whereRaw('content->"$.' . $locale . '.close"  > "' . Carbon::today()->toDateString() . '"')
+                ->whereNotNull('content->'.$locale)
+                ->whereRaw('content->"$.'.$locale.'.open"  < "'.Carbon::now()->addMonth(2)->toDateString().'"')
+                ->whereRaw('content->"$.'.$locale.'.close"  > "'.Carbon::today()->toDateString().'"')
                 ->orderBy('publish_at', 'ASC')
                 ->limit($limit)
                 ->get();
@@ -34,5 +34,4 @@ class LastEventsSidebarWidget extends Widget
             'events' => $events,
         ]);
     }
-
 }

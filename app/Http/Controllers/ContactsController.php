@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller
 {
-
     /**
      * ContactsController constructor.
      */
@@ -67,5 +66,4 @@ class ContactsController extends Controller
             'type'    => 'success',
         ]);
     }
-
 }

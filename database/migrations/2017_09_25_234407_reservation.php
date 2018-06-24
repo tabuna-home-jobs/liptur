@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class Reservation extends Migration
 {
@@ -18,7 +18,7 @@ class Reservation extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('post_id')->unsigned();
             $table->integer('quantity')->unsigned();
-            $table->date("date");
+            $table->date('date');
             $table->timestamps();
         });
     }

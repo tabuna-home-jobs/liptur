@@ -31,11 +31,10 @@ class ReservationRequest extends FormRequest
         ];
     }
 
-
     /**
      * Get the proper failed validation response for the request.
      *
-     * @param  array $errors
+     * @param array $errors
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */

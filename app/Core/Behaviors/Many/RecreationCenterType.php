@@ -13,7 +13,6 @@ use Orchid\Platform\Http\Filters\StatusFilter;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
-
 class RecreationCenterType extends Many
 {
     /**
@@ -38,6 +37,7 @@ class RecreationCenterType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -48,11 +48,11 @@ class RecreationCenterType extends Many
     public $category = true;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
-
 
     /**
      * @var array
@@ -62,7 +62,6 @@ class RecreationCenterType extends Many
         StatusFilter::class,
         CreatedFilter::class,
 
-
         RegionFilters::class,
         CategoryFilters::class,
         //DistanceFilters::class,
@@ -70,6 +69,7 @@ class RecreationCenterType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -97,7 +97,6 @@ class RecreationCenterType extends Many
             'email'           => 'tag:input|type:email|name:email|title:Электронная почта',
             'price'           => 'tag:input|type:text|name:price|max:255|required|title:Стоимость|help:Записывается в свободной форме',
             'number-of-seats' => 'tag:input|type:numeric|name:number-of-seats|title:Число мест|help:Записывается в свободной форме',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -134,7 +133,6 @@ class RecreationCenterType extends Many
         ];
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -157,9 +155,8 @@ class RecreationCenterType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

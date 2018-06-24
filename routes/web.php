@@ -12,7 +12,7 @@
  */
 
 $router->group([
-    'prefix' => Localization::setLocale(),
+    'prefix'     => Localization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'carbon-localize'],
 ], function () {
 
@@ -111,11 +111,10 @@ $router->group([
      */
     $this->resource('maps', 'MapsController', ['names' => [
         'index' => 'maps.index',
-        'type' => 'maps.type',
+        'type'  => 'maps.type',
     ]]);
 
     $this->group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
-
         $this->get('/', 'ProfileController@index')->name('profile');
         $this->put('/', 'ProfileController@update')->name('profile.update');
         $this->get('/password', 'ProfileController@password')->name('profile.password');
@@ -184,4 +183,3 @@ $router->group([
     $this->get('search', 'SearchController@index')->name('search');
     $this->post('search/places', 'SearchController@places')->name('search.places');
 });
-

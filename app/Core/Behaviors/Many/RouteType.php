@@ -38,6 +38,7 @@ class RouteType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -48,7 +49,8 @@ class RouteType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = false;
@@ -70,6 +72,7 @@ class RouteType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -151,7 +154,7 @@ class RouteType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

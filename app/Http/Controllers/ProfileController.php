@@ -8,12 +8,11 @@ use App\Http\Requests\AccountRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Core\Models\Comment;
+use Orchid\Platform\Facades\Alert;
 
 class ProfileController extends Controller
 {
-
     protected $user;
 
     /**
@@ -46,7 +45,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Обновление профиля
+     * Обновление профиля.
      *
      * @param AccountRequest $account
      *
@@ -68,11 +67,11 @@ class ProfileController extends Controller
 
             Storage::disk('public')->makeDirectory($date);
 
-            $name = sha1($time . $name);
-            $fullPath = storage_path('app/public' . DIRECTORY_SEPARATOR . $date . DIRECTORY_SEPARATOR . $name . '.jpg');
+            $name = sha1($time.$name);
+            $fullPath = storage_path('app/public'.DIRECTORY_SEPARATOR.$date.DIRECTORY_SEPARATOR.$name.'.jpg');
             $img->save($fullPath, 60);
 
-            $user->avatar = '/storage/' . $date . '/' . $name . '.jpg';
+            $user->avatar = '/storage/'.$date.'/'.$name.'.jpg';
         }
 
         $user->fill($account->except('avatar'));
@@ -84,7 +83,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Обновление пароля пользователя
+     * Обновление пароля пользователя.
      *
      * @param AccountPasswordRequest $account
      *
@@ -119,11 +118,10 @@ class ProfileController extends Controller
         return view('profile.liked', [
             'posts' => Post::whereLikedBy(Auth::user()->id)->with('likeCounter')->paginate(),
         ]);
-
     }
 
     /**
-     * Форма заявки на организацию
+     * Форма заявки на организацию.
      */
     public function bid()
     {
@@ -131,5 +129,4 @@ class ProfileController extends Controller
             'user' => Auth::user(),
         ]);
     }
-
 }

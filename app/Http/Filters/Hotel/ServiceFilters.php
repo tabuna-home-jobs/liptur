@@ -1,4 +1,6 @@
-<?php namespace App\Http\Filters\Hotel;
+<?php
+
+namespace App\Http\Filters\Hotel;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
@@ -12,21 +14,18 @@ class ServiceFilters extends Filter
      */
     public function run(Builder $builder): Builder
     {
-
         $service = (array) $this->request->get('service', []);
 
         foreach ($service as $key => $item) {
-
             if ($key === 0) {
-                $builder = $builder->where('options->option->' . $item, '1');
+                $builder = $builder->where('options->option->'.$item, '1');
             } else {
-                $builder = $builder->orWhere('options->option->' . $item, '1');
+                $builder = $builder->orWhere('options->option->'.$item, '1');
             }
         }
 
         return $builder;
     }
-
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

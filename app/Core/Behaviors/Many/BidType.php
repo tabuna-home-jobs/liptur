@@ -1,10 +1,11 @@
-<?php namespace App\Core\Behaviors\Many;
+<?php
+
+namespace App\Core\Behaviors\Many;
 
 use Orchid\Platform\Behaviors\Many;
 
 class BidType extends Many
 {
-
     /**
      * @var string
      */
@@ -30,7 +31,6 @@ class BidType extends Many
 
         ];
     }
-
 
     public function grid(): array
     {

@@ -29,6 +29,7 @@ class ExhibitionsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -65,6 +66,7 @@ class ExhibitionsType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -88,14 +90,12 @@ class ExhibitionsType extends Many
             'close' => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
             'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
 
-
             'phone' => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
             'price' => 'tag:input|type:text|name:price|max:255|required|title:Стоимость|help:Записывается в свободной форме',
             'site'  => 'tag:input|type:url|name:site|title:Официальный сайт',
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
-
 
             'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
@@ -141,7 +141,6 @@ class ExhibitionsType extends Many
         ]);
     }
 
-
     /**
      * @return string
      */
@@ -150,9 +149,8 @@ class ExhibitionsType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

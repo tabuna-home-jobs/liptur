@@ -38,8 +38,9 @@ class Post extends BasePost
      */
     public function ruDate($format, $date = false)
     {
-        $months = explode("|", '|января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря');
-        $format = preg_replace("~bg~", $months[date('n', $date)], $format);
+        $months = explode('|', '|января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря');
+        $format = preg_replace('~bg~', $months[date('n', $date)], $format);
+
         return Date::parse($date)->format($format);
     }
 }

@@ -20,7 +20,6 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
-
     /**
      * Where to redirect users after login / registration.
      *
@@ -28,10 +27,8 @@ class ResetPasswordController extends Controller
      */
     protected $redirectTo = '/profile';
 
-
     /**
      * Create a new controller instance.
-     *
      */
     public function __construct()
     {

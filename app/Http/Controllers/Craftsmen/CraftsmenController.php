@@ -11,13 +11,12 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Core\Models\Role;
+use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Dashboard;
 
 class CraftsmenController extends Controller
 {
-
     /**
      * AboutController constructor.
      */
@@ -40,7 +39,6 @@ class CraftsmenController extends Controller
         //$users = User::whereIn('id', $rawUsers)->get();
         $users = User::whereIn('id', $tmp)->get();
 
-
         if ($users->count() == 0) {
             abort(404);
         }
@@ -62,7 +60,7 @@ class CraftsmenController extends Controller
 
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest)
             ->simplePaginate(5);
 
@@ -86,7 +84,7 @@ class CraftsmenController extends Controller
 
         $elements = Post::where('type', 'news')
             ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply('news')
             ->simplePaginate(5);
 
@@ -107,7 +105,7 @@ class CraftsmenController extends Controller
     public function gallery(User $user)
     {
         return view('craftsmen.gallery', [
-            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->' . App::getLocale())->with('attachment')->paginate(20),
+            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
             'user'    => $user,
         ]);
     }
@@ -145,11 +143,11 @@ class CraftsmenController extends Controller
 
             Storage::disk('public')->makeDirectory($date);
 
-            $name = sha1($time . $name);
-            $fullPath = storage_path('app/public' . DIRECTORY_SEPARATOR . $date . DIRECTORY_SEPARATOR . $name . '.jpg');
+            $name = sha1($time.$name);
+            $fullPath = storage_path('app/public'.DIRECTORY_SEPARATOR.$date.DIRECTORY_SEPARATOR.$name.'.jpg');
             $img->save($fullPath, 60);
 
-            $user->titz['avatar'] = '/storage/' . $date . '/' . $name . '.jpg';
+            $user->titz['avatar'] = '/storage/'.$date.'/'.$name.'.jpg';
         }
 
         $user->save();
@@ -157,7 +155,5 @@ class CraftsmenController extends Controller
         Alert::success('Вы успешно изменили профиль');
 
         return back();
-
     }
-
 }

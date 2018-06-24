@@ -44,5 +44,4 @@ class LeisurePage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

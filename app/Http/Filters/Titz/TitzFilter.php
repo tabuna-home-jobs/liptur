@@ -1,4 +1,6 @@
-<?php namespace App\Http\Filters\Titz;
+<?php
+
+namespace App\Http\Filters\Titz;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -6,7 +8,6 @@ use Orchid\Platform\Filters\Filter;
 
 class TitzFilter extends Filter
 {
-
     /**
      * @var bool
      */
@@ -26,7 +27,5 @@ class TitzFilter extends Filter
         }
 
         return $builder;
-
     }
-
 }

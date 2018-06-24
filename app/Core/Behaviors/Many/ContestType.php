@@ -36,6 +36,7 @@ class ContestType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -61,6 +62,7 @@ class ContestType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -136,7 +138,7 @@ class ContestType extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

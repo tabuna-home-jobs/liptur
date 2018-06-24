@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', "null"),
+    'driver' => env('SCOUT_DRIVER', 'null'),
     //'driver' => strval('null'),
 
     /*
@@ -60,7 +60,6 @@ return [
         'secret' => env('ALGOLIA_SECRET', ''),
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Elasticsearch Configuration
@@ -81,6 +80,5 @@ return [
             ],
         ],
     ],
-
 
 ];

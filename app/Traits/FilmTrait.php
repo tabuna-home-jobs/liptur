@@ -15,21 +15,21 @@ trait FilmTrait
     private static $PLACE = 'place/object'; // Города
 
     /**
-     * Фильмы
+     * Фильмы.
      *
      * @var string
      */
     private $apiKey = '3c9f4e3a-30ae-40a9-959e-edddbef22e37';
 
     /**
-     * Расписание фильмов
+     * Расписание фильмов.
      *
      * @var string
      */
     private $urlBase = 'http://api.kassa.rambler.ru/v2/';
 
     /**
-     * Данные по месту
+     * Данные по месту.
      *
      * @var string
      */
@@ -60,7 +60,7 @@ trait FilmTrait
      */
     private function getCommandUrl($command)
     {
-        return $this->urlBase . $this->apiKey . '/' . $this->dataType . '/' . $command;
+        return $this->urlBase.$this->apiKey.'/'.$this->dataType.'/'.$command;
     }
 
     /**
@@ -78,7 +78,7 @@ trait FilmTrait
         if (!empty($options)) {
             $reqDataString = $this->getRequestString($options);
         }
-        $fullUrl = $url . $reqDataString;
+        $fullUrl = $url.$reqDataString;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $fullUrl);
@@ -107,10 +107,10 @@ trait FilmTrait
         $tokens = [];
 
         foreach ($options as $optionKey => $optionValue) {
-            $tokens[] = $optionKey . '=' . $optionValue;
+            $tokens[] = $optionKey.'='.$optionValue;
         }
 
-        return count($tokens) > 0 ? '?' . implode($tokens, '&') : '';
+        return count($tokens) > 0 ? '?'.implode($tokens, '&') : '';
     }
 
     /**
@@ -123,7 +123,7 @@ trait FilmTrait
     {
         $scheduleRequestUrl = $this->getCommandUrl($this::$SCHEDULE);
 
-        $schedule = Cache::remember('cinema-schedule-' . $movieId, 10, function () use ($scheduleRequestUrl, $cityId, $movieId) {
+        $schedule = Cache::remember('cinema-schedule-'.$movieId, 10, function () use ($scheduleRequestUrl, $cityId, $movieId) {
             return $this->getUrl($scheduleRequestUrl, [
                 'CityID'   => $cityId,
                 'ObjectID' => $movieId,
@@ -164,5 +164,4 @@ trait FilmTrait
 
         return $placeData;
     }
-
 }

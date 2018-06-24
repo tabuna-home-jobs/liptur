@@ -26,6 +26,7 @@ class EventType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -50,6 +51,7 @@ class EventType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -78,7 +80,6 @@ class EventType extends Many
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
-
 
             'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
@@ -130,5 +131,4 @@ class EventType extends Many
             'time' => true,
         ]);
     }
-
 }

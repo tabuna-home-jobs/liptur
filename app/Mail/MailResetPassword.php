@@ -27,7 +27,6 @@ class MailResetPassword extends Mailable
         $this->to($user->email);
         $this->token = $token;
         $this->subject = 'Запрос востановления пароля';
-
     }
 
     /**

@@ -17,7 +17,7 @@ class MenuComposer
     }
 
     /**
-     * CRM
+     * CRM.
      */
     public function compose()
     {
@@ -51,7 +51,5 @@ class MenuComposer
             'permission' => 'dashboard.liptur.bid',
             'sort'       => 1,
         ]);
-
     }
-
 }

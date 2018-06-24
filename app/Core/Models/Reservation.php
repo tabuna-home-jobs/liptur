@@ -20,6 +20,6 @@ class Reservation extends Model
         'quantity',
         'date',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 }

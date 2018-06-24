@@ -17,10 +17,8 @@ $this->domain(config('platform.domain'))->group(function () {
         'middleware' => config('platform.middleware.private'),
         'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/bids'),
     ], function (\Illuminate\Routing\Router $router) {
-        
         $router->get('/', 'CRM\BidController@index')->name('dashboard.liptur.bids');
         $router->post('/deny/{post}', 'CRM\BidController@deny')->name('dashboard.liptur.bids.deny');
         $router->post('/success/{post}', 'CRM\BidController@success')->name('dashboard.liptur.bids.success');
-
     });
 });

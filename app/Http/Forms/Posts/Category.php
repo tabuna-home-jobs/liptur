@@ -1,7 +1,9 @@
-<?php namespace App\Http\Forms\Posts;
+<?php
 
-use Orchid\Platform\Forms\Form;
+namespace App\Http\Forms\Posts;
+
 use Orchid\Platform\Core\Models\Post;
+use Orchid\Platform\Forms\Form;
 
 class Category extends Form
 {
@@ -20,7 +22,7 @@ class Category extends Form
      */
     public function get($type = null, Post $post = null)
     {
-        $category = collect(config('category.' . $type->slug))->sort();
+        $category = collect(config('category.'.$type->slug))->sort();
 
         if (is_null($post)) {
             $post = new Post();

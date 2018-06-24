@@ -30,6 +30,7 @@ class ContactType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -40,13 +41,15 @@ class ContactType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = false;
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -116,5 +119,4 @@ class ContactType extends Many
     {
         return 'item';
     }
-
 }

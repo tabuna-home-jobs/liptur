@@ -35,12 +35,14 @@ class ArtsAndRecreation extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -49,7 +51,6 @@ class ArtsAndRecreation extends Many
      * @var bool
      */
     public $category = true;
-
 
     /**
      * @var array
@@ -63,9 +64,9 @@ class ArtsAndRecreation extends Many
         //DistanceFilters::class,
     ];
 
-
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -86,11 +87,9 @@ class ArtsAndRecreation extends Many
             'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
 
-
             'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
             'phone' => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
             'site'  => 'tag:input|type:url|name:site|title:Официальный сайт',
-
 
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
 
@@ -135,7 +134,6 @@ class ArtsAndRecreation extends Many
         return 'item';
     }
 
-
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -151,7 +149,7 @@ class ArtsAndRecreation extends Many
     }
 
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

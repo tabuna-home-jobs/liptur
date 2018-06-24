@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
@@ -8,8 +10,6 @@ use Orchid\Platform\Widget\Widget;
 
 class MenuTopMiddleColum extends Widget
 {
-
-
     /**
      * @var
      */
@@ -20,14 +20,12 @@ class MenuTopMiddleColum extends Widget
      */
     public $chunk;
 
-
     /**
      * Class constructor.
      */
     public function __construct()
     {
-
-        $this->menu = Cache::remember('top-menu-' . App::getLocale(), Carbon::now()->addHour(), function () {
+        $this->menu = Cache::remember('top-menu-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Menu::where('lang', App::getLocale())
                 ->whereNull('parent')
                 ->where('type', 'header-middle')->get();
@@ -46,5 +44,4 @@ class MenuTopMiddleColum extends Widget
             'chunk' => $this->chunk,
         ]);
     }
-
 }

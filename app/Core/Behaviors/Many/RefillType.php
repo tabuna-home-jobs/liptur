@@ -31,6 +31,7 @@ class RefillType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -41,13 +42,15 @@ class RefillType extends Many
     public $category = false;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -117,5 +120,4 @@ class RefillType extends Many
     {
         return 'item';
     }
-
 }

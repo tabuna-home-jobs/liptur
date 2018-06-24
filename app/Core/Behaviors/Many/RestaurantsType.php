@@ -20,7 +20,6 @@ class RestaurantsType extends Many
      */
     public $name = 'Гастрономия';
 
-
     public $description = 'Рестораны, кафе, бары';
 
     /**
@@ -40,6 +39,7 @@ class RestaurantsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -50,7 +50,8 @@ class RestaurantsType extends Many
     public $category = true;
 
     /**
-     * Display global maps
+     * Display global maps.
+     *
      * @var bool
      */
     public $maps = true;
@@ -70,6 +71,7 @@ class RestaurantsType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -93,7 +95,6 @@ class RestaurantsType extends Many
             'phone' => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
             'price' => 'tag:input|type:text|name:price|max:255|required|title:Средний чек|help:Записывается в свободной форме',
             'site'  => 'tag:input|type:url|name:site|title:Официальный сайт',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -142,7 +143,6 @@ class RestaurantsType extends Many
         return collect([
             'name' => 'Гастрономия',
 
-
             'title'       => 'Гастрономия Липецкой области',
             'description' => 'Рестораны, кафе, бары Липецкой области',
             'icon'        => 'icon-lip-caffe',
@@ -160,9 +160,8 @@ class RestaurantsType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

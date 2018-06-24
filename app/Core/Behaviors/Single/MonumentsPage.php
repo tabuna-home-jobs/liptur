@@ -22,7 +22,6 @@ class MonumentsPage extends Single
      */
     public $icon = 'fa fa-university';
 
-
     /**
      * @return array
      */
@@ -45,5 +44,4 @@ class MonumentsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

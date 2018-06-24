@@ -41,10 +41,8 @@ class RouteController extends Controller
         // Display route
         $displayRoute = $this->getDisplayRoute($item, $dataRecords);
 
-
         $rating = new \stdClass();
         $rating->percent = round($item->averageRating(), 2);
-
 
         return view('pages.item', [
             'item'         => $item,
@@ -63,7 +61,7 @@ class RouteController extends Controller
     {
         $route = collect($item->content['route']);
 
-        $dataCursor = new $this->modelClass;
+        $dataCursor = new $this->modelClass();
 
         $ids = $route->reject(function ($item) {
             return !isset($item['meta']['id']) && boolval($item['visible']);

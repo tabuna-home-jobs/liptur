@@ -44,5 +44,4 @@ class PeoplePage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

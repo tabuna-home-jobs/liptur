@@ -1,11 +1,12 @@
-<?php namespace App\Core\Behaviors\Single;
+<?php
+
+namespace App\Core\Behaviors\Single;
 
 use Orchid\Platform\Behaviors\Single;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 class TourPage extends Single
 {
-
     /**
      * @var string
      */

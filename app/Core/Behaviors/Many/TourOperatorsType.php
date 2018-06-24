@@ -25,6 +25,7 @@ class TourOperatorsType extends Many
 
     /**
      * Slug url /news/{name}.
+     *
      * @var string
      */
     public $slugFields = 'name';
@@ -45,7 +46,7 @@ class TourOperatorsType extends Many
     public $category = false;
 
     /**
-     * HTTP data filters
+     * HTTP data filters.
      *
      * @var array
      */
@@ -58,6 +59,7 @@ class TourOperatorsType extends Many
 
     /**
      * Rules Validation.
+     *
      * @return array
      */
     public function rules(): array
@@ -78,7 +80,6 @@ class TourOperatorsType extends Many
             'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
             'body'  => 'tag:wysiwyg|name:body|max:255|required|rows:10',
             'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
-
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
@@ -134,9 +135,8 @@ class TourOperatorsType extends Many
         return 'item';
     }
 
-
     /**
-     * Basic statuses possible for the object
+     * Basic statuses possible for the object.
      *
      * @return array
      */

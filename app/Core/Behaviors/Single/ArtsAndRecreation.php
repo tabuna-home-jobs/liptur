@@ -22,7 +22,6 @@ class ArtsAndRecreation extends Single
      */
     public $icon = 'fa fa-american-sign-language-interpreting';
 
-
     /**
      * @return array
      */
@@ -45,5 +44,4 @@ class ArtsAndRecreation extends Single
             UploadPostForm::class,
         ];
     }
-
 }

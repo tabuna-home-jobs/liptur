@@ -9,7 +9,6 @@ use Orchid\Platform\Facades\Dashboard;
 
 class CatalogController extends Controller
 {
-
     /**
      * CatalogController constructor.
      */
@@ -25,10 +24,9 @@ class CatalogController extends Controller
      */
     public function index($typeRequest): View
     {
-
         $typeObject = Dashboard::getPosts()->find($typeRequest) ?? abort(404);
         $query = Post::published()->type($typeRequest)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest);
 
         if ($typeRequest !== 'festivals') {
@@ -37,6 +35,7 @@ class CatalogController extends Controller
 
         $elements = $query->simplePaginate(10);
         $view = property_exists($typeObject, 'listing') ? $typeObject->listing : 'listings.catalog';
+
         return view($view, [
             'elements' => $elements,
             'type'     => $typeObject,
@@ -53,7 +52,6 @@ class CatalogController extends Controller
      */
     public function show($typeRequest, Post $item)
     {
-
         $types = dashboard_posts();
         $typeObject = null;
         foreach ($types as $type) {
@@ -98,7 +96,7 @@ class CatalogController extends Controller
     public function category($category)
     {
         $elements = $category->post()
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->whereDate('publish_at', '<', time())
             ->orderBy('id', 'DESC')
             ->simplePaginate();
@@ -107,7 +105,5 @@ class CatalogController extends Controller
             'elements' => $elements,
             'name'     => $category->getContent('name'),
         ]);
-
     }
-
 }

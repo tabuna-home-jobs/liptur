@@ -1,4 +1,6 @@
-<?php namespace App\Http\Widgets;
+<?php
+
+namespace App\Http\Widgets;
 
 use App\Core\Models\Post;
 use Illuminate\Support\Facades\Cache;
@@ -11,7 +13,6 @@ class RandomRouteWidget extends Widget
      */
     public function run()
     {
-
         $tour = Cache::remember('random-tour', 10, function () {
             $post = Post::where('type', 'tour')->inRandomOrder()->first();
 
@@ -23,5 +24,4 @@ class RandomRouteWidget extends Widget
 
         return view('partials.main.randomtour', $tour);
     }
-
 }

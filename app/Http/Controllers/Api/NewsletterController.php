@@ -8,7 +8,6 @@ use Orchid\Core\Models\Newsletter;
 
 class NewsletterController extends Controller
 {
-
     /**
      * @param NewsletterRequest $request
      *
@@ -23,6 +22,5 @@ class NewsletterController extends Controller
             'message' => 'Данные сохранены',
             'type'    => 'success',
         ]);
-
     }
 }

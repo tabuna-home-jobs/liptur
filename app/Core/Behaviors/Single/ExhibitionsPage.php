@@ -44,5 +44,4 @@ class ExhibitionsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

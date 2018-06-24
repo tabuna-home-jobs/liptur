@@ -12,7 +12,6 @@ class MailReservationObject extends Mailable
 
     protected $param;
 
-
     /**
      * Create a new message instance.
      *
@@ -20,7 +19,6 @@ class MailReservationObject extends Mailable
      */
     public function __construct($param)
     {
-
         $this->param = $param;
     }
 
@@ -36,6 +34,5 @@ class MailReservationObject extends Mailable
             ->with([
                 'param' => $this->param,
             ]);
-
     }
 }

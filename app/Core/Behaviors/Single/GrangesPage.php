@@ -44,5 +44,4 @@ class GrangesPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }

@@ -9,9 +9,9 @@ use Orchid\Platform\Core\Models\Post;
 
 class MapsController extends Controller
 {
-
     /**
-     * Current locale
+     * Current locale.
+     *
      * @var string
      */
     public $locale = 'en';
@@ -43,7 +43,6 @@ class MapsController extends Controller
             });
 
             return $types->sortBy('name');
-
         });
 
         $chunk = round($types->count() / 4);
@@ -62,10 +61,9 @@ class MapsController extends Controller
      */
     public function show($type)
     {
-        $place = Cache::remember('global-maps-' . $type, Carbon::now()->addDays(2), function () use ($type) {
-
+        $place = Cache::remember('global-maps-'.$type, Carbon::now()->addDays(2), function () use ($type) {
             $posts = Post::published()->where('type', $type)
-                ->whereNotNull('content->' . $this->locale . '->place')
+                ->whereNotNull('content->'.$this->locale.'->place')
                 ->get();
             $place = collect();
 
@@ -89,7 +87,6 @@ class MapsController extends Controller
             }
 
             return $place;
-
         });
 
         return response()->json($place);

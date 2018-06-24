@@ -44,5 +44,4 @@ class TourOperatorsPage extends Single
             UploadPostForm::class,
         ];
     }
-
 }
