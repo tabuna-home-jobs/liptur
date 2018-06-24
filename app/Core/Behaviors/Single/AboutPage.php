@@ -2,7 +2,6 @@
 
 namespace App\Core\Behaviors\Single;
 
-use App\Http\Forms\Posts\BaseFormPage;
 use Orchid\Platform\Behaviors\Single;
 
 class AboutPage extends Single
@@ -57,17 +56,6 @@ class AboutPage extends Single
             'slideSix'    => 'tag:textarea|name:slideSix|rows:5|title:Слайд 6|title:Текст для слайда 6',
             'slideSeven'  => 'tag:textarea|name:slideSeven|rows:5|title:Слайд 7|title:Текст для слайда 7',
             'slideEight'  => 'tag:textarea|name:slideEight|rows:5|title:Слайд 8|title:Текст для слайда 8',
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public function modules()
-    {
-        return [
-            BaseFormPage::class,
-
         ];
     }
 }

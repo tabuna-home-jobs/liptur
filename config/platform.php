@@ -254,6 +254,10 @@ return [
 
         //\App\Core\Behaviors\Many\EventType::class, - События были перенесены в фестивали
         \App\Core\Behaviors\Many\TourType::class, //- Туры
+
+
+        //Магазин
+        \App\Behaviors\Many\Product::class,
     ],
 
     /*
