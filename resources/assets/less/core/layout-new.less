@@ -1,0 +1,101 @@
+.rebrand {
+  position: relative;
+  .navbar-header {
+    .navbar-brand {
+      &.navbar-brand-left {
+        position: absolute;
+        left: 15px;
+        
+      }
+      img {
+        max-height: @layout-new-navbar-height;
+      }
+    }
+    position: relative;
+  }
+  
+  .navbar-right {
+    li {
+      a {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .navbar-phone {
+        i.phone-icon {
+          display: inline-block;
+          background-image: url(/img/icons/phone-icon.png);
+          background-size: cover;
+          width: @layout-new-icons-size;
+          height: @layout-new-icons-size;
+          vertical-align: middle;
+          margin: 0 5px;
+        }
+        color: #401b21;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .navbar-auth {
+        a {
+          color: #a5b526;
+        }
+      }
+      .nav-search {
+        .input-group-btn {
+          z-index: 1;
+          left: -25px;
+        }
+        input {
+          border-radius: 25px;
+          height: @layout-new-icons-size;
+          min-height: @layout-new-icons-size;
+          overflow: hidden;
+          z-index: 0;
+        }
+      }
+    }
+    height: @layout-new-navbar-height;
+    padding: 25px 0;
+    margin-left: 350px;
+  }
+  .navbar-nav {
+    > li > button {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    a {
+      color: #401b21;
+      font-size: 14px;
+      font-weight: 700;
+      font-variant: small-caps;
+    }
+  }
+}
+
+.green-button {
+  width: @layout-new-icons-size;
+  height: @layout-new-icons-size;
+  line-height: @layout-new-icons-size;
+  border: 1px @layout-new-background-color solid;
+  border-radius: 20px;
+  overflow: hidden;
+  display: inline-block;
+  text-align: center;
+  color: #a5b526!important;
+  font-size: 11px;
+  font-weight: 700;
+  vertical-align: top;
+  &.raised {
+    color: #fff!important;
+    background: @layout-new-background-color;
+  }
+}
+
+i.key-icon {
+  background-image: url(/img/icons/key.png);
+  display: inline-block;
+  background-size: cover;
+  width: @layout-new-icons-size;
+  height: @layout-new-icons-size;
+  vertical-align: middle;
+}

@@ -12,7 +12,7 @@
  */
 
 $router->group([
-    'prefix'     => Localization::setLocale(),
+    'prefix' => Localization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'carbon-localize'],
 ], function () {
 
@@ -111,7 +111,7 @@ $router->group([
      */
     $this->resource('maps', 'MapsController', ['names' => [
         'index' => 'maps.index',
-        'type'  => 'maps.type',
+        'type' => 'maps.type',
     ]]);
 
     $this->group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
@@ -172,6 +172,10 @@ $router->group([
         $this->get('/{user}/photo', 'CraftsmenController@gallery')->name('craftsmen.photo');
         $this->get('/{user}/news', 'CraftsmenController@news')->name('craftsmen.news');
         $this->get('/{user}/{catalog}', 'CraftsmenController@listing')->name('craftsmen.catalog');
+    });
+
+    $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
+        $this->get('/', 'ShopController@index');
     });
 
     /*
