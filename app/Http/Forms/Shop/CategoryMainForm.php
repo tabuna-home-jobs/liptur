@@ -1,14 +1,13 @@
 <?php
 
-
 namespace App\Http\Forms\Shop;
 
-use Illuminate\Http\Request;
-use Orchid\Platform\Forms\Form;
 use Illuminate\Contracts\View\View;
-use Orchid\Platform\Core\Models\Term;
+use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Category;
 use Orchid\Platform\Core\Models\Taxonomy;
+use Orchid\Platform\Core\Models\Term;
+use Orchid\Platform\Forms\Form;
 
 class CategoryMainForm extends Form
 {

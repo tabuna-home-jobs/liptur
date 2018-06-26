@@ -22,12 +22,10 @@ $this->domain(config('platform.domain'))->group(function () {
         $router->post('/success/{post}', 'CRM\BidController@success')->name('dashboard.liptur.bids.success');
     });
 
-
     $this->group([
         'middleware' => config('platform.middleware.private'),
         'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems/shop'),
     ], function (\Illuminate\Routing\Router $router) {
-
         $router->resource('category', 'Dashboard\Shop\CategoryController', [
             'only'  => [
                 'index', 'create', 'edit', 'update', 'store', 'destroy',
@@ -41,9 +39,5 @@ $this->domain(config('platform.domain'))->group(function () {
                 'destroy' => 'dashboard.liptur.shop.category.destroy',
             ],
         ]);
-
     });
-
-
-
 });

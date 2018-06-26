@@ -87,6 +87,5 @@ class MenuComposer
             ],
             'sort'       => 1,
         ]);
-
     }
 }
