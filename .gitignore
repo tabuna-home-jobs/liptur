@@ -8,6 +8,5 @@ Homestead.yaml
 .env
 /public/panoram/
 *.lock
-fonts
 public/orchid
 public/dist
