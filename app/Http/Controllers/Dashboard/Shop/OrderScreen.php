@@ -2,27 +2,26 @@
 
 namespace App\Http\Controllers\Dashboard\Shop;
 
-use Illuminate\Http\Request;
 use Orchid\Platform\Screen\Screen;
 
 class OrderScreen extends Screen
 {
     /**
-     * Display header name
+     * Display header name.
      *
      * @var string
      */
     public $name = 'OrderController';
 
     /**
-     * Display header description
+     * Display header description.
      *
      * @var string
      */
     public $description = 'OrderController';
 
     /**
-     * Query data
+     * Query data.
      *
      * @return array
      */
@@ -32,7 +31,7 @@ class OrderScreen extends Screen
     }
 
     /**
-     * Button commands
+     * Button commands.
      *
      * @return array
      */
@@ -42,10 +41,11 @@ class OrderScreen extends Screen
     }
 
     /**
-     * Views
+     * Views.
+     *
+     * @throws \Orchid\Platform\Exceptions\TypeException
      *
      * @return array
-     * @throws \Orchid\Platform\Exceptions\TypeException
      */
     public function layout() : array
     {

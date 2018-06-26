@@ -2,9 +2,6 @@
 
 namespace App\Listeners\Shop;
 
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
 class CategoryBaseLister
 {
     /**
@@ -20,7 +17,8 @@ class CategoryBaseLister
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param object $event
+     *
      * @return void
      */
     public function handle($event)
