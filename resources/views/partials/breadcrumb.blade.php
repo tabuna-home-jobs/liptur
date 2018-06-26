@@ -3,7 +3,7 @@
     <li itemprop="itemListElement" itemscope
         itemtype="http://schema.org/ListItem">
         <a href="/" itemprop="item">
-            <i class="icon-location-pin"></i>
+            <i class="fa fa-home"></i>
             <span property="name"> Главная</span>
         </a>
         <meta property="position" content="1">

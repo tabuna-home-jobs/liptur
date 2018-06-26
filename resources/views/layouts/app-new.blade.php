@@ -167,6 +167,13 @@
                 </ul>
             </div>
             <div class="col-md-3">
+              <ul class="nav nav-cart">
+                <li>
+                  <a>
+                    <i class="cart-icon"></i> 0 товаров
+                  </a>
+                </li>
+              </ul>
             </div>
         </div>
     </div>
@@ -523,6 +530,7 @@
 </footer>
 <!-- / footer -->
 
+<script type="text/javascript" src="{{ elixir('/dist/js/orchid.js') }}"></script>
 
 </body>
 
