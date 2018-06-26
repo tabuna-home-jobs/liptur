@@ -14,7 +14,8 @@ var elixir = require('laravel-elixir');
 elixir(function (mix) {
 
 
-  mix.less('./resources/assets/less/app.less', './public/dist/css/orchid.css');
+  mix.less('./resources/assets/less/old/app.less', './public/dist/css/orchid.css');
+    mix.less('./resources/assets/less/new/app.less', './public/dist/css/shop.css');
   mix.styles('./resources/assets/vendor/summernote/dist/summernote-bs3.css', './public/dist/css/summernote.css');
   mix.copy('./resources/assets/vendor/bootstrap/dist/fonts/', './public/build/dist/fonts');
   mix.copy('./resources/assets/vendor/font-awesome/fonts/', './public/build/dist/fonts');

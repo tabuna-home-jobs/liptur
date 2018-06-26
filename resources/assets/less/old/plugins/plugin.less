@@ -1,0 +1,308 @@
+/*Charts*/
+.jqstooltip {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border: solid 1px #000 !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px 10px !important;
+  .box-sizing(content-box);
+}
+
+// easypie
+.easyPieChart {
+  position: relative;
+  text-align: center;
+  > div {
+    position: relative;
+    z-index: 1;
+    .text {
+      position: absolute;
+      width: 100%;
+      top: 60%;
+      line-height: 1;
+    }
+    img {
+      margin-top: -4px;
+    }
+  }
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0
+  }
+}
+
+// flot tip
+#flotTip {
+  padding: 4px 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: solid 1px #000 !important;
+  z-index: 100;
+  font-size: 12px;
+  color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+// flot lengend
+.legendColorBox {
+  > div {
+    border: none !important;
+    margin: 5px;
+    > div {
+      border-radius: 10px;
+    }
+  }
+}
+
+// sortable
+.sortable-placeholder {
+  list-style: none;
+  border: 1px dashed #CCC;
+  min-height: 50px;
+  margin-bottom: 5px
+}
+
+// datatable
+.panel .dataTables_wrapper {
+  padding-top: 10px
+}
+
+.panel .dataTables_wrapper > .row {
+  margin: 0
+}
+
+.panel .dataTables_wrapper > .row > .col-sm-12 {
+  padding: 0;
+}
+
+// sortable
+.st-sort-ascent:before {
+  content: '\25B2';
+}
+
+.st-sort-descent:before {
+  content: '\25BC';
+}
+
+.st-selected td {
+  background: #f0f9ec !important;
+}
+
+// input
+
+.chosen-choices, .chosen-single, .bootstrap-tagsinput {
+  border-radius: 2px !important;
+  border-color: #cfdadd !important;
+}
+
+.bootstrap-tagsinput {
+  padding: 5px 12px !important;
+}
+
+// bar-load
+
+.loading-bar {
+  transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.loading-bar {
+  position: fixed;
+  top: @app-header-height;
+  background: @brand-primary;
+  height: 2px;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glow-bar {
+  top: 0;
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  box-shadow: -3px 0 15px 1px rgba(0, 255, 231, 0.4)
+}
+
+.to-right.loading-bar {
+  left: @app-aside-width;
+}
+
+.to-right .glow-bar {
+  right: 0;
+}
+
+.to-left.loading-bar {
+  right: 0;
+}
+
+.to-left .glow-bar {
+  left: 0;
+}
+
+.full.loading-bar {
+  transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  height: 0;
+  opacity: 0;
+}
+
+.error.loading-bar {
+  background: @brand-danger;
+}
+
+.error .glow-bar {
+  box-shadow: -3px 0 15px 1px rgba(244, 67, 54, 0.4);
+}
+
+.maps {
+  a, span, .gm-style-cc, .gmnoprint {
+    display: none !important;
+  }
+  .gm-style .gm-style-iw {
+    font-weight: 300;
+    font-size: 13px;
+    overflow: hidden;
+    max-width: 400px;
+    line-height: 1.5em;
+    text-align: justify;
+    a {
+      display: inherit !important;
+    }
+
+    img {
+      .img-responsive;
+    }
+  }
+}
+
+.global-maps {
+  height: calc(~"100vh - 186px") !important;
+  width: 100vw;
+  a, span, .gm-style-cc, .gmnoprint {
+    display: none !important;
+  }
+  .gm-style-iw {
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    div {
+      width: 400px !important;
+    }
+  }
+  .gm-style .gm-style-iw {
+    font-weight: 300;
+    font-size: 13px;
+    overflow: hidden;
+    max-width: 400px;
+    line-height: 1.5em;
+    text-align: justify;
+
+    a {
+      display: inherit !important;
+      padding: 15px 15px 5px
+    }
+    p {
+      padding: 5px 15px 10px;
+      line-height: 1.8em;
+    }
+
+    img {
+      .img-responsive;
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+    }
+  }
+
+  .global-card-maps {
+    width: 400px !important;
+  }
+
+}
+
+.calendar-button {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-color: inherit;
+  padding: inherit;
+  color: inherit;
+  background-color: inherit;
+  width: inherit;
+
+  .button {
+    .btn;
+    .btn-outline;
+    .btn-danger;
+    .btn-rounded!important;
+    .btn-sm;
+    .btn-icon;
+
+    display: inherit;
+    .btn-sm {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.fa:before {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .button {
+      box-shadow: 0 0 0 1px @brand-danger inset;
+      color: @brand-white !important;
+      background: @brand-danger;
+    }
+
+  }
+
+}
+
+.bootstrap-datetimepicker-widget {
+  .wrapper!important;
+  .picker-switch {
+    text-transform: capitalize;
+  }
+  table {
+    th {
+      font-weight: 300;
+    }
+  }
+}
+
+#modalSeachIn {
+  background: #f0f3f4;
+  .list-group {
+
+  }
+}
+
+/**
+  affix bootstrap
+ */
+
+.affix {
+  top: 0;
+  max-width: 360px;
+}
+
+.affix-bottom {
+  position: relative;
+}

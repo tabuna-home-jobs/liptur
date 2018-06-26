@@ -1,0 +1,101 @@
+.btn-outline {
+
+  background: none;
+  //border-width:  2px;
+  border-color: transparent;
+  font-weight: 400;
+  transition: all 340ms ease 0s;
+
+  &:hover {
+    background: none;
+    border-color: transparent;
+  }
+
+  &.btn-white {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    color: rgba(255, 255, 255, 0.8);
+
+    &:hover {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 1) inset;
+      color: rgba(255, 255, 255, 1);
+    }
+
+  }
+
+  &.btn-primary {
+
+    box-shadow: 0 0 0 1px darken(@brand-primary, 10%) inset;
+    color: darken(@brand-primary, 10%);
+
+    &:hover {
+      box-shadow: 0 0 0 1px @brand-primary inset;
+      color: @brand-primary;
+    }
+
+  }
+
+  &.btn-success {
+
+    box-shadow: 0 0 0 1px darken(@brand-success, 10%) inset;
+    color: darken(@brand-success, 10%);
+
+    &:hover {
+      box-shadow: 0 0 0 1px @brand-success inset;
+      color: @brand-success;
+    }
+
+  }
+
+  &.btn-info {
+
+    box-shadow: 0 0 0 1px darken(@brand-info, 10%) inset;
+    color: darken(@brand-info, 10%);
+
+    &:hover {
+      box-shadow: 0 0 0 1px @brand-info inset;
+      color: @brand-info;
+    }
+
+  }
+
+  &.btn-warning {
+
+    box-shadow: 0 0 0 1px darken(@brand-warning, 10%) inset;
+    color: darken(@brand-warning, 10%);
+
+    &:hover {
+      box-shadow: 0 0 0 1px @brand-warning inset;
+      color: @brand-warning;
+    }
+
+  }
+
+  &.btn-danger {
+
+    box-shadow: 0 0 0 1px darken(@brand-danger, 10%) inset;
+    color: darken(@brand-danger, 10%) !important;
+
+    &:hover {
+      box-shadow: 0 0 0 1px @brand-danger inset;
+      color: @brand-white !important;
+      background: @brand-danger;
+    }
+
+  }
+
+}
+
+.btn-more {
+  transition: all 1s;
+  &:hover {
+    .btn.btn-danger {
+      box-shadow: 0 0 0 1px @brand-danger inset;
+      color: @brand-white !important;
+      background: @brand-danger;
+    }
+    .text-muted {
+      color: @brand-dark !important;
+    }
+  }
+
+}
