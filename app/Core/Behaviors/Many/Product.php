@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Behaviors\Many;
+namespace App\Core\Behaviors\Many;
 
 use Orchid\Platform\Behaviors\Many;
 use Orchid\Platform\Fields\Field;
@@ -33,11 +33,21 @@ class Product extends Many
     public $slugFields = 'name';
 
     /**
+     * @var string
+     */
+    public $groupname = 'Интернет-магазин';
+
+    /**
+     * @var bool
+     */
+    public $display = true;
+
+    /**
      * Rules Validation.
      *
      * @return array
      */
-    public function rules() : array
+    public function rules(): array
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
@@ -51,7 +61,7 @@ class Product extends Many
      *
      * @return array
      */
-    public function fields() : array
+    public function fields(): array
     {
         return [
             Field::tag('input')
@@ -143,7 +153,7 @@ class Product extends Many
     /**
      * @return array
      */
-    public function modules() : array
+    public function modules(): array
     {
         return [
             BasePostForm::class,
@@ -152,9 +162,26 @@ class Product extends Many
     }
 
     /**
+     * @return array
+     */
+    public function locale(): array
+    {
+        return [
+            'ru' => [
+                'name'     => 'Russian',
+                'script'   => 'Cyrl',
+                'dir'      => 'ltr',
+                'native'   => 'Русский',
+                'regional' => 'ru_RU',
+                'required' => true,
+            ],
+        ];
+    }
+
+    /**
      * Grid View for post type.
      */
-    public function grid() : array
+    public function grid(): array
     {
         return [
             TD::name('name')

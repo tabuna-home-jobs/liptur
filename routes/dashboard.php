@@ -21,4 +21,29 @@ $this->domain(config('platform.domain'))->group(function () {
         $router->post('/deny/{post}', 'CRM\BidController@deny')->name('dashboard.liptur.bids.deny');
         $router->post('/success/{post}', 'CRM\BidController@success')->name('dashboard.liptur.bids.success');
     });
+
+
+    $this->group([
+        'middleware' => config('platform.middleware.private'),
+        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems/shop'),
+    ], function (\Illuminate\Routing\Router $router) {
+
+        $router->resource('category', 'Dashboard\Shop\CategoryController', [
+            'only'  => [
+                'index', 'create', 'edit', 'update', 'store', 'destroy',
+            ],
+            'names' => [
+                'index'   => 'dashboard.liptur.shop.category',
+                'create'  => 'dashboard.liptur.shop.category.create',
+                'edit'    => 'dashboard.liptur.shop.category.edit',
+                'update'  => 'dashboard.liptur.shop.category.update',
+                'store'   => 'dashboard.liptur.shop.category.store',
+                'destroy' => 'dashboard.liptur.shop.category.destroy',
+            ],
+        ]);
+
+    });
+
+
+
 });

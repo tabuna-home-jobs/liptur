@@ -5,6 +5,9 @@ namespace App\Providers;
 use App\Core\Models\User;
 use App\Core\Observers\TitzObserver;
 use App\Core\Observers\UserObserver;
+use App\Events\Shop\CategoryEvent;
+use App\Listeners\Shop\CategoryBaseLister;
+use App\Listeners\Shop\CategoryDescListner;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Orchid\Platform\Core\Models\Post;
 
@@ -16,8 +19,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        CategoryEvent::class => [
+            CategoryBaseLister::class,
+            CategoryDescListner::class,
         ],
     ];
 

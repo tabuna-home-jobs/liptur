@@ -256,7 +256,7 @@ return [
         \App\Core\Behaviors\Many\TourType::class, //- Туры
 
         //Магазин
-        \App\Behaviors\Many\Product::class,
+        \App\Core\Behaviors\Many\Product::class,
     ],
 
     /*

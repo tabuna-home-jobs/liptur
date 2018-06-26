@@ -37,7 +37,7 @@ class MenuComposer
             'label'      => 'Процессы',
             'childs'     => true,
             'main'       => true,
-            'active'     => 'dashboard.liptur.*',
+            'active'     => '*/dashboard/bids*',
             'permission' => 'dashboard.liptur',
             'sort'       => 100,
         ]);
@@ -51,5 +51,42 @@ class MenuComposer
             'permission' => 'dashboard.liptur.bid',
             'sort'       => 1,
         ]);
+
+        $dashboard->menu->add('Shop', [
+            'slug'       => 'shop-product',
+            'icon'       => 'icon-present',
+            'route'      => route('dashboard.posts.type', 'product'),
+            'label'      => 'Продукты',
+            'groupname'  => 'Интернет-магазин',
+            'permission' => 'dashboard.liptur.shop',
+            'sort'       => 1,
+        ]);
+
+        $dashboard->menu->add('Systems', [
+            'slug'       => 'shop-category',
+            'icon'       => 'icon-briefcase',
+            'route'      => route('dashboard.liptur.shop.category'),
+            'groupname'  => 'Интернет-магазин',
+            'label'      => 'Категории',
+            'permission' => 'dashboard.liptur.shop',
+            'sort'       => 1,
+        ]);
+
+        $dashboard->menu->add('Liptur', [
+            'slug'       => 'shop-order',
+            'icon'       => 'icon-wallet',
+            'route'      => route('dashboard.liptur.bids'),
+            'label'      => 'Заказы',
+            'groupname'  => 'Интернет-магазин',
+            'permission' => 'dashboard.liptur.shop',
+            'badge'      => [
+                'class' => 'bg-primary',
+                'data'  => function () {
+                    return 7;
+                },
+            ],
+            'sort'       => 1,
+        ]);
+
     }
 }
