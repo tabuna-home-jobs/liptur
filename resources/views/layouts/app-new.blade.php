@@ -167,7 +167,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-              <ul class="nav nav-cart">
+              <ul class="nav nav-cart pull-right">
                 <li>
                   <a>
                     <i class="cart-icon"></i> 0 товаров
