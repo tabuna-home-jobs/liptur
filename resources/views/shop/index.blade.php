@@ -12,7 +12,7 @@
             <img class="img-responsive" src="/img/tour/background/news.png"
                   alt=""
                   style="width: auto;margin: 0 auto;     max-height: 600px;">
-            <div class="owl-shop-block">
+            <div class="owl-shop-block container">
               <div class="col-md-10 no-padder">
                 <div class="owl-shop-title">
                   Настоящие Елецие кружева
