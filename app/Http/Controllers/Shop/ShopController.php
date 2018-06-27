@@ -32,4 +32,13 @@ class ShopController extends Controller
         return view('shop.catalog', [
         ]);
     }
+
+    /**
+     * @return View
+     */
+    public function products(): View
+    {
+        return view('shop.products', [
+        ]);
+    }
 }
