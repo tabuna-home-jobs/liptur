@@ -23,4 +23,13 @@ class ShopController extends Controller
         return view('shop.index', [
         ]);
     }
+
+    /**
+     * @return View
+     */
+    public function catalog(): View
+    {
+        return view('shop.catalog', [
+        ]);
+    }
 }

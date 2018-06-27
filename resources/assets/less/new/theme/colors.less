@@ -28,6 +28,11 @@
   .font-variant(@brand-black);
 }
 
+.bg-bordo {
+  .color-variant(@brand-bordo, 5%, 10%, 5%, 10%);
+  .font-variant(@brand-bordo);
+}
+
 .bg-primary {
   .color-variant(@brand-primary, 5%, 10%, 5%, 10%);
   .font-variant(@brand-primary);
@@ -105,6 +110,13 @@ a.bg-light {
 
 .text-white {
   color: #fff;
+
+}
+.text-green {
+  color: @brand-text-green;
+  a&:hover {
+    color: #577c36;
+  }
 }
 
 .text-black {
