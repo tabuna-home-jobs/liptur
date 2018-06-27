@@ -7,38 +7,26 @@
 <section class="container-fluid">
   <div class="row">
     <div class="owl-carousel owl-theme main-carousel owl-with-dots">
+      @for ($i = 0; $i < 4; $i++)
         <div class="item">
             <img class="img-responsive" src="/img/tour/background/news.png"
                   alt=""
                   style="width: auto;margin: 0 auto;     max-height: 600px;">
             <div class="owl-shop-block">
-              <div class="owl-shop-title">
-                Настоящие Елецие кружева
+              <div class="col-md-10 no-padder">
+                <div class="owl-shop-title">
+                  Настоящие Елецие кружева
+                </div>
+                <div class="owl-shop-description">
+                  На восточной окраине Киевской Руси одним из древнейших был город Воргол. Название города, как утверждают краеведы, возникло до славянской колонизации. Слово "воргол" в переводе с древне-мордовского на современный русский язык означает "лесная река". В период феодальной раздробленности Воргол стал центром воргольского удельного княжества ...
+                </div>
               </div>
-              <div class="owl-shop-description">
-                На восточной окраине Киевской Руси одним из древнейших был город Воргол. Название города, как утверждают краеведы, возникло до славянской колонизации. Слово "воргол" в переводе с древне-мордовского на современный русский язык означает "лесная река". В период феодальной раздробленности Воргол стал центром воргольского удельного княжества ...
-              </div>
-              <div class="owl-shop-price">
-                <span>от</span> 999 руб.
-              </div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="img-responsive owl-lazy"
-                  data-src="/img/tour/background/news.png" alt=""
-                  style="width: auto;margin: 0 auto;    max-height: 600px;"/>
-            <div class="owl-shop-block">
-              <div class="owl-shop-title">
-                Настоящие Елецие кружева
-              </div>
-              <div class="owl-shop-description">
-                На восточной окраине Киевской Руси одним из древнейших был город Воргол. Название города, как утверждают краеведы, возникло до славянской колонизации. Слово "воргол" в переводе с древне-мордовского на современный русский язык означает "лесная река". В период феодальной раздробленности Воргол стал центром воргольского удельного княжества ...
-              </div>
-              <div class="owl-shop-price">
-                <span>от</span> 999 руб.
+              <div class="col-md-2 no-padder owl-shop-price">
+                <span>от</span> 999 <span>руб.</span>
               </div>
             </div>
         </div>
+        @endfor
     </div>
 
     <nav>
