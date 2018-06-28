@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard\Shop;
 
+use App\Http\Forms\Shop\CategoryFormGroup;
 use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Http\Controllers\Controller;
-use App\Http\Forms\Shop\CategoryFormGroup;
 
 class CategoryController extends Controller
 {
