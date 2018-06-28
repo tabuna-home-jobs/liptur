@@ -3,14 +3,13 @@
 namespace App\Http\Forms\Shop;
 
 use App\Core\Models\ShopCategory;
+use App\Core\Models\Term as AppTerm;
 use Cviebrock\EloquentSluggable\Services\SlugService;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Core\Models\Term;
 use Orchid\Platform\Forms\Form;
-use App\Core\Models\Term as AppTerm;
 
 class CategoryMainForm extends Form
 {
@@ -84,9 +83,8 @@ class CategoryMainForm extends Form
         $params['slug'] = SlugService::createSlug(
             AppTerm::class,
             'slug',
-            array_get($params,'content.ru.name')
+            array_get($params, 'content.ru.name')
         );
-
 
         $term = ($request->get('term_id') == 0) ? Term::create($params) : Term::find($request->get('term_id'));
         $term->fill($params);

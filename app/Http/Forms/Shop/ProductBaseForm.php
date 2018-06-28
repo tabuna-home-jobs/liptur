@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Forms\Shop;
 
-use Illuminate\View\View;
-use Orchid\Platform\Forms\Form;
 use Illuminate\Support\Facades\App;
-use Orchid\Platform\Core\Models\Post;
-use Orchid\Platform\Core\Models\Category;
-use Orchid\Platform\Core\Models\Taxonomy;
+use Illuminate\View\View;
 use Orchid\Platform\Behaviors\Many as PostBehaviors;
+use Orchid\Platform\Core\Models\Category;
+use Orchid\Platform\Core\Models\Post;
+use Orchid\Platform\Core\Models\Taxonomy;
+use Orchid\Platform\Forms\Form;
 
 class ProductBaseForm extends Form
 {
