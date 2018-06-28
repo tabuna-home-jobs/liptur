@@ -175,6 +175,7 @@ $router->group([
     });
 
     $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
+        $this->get('/product/{product}', 'ShopController@product');
         $this->get('/catalog', 'ShopController@catalog');
         $this->get('/', 'ShopController@index');
     });

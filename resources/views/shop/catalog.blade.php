@@ -21,7 +21,6 @@
 
 <section>
   <div class="container padder-v">
-    <div class="col-md-12">
       <div class="row"> 
         <div class="block-header">
           Каталог товаров
@@ -43,7 +42,6 @@
         </article>
         @endfor
       </div>
-    </div>
   </div>
 </section>
 @endsection

@@ -298,31 +298,27 @@ article.shop-product {
 
 
 #content {
-  .b-b {
-    border-bottom: 1px solid #A1D4BD;
-  }
   background: #EEEFEE;
 
-  .container-fluid {
-    .breadcrumb {
+
+  .breadcrumb {
+    color: #8f8f8f;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 34px;
+    > li + li:before {
+      content: "-";
+      padding: 0 5px;
+      color: #8f8f8f;
+    }
+    a, li.active {
       color: #8f8f8f;
       font-family: Roboto;
       font-size: 12px;
       font-weight: 400;
       line-height: 34px;
-      > li + li:before {
-        content: "-";
-        padding: 0 5px;
-        color: #8f8f8f;
-      }
-      a, li.active {
-        color: #8f8f8f;
-        font-family: Roboto;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 34px;
-        opacity: 1;
-      }
+      opacity: 1;
     }
   }
 }
@@ -392,4 +388,12 @@ article.shop-product {
     font-weight: 700;
     text-transform: uppercase;
   }
+}
+
+
+.container-lg{
+  .container;
+
+  width: 100%!important;
+  max-width: 1600px;
 }

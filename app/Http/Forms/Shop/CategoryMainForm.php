@@ -2,9 +2,9 @@
 
 namespace App\Http\Forms\Shop;
 
+use App\Core\Models\ShopCategory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Orchid\Platform\Core\Models\Category;
 use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Core\Models\Term;
 use Orchid\Platform\Forms\Form;
@@ -54,11 +54,13 @@ class CategoryMainForm extends Form
         $termTaxonomy = $termTaxonomy ?: new $this->model([
             'id' => 0,
         ]);
-        $category = Category::where('id', '!=', $termTaxonomy->id)->get();
+        $category = ShopCategory::where('id', '!=', $termTaxonomy->id)->get();
+        $behavior = new CategoryTemplate();
 
-        return view('dashboard::container.systems.category.info', [
+        return view('dashboard.shop.category.info', [
             'category'     => $category,
             'termTaxonomy' => $termTaxonomy,
+            'behavior'     => $behavior,
         ]);
     }
 
@@ -75,11 +77,16 @@ class CategoryMainForm extends Form
         }
 
         $term = ($request->get('term_id') == 0) ? Term::create($request->all()) : Term::find($request->get('term_id'));
+        $term->fill($request->all());
+
         $termTaxonomy->fill($this->request->all());
         $termTaxonomy->term_id = $term->id;
 
         $termTaxonomy->save();
         $term->save();
+
+        //$termTaxonomy->term->fill($request->all());
+        //$termTaxonomy->term->save();
     }
 
     /**

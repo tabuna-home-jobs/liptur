@@ -3,7 +3,7 @@
 namespace App\Http\Forms\Shop;
 
 use App\Core\Models\ShopCategory;
-use App\Events\Shop\CategoryEvent;
+use App\Events\Shop\ShopCategoryEvent;
 use Orchid\Platform\Forms\FormGroup;
 
 class CategoryFormGroup extends FormGroup
@@ -11,7 +11,7 @@ class CategoryFormGroup extends FormGroup
     /**
      * @var
      */
-    public $event = CategoryEvent::class;
+    public $event = ShopCategoryEvent::class;
 
     /**
      * @var
@@ -34,11 +34,11 @@ class CategoryFormGroup extends FormGroup
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function main(): View
+    public function main()
     {
         $behavior = new CategoryTemplate();
 
-        return view('dashboard::container.systems.category.grid', [
+        return view('dashboard.shop.category.grid', [
             'category' => ShopCategory::filtersApply($behavior->filters())->where('parent_id', 0)->with('allChildrenTerm')->paginate(),
             'behavior' => $behavior,
             'filters'  => collect($behavior->filters()),

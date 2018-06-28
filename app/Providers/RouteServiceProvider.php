@@ -3,10 +3,9 @@
 namespace App\Providers;
 
 use App\Core\Models\Post;
+use App\Core\Models\ShopCategory;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-
-//use Orchid\Platform\Core\Models\Post;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,7 +25,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::bind('shop-category', function ($value) {
+            if (is_numeric($value)) {
+                return ShopCategory::where('id', $value)->firstOrFail();
+            }
+
+            return ShopCategory::findOrFail($value);
+        });
 
         parent::boot();
     }

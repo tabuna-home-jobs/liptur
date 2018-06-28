@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Http\Controllers\Controller;
-use Orchid\Platform\Http\Forms\Category\CategoryFormGroup;
+use App\Http\Forms\Shop\CategoryFormGroup;
 
 class CategoryController extends Controller
 {
@@ -40,7 +40,7 @@ class CategoryController extends Controller
     public function create()
     {
         return $this->form
-            ->route('dashboard.systems.category.store')
+            ->route('dashboard.liptur.shop.category.store')
             ->method('POST')
             ->render();
     }
@@ -78,7 +78,7 @@ class CategoryController extends Controller
     public function edit(Taxonomy $termTaxonomy)
     {
         return $this->form
-            ->route('dashboard.systems.category.update')
+            ->route('dashboard.liptur.shop.category.update')
             ->slug($termTaxonomy->id)
             ->method('PUT')
             ->render($termTaxonomy);
@@ -111,6 +111,6 @@ class CategoryController extends Controller
 
         Alert::success(trans('dashboard::common.alert.success'));
 
-        return redirect()->route('dashboard.systems.category');
+        return redirect()->route('dashboard.liptur.shop.category');
     }
 }

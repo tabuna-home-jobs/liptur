@@ -184,7 +184,7 @@ return [
         Conner\Likeable\LikeableServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
-
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
     ],
 
     /*
@@ -237,6 +237,7 @@ return [
         'Feed'         => Roumen\Feed\Feed::class,
         'Date'         => Jenssegers\Date\Date::class,
         'NoCaptcha'    => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'Cart'         => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

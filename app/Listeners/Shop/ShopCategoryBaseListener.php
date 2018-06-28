@@ -2,7 +2,9 @@
 
 namespace App\Listeners\Shop;
 
-class CategoryDescListner
+use App\Http\Forms\Shop\CategoryMainForm;
+
+class ShopCategoryBaseListener
 {
     /**
      * Create the event listener.
@@ -23,6 +25,6 @@ class CategoryDescListner
      */
     public function handle($event)
     {
-        //
+        return CategoryMainForm::class;
     }
 }

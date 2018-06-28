@@ -26,7 +26,7 @@ $this->domain(config('platform.domain'))->group(function () {
         'middleware' => config('platform.middleware.private'),
         'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems/shop'),
     ], function (\Illuminate\Routing\Router $router) {
-        $router->resource('category', 'Dashboard\Shop\CategoryController', [
+        $router->resource('shop-category', 'Dashboard\Shop\CategoryController', [
             'only'  => [
                 'index', 'create', 'edit', 'update', 'store', 'destroy',
             ],

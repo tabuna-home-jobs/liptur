@@ -32,4 +32,13 @@ class ShopController extends Controller
         return view('shop.catalog', [
         ]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function product() : View
+    {
+        return view('shop.product');
+    }
+
 }
