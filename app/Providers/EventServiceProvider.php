@@ -7,7 +7,6 @@ use App\Core\Observers\TitzObserver;
 use App\Core\Observers\UserObserver;
 use App\Events\Shop\ShopCategoryEvent;
 use App\Listeners\Shop\ShopCategoryBaseListener;
-use App\Listeners\Shop\ShopCategoryDescListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Orchid\Platform\Core\Models\Post;
 
