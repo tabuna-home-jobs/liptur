@@ -39,9 +39,8 @@
 
 <section>
   <div class="container padder-v">
-    <div class="col-md-12">
       <div class="row"> 
-        <div class="block-header">
+        <div class="block-header col-xs-12">
           Новинки и спецпредложения
           <a>
             Самое интересное
@@ -73,7 +72,6 @@
         </article>
         @endfor
       </div>
-    </div>
   </div>
   <div class="wrapper bg-white b-b box-shadow-lg padder-v">
     <div class="container shop-categories-widget">

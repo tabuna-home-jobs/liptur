@@ -4,7 +4,7 @@
 @section('keywords','Магазин')
 @section('content')
 
-<section class="container-fluid">
+<section class="container-lg">
   <div class="row">
     <div class="bg-bordo">
       <div class="container">
@@ -21,8 +21,9 @@
 
 <section>
   <div class="container padder-v">
-    <div class="row">
+    <div class="row col-xs-12">
       <div class="col-md-3">
+        <div></div>
       </div>
       <div class="col-md-9">
         <div class="block-header">
