@@ -163,8 +163,9 @@ class Product extends Many
     }
 
     /**
-     * @return array
      * @throws \Orchid\Platform\Exceptions\TypeException
+     *
+     * @return array
      */
     public function options(): array
     {
