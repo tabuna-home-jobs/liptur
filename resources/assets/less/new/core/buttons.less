@@ -37,6 +37,29 @@
 
 .btn-success {
   .button-variant(#fff, @brand-success, @brand-success);
+  &:hover {
+    background-color: #5F7B3F;
+  }
+}
+
+.btn-light {
+  border: 1px solid #a5b526;
+  background: initial;
+  color: #a5b526;
+   &:hover {
+    background-color: #5F7B3F;
+    color: #fff;
+  }
+  &[disabled] {
+    background-color: initial;
+    border: 1px solid #a5b526;
+    color: #c4c4c4!important;
+    font-size: 12px;
+    font-weight: 700;
+    &:hover {
+       background-color: initial;
+    }
+  }
 }
 
 .btn-info {
