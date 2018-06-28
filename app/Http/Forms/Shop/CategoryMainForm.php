@@ -3,11 +3,14 @@
 namespace App\Http\Forms\Shop;
 
 use App\Core\Models\ShopCategory;
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Core\Models\Term;
 use Orchid\Platform\Forms\Form;
+use App\Core\Models\Term as AppTerm;
 
 class CategoryMainForm extends Form
 {
@@ -40,7 +43,7 @@ class CategoryMainForm extends Form
     public function rules() : array
     {
         return [
-            'slug' => 'required|max:255|unique:terms,slug,'.$this->request->get('slug').',slug',
+            //'slug' => 'sometimes|required|max:255|unique:terms,slug,'.$this->request->get('slug').',slug',
         ];
     }
 
@@ -54,6 +57,7 @@ class CategoryMainForm extends Form
         $termTaxonomy = $termTaxonomy ?: new $this->model([
             'id' => 0,
         ]);
+
         $category = ShopCategory::where('id', '!=', $termTaxonomy->id)->get();
         $behavior = new CategoryTemplate();
 
@@ -76,10 +80,18 @@ class CategoryMainForm extends Form
             $termTaxonomy = new $this->model();
         }
 
-        $term = ($request->get('term_id') == 0) ? Term::create($request->all()) : Term::find($request->get('term_id'));
-        $term->fill($request->all());
+        $params = $request->all();
+        $params['slug'] = SlugService::createSlug(
+            AppTerm::class,
+            'slug',
+            array_get($params,'content.ru.name')
+        );
 
-        $termTaxonomy->fill($this->request->all());
+
+        $term = ($request->get('term_id') == 0) ? Term::create($params) : Term::find($request->get('term_id'));
+        $term->fill($params);
+
+        $termTaxonomy->fill($params);
         $termTaxonomy->term_id = $term->id;
 
         $termTaxonomy->save();

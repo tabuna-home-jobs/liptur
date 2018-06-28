@@ -26,11 +26,11 @@
 
 
 
-        <div class="form-group m-t-md">
+        <div class="form-group m-t-md none">
         <label class="control-label">{{trans('dashboard::systems/category.slug')}}</label>
         <input type="text" name="slug"
                value="{{!$termTaxonomy->exists ? null : optional($termTaxonomy->term)->slug}}"
-               required class="form-control" placeholder="news">
+               class="form-control" placeholder="news">
     </div>
 
 

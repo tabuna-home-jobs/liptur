@@ -44,6 +44,13 @@ class CategoryTemplate
     {
         return [
 
+            Field::tag('picture')
+                ->name('picture')
+                ->title('Фоновое отображение раздела')
+                ->help('Изображение характеризующее раздел')
+                ->width(1600)
+                ->height(120),
+
             Field::tag('input')
                 ->type('text')
                 ->name('name')

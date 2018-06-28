@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Core\Models\User;
+use App\Core\Observers\ProductObserver;
 use App\Core\Observers\TitzObserver;
 use App\Core\Observers\UserObserver;
 use App\Events\Shop\ShopCategoryEvent;
@@ -34,5 +35,6 @@ class EventServiceProvider extends ServiceProvider
 
         User::observe(UserObserver::class);
         Post::observe(TitzObserver::class);
+        Post::observe(ProductObserver::class);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Core\Behaviors\Many;
 
+use App\Http\Forms\Shop\ProductBaseForm;
 use Orchid\Platform\Behaviors\Many;
 use Orchid\Platform\Fields\Field;
-use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Platform\Platform\Fields\TD;
 
@@ -53,6 +53,19 @@ class Product extends Many
             'id'             => 'sometimes|integer|unique:posts',
             'content.*.name' => 'required|string',
             'content.*.body' => 'required|string',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function status(): array
+    {
+        return [
+            'stock'   => 'В наличии',
+            'order'   => 'Под заказ',
+            'missing' => 'Отсутствует',
+            'hidden'  => 'Скрытый',
         ];
     }
 
@@ -107,12 +120,11 @@ class Product extends Many
                 ->required()
                 ->title('Вес'),
 
-            Field::tag('checkbox')
-                ->name('free')
-                ->value(1)
-                ->title('Free')
-                ->placeholder('Event for free')
-                ->help('Event for free'),
+            Field::tag('input')
+                ->type('numeric')
+                ->name('price')
+                ->required()
+                ->title('Стоимость'),
 
             Field::tag('input')
                 ->type('text')
@@ -152,11 +164,29 @@ class Product extends Many
 
     /**
      * @return array
+     * @throws \Orchid\Platform\Exceptions\TypeException
+     */
+    public function options(): array
+    {
+        return [
+            Field::tag('checkbox')
+                ->name('new')
+                ->value(0)
+                ->title('Новинка'),
+            Field::tag('checkbox')
+                ->name('special')
+                ->value(0)
+                ->title('Cпецпредложение'),
+        ];
+    }
+
+    /**
+     * @return array
      */
     public function modules(): array
     {
         return [
-            BasePostForm::class,
+            ProductBaseForm::class,
             UploadPostForm::class,
         ];
     }
