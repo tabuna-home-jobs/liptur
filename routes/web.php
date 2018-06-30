@@ -12,7 +12,7 @@
  */
 
 $router->group([
-    'prefix' => Localization::setLocale(),
+    'prefix'     => Localization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'carbon-localize'],
 ], function () {
 
@@ -111,7 +111,7 @@ $router->group([
      */
     $this->resource('maps', 'MapsController', ['names' => [
         'index' => 'maps.index',
-        'type' => 'maps.type',
+        'type'  => 'maps.type',
     ]]);
 
     $this->group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
