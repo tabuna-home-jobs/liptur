@@ -25,7 +25,7 @@
       Корзина
     </div>
     <div id="cart">
-      <div class="col-md-9">
+      <div class="col-md-8">
         @for ($i = 0; $i < 3; $i++)
           <div class="row panel panel-default box-shadow-lg pos-rlt">
             <div class="col-md-4 no-padder-h">
@@ -33,16 +33,73 @@
                 <img src="https://images.pexels.com/photos/66869/green-leaf-natural-wallpaper-royalty-free-66869.jpeg?auto=compress&cs=tinysrgb&h=350"/>
               </div>
             </div>
-            <div class="col-md-8 padder-v">
+            <div class="col-md-7 padder-v">
               <div class="text-green text-bold text-lg">Свистулька “Тиу-тиу-тиу”</div>
               <div class="padder-v-micro text-sm">
                 Еврокомиссия (ЕК) закрыла антимонопольное расследование против «Газпрома», которое продолжалось в течение нескольких лет, говорится в заявлении на сайте ЕК...
+              </div>
+              <div class="row m-t">
+                <div class="col-xs-4">
+                  <div class="input-group cart-component">
+                    <input type="text" class="form-control"/>
+                    <button type="button" class="btn btn-default">
+                      +
+                    </button>
+                    <button type="button" class="btn btn-default">
+                      -
+                    </button>
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="text-sm">Цена за 1 шт:</div>
+                  <em class="text-green text-xxxl">580 250</em>&nbsp;<em class="text-sm text-green">руб.</em>
+                </div>
+                <div class="col-xs-4">
+                  <div class="text-sm">Сумма:</div>
+                  <em class="text-green text-xxxl">580 250</em>&nbsp;<em class="text-sm text-green">руб.</em>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-1">
+              <div class="padder-t">
+                <i class="fa fa-close pull-right text-green"></i>
               </div>
             </div>
           </div>
         @endfor
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
+        <div class="panel panel-cart-1 box-shadow-lg pos-rlt wrapper-md m-n">
+          <div>
+            Товаров в корзине: 47
+          </div>
+          <div class="row b-b m-b padder-v-micro">
+            <div class="col-xs-12">
+              <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">228 558 343</em>&nbsp;<em class="text-green text-md">руб.</em>
+            </div>
+          </div>
+          <button class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</button>
+        </div>
+        <div class="panel panel-cart-2  box-shadow-lg pos-rlt wrapper-md">
+          <div class="row">
+            <div class="b-b padder-v"></div>
+            <div class="b-b padder-v">
+              <div class="padder-md">Удобная и быстрая доставка по всей России</div>
+            </div>
+            <div class="b-b padder-v">
+              <div class="padder-md">30 дней на возврат товара</div>
+            </div>
+            <div class="b-b padder-v">
+              <div class="padder-md">Гарантия подлинности и качества</div>
+            </div>
+            <div class="b-b padder-v">
+              <div class="padder-md">Все товары и цены - напрямую от производителей</div>
+            </div>
+            <div class="b-b padder-v">
+              <div class="padder-md">Безопасность платежей гарантируетсяиспользованием SSL протокола</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
