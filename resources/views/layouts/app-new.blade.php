@@ -158,10 +158,10 @@
         <div class="row padder-l-xl no-p-xs">
             <div class="col-xs-9 hidden-xs">
                 <ul class="nav navbar-nav nav-bar-sub font-bold text-u-c">
-                    <li><a href="#">Каталог товаров</a></li>
-                    <li><a href="#">Доставка и оплата</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="#">Обратная связь</a></li>
+                    <li><a class="text-green" href="#">Каталог товаров</a></li>
+                    <li><a class="text-green" href="#">Доставка и оплата</a></li>
+                    <li><a class="text-green" href="#">Контакты</a></li>
+                    <li><a class="text-green" href="#">Обратная связь</a></li>
                 </ul>
             </div>
             <div class="col-xs-6 visible-xs">
