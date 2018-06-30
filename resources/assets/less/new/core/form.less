@@ -252,36 +252,35 @@
   }
 }
 
-.form-control-green {
-  background: @brand-white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHBAMAAADOnLEXAAAAAXNSR0IB2cksfwAAABhQTFRFAAAAn7gAoLYAobcAoLYAoLYAn7cAoLYAlBaVrgAAAAh0Uk5TAD1GOf/7dfpj16nEAAAAK0lEQVR4nGNgZAACBQYTBwYGVjcGFhcGhhIg08WBHcgCckEcIBfEAXKBHABr4gR0v5AEvQAAAABJRU5ErkJggg==') no-repeat;
-  background-position: right 10px top 15px; 
-  border: 1px solid #e7e8e7;
-  -webkit-appearance: none;
-  color: #401b21;
-  font-family: "William Text Pro";
-  font-size: 13px;
-  font-weight: 400;
-  line-height: normal;
-  height: 35px;
-  padding: 9px 30px 9px 12px;
-  vertical-align: middle;
-  min-height: 35px;
-  .transition(all 0.12s ease);
-  .box-shadow(none);
-  .transition(background 0.2s linear 0s);
-  &:focus {
-    outline: 0 !important;
-    .box-shadow(none);
+.btn-default {
+  .caret {
+    width: 12px;
+    height: 7px;
+    margin-left: 5px;
+    border: 0!important;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHBAMAAADOnLEXAAAAAXNSR0IB2cksfwAAABhQTFRFAAAAn7gAoLYAobcAoLYAoLYAn7cAoLYAlBaVrgAAAAh0Uk5TAD1GOf/7dfpj16nEAAAAK0lEQVR4nGNgZAACBQYTBwYGVjcGFhcGhhIg08WBHcgCckEcIBfEAXKBHABr4gR0v5AEvQAAAABJRU5ErkJggg==') no-repeat;
   }
-  &[disabled],
-  &[readonly],
-  fieldset[disabled] & {
-    background: mix(@brand-light, #fff, 50%);
-    color: fade(@brand-light, 23%);
+  .dropdown-toggle {
+    border-bottom: 0;
   }
-  option {
-    border: 1px solid #e7e8e7;
+}
+.btn-default:active:hover, .btn-default.active:hover, .open > .dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open > .dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open > .dropdown-toggle.btn-default.focus {
+  background-color: #fff!important;
+}
+.dropdown-menu {
+  margin: 0;
+  padding: 0;
+  min-width: auto;
+  width: 100%;
+  border-top: 0;
+  li {
     background-color: #3f7d2c;
-    color: #fff;
+    a {
+      color: @brand-white;
+      &:hover {
+        background-color: #3f7d2c!important;
+        color: #d3e068;
+      }
+    }
   }
 }

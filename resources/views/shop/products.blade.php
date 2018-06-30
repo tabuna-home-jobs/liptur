@@ -57,20 +57,32 @@
         <div class="row padder-v-micro">
            <div class="col-xs-6">
             <label for="sel1">Сортировать:</label>
-            <select class="form-control-green" id="sel1">
-              <option>От меньшей цены</option>
-              <option>От большей цены</option>
-              <option>От А до Я      </option>
-              <option>От Я до А       </option>
-            </select>
+            <div class="dropdown inline">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuSort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                От меньшей цены
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuSort">
+                <li><a href="#">От меньшей цены</a></li>
+                <li><a href="#">От большей цены</a></li>
+                <li><a href="#">От А до Я</a></li>
+                <li><a href="#">От Я до А</a></li>
+              </ul>
+            </div>
           </div>
           <div class="col-xs-6">
-            <select class="form-control-green pull-right" id="sel1">
-              <option>15</option>
-              <option>30</option>
-              <option>60</option>
-              <option>90</option>
-            </select>
+             <div class="dropdown inline pull-right">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuRowCount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                15
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuRowCount">
+                <li><a href="#">15</a></li>
+                <li><a href="#">30</a></li>
+                <li><a href="#">60</a></li>
+                <li><a href="#">90</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -100,16 +112,16 @@
         </div>
         <div class="row padder-v">
           <div class="col-xs-2">
-            <button class="btn btn-light btn-rounded" disabled><i class="brand-icon-left-dis"></i>НАЗАД</button>
+            <button class="btn btn-light btn-rounded" disabled><i class="brand-icon-left"></i>НАЗАД</button>
           </div>
-          <div class="col-xs-8">
-            <button class="btn btn-rounded btn-success m-h-xs">1</button>
-            <button class="btn btn-rounded btn-success m-h-xs">2</button>
-            <button class="btn btn-rounded btn-success m-h-xs">3</button>
-            <button class="btn btn-rounded btn-success m-h-xs">4</button>
-            <button class="btn btn-rounded btn-success m-h-xs">5</button>
+          <div class="col-xs-8 text-center">
+            <button class="btn btn-circled btn-success m-h-xs">1</button>
+            <button class="btn btn-circled btn-light m-h-xs">2</button>
+            <button class="btn btn-circled btn-light m-h-xs">3</button>
+            <button class="btn btn-circled btn-light m-h-xs">4</button>
+            <button class="btn btn-circled btn-light m-h-xs">5</button>
             <span class="text-green">...</span>
-            <button class="btn btn-rounded btn-success m-h-xs">85</button>
+            <button class="btn btn-circled btn-success m-h-xs">85</button>
           </div>
           <div class="col-xs-2">
             <button class="btn btn-light btn-rounded">ВПЕРЕД<i class="brand-icon-right"></i></button>

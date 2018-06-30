@@ -184,20 +184,39 @@ i.key-icon {
   vertical-align: middle;
 }
 
-.brand-icon-right {
-  display: inline-block;
-  vertical-align: middle;
-  background-image: url(/img/icons/arrow-right.png);
-  height: 10px;
-  width: 18px;
-}
-
-.brand-icon-left-dis {
-  display: inline-block;
-  vertical-align: middle;
-  background-image: url(/img/icons/arrow-left-dis.png);
-  height: 10px;
-  width: 18px;
+button {
+  .brand-icon-right {
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(/img/icons/arrow-right.png);
+    height: 10px;
+    margin: 0 5px;
+    width: 18px;
+  }
+  .brand-icon-left {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+    background-image: url(/img/icons/arrow-left.png);
+    height: 10px;
+    width: 18px;
+  }
+  &[disabled] {
+    .brand-icon-left {
+      background-image: url(/img/icons/arrow-left-dis.png);
+    }
+    .brand-icon-right {
+      background-image: url(/img/icons/arrow-left-right.png);
+    }
+  }
+  &:hover:not([disabled]) {
+    .brand-icon-left {
+      background-image: url(/img/icons/arrow-left-hover.png);
+    }
+    .brand-icon-right {
+      background-image: url(/img/icons/arrow-right-hover.png);
+    }
+  }
 }
 
 i.cart-icon {
