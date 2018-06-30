@@ -53,15 +53,11 @@
 
     <div class="container padder-v rebrand">
         <div class="navbar-header">
-            <button class="btn btn-link visible-xs pull-right m-r" type="button" data-toggle="collapse"
-                    data-target=".navbar-collapse">
-                <i class="fa fa-bars"></i>
-            </button>
-            <a href="/{{App::getLocale()}}" class="navbar-brand m-r-lg navbar-brand-left" title="На главную">
-                <img src="/img/new-logo.png" alt="LipTur">
-            </a>
+          <a href="/{{App::getLocale()}}" class="navbar-brand m-r-lg navbar-brand-left" title="На главную">
+            <img src="/img/new-logo.png" alt="LipTur">
+          </a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right hidden-xs">
             <li class="col-md-3">
                 <div class="navbar-phone">
                     <i class="phone-icon"></i>
@@ -157,8 +153,8 @@
             </ul>
         </div>
 
-        <div class="col-md-12">
-            <div class="col-md-9 ">
+        <div class="row padder-l-xl">
+            <div class="col-xs-9 hidden-xs">
                 <ul class="nav navbar-nav nav-bar-sub font-bold text-u-c">
                     <li><a href="#">Каталог товаров</a></li>
                     <li><a href="#">Доставка и оплата</a></li>
@@ -166,7 +162,13 @@
                     <li><a href="#">Обратная связь</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-xs-9 visible-xs">
+               <button class="btn btn-link visible-xs m-r" type="button" data-toggle="collapse"
+                  data-target=".navbar-collapse">
+                  <i class="fa fa-bars"></i>
+              </button>
+            </div>
+            <div class="col-xs-3">
               <ul class="nav nav-cart pull-right">
                 <li>
                   <a>

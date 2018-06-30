@@ -1,4 +1,4 @@
-<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+<ol class="breadcrumb b-b" itemscope itemtype="http://schema.org/BreadcrumbList">
 
     <li itemprop="itemListElement" itemscope
         itemtype="http://schema.org/ListItem">

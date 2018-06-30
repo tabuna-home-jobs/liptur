@@ -7,8 +7,8 @@
     .navbar-brand {
       &.navbar-brand-left {
         position: absolute;
-        left: 15px;
-        
+        left: 0;
+
       }
       img {
         max-height: @layout-new-navbar-height;
@@ -343,7 +343,6 @@ article.shop-product {
     line-height: 34px;
     > li + li:before {
       content: "-";
-      padding: 0 5px;
       color: #8f8f8f;
     }
     a, li.active {
@@ -430,4 +429,16 @@ article.shop-product {
 
   width: 100%!important;
   max-width: 1600px;
+}
+// xs
+@media (max-width: 767px) {
+  .rebrand {
+    .navbar-header {
+      .navbar-brand {
+        &.navbar-brand-left {
+          position: relative;
+        }
+      }
+    }
+  }
 }

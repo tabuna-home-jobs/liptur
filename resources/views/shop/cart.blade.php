@@ -12,7 +12,7 @@
       </div>
     </div>
     <nav>
-      <div class="container b-b">
+      <div class="container">
         @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Корзина' ])
       </div>
     </nav>

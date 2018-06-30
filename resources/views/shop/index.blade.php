@@ -11,7 +11,7 @@
         <div class="item">
             <img class="img-responsive" src="/img/tour/background/news.png"
                   alt=""
-                  style="width: auto;margin: 0 auto;     max-height: 600px;">
+                  style="margin: 0 auto;     max-height: 600px;">
             <div class="owl-shop-block container">
               <div class="col-md-10 no-padder">
                 <div class="owl-shop-title">
@@ -30,7 +30,7 @@
     </div>
 
     <nav>
-      <div class="container b-b">
+      <div class="container">
         @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Магазин' ])
       </div>
     </nav>
