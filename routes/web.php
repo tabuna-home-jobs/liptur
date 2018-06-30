@@ -12,7 +12,7 @@
  */
 
 $router->group([
-    'prefix'     => Localization::setLocale(),
+    'prefix' => Localization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'carbon-localize'],
 ], function () {
 
@@ -111,7 +111,7 @@ $router->group([
      */
     $this->resource('maps', 'MapsController', ['names' => [
         'index' => 'maps.index',
-        'type'  => 'maps.type',
+        'type' => 'maps.type',
     ]]);
 
     $this->group(['middleware' => 'auth', 'prefix' => 'profile'], function () {
@@ -178,6 +178,7 @@ $router->group([
         $this->get('/product/{product}', 'ShopController@product');
         $this->get('/catalog', 'ShopController@catalog');
         $this->get('/products', 'ShopController@products');
+        $this->get('/cart', 'ShopController@cart');
         $this->get('/', 'ShopController@index');
     });
 

@@ -48,4 +48,12 @@ class ShopController extends Controller
     {
         return view('shop.products');
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function cart(): View
+    {
+        return view('shop.cart');
+    }
 }
