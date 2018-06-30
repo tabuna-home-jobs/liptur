@@ -11,6 +11,7 @@ use Orchid\Platform\Http\Filters\SearchFilter;
 use Orchid\Platform\Http\Filters\StatusFilter;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
+use Orchid\Platform\Platform\Fields\TD;
 
 class ContestType extends Many
 {
@@ -99,9 +100,9 @@ class ContestType extends Many
     public function grid(): array
     {
         return [
-            'name'       => 'Название',
-            'publish_at' => 'Дата публикации',
-            'created_at' => 'Дата создания',
+            TD::name('name')->title('Название'),
+            TD::name('publish_at')->title('Дата публикации'),
+            TD::name('created_at')->title('Дата создания'),
         ];
     }
 

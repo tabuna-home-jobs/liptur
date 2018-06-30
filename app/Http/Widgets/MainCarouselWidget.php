@@ -13,7 +13,7 @@ class MainCarouselWidget extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         $locale = App::getLocale();
 

@@ -15,7 +15,7 @@ class LastEventsSidebarWidget extends Widget
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function run($limit = 6)
+    public function handler($limit = 6)
     {
         $locale = App::getLocale();
 

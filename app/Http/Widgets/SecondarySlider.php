@@ -7,14 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Orchid\Platform\Widget\Widget;
-use Orchid\Setting\Facades\Setting;
+use Orchid\Platform\Facades\Setting;
 
 class SecondarySlider extends Widget
 {
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         $carousel = Cache::remember('secondary-carousel-'.App::getLocale(), 5, function () {
             return Post::where('type', 'secondary-carousel')

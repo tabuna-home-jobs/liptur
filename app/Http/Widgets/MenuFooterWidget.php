@@ -39,7 +39,7 @@ class MenuFooterWidget extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         return view('partials.footer.menu', [
             'menu'  => $this->menu,

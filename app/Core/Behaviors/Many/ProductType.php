@@ -223,7 +223,7 @@ class ProductType extends Many
     {
         return [
             TD::name('name')
-                ->title('Name'),
+                ->title('Название'),
             TD::name('publish_at')
                 ->title('Date of publication'),
             TD::name('created_at')

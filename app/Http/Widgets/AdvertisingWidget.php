@@ -27,7 +27,7 @@ class AdvertisingWidget extends Widget
      *
      * @return null
      */
-    public function run($key = '')
+    public function handler($key = '')
     {
         $post = Post::type('advertising')->where('options->lang->'.App::getLocale())
             ->where('options->category', $key)

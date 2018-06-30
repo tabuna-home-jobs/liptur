@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Orchid\Platform\Behaviors\Many;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
+use Orchid\Platform\Platform\Fields\TD;
 
 class FilmType extends Many
 {
@@ -93,8 +94,8 @@ class FilmType extends Many
     public function grid(): array
     {
         return [
-            'publish_at' => 'Дата публикации',
-            'created_at' => 'Дата создания',
+            TD::name('publish_at')->title('Дата публикации'),
+            TD::name('created_at')->title('Дата создания'),
         ];
     }
 
@@ -138,7 +139,7 @@ class FilmType extends Many
      */
     public function getAdditionalData($data)
     {
-        return Cache::remember('movie-id-'.$data['movieId'], 20, function () use ($data) {
+        return Cache::remember('movie-id-' . $data['movieId'], 20, function () use ($data) {
             $lowerCityName = env('RAMBLER_CITY_NAME', 'липецк');
 
             $city = $this->getCity($lowerCityName);

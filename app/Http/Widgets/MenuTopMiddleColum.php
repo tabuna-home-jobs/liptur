@@ -37,7 +37,7 @@ class MenuTopMiddleColum extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         return view('partials.header.menu', [
             'menu'  => $this->menu,

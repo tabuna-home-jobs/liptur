@@ -13,7 +13,7 @@ class MainNewsWidget extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         $news = Cache::remember('main-news-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Post::published()->where('type', 'news')

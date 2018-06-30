@@ -50,7 +50,7 @@ class MenuCategoryWidget extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         return view('partials.header.category', [
             'types' => $this->types,

@@ -9,7 +9,7 @@ class EmailSubscription extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         return view('partials.marketing.subscriptionMain');
     }

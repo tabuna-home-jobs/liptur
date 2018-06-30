@@ -6,6 +6,7 @@ use App\Http\Forms\Posts\Options;
 use Orchid\Platform\Behaviors\Many;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
+use Orchid\Platform\Platform\Fields\TD;
 
 class CinemaType extends Many
 {
@@ -85,9 +86,9 @@ class CinemaType extends Many
     public function grid(): array
     {
         return [
-            'name'       => 'Название',
-            'publish_at' => 'Дата публикации',
-            'created_at' => 'Дата создания',
+            TD::name('name')->title('Название'),
+            TD::name('publish_at')->title('Дата публикации'),
+            TD::name('created_at')->title('Дата создания'),
         ];
     }
 

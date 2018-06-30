@@ -50,7 +50,7 @@ class MainCategoryWidget extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         return view('partials.main.category', [
             'types' => $this->types,

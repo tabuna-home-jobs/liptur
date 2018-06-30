@@ -11,7 +11,7 @@ class RandomRouteWidget extends Widget
     /**
      * @return mixed
      */
-    public function run()
+    public function handler()
     {
         $tour = Cache::remember('random-tour', 10, function () {
             $post = Post::where('type', 'tour')->inRandomOrder()->first();

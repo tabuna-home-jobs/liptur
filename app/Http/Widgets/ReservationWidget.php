@@ -10,7 +10,7 @@ class ReservationWidget extends Widget
     /**
      * @return mixed
      */
-    public function run($data = '')
+    public function handler($data = '')
     {
         if (isset($data['postid']) && $data['postid'] > 0) {
             if (Auth::check()) {
