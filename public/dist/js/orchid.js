@@ -15691,6 +15691,29 @@ $(function () {
      */
 
 });
+$(function () {
+  if (document.getElementById('cart')) {
+    new Vue({
+      'el': '#cart',
+      data: {
+        price: false,
+        items: [],
+      },
+      mounted: function () {
+        console.log("Asfasf")
+      },
+      methods: {
+        calc: function (event) {
+
+        },
+
+        finishOrder: function () {
+
+        }
+      }
+    });
+  }
+});
 document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('global-map-wrapper') == null) {
     return;
