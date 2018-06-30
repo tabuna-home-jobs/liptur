@@ -21,12 +21,10 @@
 
 <section>
   <div class="container padder-v">
-    <div class="row">
-      <div class="block-header m-b-md">
-        Корзина
-      </div>
+    <div class="block-header m-b-md">
+      Корзина
     </div>
-    <div class="row" id="cart">
+    <div id="cart">
       <div class="col-md-9">
         @for ($i = 0; $i < 3; $i++)
           <div class="row panel panel-default box-shadow-lg pos-rlt">

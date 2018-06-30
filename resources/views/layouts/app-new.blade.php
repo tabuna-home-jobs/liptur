@@ -52,7 +52,7 @@
 
 
     <div class="container padder-t rebrand">
-        <div class="navbar-header">
+        <div class="navbar-header text-center">
           <a href="/{{App::getLocale()}}" class="navbar-brand m-r-lg navbar-brand-left" title="На главную">
             <img src="/img/new-logo.png" alt="LipTur">
           </a>
