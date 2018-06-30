@@ -6,8 +6,8 @@ use App\Core\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Widget\Widget;
 use Orchid\Platform\Facades\Setting;
+use Orchid\Platform\Widget\Widget;
 
 class SecondarySlider extends Widget
 {
