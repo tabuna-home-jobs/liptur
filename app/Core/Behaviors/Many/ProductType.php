@@ -11,7 +11,7 @@ use Orchid\Platform\Platform\Fields\TD;
 /**
  * Class Product.
  */
-class Product extends Many
+class ProductType extends Many
 {
     /**
      * @var string
@@ -96,42 +96,13 @@ class Product extends Many
                 ->required()
                 ->title('Описание товара'),
 
-            Field::tag('select')
-                ->options([
-                    '1' => 'Заранее занесённый список 1',
-                    '2' => 'Заранее занесённый список 1',
-                ])
-                ->name('maintainer')
-                ->title('Производитель товара'),
-
-            Field::tag('input')
-                ->type('numeric')
-                ->name('width')
-                ->required()
-                ->title('Ширина'),
-            Field::tag('input')
-                ->type('numeric')
-                ->name('height')
-                ->required()
-                ->title('Высота'),
-            Field::tag('input')
-                ->type('numeric')
-                ->name('gravity')
-                ->required()
-                ->title('Вес'),
-
-            Field::tag('input')
-                ->type('numeric')
-                ->name('price')
-                ->required()
-                ->title('Стоимость'),
-
             Field::tag('input')
                 ->type('text')
                 ->name('title')
                 ->max(255)
                 ->required()
                 ->title('Заголовок страницы'),
+
             Field::tag('textarea')
                 ->name('description')
                 ->max(255)
@@ -142,17 +113,28 @@ class Product extends Many
                 ->name('keywords')
                 ->title('Ключевые слова'),
 
+            Field::tag('select')
+                ->options([
+                    '1' => 'Заранее занесённый список 1',
+                    '2' => 'Заранее занесённый список 1',
+                ])
+                ->name('maintainer')
+                ->title('Производитель товара'),
+
             Field::tag('input')
                 ->type('text')
                 ->name('title')
                 ->max(255)
                 ->required()
                 ->title('Имя продавца'),
+
             Field::tag('input')
                 ->type('text')
                 ->name('phone')
                 ->mask('(999) 999-9999')
                 ->title('Телефон продавца'),
+
+
             /* need api key 'place'
             Field::tag('place')
                 ->name('place')
@@ -170,12 +152,38 @@ class Product extends Many
     public function options(): array
     {
         return [
+
+            Field::tag('input')
+                ->type('number')
+                ->name('options.width')
+                ->required()
+                ->title('Ширина'),
+
+            Field::tag('input')
+                ->type('number')
+                ->name('options.height')
+                ->required()
+                ->title('Высота'),
+
+            Field::tag('input')
+                ->type('number')
+                ->name('options.gravity')
+                ->required()
+                ->title('Вес'),
+
+            Field::tag('input')
+                ->type('number')
+                ->name('options.price')
+                ->required()
+                ->title('Стоимость'),
+
             Field::tag('checkbox')
-                ->name('new')
+                ->name('options.new')
                 ->value(0)
                 ->title('Новинка'),
+
             Field::tag('checkbox')
-                ->name('special')
+                ->name('options.special')
                 ->value(0)
                 ->title('Cпецпредложение'),
         ];

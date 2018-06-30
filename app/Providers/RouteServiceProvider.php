@@ -25,13 +25,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::bind('shop-category', function ($value) {
-            if (is_numeric($value)) {
-                return ShopCategory::where('id', $value)->firstOrFail();
-            }
 
-            return ShopCategory::findOrFail($value);
-        });
 
         parent::boot();
     }
@@ -46,6 +40,29 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
+
+        Route::bind('shop-category', function ($value) {
+            if (is_numeric($value)) {
+                return ShopCategory::where('id', $value)->firstOrFail();
+            }
+
+            return ShopCategory::findOrFail($value);
+        });
+
+        Route::bind('product', function ($value) {
+            if (is_numeric($value)) {
+                return Post::where('id', $value)
+                    ->where('type', 'product')
+                    ->with(['attachment','comments.author', 'likeCounter'])
+                    ->firstOrFail();
+            }
+
+            return Post::where('slug', $value)
+                ->where('type', 'product')
+                ->with(['comments.author', 'likeCounter'])
+                ->firstOrFail();
+        });
+
 
         Route::bind('news', function ($value) {
             //return  Cache::remember('news-'.$value, 5, function () use ($value) {

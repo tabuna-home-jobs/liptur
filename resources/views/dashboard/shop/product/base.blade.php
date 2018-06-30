@@ -1,4 +1,13 @@
 <div class="wrapper-md">
+
+    <div class="form-group">
+        <label>Артикуль товара</label>
+        <p class="m-l-sm">{{$post->getOption('ski')}}</p>
+    </div>
+    <div class="line line-dashed b-b line-lg"></div>
+
+
+
     <div class="form-group">
         <label>{{trans('dashboard::post/base.semantic_url')}}</label>
         <input type='text' class="form-control"
@@ -72,6 +81,9 @@
         </select>
     </div>
     <div class="line line-dashed b-b line-lg"></div>
+
+    {!! generate_form($type->options(), $post->toArray()) !!}
+
 
     <input type="hidden" name="options[locale][ru]"
            value="true">

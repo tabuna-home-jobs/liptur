@@ -12,6 +12,22 @@ class ProductObserver
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
+    public function creating(Model $model)
+    {
+
+        $options = $model->getOptions();
+        $options->put('ski', $this->skiGenerator());
+        $model->setAttribute('options', $options);
+
+        return $model;
+    }
+
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $model
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
     public function saved(Model $model)
     {
         if ($model->type !== 'product') {
@@ -38,11 +54,33 @@ class ProductObserver
     private function limitProductType($option, $skip)
     {
         return Post::where('type', 'product')
-            ->where('options->'.$option, true)
+            ->where('options->' . $option, true)
             ->skip($skip)
             ->orderBy('updated_at', 'Desc')
             ->update([
                 'options->new', false,
             ]);
+    }
+
+
+    /**
+     * @param int $min
+     * @param int $max
+     *
+     * @return int
+     */
+    private function skiGenerator($min = 100000, $max = 999999)
+    {
+        $ski = rand($min, $max);
+
+        $unique = Post::where('type', 'product')
+            ->where('options->ski', $ski)
+            ->count();
+
+        if ($unique) {
+            return $this->skiGenerator();
+        }
+
+        return $ski;
     }
 }
