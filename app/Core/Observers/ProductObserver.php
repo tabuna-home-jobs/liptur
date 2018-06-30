@@ -14,14 +14,12 @@ class ProductObserver
      */
     public function creating(Model $model)
     {
-
         $options = $model->getOptions();
         $options->put('ski', $this->skiGenerator());
         $model->setAttribute('options', $options);
 
         return $model;
     }
-
 
     /**
      * @param \Illuminate\Database\Eloquent\Model $model
@@ -54,14 +52,13 @@ class ProductObserver
     private function limitProductType($option, $skip)
     {
         return Post::where('type', 'product')
-            ->where('options->' . $option, true)
+            ->where('options->'.$option, true)
             ->skip($skip)
             ->orderBy('updated_at', 'Desc')
             ->update([
                 'options->new', false,
             ]);
     }
-
 
     /**
      * @param int $min

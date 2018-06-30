@@ -8,13 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController
 {
-
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             Cart::restore(Auth::id());
         }
 
@@ -34,9 +33,9 @@ class CartController
     {
         abort_if($post->type !== 'product', 404);
 
-        Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'),$post->toArray());
+        Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'), $post->toArray());
 
-        if(Auth::check()){
+        if (Auth::check()) {
             Cart::store(Auth::id());
         }
 
@@ -53,7 +52,7 @@ class CartController
     {
         Cart::update($rowId, $qty);
 
-        if(Auth::check()){
+        if (Auth::check()) {
             Cart::store(Auth::id());
         }
 
@@ -69,11 +68,10 @@ class CartController
     {
         Cart::remove($rowId);
 
-        if(Auth::check()){
+        if (Auth::check()) {
             Cart::store(Auth::id());
         }
 
         return $this->index();
     }
-
 }

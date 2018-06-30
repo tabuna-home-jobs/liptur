@@ -25,8 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-
         parent::boot();
     }
 
@@ -53,7 +51,7 @@ class RouteServiceProvider extends ServiceProvider
             if (is_numeric($value)) {
                 return Post::where('id', $value)
                     ->where('type', 'product')
-                    ->with(['attachment','comments.author', 'likeCounter'])
+                    ->with(['attachment', 'comments.author', 'likeCounter'])
                     ->firstOrFail();
             }
 
@@ -62,7 +60,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->with(['comments.author', 'likeCounter'])
                 ->firstOrFail();
         });
-
 
         Route::bind('news', function ($value) {
             //return  Cache::remember('news-'.$value, 5, function () use ($value) {
