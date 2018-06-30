@@ -139,7 +139,7 @@ class FilmType extends Many
      */
     public function getAdditionalData($data)
     {
-        return Cache::remember('movie-id-' . $data['movieId'], 20, function () use ($data) {
+        return Cache::remember('movie-id-'.$data['movieId'], 20, function () use ($data) {
             $lowerCityName = env('RAMBLER_CITY_NAME', 'липецк');
 
             $city = $this->getCity($lowerCityName);
