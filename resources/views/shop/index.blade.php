@@ -6,7 +6,7 @@
 
 <section class="container-fluid">
   <div class="row">
-    <div class="owl-carousel owl-theme main-carousel owl-with-dots">
+    <div class="owl-carousel owl-theme main-carousel owl-with-dots hidden-xs">
       @for ($i = 0; $i < 4; $i++)
         <div class="item">
             <img class="img-responsive" src="/img/tour/background/news.png"
