@@ -134,7 +134,6 @@ class ProductType extends Many
                 ->mask('(999) 999-9999')
                 ->title('Телефон продавца'),
 
-
             /* need api key 'place'
             Field::tag('place')
                 ->name('place')
