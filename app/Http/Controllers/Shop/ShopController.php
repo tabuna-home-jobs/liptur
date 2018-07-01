@@ -35,7 +35,7 @@ class ShopController extends Controller
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings' => $warnings,
+            'warnings'       => $warnings,
         ]);
     }
 
