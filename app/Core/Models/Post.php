@@ -3,6 +3,7 @@
 namespace App\Core\Models;
 
 use Conner\Likeable\LikeableTrait;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Jenssegers\Date\Date;
 use Orchid\Platform\Core\Models\Post as BasePost;
 use willvincent\Rateable\Rateable;
@@ -10,6 +11,13 @@ use willvincent\Rateable\Rateable;
 class Post extends BasePost
 {
     use LikeableTrait, Rateable;
+
+    /**
+     * The Eloquent tags model name.
+     *
+     * @var string
+     */
+    protected static $attachmentModel = 'Orchid\Platform\Core\Models\Attachment';
 
     /**
      * @return string
@@ -43,4 +51,15 @@ class Post extends BasePost
 
         return Date::parse($date)->format($format);
     }
+
+    /**
+     * Get the class name for polymorphic relations.
+     *
+     * @return string
+     */
+    public function getMorphClass()
+    {
+        return \Orchid\Platform\Core\Models\Post::class;
+    }
+
 }

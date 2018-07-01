@@ -34,7 +34,7 @@ class CartController
     {
         abort_if($post->type !== 'product', 404);
 
-        $post->setAttribute('image',optional($post->attachment('image')->first())->url());
+        $post->setAttribute('image',optional($post->attachment()->first())->url());
 
         Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'), $post->toArray());
 
