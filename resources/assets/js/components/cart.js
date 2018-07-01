@@ -24,12 +24,12 @@ $(function () {
         this.renderData(body);
       },
       methods: {
-        renderData({total, totalCount, content}, local) {
+        renderData({total, count, content}, local) {
           this.total = total;
-          this.totalCount = totalCount;
+          this.totalCount = count;
           this.products = content;
           if(!local) {
-            localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify({total, totalCount, content}));
+            localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify({total, count, content}));
           }
         },
 
