@@ -14,5 +14,8 @@
 Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function ($router) {
     $router->post('newsletter', 'NewsletterController@subscription');
     $router->post('reservation', 'ReservationController@subscription');
-    $router->resource('cart', 'CartController');
+    $router->get('cart', 'CartController@index');
+    $router->post('cart/{product}/{count?}', 'CartController@store');
+    $router->put('cart/{row}/{count?}', 'CartController@update');
+    $router->delete('cart/{row}', 'CartController@delete');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Core\Models\ShopCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Orchid\Platform\Core\Models\Post;
@@ -43,6 +44,11 @@ class ShopController extends Controller
      */
     public function catalog(): View
     {
+        $category = ShopCategory::all();
+
+
+        dd($category);
+
         return view('shop.catalog', [
         ]);
     }

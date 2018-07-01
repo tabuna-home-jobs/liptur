@@ -45,11 +45,18 @@ class CategoryTemplate
         return [
 
             Field::tag('picture')
-                ->name('picture')
+                ->name('smallPicture')
+                ->title('Маленькое изображение раздела')
+                ->help('Изображение характеризующее раздел')
+                ->width(150)
+                ->height(150),
+
+            Field::tag('picture')
+                ->name('fullPicture')
                 ->title('Фоновое отображение раздела')
                 ->help('Изображение характеризующее раздел')
-                ->width(1600)
-                ->height(120),
+                ->width('100%')
+                ->height(150),
 
             Field::tag('input')
                 ->type('text')
