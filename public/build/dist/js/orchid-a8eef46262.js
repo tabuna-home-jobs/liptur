@@ -15708,27 +15708,6 @@ $(function () {
 
         destroy(id) {
           console.log("delete", id)
-          var form = new FormData();
-          form.append("product", "5374");
-
-          var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "http://127.0.0.1:8000/api/cart",
-            "method": "POST",
-            "headers": {
-              "cache-control": "no-cache",
-              "postman-token": "7581a3b6-5b43-8094-a11c-f85be6015ec7"
-            },
-            "processData": false,
-            "contentType": false,
-            "mimeType": "multipart/form-data",
-            "data": form
-          }
-
-          $.ajax(settings).done(function (response) {
-            console.log(response);
-          });
         },
 
         finishOrder() {
