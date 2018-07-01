@@ -4,17 +4,25 @@ $(function () {
       'el': '#cart',
       data: {
         price: false,
-        items: [],
+        content: [],
+        total: "0.00"
       },
-      mounted: function () {
-        console.log("Asfasf")
+      async mounted() {
+        const {body} = await this.$http.get('/api/cart')
+        console.log(body)
+        this.total = body.total;
+        this.content = body.content;
       },
       methods: {
-        calc: function (event) {
+        update(event) {
 
         },
 
-        finishOrder: function () {
+        delete() {
+
+        },
+
+        finishOrder() {
 
         }
       }
