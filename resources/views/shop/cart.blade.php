@@ -29,7 +29,7 @@
           <div v-for="product in products" class="row panel panel-default box-shadow-lg pos-rlt">
             <div class="col-md-4 col-xs-12 no-padder-h">
               <div class="img-full">
-                <img height="190" src="https://images.pexels.com/photos/66869/green-leaf-natural-wallpaper-royalty-free-66869.jpeg?auto=compress&cs=tinysrgb&h=350"/>
+                <img height="190" v-bind:src="product.options.image"/>
               </div>
             </div>
             <div class="col-md-7 col-xs-12 padder-v">

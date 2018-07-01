@@ -3,8 +3,15 @@ $(function () {
     new Vue({
       'el': '#product',
       data: {},
-      async mounted() {
-      
+      mounted() {
+        console.log("SDgsdgsdg", $(".owl-gallery"))
+        $(".owl-gallery").owlCarousel({
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
+          nav: true,
+          items: 1,
+          thumbs: true,
+          thumbsPrerendered: true
+        });
       },
       methods: {
         async addIntoCart(product) {

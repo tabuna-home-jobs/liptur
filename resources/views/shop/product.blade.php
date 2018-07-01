@@ -20,7 +20,21 @@
     </section>
 
     <section class="b-b box-shadow" id="product">
-        <div class="container padder-v ">
+        <div class="container padder-v" v-cloak>
+          <div class="row">
+            <div class="owl-gallery-wrapper">
+              <div class="owl-gallery col-xs-9" data-slider-id="1">
+                @foreach($product->attachment as $attachment)
+                  <figure class="item img-full"><img src="{{$attachment->url()}}"/></figure>
+                @endforeach
+              </div>
+              <div class="owl-thumbs col-xs-3 row" data-slider-id="1">
+                @foreach($product->attachment as $attachment)
+                  <button class="owl-thumb-item"><img src="{{$attachment->url()}}"/></button>
+                @endforeach
+              </div>
+            </div>
+          </div>
             <div class="row">
                 <div class="block-header">
                     {{$product->getContent('name')}}
@@ -41,7 +55,7 @@
                         <div class="wrapper">
                                 <div class="v-center">
                                     <div class="col-xs-6 no-padder text-black m-t">Цена:</div>
-                                    <div class="col-xs-6 no-padder text-right h3 text-danger">988 руб.</div>
+                                    <div class="col-xs-6 no-padder text-right h3 text-danger">{{$product->getOption('price')}} руб.</div>
                                 </div>
                         </div>
 
@@ -58,9 +72,9 @@
                         </div>
 
                         <div class="wrapper b-t">
-                            <ul class="list">
+                            <ul class="list-unstyled text-sm text-grey">
                                 <li>Артикул: <span>1967811</span></li>
-                                <li>Продавец: <span>“Елецие кружева”, г. Елец</span></li>
+                                <li class="padder-v-micro">Продавец: <span class="text-black">“Елецие кружева”, г. Елец</span></li>
                             </ul>
 
                         </div>
@@ -69,7 +83,7 @@
                     <div class="m-t-md">
                         <div class="b-t">
                             <div class="wrapper">
-                                <div class="v-center">
+                                <div class="v-center text-grey">
                                     <div class="thumb-sm m-r-md">
                                         <img src="/img/shop/feature-1.png" class="img-responsive center">
                                     </div>
@@ -79,7 +93,7 @@
                         </div>
                         <div class="b-t">
                             <div class="wrapper">
-                                <div class="v-center">
+                                <div class="v-center text-grey">
                                     <div class="thumb-sm m-r-md">
                                         <img src="/img/shop/feature-2.png" class="img-responsive center">
                                     </div>
@@ -89,7 +103,7 @@
                         </div>
                         <div class="b-t">
                             <div class="wrapper">
-                                <div class="v-center">
+                                <div class="v-center text-grey">
                                     <div class="thumb-sm m-r-md">
                                         <img src="/img/shop/feature-3.png" class="img-responsive center">
                                     </div>
@@ -99,7 +113,7 @@
                         </div>
                         <div class="b-t">
                             <div class="wrapper">
-                                <div class="v-center">
+                                <div class="v-center text-grey">
                                     <div class="thumb-sm m-r-md">
                                         <img src="/img/shop/feature-4.png" class="img-responsive center">
                                     </div>
@@ -109,7 +123,7 @@
                         </div>
                         <div class="b-t b-b">
                             <div class="wrapper">
-                                <div class="v-center">
+                                <div class="v-center text-grey">
                                     <div class="thumb-sm m-r-md">
                                         <img src="/img/shop/feature-5.png" class="img-responsive center">
                                     </div>
@@ -124,5 +138,8 @@
 
             </div>
         </div>
+    </section>
+    <section id="content-dark">
+
     </section>
 @endsection
