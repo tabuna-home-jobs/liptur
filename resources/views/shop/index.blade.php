@@ -54,7 +54,7 @@
               <article class="col-md-3 padder-v shop-product">
           <div class="panel panel-default box-shadow-lg pos-rlt">
             <div data-mh="main-news-img" style="height: 200px;">
-                <a href="/testurl"><img src="{{$product->attachment('image')->first()->url()}} " class="img-full img-post "></a>
+                <a href="/testurl"><img src="{{$product->attachment('image')->first()->url()}}" class="img-full img-post "></a>
             </div>
             <div class="wrapper-md">
                 <div data-mh="main-news-body" style="height: 100px;">

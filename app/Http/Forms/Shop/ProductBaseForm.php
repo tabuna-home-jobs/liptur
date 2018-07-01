@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Forms\Shop;
 
+use App\Core\Models\ShopCategory;
 use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
 use Orchid\Platform\Behaviors\Many as PostBehaviors;
@@ -43,7 +44,7 @@ class ProductBaseForm extends Form
     public function get(PostBehaviors $type = null, Post $post = null) : View
     {
         $currentCategory = (is_null($post)) ? [] : $post->taxonomies()->get()->pluck('taxonomy', 'id')->toArray();
-        $category = Category::get();
+        $category = ShopCategory::get();
 
         $category = $category->map(function ($item) use ($currentCategory) {
             if (array_key_exists($item->id, $currentCategory)) {

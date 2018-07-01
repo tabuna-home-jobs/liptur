@@ -39,18 +39,13 @@
     <div class="row">
       <div class="col-md-3 list-view list-no-border">
         <ul>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Гончарные изделия</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Романовская игрушка</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green">Юрьевская игрушка</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Кружево, плетение, текстиль</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Елецкое кружево</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Липецкие узоры</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Обувь ручной работы</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Плетение из лозы, соломы</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Гастрономия </a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Тематическая литература</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">Сувениры</a></li>
-          <li class="padder-v-micro"><a class="text-md font-bold text-green text-black">«Липецкая Земля»</a></li>
+          @foreach($categories as $category)
+            <li class="padder-v-micro">
+              <a href="{{route('shop.products',$category->slug)}}" class="text-md font-bold @if($category->slug === $currentCategory->slug) text-green @else  text-black @endif">
+                {{$category->term->getContent('name')}}
+              </a>
+            </li>
+          @endforeach
         </ul>
       </div>
       <div class="col-md-9">
@@ -86,21 +81,23 @@
           </div>
         </div>
         <div class="row">
-          @for ($i = 0; $i < 21; $i++)
+          @foreach($products as $product)
           <article class="col-md-4 padder-v shop-product">
             <div class="panel panel-default box-shadow-lg pos-rlt">
               <div data-mh="main-news-img" style="height: 200px;">
-                  <a href="/testurl"><img src="https://liptur.ru/storage/2018/06/26/99e442403acd1b9cd39de9342c8b4a801d7dbff2_medium.jpg" class="img-full img-post "></a>
+                  <a href="/testurl">
+                    <img src="{{$product->attachment('image')->first()->url()}}" class="img-full img-post ">
+                  </a>
               </div>
               <div class="wrapper-md">
                   <div data-mh="main-news-body" style="height: 100px;">
                       <p class="h4 m-b-xs"><a href="/testurl">Елецкие кружева</a>
                       </p>
                       <p class="text-xs">
-                          Кратое описание в 2 троки. Остальное вываливаем за высоту блока...
+                        {{$product->getContent('annotation')}}
                       </p>
                       <p class="shop-product-price">
-                        5 999 <span class="">руб.</span>
+                        {{number_format($product->getOption('price'),0 ,',', ' ')}} <span class="">руб.</span>
                       </p>
                       <a class="cart-button"><i class="cart-icon"></i></a>
                       <div class="clearfix"></div>
@@ -108,7 +105,7 @@
                 </div>
             </div>
           </article>
-          @endfor
+          @endforeach
         </div>
         <div class="row padder-v">
           <div class="col-xs-2">

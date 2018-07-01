@@ -4,6 +4,7 @@
     <div class="form-group">
         <label>Артикуль товара</label>
         <p class="m-l-sm">{{$post->getOption('ski')}}</p>
+        <input type="hidden" name="options[ski]" value="{{$post->getOption('ski')}}">
     </div>
     <div class="line line-dashed b-b line-lg"></div>
     @endif
