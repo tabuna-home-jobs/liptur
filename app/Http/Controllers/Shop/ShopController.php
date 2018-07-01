@@ -33,7 +33,7 @@ class ShopController extends Controller
             ->get();
 
         return view('shop.index', [
-            'newsAndSpecial' => $newsAndSpecial,
+            'newsAndSpecial'  => $newsAndSpecial,
             'warnings'        => $warnings,
         ]);
     }
