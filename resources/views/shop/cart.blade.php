@@ -72,7 +72,7 @@
       <div class="col-md-4 scroll-wrapper">
         <div class="panel panel-cart-1 box-shadow-lg pos-rlt wrapper-md m-n">
           <div>
-            Товаров в корзине: <b>@{{Object.keys(content).length}}</b>
+            Товаров в корзине: <b>@{{totalCount}}</b>
           </div>
           <div class="row b-b m-b padder-v-micro">
             <div class="col-xs-12">
