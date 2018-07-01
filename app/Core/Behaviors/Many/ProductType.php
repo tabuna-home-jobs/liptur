@@ -178,13 +178,18 @@ class ProductType extends Many
 
             Field::tag('checkbox')
                 ->name('options.new')
-                ->value(0)
-                ->title('Новинка'),
+                ->title('Новинка')
+                ->default(1),
 
             Field::tag('checkbox')
                 ->name('options.special')
-                ->value(0)
-                ->title('Cпецпредложение'),
+                ->title('Cпецпредложение')
+                ->default(1),
+
+            Field::tag('checkbox')
+                ->name('options.warning')
+                ->title('Обратите внимание')
+                ->default(1),
         ];
     }
 

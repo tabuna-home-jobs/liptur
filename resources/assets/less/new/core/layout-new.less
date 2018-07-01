@@ -1,8 +1,9 @@
 .rebrand {
   position: relative;
-  .b-b {
-    border-bottom: 1px solid #A1D4BD;
-  }
+
+  //.b-b {
+  //  border-bottom: 1px solid #A1D4BD;
+  //}
   .navbar-header {
     .navbar-brand {
       &.navbar-brand-left {
@@ -319,6 +320,24 @@ i.cart-icon {
 }
 
 article.shop-product {
+
+  .panel {
+    transition: all 360ms;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.33);
+    }
+
+    &a{
+      color: #577c36;
+    }
+  }
+
+  .h4{
+
+  }
+
   .shop-product-price {
     display: inline;
     color: #577c36;
@@ -375,6 +394,8 @@ article.shop-product {
 
 #footer{
 
+
+
   background-size: 50% 100%;
   background-image: url(/img/footer-bg.png);
   background-repeat: no-repeat;
@@ -397,6 +418,14 @@ article.shop-product {
         font-size: 12px;
         font-weight: 400;
         line-height: 13px;
+        &:hover{
+          opacity: 1;
+          color: #d3e068;
+          font-family: "William Text Pro";
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 13px;
+        }
       }
     }
   }
@@ -425,6 +454,14 @@ article.shop-product {
     font-size: 11px;
     font-weight: 400;
     line-height: 13px;
+    &:hover{
+      opacity: 1;
+      color: #d3e068;
+      font-family: Roboto;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 13px;
+    }
   }
 
 }

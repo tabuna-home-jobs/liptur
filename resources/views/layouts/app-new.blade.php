@@ -518,11 +518,11 @@
                     <div>
                         <div class="v-center">
                             <img src="/img/artp.png" class="m-r-sm">
-                            <p class="text-campaing m-n text-left">
+                            <a class="text-campaing m-n text-left">
                         <span>Разработка сайта – <br>
                             Артполитика
                         </span>
-                            </p>
+                            </a>
                         </div>
                     </div>
                 </div>

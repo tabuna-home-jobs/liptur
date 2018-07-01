@@ -1,11 +1,12 @@
 <div class="wrapper-md">
 
+    @if(!is_null($post))
     <div class="form-group">
         <label>Артикуль товара</label>
         <p class="m-l-sm">{{$post->getOption('ski')}}</p>
     </div>
     <div class="line line-dashed b-b line-lg"></div>
-
+    @endif
 
 
     <div class="form-group">
@@ -82,7 +83,7 @@
     </div>
     <div class="line line-dashed b-b line-lg"></div>
 
-    {!! generate_form($type->options(), $post->toArray()) !!}
+    {!! generate_form($type->options(), is_null($post) ? [] : $post->toArray()) !!}
 
 
     <input type="hidden" name="options[locale][ru]"

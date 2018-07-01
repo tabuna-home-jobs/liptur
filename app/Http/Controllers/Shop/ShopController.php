@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
+use Orchid\Platform\Core\Models\Post;
 
 class ShopController extends Controller
 {
@@ -20,7 +21,20 @@ class ShopController extends Controller
      */
     public function index(): View
     {
+        $newsAndSpecial = Post::type('product')
+            ->with('attachment')
+            ->whereNotNull('options->new')
+            ->orWhereNotNull('options->special')
+            ->get();
+
+        $warnings = Post::type('product')
+            ->with('attachment')
+            ->whereNotNull('options->warning')
+            ->get();
+
         return view('shop.index', [
+            'newsAndSpecial' => $newsAndSpecial,
+            'warnings'        => $warnings,
         ]);
     }
 
