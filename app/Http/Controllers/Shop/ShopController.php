@@ -33,12 +33,9 @@ class ShopController extends Controller
             ->whereNotNull('options->warning')
             ->get();
 
-        $categories = ShopCategory::all();
-
         return view('shop.index', [
-            'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $warnings,
-            'categories'     => $categories,
+            'newsAndSpecial'  => $newsAndSpecial,
+            'warnings'        => $warnings,
         ]);
     }
 
@@ -47,10 +44,11 @@ class ShopController extends Controller
      */
     public function catalog(): View
     {
-        $categories = ShopCategory::all();
+        $category = ShopCategory::all();
+
+        dd($category);
 
         return view('shop.catalog', [
-            'categories' => $categories,
         ]);
     }
 
@@ -63,21 +61,11 @@ class ShopController extends Controller
     }
 
     /**
-     * @param string $slug
-     *
-     * @return \Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function products(string $slug): View
+    public function products(): View
     {
-        $categories = ShopCategory::all();
-        $category = ShopCategory::slug($slug)->first();
-        $products = $category->posts()->paginate();
-
-        return view('shop.products', [
-            'categories' => $categories,
-            'currentCategory'   => $category,
-            'products'   => $products,
-        ]);
+        return view('shop.products');
     }
 
     /**
