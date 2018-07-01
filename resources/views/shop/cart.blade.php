@@ -51,11 +51,11 @@
                 </div>
                 <div class="col-xs-4">
                   <div class="text-sm">Цена за 1 шт:</div>
-                  <em class="text-green text-xxxl">@{{product.price | toCurrency}}</em>&nbsp;<em class="text-sm text-green">руб.</em>
+                  <em class="text-green text-xxxl">@{{formatPrice(product.price)}}</em>&nbsp;<em class="text-sm text-green">руб.</em>
                 </div>
                 <div class="col-xs-4">
                   <div class="text-sm">Сумма:</div>
-                  <em class="text-green text-xxxl">@{{product.subtotal}}</em>&nbsp;<em class="text-sm text-green">руб.</em>
+                  <em class="text-green text-xxxl">@{{formatPrice(product.subtotal)}}</em>&nbsp;<em class="text-sm text-green">руб.</em>
                 </div>
               </div>
             </div>
@@ -76,7 +76,7 @@
           </div>
           <div class="row b-b m-b padder-v-micro">
             <div class="col-xs-12">
-              <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ total }}</em>&nbsp;<em class="text-green text-md">руб.</em>
+              <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatPrice(total) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
             </div>
           </div>
           <button class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</button>

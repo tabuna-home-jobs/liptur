@@ -10,9 +10,14 @@ $(function () {
       async mounted() {
         const {body} = await this.$http.get('/api/cart')
         this.total = body.total;
+        this.totalCount = body.totalCount;
         this.products = body.content;
       },
       methods: {
+        formatPrice(value) {
+          return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+        },
+
         updateQty(product, qty) {
           if(qty>0) {
             this.$set(product, "qty", qty);
@@ -31,12 +36,14 @@ $(function () {
         async update(product) {
           const {body} = await this.$http.put(`/api/cart/${product.rowId}/${product.qty}`);
           this.total = body.total;
+          this.totalCount = body.totalCount;
           this.products = body.content;
         },
 
         async destroy(product) {
           const { body } = await this.$http.delete(`/api/cart/${product.rowId}`);
           this.total = body.total;
+          this.totalCount = body.totalCount;
           this.products = body.content;
         }
       }
