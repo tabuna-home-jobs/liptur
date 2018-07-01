@@ -53,5 +53,4 @@ class Post extends BasePost
     {
         return \Orchid\Platform\Core\Models\Post::class;
     }
-
 }
