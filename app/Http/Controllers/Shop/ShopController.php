@@ -44,11 +44,10 @@ class ShopController extends Controller
      */
     public function catalog(): View
     {
-        $category = ShopCategory::all();
-
-        dd($category);
+        $categories = ShopCategory::all();
 
         return view('shop.catalog', [
+            'categories' => $categories
         ]);
     }
 
@@ -63,11 +62,21 @@ class ShopController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param string $slug
+     *
+     * @return \Illuminate\Contracts\View\View
      */
-    public function products(): View
+    public function products(string $slug): View
     {
-        return view('shop.products');
+        $categories = ShopCategory::all();
+        $category = ShopCategory::slug($slug)->first();
+        $products = $category->posts()->paginate();
+
+        return view('shop.products', [
+            'categories' => $categories,
+            'currentCategory'   => $category,
+            'products'   => $products,
+        ]);
     }
 
     /**
