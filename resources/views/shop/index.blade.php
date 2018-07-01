@@ -1,8 +1,8 @@
-@extends('layouts.app-new') 
+@extends('layouts.shop')
 @section('title','Магазин')
 @section('description','Магазин') 
 @section('keywords','Магазин')
-@section('content')
+@section('shop')
 
 <section class="container-lg">
   <div class="pos-abt bg-white left w-full h-sm"></div>

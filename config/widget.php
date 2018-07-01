@@ -30,5 +30,6 @@ return [
         'menuFooter'         => \App\Http\Widgets\MenuFooterWidget::class,
         'mainRoute'          => \App\Http\Widgets\RandomRouteWidget::class,
         'lastEventSidebar'   => \App\Http\Widgets\LastEventsSidebarWidget::class,
+        'shopHeaderMiddle'   => \App\Http\Widgets\ShopHeaderMiddleWidget::class,
     ],
 ];

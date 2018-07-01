@@ -1,8 +1,8 @@
-@extends('layouts.app-new') 
+@extends('layouts.shop')
 @section('title','Корзина')
 @section('description','Корзина') 
 @section('keywords','Корзина')
-@section('content')
+@section('shop')
 
 <section class="container-lg">
   <div class="row">

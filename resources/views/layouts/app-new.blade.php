@@ -101,11 +101,10 @@
 
                 <li>
                     <a href="{{ url('/profile') }}" title="Мой профиль">
-            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+            <span class="thumb-sm avatar pull-right">
               <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
               <i class="on md b-white bottom"></i>
             </span>
-                        <span class="hidden-sm hidden-md">{{Auth::user()->name}}</span>
                     </a>
                 </li>
 
@@ -152,39 +151,17 @@
 
             </ul>
         </div>
-        
-        <div class="visible-xs padder-v-micro row"></div>
-      
-        <div class="row padder-l-xl no-p-xs">
-            <div class="col-xs-9 hidden-xs">
-                <ul class="nav navbar-nav nav-bar-sub font-bold text-u-c">
-                    <li><a class="text-green" href="#">Каталог товаров</a></li>
-                    <li><a class="text-green" href="#">Доставка и оплата</a></li>
-                    <li><a class="text-green" href="#">Контакты</a></li>
-                    <li><a class="text-green" href="#">Обратная связь</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-6 visible-xs">
-               <button class="btn btn-link visible-xs m-r m-v" type="button" data-toggle="collapse"
-                  data-target=".navbar-collapse">
-                  <i class="fa fa-bars fa-lg"></i>
-              </button>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <ul class="nav nav-cart pull-right">
-                <li>
-                  <a>
-                    <i class="cart-icon"></i> 0 товаров
-                  </a>
-                </li>
-              </ul>
-            </div>
-        </div>
+
+
+        @yield('submenu')
+
+
     </div>
 </header>
 
 <div id="content" class="">
 
+    @yield('header')
 
     @yield('content')
 

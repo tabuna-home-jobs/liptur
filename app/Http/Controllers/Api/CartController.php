@@ -20,6 +20,7 @@ class CartController
         return response()->json([
             'content' => Cart::content(),
             'total'   => Cart::total(),
+            'count'   => Cart::count(),
         ]);
     }
 
@@ -32,6 +33,8 @@ class CartController
     public function store(Post $post, $qty = 1)
     {
         abort_if($post->type !== 'product', 404);
+
+        $post->load('attachment');
 
         Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'), $post->toArray());
 

@@ -15708,15 +15708,15 @@ $(function () {
       },
       methods: {
         update(event) {
-
+          console.log("update")
         },
 
-        delete() {
-
+        destroy(id) {
+          console.log("delete", id)
         },
 
         finishOrder() {
-
+          console.log("finish")
         }
       }
     });
