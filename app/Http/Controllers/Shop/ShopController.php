@@ -47,7 +47,7 @@ class ShopController extends Controller
         $categories = ShopCategory::all();
 
         return view('shop.catalog', [
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -73,9 +73,9 @@ class ShopController extends Controller
         $products = $category->posts()->paginate();
 
         return view('shop.products', [
-            'categories' => $categories,
+            'categories'        => $categories,
             'currentCategory'   => $category,
-            'products'   => $products,
+            'products'          => $products,
         ]);
     }
 
