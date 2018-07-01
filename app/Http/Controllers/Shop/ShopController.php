@@ -46,7 +46,6 @@ class ShopController extends Controller
     {
         $category = ShopCategory::all();
 
-
         dd($category);
 
         return view('shop.catalog', [
