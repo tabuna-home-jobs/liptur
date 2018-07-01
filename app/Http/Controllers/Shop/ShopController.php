@@ -34,8 +34,8 @@ class ShopController extends Controller
             ->get();
 
         return view('shop.index', [
-            'newsAndSpecial'  => $newsAndSpecial,
-            'warnings'        => $warnings,
+            'newsAndSpecial' => $newsAndSpecial,
+            'warnings' => $warnings,
         ]);
     }
 
@@ -55,9 +55,11 @@ class ShopController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function product(): View
+    public function product(Post $product): View
     {
-        return view('shop.product');
+        return view('shop.product', [
+            'product' => $product,
+        ]);
     }
 
     /**
