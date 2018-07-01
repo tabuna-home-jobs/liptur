@@ -15692,26 +15692,40 @@ $(function () {
       'el': '#cart',
       data: {
         price: false,
-        content: [],
+        products: [],
         total: "0.00"
       },
       async mounted() {
         const {body} = await this.$http.get('/api/cart')
-        console.log(body)
         this.total = body.total;
-        this.content = body.content;
+        this.products = body.content;
       },
       methods: {
-        update(event) {
-          console.log("update")
+        updateQty(product, qty) {
+          if(qty>0) {
+            this.$set(product, "qty", qty);
+            this.update(product);
+          }
         },
 
-        destroy(id) {
-          console.log("delete", id)
+        updateInput(product) {
+          this.update(product);
         },
 
         finishOrder() {
           console.log("finish")
+        },
+
+        async update(product) {
+          const {body} = await this.$http.put(`/api/cart/${product.rowId}/${product.qty}`);
+          this.total = body.total;
+          this.products = body.content;
+        },
+
+        async destroy(product) {
+          const { body } = await this.$http.delete(`/api/cart/${product.rowId}`);
+          this.total = body.total;
+          this.products = body.content;
         }
       }
     });

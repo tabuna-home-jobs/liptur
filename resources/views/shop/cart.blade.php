@@ -26,50 +26,48 @@
     </div>
     <div id="cart" v-cloak>
       <div class="col-md-8 padder-md">
-        @for ($i = 0; $i < 2; $i++)
-          <div class="row panel panel-default box-shadow-lg pos-rlt">
+          <div v-for="product in products" class="row panel panel-default box-shadow-lg pos-rlt">
             <div class="col-md-4 col-xs-12 no-padder-h">
               <div class="img-full">
                 <img height="190" src="https://images.pexels.com/photos/66869/green-leaf-natural-wallpaper-royalty-free-66869.jpeg?auto=compress&cs=tinysrgb&h=350"/>
               </div>
             </div>
             <div class="col-md-7 col-xs-12 padder-v">
-              <div class="text-green text-bold text-lg">Свистулька “Тиу-тиу-тиу”</div>
+              <div class="text-green text-bold text-lg">@{{product.name}}</div>
               <div class="padder-v-micro text-sm">
                 Еврокомиссия (ЕК) закрыла антимонопольное расследование против «Газпрома», которое продолжалось в течение нескольких лет, говорится в заявлении на сайте ЕК...
               </div>
               <div class="row m-t">
                 <div class="col-xs-4">
                   <div class="input-group cart-component">
-                    <input type="text" class="form-control" value="1"/>
-                    <button type="button" class="btn btn-default">
+                    <input type="text" class="form-control" v-model="product.qty" v-on:change="updateInput(product)"/>
+                    <button type="button" class="btn btn-default" v-on:click="updateQty(product, parseInt(product.qty)+1)">
                       +
                     </button>
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-default" v-on:click="updateQty(product, parseInt(product.qty)-1)">
                       -
                     </button>
                   </div>
                 </div>
                 <div class="col-xs-4">
                   <div class="text-sm">Цена за 1 шт:</div>
-                  <em class="text-green text-xxxl">580 250</em>&nbsp;<em class="text-sm text-green">руб.</em>
+                  <em class="text-green text-xxxl">@{{product.price | toCurrency}}</em>&nbsp;<em class="text-sm text-green">руб.</em>
                 </div>
                 <div class="col-xs-4">
                   <div class="text-sm">Сумма:</div>
-                  <em class="text-green text-xxxl">580 250</em>&nbsp;<em class="text-sm text-green">руб.</em>
+                  <em class="text-green text-xxxl">@{{product.subtotal}}</em>&nbsp;<em class="text-sm text-green">руб.</em>
                 </div>
               </div>
             </div>
             <div class="clearfix"></div>
             <div class="top-right">
               <div class="padder-v padder text-center">
-                <a v-on:click="destroy('asd')">
+                <a v-on:click="destroy(product)">
                   <i class="fa fa-close fa-lg text-green"></i>
                 </a>
               </div>
             </div>
           </div>
-        @endfor
       </div>
       <div class="col-md-4 scroll-wrapper">
         <div class="panel panel-cart-1 box-shadow-lg pos-rlt wrapper-md m-n">
