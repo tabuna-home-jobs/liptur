@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Core\Models\Post;
+use Orchid\Platform\Core\Models\Post;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +34,7 @@ class CartController
     {
         abort_if($post->type !== 'product', 404);
 
-        $post->setAttribute('image',$post->attachment('image')->first()->url());
+        $post->setAttribute('image',optional($post->attachment('image')->first())->url());
 
         Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'), $post->toArray());
 
