@@ -26,14 +26,14 @@
     </div>
     <div id="cart">
       <div class="col-md-8">
-        @for ($i = 0; $i < 3; $i++)
+        @for ($i = 0; $i < 2; $i++)
           <div class="row panel panel-default box-shadow-lg pos-rlt">
-            <div class="col-md-4 no-padder-h">
+            <div class="col-md-4 col-xs-12 no-padder-h">
               <div class="img-full">
                 <img src="https://images.pexels.com/photos/66869/green-leaf-natural-wallpaper-royalty-free-66869.jpeg?auto=compress&cs=tinysrgb&h=350"/>
               </div>
             </div>
-            <div class="col-md-7 padder-v">
+            <div class="col-md-7 col-xs-12 padder-v">
               <div class="text-green text-bold text-lg">Свистулька “Тиу-тиу-тиу”</div>
               <div class="padder-v-micro text-sm">
                 Еврокомиссия (ЕК) закрыла антимонопольное расследование против «Газпрома», которое продолжалось в течение нескольких лет, говорится в заявлении на сайте ЕК...
@@ -60,15 +60,15 @@
                 </div>
               </div>
             </div>
-            <div class="col-xs-1">
-              <div class="padder-t">
-                <i class="fa fa-close pull-right text-green"></i>
+            <div class="top-right">
+              <div class="padder-v padder text-center">
+                <a><i class="fa fa-close fa-lg text-green"></i></a>
               </div>
             </div>
           </div>
         @endfor
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 scroll-wrapper">
         <div class="panel panel-cart-1 box-shadow-lg pos-rlt wrapper-md m-n">
           <div>
             Товаров в корзине: 47
@@ -101,6 +101,7 @@
           </div>
         </div>
       </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 </section>
