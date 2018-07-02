@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Core\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\App;
-use Orchid\Platform\Facades\Dashboard;
 
 class CatalogController extends Controller
 {
@@ -24,7 +23,7 @@ class CatalogController extends Controller
      */
     public function index($typeRequest): View
     {
-        $typeObject = dashboard_posts()->where('slug',$typeRequest)->first() ?? abort(404);
+        $typeObject = dashboard_posts()->where('slug', $typeRequest)->first() ?? abort(404);
         $query = Post::published()->type($typeRequest)
             ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest);

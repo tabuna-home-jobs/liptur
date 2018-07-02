@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Orchid\Platform\Core\Models\Role;
 use Orchid\Platform\Facades\Alert;
-use Orchid\Platform\Facades\Dashboard;
 
 class CfoController extends Controller
 {
