@@ -27,6 +27,26 @@ $(function () {
                   }
               }
           });
+
+        $('.warnings-carousel').owlCarousel({
+          animateOut: 'fadeOut',
+          animateIn: 'fadeIn',
+          lazyLoad: true,
+          responsive: {
+            0: {
+              items: 1,
+              stagePadding: 20,
+            },
+            600: {
+              margin: 30,
+              items: 4,
+            },
+            1000: {
+              items: 4,
+              margin: 30,
+            }
+          }
+        });
       },
       methods: {
         async addIntoCart(product) {

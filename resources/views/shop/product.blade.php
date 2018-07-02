@@ -185,19 +185,52 @@
                 </div>
             </div>
         </div>
-        <div class="container padder-v">
+    </section>
+    <section id="content-dark">
+      <div class="container padder-v">
+         <div class="col-md-12">
+            <div class="row">
+                <div class="block-header comment-header">
+                  Комментарии
+                </div>
+                <div class="panel panel-default padder-v">
+                  <div class="col-xs-12">
+                    @if (Auth::guest())
+                    <a class="text-green text-bold">
+                      <button class="btn btn-success btn-circled  m-r-xs">
+                        <i class="user-auth-icon"></i>
+                      </button>
+                      Войти
+                    </a>
+                    @endif
+                    <div class="padder-v">
+                     <div class="form-group">
+                      <textarea class="form-control no-resize no-border form-control-grey" placeholder="Напишите ваш комментарий" rows="5" id="comment"></textarea>
+                    </div>
+                    </div>
+                    <div>
+                      <button class="btn btn-success" disabled>ДОБАВИТЬ</button>
+                      <button class="btn" disabled>ОТМЕНИТЬ</button>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container padder-v">
             <div class="col-md-12">
                 <div class="row">
                     <div class="block-header">
                         Обратите внимание
-                        <a href="{{route('shop.catalog')}}">
-                            К каталогу
-                        </a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row warnings-carousel owl-carousel">
                     @foreach($warnings as $product)
-                        <article class="col-md-3 padder-v shop-product">
+                        <article class="owl-item shop-product">
                             <div class="panel panel-default box-shadow-lg pos-rlt">
                                 <div data-mh="main-news-img">
                                     <a href="{{route('shop.product',$product->slug)}}">
@@ -220,7 +253,6 @@
                                                     class="">руб.</span>
                                         </p>
                                         <a class="cart-button"><i class="cart-icon"></i></a>
-                                        <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
@@ -229,8 +261,5 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="content-dark">
-
     </section>
 @endsection

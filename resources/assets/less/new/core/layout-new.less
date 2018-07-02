@@ -224,12 +224,27 @@
   }
 }
 
+// fix for button in a
+a:hover .btn-success {
+  background-color: #5F7B3F;
+}
+
 i.key-icon {
   background-image: url(/img/icons/key.png);
   display: inline-block;
   background-size: cover;
   width: @layout-new-icons-size;
   height: @layout-new-icons-size;
+  vertical-align: middle;
+}
+
+i.user-auth-icon {
+  background-image: url(/img/icons/user.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: cover;
+  width: 14px;
+  height: 14px;
   vertical-align: middle;
 }
 
@@ -324,6 +339,12 @@ i.cart-icon {
     font-weight: 400;
     line-height: 43px;
   }
+  &.comment-header {
+    &:before {
+      background-image: url(/img/icons/comments.png);
+      background-repeat: no-repeat;
+    }
+  }
 }
 
 .shop-categories-widget {
@@ -395,7 +416,7 @@ article.shop-product {
 }
 
 
-#content {
+#content, .content {
   background: #EEEFEE;
 
 
