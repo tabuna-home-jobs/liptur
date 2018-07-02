@@ -35,7 +35,7 @@ class CartController
         abort_if($post->type !== 'product', 404);
 
         $post->setAttribute('image', optional($post->attachment()->first())->url());
-        $post->setAttribute('annotation',$post->getContent('annotation'));
+        $post->setAttribute('annotation', $post->getContent('annotation'));
 
         Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'), $post->toArray());
 

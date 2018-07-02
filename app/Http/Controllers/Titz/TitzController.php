@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Orchid\Platform\Core\Models\Role;
 use Orchid\Platform\Facades\Alert;
-use Orchid\Platform\Facades\Dashboard;
 
 class TitzController extends Controller
 {
@@ -52,7 +51,7 @@ class TitzController extends Controller
      */
     public function listing(User $user, $typeRequest): View
     {
-        $typeObject = dashboard_posts()->where('slug',$typeRequest)->first() ?? abort(404);
+        $typeObject = dashboard_posts()->where('slug', $typeRequest)->first() ?? abort(404);
 
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
