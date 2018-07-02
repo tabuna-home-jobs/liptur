@@ -88,14 +88,16 @@
         </div>
         <div class="wrapper bg-white main-category padder-v">
             <div class="container shop-categories-widget">
-                @for ($i = 0; $i < 15; $i++)
-                    <article>
-                        <a>
-                            <img src="/img/icons/slon.png"/>
-                            <p>Гончарные изделия</p>
-                        </a>
-                    </article>
+              <div class="owl-carousel category-carousel">
+                @for($i=1; $i<16; $i++)
+                  <figure class="item">
+                      <a>
+                        <img src="/img/icons/slon.png"/>
+                        <p>Гончарные изделия</p>
+                      </a>
+                  </figure>
                 @endfor
+              </div>
             </div>
         </div>
         <div class="container padder-v">

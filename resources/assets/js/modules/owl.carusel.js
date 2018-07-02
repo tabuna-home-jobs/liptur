@@ -59,6 +59,31 @@ $(function () {
             }
         }
     });
+    $('.category-carousel').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        lazyLoad: true,
+        // center: true,
+        navText: [
+            '<i class="icon-arrow-left"></i>',
+            '<i class="icon-arrow-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                stagePadding: 20,
+            },
+            600: {
+                items: 4,
+                stagePadding: 100,
+              },
+              1000: {
+                items: 6,
+                margin: 76,
+                slideBy: 6,
+            }
+        }
+    });
 
     $('.main-carousel').owlCarousel({
         animateOut: 'fadeOut',
