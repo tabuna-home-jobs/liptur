@@ -40,6 +40,10 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f05050">
     <meta name="theme-color" content="#ffffff">
     @stack('stylesheet')
+
+
+    <script type="text/javascript" src="{{ elixir('/dist/js/orchid.js') }}"></script>
+
 </head>
 
 
@@ -58,7 +62,7 @@
           </a>
         </div>
         <ul class="nav navbar-nav navbar-right hidden-xs">
-            <li class="col-md-3">
+            <li class="col-md-3 no-padder">
                 <div class="navbar-phone">
                     <i class="phone-icon"></i>
                     <span>8-800-200-81-20</span>
@@ -510,8 +514,6 @@
 
 </footer>
 <!-- / footer -->
-
-<script type="text/javascript" src="{{ elixir('/dist/js/orchid.js') }}"></script>
 
 </body>
 

@@ -52,7 +52,7 @@ class CfoController extends Controller
      */
     public function listing(User $user, $typeRequest): View
     {
-        $typeObject = Dashboard::getPosts()->find($typeRequest) ?? abort(404);
+        $typeObject = dashboard_posts()->find($typeRequest) ?? abort(404);
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
             ->whereNotNull('options->locale->'.App::getLocale())

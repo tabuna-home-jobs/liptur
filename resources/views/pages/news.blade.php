@@ -43,10 +43,10 @@
 
                             </div>
 
-                            @if($new->attachment()->count() > 0)
+                            @if(count($new->attachment) > 0)
 
                                 <div class="owl-carousel owl-theme own-content">
-                                    @foreach($new->attachment()->get() as $image)
+                                    @foreach($new->attachment as $image)
 
                                         @if($loop->first)
                                             <figure class="item">

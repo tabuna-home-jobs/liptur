@@ -17,7 +17,7 @@
         <div class="col-xs-6 col-md-3">
             <ul class="nav nav-cart pull-right">
                 <li>
-                    <a>
+                    <a href="{{route('shop.cart')}}">
                         <i class="cart-icon"></i> 0 товаров
                     </a>
                 </li>
@@ -27,7 +27,5 @@
 @endsection
 
 @section('content')
-
     @yield('shop')
-
 @endsection

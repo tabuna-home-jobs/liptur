@@ -68,7 +68,7 @@
     </div>
 
 
-    @if($item->attachment('image')->count() > 1)
+    @if(count($item->attachment) > 1)
         <section class="container-fluid bg-white box-shadow-lg">
             <div class="container padder-v">
                 <div class="col-md-10 col-md-offset-1">
@@ -77,7 +77,7 @@
                         <h3 class="font-thin">Фотографии</h3>
                         <div class="row row-sm">
 
-                            @foreach($item->attachment('image')->get() as $image)
+                            @foreach($item->attachment as $image)
                                 <div class="col-xs-6 col-sm-3">
                                     <div class="item padder-v">
                                         <div class="pos-rlt">

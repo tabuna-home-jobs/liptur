@@ -104,9 +104,9 @@
                                 </div>
                             @endif
 
-                            @if($item->attachment('image')->count() > 1)
+                            @if(count($item->attachment) > 1)
                                 <div class="owl-carousel owl-theme own-content m-b-md">
-                                    @foreach($item->attachment('image')->get() as $image)
+                                    @foreach($item->attachment as $image)
 
                                         @if($loop->iteration == 2)
                                             <figure class="item" itemprop="image" itemscope

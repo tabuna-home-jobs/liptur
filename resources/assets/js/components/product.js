@@ -4,14 +4,29 @@ $(function () {
       'el': '#product',
       data: {},
       mounted() {
-        console.log("SDgsdgsdg", $(".owl-gallery"))
-        $(".owl-gallery").owlCarousel({
-          autoPlay: 3000, //Set AutoPlay to 3 seconds
-          nav: true,
-          items: 1,
-          thumbs: true,
-          thumbsPrerendered: true
-        });
+          $( '#shop-product-slider' ).sliderPro({
+              width: '100%',
+              height: 600,
+              orientation: 'vertical',
+              loop: false,
+              arrows: true,
+              buttons: false,
+              thumbnailsPosition: 'right',
+              thumbnailPointer: true,
+              thumbnailWidth: 110,
+              breakpoints: {
+                  800: {
+                      thumbnailsPosition: 'bottom',
+                      thumbnailWidth: 110,
+                      thumbnailHeight: 80
+                  },
+                  500: {
+                      thumbnailsPosition: 'bottom',
+                      thumbnailWidth: 110,
+                      thumbnailHeight: 50
+                  }
+              }
+          });
       },
       methods: {
         async addIntoCart(product) {

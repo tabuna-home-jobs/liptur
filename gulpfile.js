@@ -27,18 +27,15 @@ elixir(function (mix) {
 
     './resources/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
     "./resources/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
-    './resources/assets/vendor/bootstrap-maxlength/src/bootstrap-maxlength.js',
     './resources/assets/vendor/matchheight/dist/jquery.matchHeight-min.js',
-    './resources/assets/vendor/PACE/pace.min.js',
     './resources/assets/vendor/owl.carousel/dist/owl.carousel.min.js',
     './resources/assets/vendor/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js',
-    "./resources/assets/vendor/slider-pro/dist/js/jquery.sliderPro.min.js",
+    "./resources/assets/vendor/slider-pro/dist/js/jquery.sliderPro.js",
     "./resources/assets/vendor/gmaps/gmaps.min.js",
     "./resources/assets/vendor/onepage-scroll/jquery.onepage-scroll.min.js",
     "./resources/assets/vendor/moment/min/moment-with-locales.js",
     "./resources/assets/vendor/bootstrap-sweetalert/dist/sweetalert.min.js",
     "./resources/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
-
     './resources/assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
 
     './resources/assets/vendor/jquery.easing/js/jquery.easing.min.js',

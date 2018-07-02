@@ -2,22 +2,40 @@
 @section('title','Магазин')
 @section('description','Магазин') 
 @section('keywords','Магазин')
-@section('shop')
 
-<section class="container-lg">
-  <div class="row">
-    <div class="bg-bordo">
-      <div class="container">
-        <h1 class="brand-header">Интернет-магазин</h1>
-      </div>
+
+
+@section('header')
+    <div class="bg-white">
+        <section class="container-lg">
+            <div class="row">
+                <div class="bg-bordo">
+                    <div class="container">
+                        <h1 class="brand-header">Интернет-магазин</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <nav>
-      <div class="container">
-        @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Магазин' ])
-      </div>
-    </nav>
-  </div>
-</section>
+    <section class="container-lg">
+        <div class="row">
+            <nav>
+                <div class="container">
+                    @include('partials.breadcrumb',[
+                    'breadcrumb' => [],
+                    'base' => [
+                            'route' => route('shop'),
+                            'name' => 'Магазин',
+                    ],
+                    'current' => 'Каталог товаров' ])
+                </div>
+            </nav>
+        </div>
+    </section>
+@endsection
+
+
+@section('shop')
 
 <section>
   <div class="container padder-v">
@@ -83,27 +101,32 @@
         <div class="row">
           @foreach($products as $product)
           <article class="col-md-4 padder-v shop-product">
-            <div class="panel panel-default box-shadow-lg pos-rlt">
-              <div data-mh="main-news-img" style="height: 200px;">
-                  <a href="/testurl">
-                    <img src="{{$product->attachment('image')->first()->url()}}" class="img-full img-post ">
-                  </a>
-              </div>
-              <div class="wrapper-md">
-                  <div data-mh="main-news-body" style="height: 100px;">
-                      <p class="h4 m-b-xs"><a href="/testurl">Елецкие кружева</a>
-                      </p>
-                      <p class="text-xs">
-                        {{$product->getContent('annotation')}}
-                      </p>
-                      <p class="shop-product-price">
-                        {{number_format($product->getOption('price'),0 ,',', ' ')}} <span class="">руб.</span>
-                      </p>
-                      <a class="cart-button"><i class="cart-icon"></i></a>
-                      <div class="clearfix"></div>
+              <div class="panel panel-default box-shadow-lg pos-rlt">
+                  <div data-mh="main-news-img">
+                      <a href="{{route('shop.product',$product->slug)}}">
+                          <img src="{{$product->attachment->first()->url()}}"
+                               class="img-full img-post">
+                      </a>
                   </div>
-                </div>
-            </div>
+                  <div class="wrapper-md">
+
+                      <p class="h4 m-b-xs" data-mh="main-shop-header">
+                          <a href="{{route('shop.product',$product->slug)}}">{{$product->getContent('name')}}</a>
+                      </p>
+                      <p class="text-xs" data-mh="main-shop-body">
+                          {{$product->getContent('annotation')}}
+                      </p>
+
+                      <div>
+                          <p class="shop-product-price">
+                              {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
+                                      class="">руб.</span>
+                          </p>
+                          <a class="cart-button"><i class="cart-icon"></i></a>
+                          <div class="clearfix"></div>
+                      </div>
+                  </div>
+              </div>
           </article>
           @endforeach
         </div>

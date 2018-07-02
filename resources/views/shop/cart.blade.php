@@ -2,22 +2,38 @@
 @section('title','Корзина')
 @section('description','Корзина') 
 @section('keywords','Корзина')
-@section('shop')
 
-<section class="container-lg">
-  <div class="row">
-    <div class="bg-bordo">
-      <div class="container">
-        <h1 class="brand-header">Корзина</h1>
-      </div>
+
+@section('header')
+    <div class="bg-white">
+        <section class="container-lg">
+            <div class="row">
+                <div class="bg-bordo">
+                    <div class="container">
+                        <h1 class="brand-header">Корзина</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <nav>
-      <div class="container">
-        @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Корзина' ])
-      </div>
-    </nav>
-  </div>
-</section>
+    <section class="container-lg">
+        <div class="row">
+            <nav>
+                <div class="container">
+                    @include('partials.breadcrumb',[
+                    'breadcrumb' => [],
+                    'base' => [
+                            'route' => route('shop'),
+                            'name' => 'Магазин',
+                    ],
+                    'current' => 'Корзина' ])
+                </div>
+            </nav>
+        </div>
+    </section>
+@endsection
+
+@section('shop')
 
 <section>
   <div class="container padder-v">

@@ -24,7 +24,7 @@ class CatalogController extends Controller
      */
     public function index($typeRequest): View
     {
-        $typeObject = Dashboard::getPosts()->find($typeRequest) ?? abort(404);
+        $typeObject = dashboard_posts()->where('slug',$typeRequest)->first() ?? abort(404);
         $query = Post::published()->type($typeRequest)
             ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest);

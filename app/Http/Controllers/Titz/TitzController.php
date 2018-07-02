@@ -52,7 +52,7 @@ class TitzController extends Controller
      */
     public function listing(User $user, $typeRequest): View
     {
-        $typeObject = Dashboard::getPosts()->find($typeRequest) ?? abort(404);
+        $typeObject = dashboard_posts()->where('slug',$typeRequest)->first() ?? abort(404);
 
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
@@ -76,7 +76,7 @@ class TitzController extends Controller
      */
     public function news(User $user): View
     {
-        $typeObject = Dashboard::getPosts()->find('news') ?? abort(404);
+        $typeObject = dashboard_posts()->find('news') ?? abort(404);
 
         $elements = Post::where('type', 'news')
             ->where('user_id', $user->id)

@@ -65,7 +65,7 @@ class PostApiController extends ApiController
                 break;
             default:
                 {
-                    $type = Dashboard::getPosts()->find($typeIndex);
+                    $type = dashboard_posts()->where('slug',$typeIndex)->first();
                     $model = $type->model;
                 }
         }

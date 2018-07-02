@@ -27,19 +27,23 @@
 @section('content')
 
 
-    <div class="container padder-v">
+    <div class="container padder-v auth">
 
         <div class="row m-t-lg">
-            <div class="col-md-4">
+            <div class="col-md-4 login">
 
-                <div class="panel wrapper-xl b box-shadow-lg  padder-lg">
+                <div class="panel wrapper b box-shadow-lg  padder-lg" data-mh="auth">
                     <div class="row">
                         <div class="col-md-12">
 
-                            <div data-mh="auth">
+                            <div>
 
-                                <p class="h4 font-thin padder-v text-center">Туристско-информационные
-                                    центры Липецкой области</p>
+                                <div class="v-center">
+                                    <img src="/img/other/2.png" class="img-responsive pull-left m-r-sm">
+                                    <h2 class="m-t-n m-b-n">
+                                        Авторизоваться
+                                    </h2>
+                                </div>
 
 
                                 <form role="form" method="POST" action="{{ url('/'.App::getLocale().'/login') }}">
@@ -77,15 +81,6 @@
                                     </div>
 
 
-                                    <div class="btn-group btn-group-justified m-b-md m-t-md hidden">
-                                        <a href="" class="btn btn-default"><i class="fa fa-vk"></i> Вконтакте</a>
-                                        <a href="" class="btn btn-default"><i class="fa fa-facebook-official"></i>
-                                            Facebook</a>
-                                        <a href="" class="btn btn-default"><i class="fa fa-odnoklassniki"></i>
-                                            Однокласники</a>
-                                    </div>
-
-
                                     <div class="form-group">
                                         <div class="checkbox">
                                             <label class="i-checks">
@@ -93,31 +88,27 @@
                                                 меня
                                             </label>
                                         </div>
-                                        <div>
-                                            @include('auth.social')
-                                        </div>
                                     </div>
 
 
                                     {!! csrf_field() !!}
 
+                                    <p class="m-t m-b text-center">
+                                        <a class="text-center"
+                                           href="{{ url('/'.App::getLocale().'/password/reset') }}">Забыли
+                                                                                                    пароль?</a>
+                                    </p>
 
-                                    <div class="row">
-                                        <div class="col-md-6 text-left">
-                                            <p class="m-t m-b">
-                                                <a class="text-muted"
-                                                   href="{{ url('/'.App::getLocale().'/password/reset') }}">Забыли
-                                                    пароль?</a>
-                                            </p>
+                                    <button type="submit" class="btn btn-lg btn-success btn-group-justified">
+                                        Войти на сайт
+                                    </button>
 
+                                    <h2>
+                                        Войти при помощи соц.сетей
+                                    </h2>
 
-                                        </div>
-                                        <div class="col-md-6 text-right">
-                                            <button type="submit" class="btn btn-danger btn-rounded">
-                                                Войти на
-                                                сайт
-                                            </button>
-                                        </div>
+                                    <div class="m-t-md">
+                                        @include('auth.social')
                                     </div>
 
 
@@ -130,46 +121,52 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 registation no-padder b-b">
 
-                <div class="padder-lg">
+                <div class="padder-lg" data-mh="auth">
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="v-center">
+                                <img src="/img/other/1.png" class="img-responsive pull-left m-r-sm">
+                                <h1 class="m-t-n m-b-n">Зарегистрироваться</h1>
+                            </div>
+                        </div>
 
-                            <p>
-                                Мы очень рады видеть вас на нашем портале - портале «Липецкая земля» - официальном источнике информации Липецкой области о событиях, местах отдыха и достопримечательностях нашего региона.
-                            </p>
+                        <div class="col-md-12">
 
-                            <p>
-                                Наша цель - сформировать обширную базу о регионе, о местах отдыха, культуре, развлечениях в Липецкой области.
-                            </p>
+                            <div class="m-l-xxl m-t-md">
+                                <p>
+                                    Мы очень рады видеть вас на нашем портале - портале «Липецкая земля» - официальном источнике информации Липецкой области о событиях, местах отдыха и достопримечательностях нашего региона.
+                                </p>
 
-                            Подпишись и:
+                                <p>
+                                    Наша цель - сформировать обширную базу о регионе, о местах отдыха, культуре, развлечениях в Липецкой области.
+                                </p>
 
-                            <ul>
-                                <li>читай историю региона;</li>
-                                <li>общайся с единомышленниками;</li>
-                                <li>строй свои маршруты;</li>
-                                <li>Получай новости и события обо всех мероприятиях в Липецкой области.</li>
-                            </ul>
+                                <strong>Подпишись и:</strong>
 
+                                <ul>
+                                    <li class="v-center m-t m-b-sm"><img src="/img/other/list-1.png" class="img-responsive m-r">читай историю региона;</li>
+                                    <li class="v-center m-t m-b-sm"><img src="/img/other/list-2.png" class="img-responsive m-r">общайся с единомышленниками;</li>
+                                    <li class="v-center m-t m-b-sm"><img src="/img/other/list-3.png" class="img-responsive m-r">строй свои маршруты;</li>
+                                    <li class="v-center m-t m-b-sm"><img src="/img/other/list-4.png" class="img-responsive m-r">получай новости и события обо всех мероприятиях в Липецкой области.</li>
+                                </ul>
+                            </div>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="padder-lg">
+            <div class="col-md-4 no-padder b-b">
+                <div class="padder-lg" data-mh="auth">
                     <div class="row">
                         <form class="form col-md-12" role="form" method="POST"
                               action="{{ url('/'.App::getLocale().'/register') }}">
                             {{ csrf_field() }}
 
 
-                            <div data-mh="auth">
-
-
-                                <div class="form-group  m-t-md {{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div>
+                                <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                                     <label class="text-sm text-left">Введите ваш Email (это будет логин)     :</label>
                                     <input type="email" name="email" value="{{ old('email') }}" required=""
                                           class="form-control">
@@ -182,7 +179,7 @@
                                 </div>
 
 
-                                <div class="form-group  m-t-md {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
                                     <label class="text-sm text-left">Введите  пароль     :</label>
                                     <input type="password" name="password" value="" required=""
                                            class="form-control">
@@ -195,13 +192,13 @@
                                 </div>
 
 
-                                <div class="form-group  m-t-md">
+                                <div class="form-group">
                                     <label class="text-sm text-left">Повторите пароль еще раз     :</label>
                                     <input type="password" name="password_confirmation" value="" required=""
                                            class="form-control">
                                 </div>
 
-                                <div class="form-group  m-t-md {{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label class="text-sm text-left">Ваше имя (никнейм):</label>
                                     <input type="text" maxlength="200" min="3" name="name" value="{{ old('name') }}"
                                            required="" class="form-control">
