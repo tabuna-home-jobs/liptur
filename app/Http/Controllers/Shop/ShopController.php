@@ -35,7 +35,7 @@ class ShopController extends Controller
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $warnings,
+            'warnings' => $warnings,
         ]);
     }
 
@@ -56,8 +56,14 @@ class ShopController extends Controller
      */
     public function product(Post $product): View
     {
+        $warnings = Post::type('product')
+            ->with('attachment')
+            ->whereNotNull('options->warning')
+            ->get();
+
         return view('shop.product', [
             'product' => $product,
+            'warnings' => $warnings,
         ]);
     }
 
@@ -73,9 +79,9 @@ class ShopController extends Controller
         $products = $category->posts()->paginate();
 
         return view('shop.products', [
-            'categories'      => $categories,
+            'categories' => $categories,
             'currentCategory' => $category,
-            'products'        => $products,
+            'products' => $products,
         ]);
     }
 

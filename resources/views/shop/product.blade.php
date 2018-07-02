@@ -125,9 +125,12 @@
                         var h=d[g]('body')[0];
                         h.appendChild(s);
                       }})();</script>
-                    <div class="m-t-md pluso" data-background="transparent" data-options="medium,square,line,horizontal,nocounter,theme=06" data-services="vkontakte,odnoklassniki,facebook,google" data-url="https://liptur.orchid.software"></div>
+                    <div class="m-t-lg text-right">
+                      <em class="text-grey padder-sm padder-v-micro">Поделиться: </em>
+                      <div class="inline v-middle pluso" data-background="transparent" data-options="medium,square,line,horizontal,nocounter,theme=06" data-services="vkontakte,odnoklassniki,facebook,google" data-url="https://liptur.orchid.software"></div>
+                    </div>
 
-                    <div class="m-t-md">
+                    <div class="m-t-lg">
                         <div class="b-t">
                             <div class="wrapper">
                                 <div class="v-center text-grey">
@@ -179,10 +182,51 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
+            </div>
+        </div>
+        <div class="container padder-v">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="block-header">
+                        Обратите внимание
+                        <a href="{{route('shop.catalog')}}">
+                            К каталогу
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($warnings as $product)
+                        <article class="col-md-3 padder-v shop-product">
+                            <div class="panel panel-default box-shadow-lg pos-rlt">
+                                <div data-mh="main-news-img">
+                                    <a href="{{route('shop.product',$product->slug)}}">
+                                        <img src="{{$product->attachment->first()->url()}}"
+                                             class="img-full img-post">
+                                    </a>
+                                </div>
+                                <div class="wrapper-md">
 
+                                    <p class="h4 m-b-xs" data-mh="main-shop-header">
+                                        <a href="{{route('shop.product',$product->slug)}}">{{$product->getContent('name')}}</a>
+                                    </p>
+                                    <p class="text-xs" data-mh="main-shop-body">
+                                        {{$product->getContent('annotation')}}
+                                    </p>
+
+                                    <div>
+                                        <p class="shop-product-price">
+                                            {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
+                                                    class="">руб.</span>
+                                        </p>
+                                        <a class="cart-button"><i class="cart-icon"></i></a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
