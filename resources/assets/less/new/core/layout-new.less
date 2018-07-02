@@ -103,36 +103,6 @@
   }
 }
 
-.owl-gallery-wrapper {
-  .owl-gallery {
-    overflow: hidden;
-    .owl-stage-outer {
-      width: 80%;
-    }
-    .owl-item {
-      // display: none;
-      display: inline-block;
-      &.active {
-      }
-    }
-  }
-  .owl-nav {
-    display: none;
-  }
-  .owl-thumbs {
-    width: 20%;
-    .owl-thumb-item {
-      display: block;
-      width: 110px;
-      height:110px;
-      img {
-        width: 100%;
-      }
-    }
-  }
-}
-
-
 .owl-carousel {
   .owl-shop-block {
     position: absolute;
@@ -200,6 +170,17 @@
         overflow: hidden;
       }
     }
+  }
+}
+
+.ad-carousel {
+  .owl-stage {
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+  }
+  .owl-nav.disabled {
+    display: block!important;
   }
 }
 

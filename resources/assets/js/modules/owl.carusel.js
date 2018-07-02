@@ -27,6 +27,39 @@ $(function () {
         }
     });
 
+    $('.ad-carousel').owlCarousel({
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        loop: true,
+        nav: true,
+        lazyLoad: true,
+        autoplay: true,
+        center: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: true,
+        navText: [
+            '<i class="icon-arrow-left"></i>',
+            '<i class="icon-arrow-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                stagePadding: 20,
+            },
+            600: {
+                items: 5,
+                stagePadding: 100,
+              },
+              1000: {
+                items: 7,
+                margin: 100,
+                stagePadding: 75,
+                slideBy: 7,
+                nav: true
+            }
+        }
+    });
+
     $('.main-carousel').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
