@@ -297,10 +297,12 @@
               </div>
             </div>
             <div class="col-md-7 col-xs-12 padder-v">
-              <div class="text-green text-bold text-lg">@{{product.name}}</div>
-              <div class="padder-v-micro text-sm">
-                Еврокомиссия (ЕК) закрыла антимонопольное расследование против «Газпрома», которое продолжалось в течение нескольких лет, говорится в заявлении на сайте ЕК...
-              </div>
+              <a>
+                <div class="text-green text-bold text-lg">@{{product.name}}</div>
+                <div class="padder-v-micro text-sm">
+                  @{{product.options.annotation}}
+                </div>
+              </a>
               <div class="row m-t">
                 <div class="col-xs-4">
                   <div class="input-group cart-component">
@@ -327,7 +329,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="row  m-l-none">
+          <div class="row m-l-none">
             <div>
               Товаров в корзине: <b>@{{cartTotalCount}}</b>
             </div>
