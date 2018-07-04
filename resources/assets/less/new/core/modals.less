@@ -7,6 +7,12 @@
   }
   .modal-dialog {
     transition: all .2s !important;
+     &.modal-xl {
+      .modal-content {
+        height: initial;
+        width: initial;
+      }
+    }
   }
   .modal-content {
     width: 851px;
@@ -38,6 +44,7 @@
   .drop-shadow {
     box-shadow: 0 0 9px rgba(191, 191, 191, .36) !important;
   }
+ 
   &.fade {
     opacity: 1 !important;
     &.stick-up {
@@ -178,6 +185,7 @@
   opacity: 0;
   .transition(opacity 0.2s linear);
   &.in {
+    z-index: 999;
     opacity: 0.9;
     background: #d3d3d3;
   }
