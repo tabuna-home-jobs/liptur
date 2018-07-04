@@ -27,4 +27,16 @@ class CommentController extends Controller
 
         return back();
     }
+
+    /**
+     * @param \Orchid\Platform\Core\Models\Post $post
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Post $post)
+    {
+        $comments = $post->comments()->paginate();
+
+        return response()->json($comments);
+    }
 }

@@ -22,20 +22,20 @@ class ShopController extends Controller
      */
     public function index(): View
     {
-        $newsAndSpecial = Post::type('product')
+        $newsAndSpecialAndWarnings = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->new')
             ->orWhereNotNull('options->special')
+            ->orWhereNotNull('options->warning')
             ->get();
 
-        $warnings = Post::type('product')
-            ->with('attachment')
-            ->whereNotNull('options->warning')
-            ->get();
+        $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
+            $newsAndSpecialAndWarnings->where('options->new', '')
+        );
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $warnings,
+            'warnings'       => $newsAndSpecialAndWarnings->where('options->warning', ''),
         ]);
     }
 

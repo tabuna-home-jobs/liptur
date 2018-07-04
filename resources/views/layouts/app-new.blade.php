@@ -8,10 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title',setting('site_title','')) - Липецкий туристский портал</title>
     <meta name="description" content="@yield('description',setting('site_description',''))">
-    <meta name="keywords"
-          content="@yield('keywords',setting('site_keywords',''))"> {!! Feed::link(route('rss'), 'atom', 'Новостная лента', App::getLocale()) !!}
-
-
     <meta name="auth" content="{{Auth::check()}}">
     <meta name="user_id" content="@if(Auth::check()){{ (int) (Auth::user()->id)}}@endif">
 
@@ -168,17 +164,22 @@
     @yield('header')
 
     @yield('content')
-    <div class="panel panel-default m-n">
-      <div class="owl-carousel ad-carousel">
-        @for($i=1; $i<6; $i++)
-           <figure class="item">
-              <a>
-                <img class="owl-lazy img-responsive" data-src="/img/carusel/b-{{$i}}.png">
-              </a>
-          </figure>
-        @endfor
-      </div>
+    <div class="bg-white padder-v">
+        <div class="container no-padder">
+          <div class="owl-carousel ad-carousel">
+            @for($i=1; $i<6; $i++)
+               <figure class="item">
+                  <a href="#">
+                    <img class="owl-lazy img-responsive" data-src="/img/carusel/b-{{$i}}.png">
+                  </a>
+              </figure>
+            @endfor
+          </div>
+        </div>
     </div>
+
+
+    @include('partials.support')
 
 </div>
 
@@ -211,7 +212,7 @@
                 </div>
 
                 <div class="col-md-3 hidden-sm vi-col-4">
-                    <a class="wrapper-sm click-visually v-center" data-toggle="visually-impaired" data-target="#html"
+                    <a class="wrapper-sm v-center" data-toggle="modal" data-target="#support"
                        title="Сайт доступен для людей с ограниченными возможностями">
                         <i class="icon-phone fa-2x m-r-sm"></i>
                         <div>

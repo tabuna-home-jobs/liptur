@@ -132,6 +132,8 @@ $router->group([
         $this->post('/route/delete', 'UsersRouteController@delete');
     });
 
+
+    $this->get('/comment/{item}', 'CommentController@index')->name('comment.list');
     $this->put('/comment/{item}', 'CommentController@update')->name('comment.add');
 
     $this->get('gallery', 'GalleryController@index');

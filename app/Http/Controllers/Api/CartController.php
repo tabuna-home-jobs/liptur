@@ -36,6 +36,7 @@ class CartController
 
         $post->setAttribute('image', optional($post->attachment()->first())->url());
         $post->setAttribute('annotation', $post->getContent('annotation'));
+        $post->setAttribute('url', route('shop.product',$post->slug));
 
         Cart::add($post->id, $post->getContent('name'), $qty, $post->getOption('price'), $post->toArray());
 

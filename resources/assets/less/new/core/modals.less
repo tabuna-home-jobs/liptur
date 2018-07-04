@@ -9,22 +9,23 @@
     transition: all .2s !important;
   }
   .modal-content {
-    border: 1px solid #f2f6f7;
-    border-radius: 3px;
-    box-shadow: none;
+    width: 851px;
+    height: 462px;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 80px 40px 80px;
   }
   .modal-header {
-    text-align: center;
     border-bottom: 0;
-    padding: 25px 25px 0 25px;
+    padding: 0;
     p {
       color: #8b91a0;
     }
   }
   .modal-body {
     box-shadow: none;
-    padding: 25px;
-    padding-top: 0;
+    padding: 0;
     white-space: normal;
   }
   .modal-footer {
@@ -177,7 +178,8 @@
   opacity: 0;
   .transition(opacity 0.2s linear);
   &.in {
-    opacity: 0.30;
+    opacity: 0.9;
+    background: #d3d3d3;
   }
 }
 
