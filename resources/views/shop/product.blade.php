@@ -86,8 +86,9 @@
 
                         <div class="wrapper">
                             <div class="v-center">
-                                <div class="col-xs-6 no-padder text-black m-t">Цена:</div>
-                                <div class="col-xs-6 no-padder text-right h3 text-danger">{{$product->getOption('price')}}
+                                <div class="col-xs-3 no-padder text-black m-t">Цена:</div>
+                                <div class="col-xs-9 no-padder text-right h3 text-danger">
+                                    {{number_format($product->getOption('price'),0 ,',', ' ')}}
                                     руб.
                                 </div>
                             </div>
@@ -109,9 +110,9 @@
 
                         <div class="wrapper b-t">
                             <ul class="list-unstyled text-sm text-grey">
-                                <li>Артикул: <span>1967811</span></li>
+                                <li>Артикул: <span>{{$product->getOption('ski')}}</span></li>
                                 <li class="padder-v-micro">Продавец: <span
-                                            class="text-black">“Елецие кружева”, г. Елец</span></li>
+                                            class="text-black">{{$product->getContent('seller.name')}}</span></li>
                             </ul>
 
                         </div>

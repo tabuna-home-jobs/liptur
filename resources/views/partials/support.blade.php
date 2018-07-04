@@ -11,15 +11,17 @@
                     <div class="text-left">
                     <h5>Обратная связь</h5>
 
-                    <p class="w-xxl">Если у вас есть какие-либо вопросы - заполните эту форму, чтобы связаться с нами.
-                                            Мы оперативно вам ответим.</p>
+                    <p>
+                        Если у вас есть какие-либо вопросы - заполните эту форму, чтобы связаться с нами.<br>
+                        Мы оперативно вам ответим.
+                    </p>
                     </div>
 
                 </div>
                 <div class="modal-body">
 
 
-                    <form action="{{route('contacts.submit')}}" v-on:submit.prevent="send" method="post"
+                    <form action="{{route('contacts.submit')}}" class="m-t" v-on:submit.prevent="send" method="post"
                           enctype="multipart/form-data">
 
                         {!! csrf_field() !!}

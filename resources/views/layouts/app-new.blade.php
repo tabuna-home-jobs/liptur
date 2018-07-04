@@ -225,7 +225,7 @@
 
                 <div class="col-md-3 col-sm-6 vi-hide">
                     <p>
-                        <a href="https://vk.com/liptur48" target="_blank" class="btn btn-icon btn-rounded btn-grey">
+                        <a href="https://vk.com/liptur48" target="_blank" class="btn btn-outline">
                             <i class="fa fa-vk"></i>
                         </a>
 

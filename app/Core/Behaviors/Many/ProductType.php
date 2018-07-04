@@ -123,14 +123,14 @@ class ProductType extends Many
 
             Field::tag('input')
                 ->type('text')
-                ->name('title')
+                ->name('seller.name')
                 ->max(255)
                 ->required()
                 ->title('Имя продавца'),
 
             Field::tag('input')
                 ->type('text')
-                ->name('phone')
+                ->name('seller.phone')
                 ->mask('(999) 999-9999')
                 ->title('Телефон продавца'),
 
