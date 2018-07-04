@@ -297,12 +297,12 @@
               </div>
             </div>
             <div class="col-md-7 col-xs-12 padder-v">
-              <a>
-                <div class="text-green text-bold text-lg">@{{product.name}}</div>
-                <div class="padder-v-micro text-sm">
-                  @{{product.options.annotation}}
-                </div>
-              </a>
+              <a class="text-green text-bold text-lg" v-bind:href="product.options.url">
+                  @{{product.name}}
+                </a>
+              <div class="padder-v-micro text-sm">
+                @{{product.options.annotation}}
+              </div>
               <div class="row m-t">
                 <div class="col-xs-4">
                   <div class="input-group cart-component">

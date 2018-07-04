@@ -49,15 +49,15 @@
               </div>
             </div>
             <div class="col-md-7 col-xs-12 padder-v">
-              <a>
-                <div class="text-green text-bold text-lg">@{{product.name}}</div>
+                <a class="text-green text-bold text-lg" v-bind:href="product.options.url">
+                  @{{product.name}}
+                </a>
                 <div class="padder-v-micro text-sm">
                   @{{product.options.annotation}}
                 </div>
-              </a>
-              <div class="row m-t">
-                <div class="col-xs-4">
-                  <div class="input-group cart-component">
+                <div class="row m-t">
+                  <div class="col-xs-4">
+                    <div class="input-group cart-component">
                     <input type="text" class="form-control" v-model="product.qty" v-on:change="updateInput(product)"/>
                     <button type="button" class="btn btn-default" v-on:click="updateQty(product, parseInt(product.qty)+1)">
                       +
