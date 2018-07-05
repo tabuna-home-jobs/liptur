@@ -33,25 +33,9 @@
 .owl-carousel .owl-stage-outer {
     position: relative;
     overflow: hidden;
-    /* fix for flashing background */
     -webkit-transform: translate3d(0px, 0px, 0px);
-    overflow-x: scroll;
-    overflow-y: hidden;
-            
-    &::-webkit-scrollbar {
-        height: 8px;
-    }
-    
-    &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 18px #e5e6e5; 
-        border-radius: 10px;
-    }
-     
-    &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 20px 20px #a5b526; 
-    }
 }
+
 
 .owl-carousel .owl-item {
   position: relative;
@@ -320,6 +304,43 @@
   }
 }
 
+.category-carousel  {
+    font-family: "William Text Pro";
+}    
+
+.category-carousel figure {
+    margin-left: 35px;
+    margin-right: -35px;
+}
+
+.category-carousel  figure p{
+    color: #a5b526;
+    font-size: 14px;
+    white-space: normal;
+    text-align: center;
+    margin: 0 -20px;
+}
+
+.category-carousel  .owl-stage-outer {
+    overflow-x: scroll;
+    overflow-y: hidden; 
+}
+
+.category-carousel .owl-stage-outer {
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 18px #e5e6e5; 
+        border-radius: 10px;
+    }
+     
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 20px 20px #a5b526; 
+    }
+}
 
 
 
