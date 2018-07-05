@@ -30,7 +30,6 @@ class MenuWidget extends Widget
      */
     public function __construct()
     {
-
     }
 
     /**
@@ -38,22 +37,21 @@ class MenuWidget extends Widget
      */
     public function handler($typemenu = 'header')
     {
-        $this->typemenu=$typemenu;
+        $this->typemenu = $typemenu;
         //dd($this->typemenu);
         $this->menu = Cache::remember($this->typemenu.'-menu-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Menu::where('lang', App::getLocale())
-                ->where('parent',0)
+                ->where('parent', 0)
                 ->where('type', $this->typemenu)
                 ->with('children')
                 ->get();
         });
-       
+
         //dd($this->menu);
         //$this->chunk = ceil($this->menu->count() / 4);
-            
+
         return view('partials.widgets.menu.menu-'.$typemenu, [
             'menu'  => $this->menu,
         ]);
-
     }
 }
