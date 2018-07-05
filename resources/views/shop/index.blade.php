@@ -86,20 +86,13 @@
                 @endforeach
             </div>
         </div>
-        <div class="wrapper bg-white main-category padder-v">
-            <div class="container shop-categories-widget">
-              <div class="owl-carousel category-carousel">
-                @for($i=1; $i<16; $i++)
-                  <figure class="item">
-                      <a>
-                        <img src="/img/icons/slon.png"/>
-                        <p>Гончарные изделия</p>
-                      </a>
-                  </figure>
-                @endfor
-              </div>
-            </div>
-        </div>
+
+
+        @include('partials.shop.index-category',[
+            'categories'=>$categories
+        ])
+        
+        
         <div class="container padder-v">
             <div class="col-md-12">
                 <div class="row">

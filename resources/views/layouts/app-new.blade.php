@@ -114,46 +114,8 @@
 
         </ul>
         <div class="clearfix"></div>
-        <div class="collapse navbar-collapse m-t-md b-b no-padder menu-shop-header">
-            @widget('menuWidget','shop-header')
-        {{--
-            <ul class="nav navbar-nav">
-                <li>
-                    <button class="btn btn-link" type="button">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                </li>
-                <li>
-                    <a href="{{route('about')}}" rel="prefetch" title="Интересные факты">Об области</a>
-                </li>
-                <li>
-                    <a href="{{route('news')}}" title="Новости Липецкой области">Новости</a>
-                </li>
-                <li>
-                    <a href="{{route('investor')}}" title="Потенциал области">Инвесторам</a>
-                </li>
 
-
-                <li class="dropdown pos-stc">
-                    <a href="#" data-toggle="dropdown" class=" dropdown-toggle" aria-expanded="true">
-                        Категории
-                    </a>
-                    <div class="dropdown-menu wrapper w-full bg-white">
-                        <div class="row">
-                            <div class="col-sm-4 col-md-6">
-                                @widget('menuCategory')
-                            </div>
-                            <div class="col-sm-4 col-md-6 b-l b-light">
-                                @widget('menuTopMiddleColum')
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-
-            </ul>
-        --}}            
-        </div>
+        @widget('menuWidget','shop-header')
 
 
         @yield('submenu')
