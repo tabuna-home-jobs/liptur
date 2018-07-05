@@ -41,7 +41,7 @@
       Корзина
     </div>
     <div id="cart" v-cloak>
-      <div class="col-md-8 padder-md">
+      <div class="col-md-8 padder-md" id="cart-affix-target">
           <div v-for="product in products" class="row panel panel-default box-shadow-lg pos-rlt">
             <div class="col-md-4 col-xs-12 no-padder-h">
               <div class="img-full">
@@ -88,70 +88,72 @@
           </div>
       </div>
       <div class="col-md-4">
-        <div class="panel panel-cart-1 box-shadow-lg pos-rlt wrapper-md m-n">
-          <div>
-            Товаров в корзине: <b>@{{totalCount}}</b>
-          </div>
-          <div class="row b-b m-b padder-v-micro">
-            <div class="col-xs-12">
-              <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatPrice(total) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
+        <div id="cart-affix">
+          <div class="panel box-shadow-lg pos-rlt wrapper-md m-n">
+            <div>
+              Товаров в корзине: <b>@{{totalCount}}</b>
             </div>
+            <div class="row b-b m-b padder-v-micro">
+              <div class="col-xs-12">
+                <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatPrice(total) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
+              </div>
+            </div>
+            <button v-on:click="finishOrder" class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</button>
           </div>
-          <button v-on:click="finishOrder" class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</button>
-        </div>
-        <div class="panel panel-cart-2  box-shadow-lg pos-rlt wrapper-md">
-          <div class="row">
-            <div class="m-t-md">
-              <div class="b-b b-t">
-                  <div class="wrapper">
-                      <div class="v-center">
-                          <div class="thumb-sm m-r-md">
-                              <img src="/img/shop/feature-1.png" class="img-responsive center">
-                          </div>
-                          <span>Удобная и быстрая доставка<br> по всей России</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="b-b">
-                  <div class="wrapper">
-                      <div class="v-center">
-                          <div class="thumb-sm m-r-md">
-                              <img src="/img/shop/feature-2.png" class="img-responsive center">
-                          </div>
-                          <span>30 дней на возврат товара</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="b-b">
-                  <div class="wrapper">
-                      <div class="v-center">
-                          <div class="thumb-sm m-r-md">
-                              <img src="/img/shop/feature-3.png" class="img-responsive center">
-                          </div>
-                          <span>Гарантия подлинности и качества</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="b-b">
-                  <div class="wrapper">
-                      <div class="v-center">
-                          <div class="thumb-sm m-r-md">
-                              <img src="/img/shop/feature-4.png" class="img-responsive center">
-                          </div>
-                          <span>Все товары и цены - <br>напрямую от производителей</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="b-b">
-                  <div class="wrapper">
-                      <div class="v-center">
-                          <div class="thumb-sm m-r-md">
-                              <img src="/img/shop/feature-5.png" class="img-responsive center">
-                          </div>
-                          <span>Безопасность платежей гарантируется<br>использованием SSL протокола</span>
-                      </div>
-                  </div>
-              </div>
+          <div class="pos-rlt wrapper-md">
+            <div class="row">
+              <div class="m-t-md">
+                <div class="b-b b-t">
+                    <div class="wrapper">
+                        <div class="v-center">
+                            <div class="thumb-sm m-r-md">
+                                <img src="/img/shop/feature-1.png" class="img-responsive center">
+                            </div>
+                            <span>Удобная и быстрая доставка<br> по всей России</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-b">
+                    <div class="wrapper">
+                        <div class="v-center">
+                            <div class="thumb-sm m-r-md">
+                                <img src="/img/shop/feature-2.png" class="img-responsive center">
+                            </div>
+                            <span>30 дней на возврат товара</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-b">
+                    <div class="wrapper">
+                        <div class="v-center">
+                            <div class="thumb-sm m-r-md">
+                                <img src="/img/shop/feature-3.png" class="img-responsive center">
+                            </div>
+                            <span>Гарантия подлинности и качества</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-b">
+                    <div class="wrapper">
+                        <div class="v-center">
+                            <div class="thumb-sm m-r-md">
+                                <img src="/img/shop/feature-4.png" class="img-responsive center">
+                            </div>
+                            <span>Все товары и цены - <br>напрямую от производителей</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-b">
+                    <div class="wrapper">
+                        <div class="v-center">
+                            <div class="thumb-sm m-r-md">
+                                <img src="/img/shop/feature-5.png" class="img-responsive center">
+                            </div>
+                            <span>Безопасность платежей гарантируется<br>использованием SSL протокола</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
       </div>

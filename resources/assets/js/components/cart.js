@@ -10,6 +10,15 @@ $(function () {
         totalCount: 0
       },
       async mounted() {
+        $('#cart-affix').affix({
+          offset: {
+            top: $('#cart-affix').offset().top,
+            bottom: function () {
+              return $(document).height() - $('#cart').offset().top - $('#cart').height()
+            }
+          }
+        })
+
         const localData = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
         
         if(localData) {
