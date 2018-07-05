@@ -32,7 +32,7 @@ class ShopController extends Controller
         $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
             $newsAndSpecialAndWarnings->where('options->new', '')
         );
-        
+
         $categories = ShopCategory::all();
 
         return view('shop.index', [
