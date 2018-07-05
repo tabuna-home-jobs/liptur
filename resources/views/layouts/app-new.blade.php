@@ -114,7 +114,9 @@
 
         </ul>
         <div class="clearfix"></div>
-        <div class="collapse navbar-collapse m-t-md b-b no-padder">
+        <div class="collapse navbar-collapse m-t-md b-b no-padder menu-shop-header">
+            @widget('menuWidget','shop-header')
+        {{--
             <ul class="nav navbar-nav">
                 <li>
                     <button class="btn btn-link" type="button">
@@ -150,6 +152,7 @@
 
 
             </ul>
+        --}}            
         </div>
 
 

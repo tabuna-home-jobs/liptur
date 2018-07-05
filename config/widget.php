@@ -28,6 +28,7 @@ return [
         'menuCategory'       => \App\Http\Widgets\MenuCategoryWidget::class,
         'menuTopMiddleColum' => \App\Http\Widgets\MenuTopMiddleColum::class,
         'menuFooter'         => \App\Http\Widgets\MenuFooterWidget::class,
+        'menuWidget'         => \App\Http\Widgets\MenuWidget::class,
         'mainRoute'          => \App\Http\Widgets\RandomRouteWidget::class,
         'lastEventSidebar'   => \App\Http\Widgets\LastEventsSidebarWidget::class,
         'shopHeaderMiddle'   => \App\Http\Widgets\ShopHeaderMiddleWidget::class,
