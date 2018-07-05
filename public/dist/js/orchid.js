@@ -21000,6 +21000,15 @@ $(function () {
             }
         }
     });
+    $('.ad-carousel a').hover(function(){
+        $imgs=$(this).find('img.img-responsive');
+        $imgs.attr("src",$imgs.attr("data-hover-src"));
+        
+    },function(){
+        $imgs=$(this).find('img.img-responsive');
+        $imgs.attr("src",$imgs.attr("data-src"));
+    });
+    
     $('.category-carousel').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
@@ -21074,6 +21083,8 @@ $(function () {
         ],
         items: 1,
     });
+    
+    
 });
 function popupCenter(url, title, w, h) {
     var left = (screen.width / 2) - (w / 2);

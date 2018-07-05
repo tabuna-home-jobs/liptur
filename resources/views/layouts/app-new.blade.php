@@ -129,20 +129,10 @@
     @yield('header')
 
     @yield('content')
-    <div class="bg-white padder-v">
-        <div class="container no-padder">
-          <div class="owl-carousel ad-carousel">
-            @for($i=1; $i<6; $i++)
-               <figure class="item">
-                  <a href="#">
-                    <img class="owl-lazy img-responsive" data-src="/img/carusel/b-{{$i}}.png">
-                  </a>
-              </figure>
-            @endfor
-          </div>
-        </div>
-    </div>
 
+    
+    
+    @include('partials.shop.index-ad-carousel')
 
     @include('partials.support')
 
@@ -158,7 +148,7 @@
         <div class="container no-padder">
             <div class="row padder-v">
                 <div class="col-md-3 hidden-sm vi-col-4">
-                    <a href="tel:+74742272360" class="wrapper-sm v-center" title="Телефон приёмного отделения">
+                    <a href="tel:+74742272360" class="wrapper-sm v-center" title="Центр кластерного развития туризма">
                         <i class="icon-phone fa-2x m-r-sm"></i>
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Центр кластерного развития туризма</p>
@@ -167,22 +157,22 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6 vi-hide">
-                    <a href="{{route('contacts')}}" class="wrapper-sm v-center" title="Териториальное расположение">
+                    <a href="tel:+78002008120" class="wrapper-sm v-center" title="Телефон">
                         <i class="icon-phone fa-2x m-r-sm"></i>
                         <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">Центр кластерного развития туризма</p>
-                            <p class="text-white text-md">Липецк, ул. Фрунзе, 10</p>
+                            <p class="m-b-xs text-muted text-xs text-u-c">Телефон</p>
+                            <p class="text-white text-md">8-800-200-81-20</p>
                         </div>
                     </a>
                 </div>
 
                 <div class="col-md-3 hidden-sm vi-col-4">
-                    <a class="wrapper-sm v-center" data-toggle="modal" data-target="#support"
-                       title="Сайт доступен для людей с ограниченными возможностями">
+                    <a class="wrapper-sm v-center"  data-toggle="modal" data-target="#support"
+                       title="Почта">
                         <i class="icon-phone fa-2x m-r-sm"></i>
                         <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">Центр кластерного развития туризма</p>
-                            <p class="text-white text-md">Липецк, ул. Фрунзе, 10</p>
+                            <p class="m-b-xs text-muted text-xs text-u-c">Почта</p>
+                            <p class="text-white text-md">info@liptur.ru</p>
                         </div>
                     </a>
                 </div>
