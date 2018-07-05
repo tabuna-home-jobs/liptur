@@ -3,7 +3,7 @@
 @section('description','Магазин')
 @section('keywords','Магазин')
 @section('shop')
-
+  <div id="shop">
     <section class="container-lg">
         <div class="pos-abt bg-white left w-full h-sm"></div>
 
@@ -77,7 +77,7 @@
                                         {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
                                                 class="">руб.</span>
                                     </p>
-                                    <a class="cart-button"><i class="cart-icon"></i></a>
+                                    <a class="cart-button" v-on:click="addIntoCart({{$product->id}})"><i class="cart-icon"></i></a>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                                             {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
                                                     class="">руб.</span>
                                         </p>
-                                        <a class="cart-button"><i class="cart-icon"></i></a>
+                                        <a class="cart-button" v-on:click="addIntoCart({{$product->id}})"><i class="cart-icon"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -138,4 +138,5 @@
             </div>
         </div>
     </section>
+  </div>
 @endsection

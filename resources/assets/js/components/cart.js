@@ -1,4 +1,4 @@
-const CART_LOCAL_STORAGE_KEY = "CART_LOCAL_STORAGE_KEY"
+let CART_LOCAL_STORAGE_KEY = "CART_LOCAL_STORAGE_KEY"
 
 $(function () {
   if (document.getElementById('cart')) {
@@ -19,7 +19,7 @@ $(function () {
             localStorage.removeItem(CART_LOCAL_STORAGE_KEY);
           }
         }
-
+        
         const {body} = await this.$http.get('/api/cart')
         this.renderData(body);
       },

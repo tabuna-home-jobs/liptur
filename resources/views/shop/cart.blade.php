@@ -87,7 +87,7 @@
             </div>
           </div>
       </div>
-      <div class="col-md-4 scroll-wrapper">
+      <div class="col-md-4">
         <div class="panel panel-cart-1 box-shadow-lg pos-rlt wrapper-md m-n">
           <div>
             Товаров в корзине: <b>@{{totalCount}}</b>
@@ -97,7 +97,7 @@
               <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatPrice(total) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
             </div>
           </div>
-          <button class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</button>
+          <button v-on:click="finishOrder" class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</button>
         </div>
         <div class="panel panel-cart-2  box-shadow-lg pos-rlt wrapper-md">
           <div class="row">
@@ -155,8 +155,9 @@
           </div>
         </div>
       </div>
-      <div class="clearfix"></div>
     </div>
+    <div class="clearfix"></div>
+  </div>
   </div>
 </section>
 @endsection

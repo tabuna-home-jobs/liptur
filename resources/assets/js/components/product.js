@@ -2,11 +2,6 @@ $(function () {
   if (document.getElementById('product')) {
     new Vue({
       'el': '#product',
-      data: {
-        cartProducts: [],
-        cartTotal: 0,
-        cartTotalCount: 0
-      },
       mounted() {
           $( '#shop-product-slider' ).sliderPro({
               width: '100%',
@@ -53,9 +48,8 @@ $(function () {
         });
       },
       methods: {        
-        async addIntoCart(product) {
-          await this.$http.post(`/api/cart/${product}`);
-          $('#cartProductModal').modal('show');
+        addIntoCart(id) {
+          EventBus.$emit('add-product-into-cart', {id});
         }
       }
     });
