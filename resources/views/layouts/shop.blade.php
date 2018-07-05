@@ -29,3 +29,5 @@
 @section('content')
     @yield('shop')
 @endsection
+
+@include('partials.shop.cart-modal')

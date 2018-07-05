@@ -52,49 +52,9 @@ $(function () {
           }
         });
       },
-      methods: {
-        formatPrice(value) {
-          return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-        },
-
-        renderCart({ total, count, content }) {
-          this.cartTotal = total;
-          this.cartTotalCount = count;
-          this.cartProducts = content;
-        },
-
-        updateQty(product, qty) {
-          if (qty > 0) {
-            this.$set(product, "qty", qty);
-            this.update(product);
-          }
-        },
-
-        updateInput(product) {
-          this.update(product);
-        },
-
-        finishOrder() {
-          console.log("finish")
-        },
-
-        async update(product) {
-          const { body } = await this.$http.put(`/api/cart/${product.rowId}/${product.qty}`);
-          this.renderCart(body);
-        },
-
-        async destroy(product) {
-          const { body } = await this.$http.delete(`/api/cart/${product.rowId}`);
-          this.renderCart(body);
-        },
-
-        closeCart() {
-          $('#cartProductModal').modal('hide');
-        },
-        
+      methods: {        
         async addIntoCart(product) {
-          const {body} = await this.$http.post(`/api/cart/${product}`);
-          this.renderCart(body);
+          await this.$http.post(`/api/cart/${product}`);
           $('#cartProductModal').modal('show');
         }
       }
