@@ -26,8 +26,6 @@
   @endsection
   
   @section('content')
-  @yield('shop')
-    <div id="shop">
-      @include('partials.shop.cart-modal')
-    </div>
+    @yield('shop')
+    @include('partials.shop.cart-modal')
   @endsection

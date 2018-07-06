@@ -122,7 +122,7 @@
                               {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
                                       class="">руб.</span>
                           </p>
-                          <a class="cart-button"><i class="cart-icon"></i></a>
+                          <a class="cart-button"  v-on:click="addIntoCart({{$product->id}})"><i class="cart-icon"></i></a>
                           <div class="clearfix"></div>
                       </div>
                   </div>
