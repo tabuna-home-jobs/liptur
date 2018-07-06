@@ -38,8 +38,8 @@ class ShopController extends Controller
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $newsAndSpecialAndWarnings->where('options->warning', ''),
-            'categories'     => $categories,
+            'warnings' => $newsAndSpecialAndWarnings->where('options->warning', ''),
+            'categories' => $categories,
         ]);
     }
 
@@ -66,7 +66,7 @@ class ShopController extends Controller
             ->get();
 
         return view('shop.product', [
-            'product'  => $product,
+            'product' => $product,
             'warnings' => $warnings,
         ]);
     }
@@ -82,15 +82,15 @@ class ShopController extends Controller
         $category = ShopCategory::slug($slug)->first();
 
         $products = $category->posts()
-                    ->where('status', '<>', 'hidden');
+            ->where('status', '<>', 'hidden');
 
         if (!is_null($request->get('sort'))) {
             $sort = $request->get('sort');
             $asort = [
-                'price_asc'  => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
+                'price_asc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
                 'price_desc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'desc', true],
-                'name_asc'   => ['content->ru->name', 'asc', false],
-                'name_desc'  => ['content->ru->name', 'desc', false],
+                'name_asc' => ['content->ru->name', 'asc', false],
+                'name_desc' => ['content->ru->name', 'desc', false],
             ];
             $orderBy = $asort[$sort];
         } else {
@@ -98,19 +98,19 @@ class ShopController extends Controller
             $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true];
         }
         if ($orderBy[2]) {
-            $products = $products->orderByRaw($orderBy[0].$orderBy[1]);
+            $products = $products->orderByRaw($orderBy[0] . $orderBy[1]);
         } else {
             $products = $products->orderBy($orderBy[0], $orderBy[1]);
         }
 
         $products = $products->paginate($request->get('perpage') ?? 15)
-                    ->appends($request->all());
+            ->appends($request->all());
 
         return view('shop.products', [
-            'categories'      => $categories,
+            'categories' => $categories,
             'currentCategory' => $category,
-            'products'        => $products,
-            'request'         => $request->all(),
+            'products' => $products,
+            'request' => $request->all(),
         ]);
     }
 
@@ -120,5 +120,13 @@ class ShopController extends Controller
     public function cart(): View
     {
         return view('shop.cart');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function order(): View
+    {
+        return view('shop.order');
     }
 }

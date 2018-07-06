@@ -21886,6 +21886,13 @@ $(function () {
   }
 });
 $(function () {
+  if (document.getElementById('shop-order')) {
+    new Vue({
+      'el': '#shop-order'
+    });
+  }
+});
+$(function () {
   if (document.getElementById('shop')) {
     new Vue({
       'el': '#shop',
