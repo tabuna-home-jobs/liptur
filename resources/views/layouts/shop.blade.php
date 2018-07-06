@@ -17,7 +17,7 @@
               <ul class="nav nav-cart pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <li>
                       <a id="dropdownMenuShopCart">
-                          <i class="cart-icon"></i> @{{cartTotalCount}} товаров
+                          <i class="cart-icon"></i> @{{cartTotalCount}} <span>@{{declOfNum(cartTotalCount, ['товар', 'товара', 'товаров'])}}</span>
                       </a>
                   </li>
               </ul>
