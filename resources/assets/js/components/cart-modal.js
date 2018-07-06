@@ -3,14 +3,17 @@ $(function () {
     new Vue({
       'el': '#cart-modal',
       data: {
-        cartProducts: [],
-        cartTotal: "0.00",
-        cartTotalCount: 0
+        cartProducts: localCartData.content || [],
+        cartTotal: localCartData.total || "0.00",
+        cartTotalCount: localCartData.count || 0
       },
       async mounted() {
         EventBus.$on('add-product-into-cart', (data) => {
           this.addIntoCart(data.id)
         });
+
+        const { body } = await this.$http.get('/api/cart')
+        this.renderCart(body);
       },
 
       methods: {
@@ -18,9 +21,7 @@ $(function () {
           this.cartTotal = total;
           this.cartTotalCount = count;
           this.cartProducts = content;
-          if(!local) {
-            localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify({total, count, content}));
-          }
+          EventBus.$emit('cart-updated', {total, count, content});
         },
 
         formatCartPrice(value) {

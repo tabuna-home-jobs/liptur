@@ -86,6 +86,7 @@
               </div>
             </div>
           </div>
+          <div v-if="products.length === 0" class="wrapper-md panel panel-default box-shadow-lg pos-rlt">Нет товаров в корзине</div>
       </div>
       <div class="col-md-4">
         <div id="cart-affix">

@@ -1,13 +1,11 @@
-let CART_LOCAL_STORAGE_KEY = "CART_LOCAL_STORAGE_KEY"
-
 $(function () {
   if (document.getElementById('cart')) {
     new Vue({
       'el': '#cart',
       data: {
-        products: [],
-        total: "0.00",
-        totalCount: 0
+        products: localCartData.content || [],
+        total: localCartData.total || "0.00",
+        totalCount: localCartData.count || 0
       },
       async mounted() {
         $('#cart-affix').affix({
@@ -19,16 +17,6 @@ $(function () {
           }
         })
 
-        const localData = localStorage.getItem(CART_LOCAL_STORAGE_KEY);
-        
-        if(localData) {
-          try {
-            this.renderData(JSON.parse(localData));
-          } catch (error) {
-            localStorage.removeItem(CART_LOCAL_STORAGE_KEY);
-          }
-        }
-        
         const {body} = await this.$http.get('/api/cart')
         this.renderData(body);
       },
@@ -37,9 +25,7 @@ $(function () {
           this.total = total;
           this.totalCount = count;
           this.products = content;
-          if(!local) {
-            localStorage.setItem(CART_LOCAL_STORAGE_KEY, JSON.stringify({total, count, content}));
-          }
+          EventBus.$emit('cart-updated', { total, count, content });
         },
 
         formatPrice(value) {
