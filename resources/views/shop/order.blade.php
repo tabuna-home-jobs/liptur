@@ -127,8 +127,24 @@
           <label class="text-sm text-left">Телефон:</label>
           <input type="phone" name="phone" autofocus  class="form-control">
         </div>
+
+         <div class="form-group m-t-xxl m-b-none">
+              <div class="checkbox">
+                  <label class="i-checks">
+                      <input type="checkbox" name="checkme"><i></i>   Я согласен на обработку персональных 
+данных и ознакомился с правилами сервиса
+                  </label>
+              </div>
+          </div>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="form-group{{ $errors->has('contacts') ? ' has-error' : '' }}">
+            <label class="control-label">Напишите комментарий к заказу:</label>
+            <textarea class="form-control form-control-grey no-resize summernote" rows="14"
+                      name="comment" required></textarea>
+        </div>
+        <button class="btn btn-success text-u-c w-full">Заказать</button>
+      </div>
     </div>
   </div>
 </section>
