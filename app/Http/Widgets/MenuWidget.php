@@ -24,7 +24,7 @@ class MenuWidget extends Widget
      * @var string
      */
     public $typemenu;
-    
+
     /**
      * @var string
      */
@@ -42,7 +42,6 @@ class MenuWidget extends Widget
      */
     public function handler($arrmenu = 'header')
     {
-        
         if (is_array($arrmenu)) {
             $this->typemenu = $arrmenu[0];
             $this->view = $arrmenu[1];
