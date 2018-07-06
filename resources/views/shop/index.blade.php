@@ -55,62 +55,13 @@
             </div>
             <div class="row">
                 @foreach($newsAndSpecial as $product)
-                    <article class="col-md-3 padder-v shop-product">
-                        <div class="panel panel-default box-shadow-lg pos-rlt">
-                            <div data-mh="main-news-img">
-                                <a href="{{route('shop.product',$product->slug)}}">
-                                    <img src="{{$product->attachment->first()->url()}}"
-                                         class="img-full img-post">
-                                </a>
-                            </div>
-                            <div class="wrapper-md">
-
-                                <p class="h4 m-b-xs" data-mh="main-shop-header">
-                                    <a href="{{route('shop.product',$product->slug)}}">{{$product->getContent('name')}}</a>
-                                </p>
-                                <p class="text-xs" data-mh="main-shop-body">
-                                    {{$product->getContent('annotation')}}
-                                </p>
-
-                                <div>
-                                    <p class="shop-product-price">
-                                        {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
-                                                class="">руб.</span>
-                                    </p>
-                                    <a class="cart-button" v-on:click="addIntoCart({{$product->id}})"><i class="cart-icon"></i></a>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                @endforeach
-            </div>
-        </div>
-
-
-        @include('partials.shop.index-category',[
-            'categories'=>$categories
-        ])
-        
-        
-        <div class="container padder-v">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="block-header">
-                        Обратите внимание
-                        <a href="{{route('shop.catalog')}}">
-                            К каталогу
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    @foreach($warnings as $product)
+                    @if ($loop->index<4) 
                         <article class="col-md-3 padder-v shop-product">
                             <div class="panel panel-default box-shadow-lg pos-rlt">
                                 <div data-mh="main-news-img">
                                     <a href="{{route('shop.product',$product->slug)}}">
-                                        <img src="{{$product->attachment->first()->url()}}"
-                                             class="img-full img-post">
+                                        <img src="@if (!is_null($product->attachment->first())) {{$product->attachment->first()->url()}} @else  /img/icons/slon.png @endif"
+                                            class="img-full img-post">
                                     </a>
                                 </div>
                                 <div class="wrapper-md">
@@ -133,6 +84,59 @@
                                 </div>
                             </div>
                         </article>
+                    @endif    
+                @endforeach
+            </div>
+        </div>
+
+
+        @include('partials.shop.index-category',[
+            'categories'=>$categories
+        ])
+        
+        
+        <div class="container padder-v">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="block-header">
+                        Обратите внимание
+                        <a href="{{route('shop.catalog')}}">
+                            К каталогу
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($warnings as $product)
+                        @if ($loop->index<8) 
+                            <article class="col-md-3 padder-v shop-product">
+                                <div class="panel panel-default box-shadow-lg pos-rlt">
+                                    <div data-mh="main-news-img">
+                                        <a href="{{route('shop.product',$product->slug)}}">
+                                            <img src="@if (!is_null($product->attachment->first())) {{$product->attachment->first()->url()}} @else /img/icons/slon.png @endif"
+                                            class="img-full img-post">
+                                        </a>
+                                    </div>
+                                    <div class="wrapper-md">
+
+                                        <p class="h4 m-b-xs" data-mh="main-shop-header">
+                                            <a href="{{route('shop.product',$product->slug)}}">{{$product->getContent('name')}}</a>
+                                        </p>
+                                        <p class="text-xs" data-mh="main-shop-body">
+                                            {{$product->getContent('annotation')}}
+                                        </p>
+
+                                        <div>
+                                            <p class="shop-product-price">
+                                                {{number_format($product->getOption('price'),0 ,',', ' ')}} <span
+                                                        class="">руб.</span>
+                                            </p>
+                                            <a class="cart-button" v-on:click="addIntoCart({{$product->id}})"><i class="cart-icon"></i></a>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        @endif    
                     @endforeach
                 </div>
             </div>

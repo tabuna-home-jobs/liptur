@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Shop;
 
+use Illuminate\Http\Request;
 use App\Core\Models\ShopCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
@@ -22,6 +23,7 @@ class ShopController extends Controller
      */
     public function index(): View
     {
+        
         $newsAndSpecialAndWarnings = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->new')
@@ -32,7 +34,7 @@ class ShopController extends Controller
         $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
             $newsAndSpecialAndWarnings->where('options->new', '')
         );
-
+        
         $categories = ShopCategory::all();
 
         return view('shop.index', [
@@ -75,16 +77,41 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function products(string $slug): View
+    public function products(string $slug, Request $request): View
     {
         $categories = ShopCategory::all();
         $category = ShopCategory::slug($slug)->first();
-        $products = $category->posts()->paginate();
+        
+        $products = $category->posts()
+                    ->where('status', '<>', 'hidden');
+        
+        if (!is_null($request->get('sort'))) {
+            $sort = $request->get('sort');
+            $asort=[
+                'price_asc'  => ["CAST(options->'$.price' AS DECIMAL(10,2)) ","asc",true],
+                'price_desc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ","desc",true],
+                'name_asc'   => ["content->ru->name","asc",false],
+                'name_desc'  => ["content->ru->name","desc",false] ,
+            ];
+            $orderBy=$asort[$sort];
+        } else {
+           //$orderBy=['created_at','asc',false]; 
+           $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ","asc",true];
+        }
+        if ($orderBy[2]) {
+            $products=$products->orderByRaw($orderBy[0].$orderBy[1]);
+        } else {
+            $products=$products->orderBy($orderBy[0],$orderBy[1]);
+        }
 
+        $products=$products->paginate($request->get('perpage') ?? 15)
+                    ->appends($request->all());
+        
         return view('shop.products', [
             'categories'      => $categories,
             'currentCategory' => $category,
             'products'        => $products,
+            'request'         => $request->all(),
         ]);
     }
 

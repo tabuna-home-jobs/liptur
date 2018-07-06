@@ -257,7 +257,19 @@ i.user-auth-icon {
   vertical-align: middle;
 }
 
-button {
+.categorymenu.list-no-border {
+    ul {
+        padding-left: 0px;
+    }
+    ul li {
+        list-style: none;
+    }
+    li a:hover {
+        color: #577c36;
+    }
+}
+
+.paginate a {
   .brand-icon-right {
     display: inline-block;
     vertical-align: middle;
@@ -274,12 +286,15 @@ button {
     height: 10px;
     width: 18px;
   }
+  &.btn-circled {
+    padding-top: 6px;
+  }
   &[disabled] {
     .brand-icon-left {
       background-image: url(/img/icons/arrow-left-dis.png);
     }
     .brand-icon-right {
-      background-image: url(/img/icons/arrow-left-right.png);
+      background-image: url(/img/icons/arrow-right-dis.png);
     }
   }
   &:hover:not([disabled]) {
