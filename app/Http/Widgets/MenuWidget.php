@@ -24,6 +24,11 @@ class MenuWidget extends Widget
      * @var string
      */
     public $typemenu;
+    
+    /**
+     * @var string
+     */
+    public $view;
 
     /**
      * Class constructor.
@@ -35,11 +40,20 @@ class MenuWidget extends Widget
     /**
      * @return mixed
      */
-    public function handler($typemenu = 'header')
+    public function handler($arrmenu = 'header')
     {
-        $this->typemenu = $typemenu;
+        
+        if (is_array($arrmenu)) {
+            $this->typemenu = $arrmenu[0];
+            $this->view = $arrmenu[1];
+        } else {
+            $this->typemenu = $arrmenu;
+            $this->view = 'menu';
+        }
+        //$this->typemenu = $typemenu;
+        //$this->view = 'menu';
         //dd($this->typemenu);
-        $this->menu = Cache::remember($this->typemenu.'-menu-'.App::getLocale(), Carbon::now()->addHour(), function () {
+        $this->menu = Cache::remember($this->view.'-'.$this->typemenu.'-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Menu::where('lang', App::getLocale())
                 ->where('parent', 0)
                 ->where('type', $this->typemenu)
@@ -50,7 +64,7 @@ class MenuWidget extends Widget
         //dd($this->menu);
         //$this->chunk = ceil($this->menu->count() / 4);
 
-        return view('partials.widgets.menu.menu-'.$typemenu, [
+        return view('partials.widgets.menu.'.$this->view.'-'.$this->typemenu, [
             'menu'  => $this->menu,
         ]);
     }

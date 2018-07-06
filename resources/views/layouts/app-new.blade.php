@@ -143,13 +143,12 @@
 
 <footer id="footer" role="footer" class="bg-dark">
 
-
     <div class="padder-v">
         <div class="container no-padder">
-            <div class="row padder-v">
+            <div class="row padder-v contact-row">
                 <div class="col-md-3 hidden-sm vi-col-4">
-                    <a href="tel:+74742272360" class="wrapper-sm v-center" title="Центр кластерного развития туризма">
-                        <i class="icon-phone fa-2x m-r-sm"></i>
+                    <a href="tel:+74742272360" class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
+                     <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Центр кластерного развития туризма</p>
                             <p class="text-white text-md">Липецк, ул. Фрунзе, 10</p>
@@ -157,8 +156,8 @@
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6 vi-hide">
-                    <a href="tel:+78002008120" class="wrapper-sm v-center" title="Телефон">
-                        <i class="icon-phone fa-2x m-r-sm"></i>
+                    <a href="tel:+78002008120" class="wrapper-sm v-center imgs-hovers" title="Телефон">
+                        <img class="img-responsive" data-src="/img/icons/phone-1.png" data-hover-src="/img/icons/phone-2.png" src="/img/icons/phone-1.png">
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Телефон</p>
                             <p class="text-white text-md">8-800-200-81-20</p>
@@ -167,9 +166,9 @@
                 </div>
 
                 <div class="col-md-3 hidden-sm vi-col-4">
-                    <a class="wrapper-sm v-center"  data-toggle="modal" data-target="#support"
+                    <a class="wrapper-sm v-center imgs-hovers"  data-toggle="modal" data-target="#support"
                        title="Почта">
-                        <i class="icon-phone fa-2x m-r-sm"></i>
+                        <img class="img-responsive" data-src="/img/icons/mail-1.png" data-hover-src="/img/icons/mail-2.png" src="/img/icons/mail-1.png" style="opacity: 1;">
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Почта</p>
                             <p class="text-white text-md">info@liptur.ru</p>
@@ -178,32 +177,32 @@
                 </div>
 
 
-                <div class="col-md-3 col-sm-6 vi-hide">
+                <div class="col-md-3 col-sm-6 vi-hide socicons">
                     <p>
-                        <a href="https://vk.com/liptur48" target="_blank" class="btn btn-outline">
+                        <a href="https://vk.com/liptur48" target="_blank" class="btn btn-icon soc-vk">
                             <i class="fa fa-vk"></i>
                         </a>
 
-                        <a href="https://ok.ru/lipsobtur" target="_blank" class="btn btn-icon btn-rounded btn-grey">
+                        <a href="https://ok.ru/lipsobtur" target="_blank" class="btn btn-icon soc-od">
                             <i class="fa fa-odnoklassniki"></i>
                         </a>
 
                         <a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8F-%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC%D0%B0-%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-1784209968567425/"
-                           target="_blank" class="btn btn-icon btn-rounded btn-grey">
+                           target="_blank" class="btn btn-icon soc-facebook">
                             <i class="fa fa-facebook"></i>
                         </a>
 
                         <a href="https://www.youtube.com/channel/UCI4HbPUrzve2L889GRE8D-g" target="_blank"
-                           class="btn btn-icon btn-rounded btn-grey">
+                           class="btn btn-icon soc-youtube">
                             <i class="fa fa-youtube"></i>
                         </a>
 
                         <a href="https://twitter.com/lipsobtur" target="_blank"
-                           class="btn btn-icon btn-rounded btn-grey">
+                           class="btn btn-icon soc-twitter">
                             <i class="fa fa-twitter"></i>
                         </a>
 
-                        <a href="{{route('rss')}}" target="_blank" class="btn btn-icon btn-rounded btn-grey">
+                        <a href="{{route('rss')}}" target="_blank" class="btn btn-icon soc-rss">
                             <i class="fa fa-rss" aria-hidden="true"></i>
                         </a>
 
@@ -220,236 +219,10 @@
     <div class="wrapper bg-gray hidden-xs vi-hide">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-3">
-
-
-                    <h4 class=" m-b text-white">О нас</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/about" rel="follow" class="qwert" title="Презентация области" target="_self">
-
-                                Об области</a></li>
-
-                        <li><a href="/investor" rel="follow" class="qwert" title="Предложения для инвесторов"
-                               target="_self">
-
-                                Инвесторам</a></li>
-
-                        <li><a href="/docs" rel="follow" class="qwert" title="Нормативные документы" target="_self">
-
-                                Документы</a></li>
-
-                        <li><a href="/press" rel="follow" class="qwert" title="О нас говорят" target="_self">
-
-                                Пресса о нас</a></li>
-
-                        <li><a href="/contacts" rel="follow" class="qwert" title="Связаться с нами" target="_self">
-
-                                Контакты</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white">Что посмотреть</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/public/ru/catalog/exhibitions" rel="follow" class="" title="" target="_self">
-
-                                Выставки</a></li>
-
-                        <li><a href="/public/ru/catalog/reserves" rel="follow" class="" title="" target="_self">
-
-                                Заповедные места</a></li>
-
-                        <li><a href="/public/ru/catalog/сinema" rel="follow" class="" title="" target="_self">
-
-                                Кинотеатры</a></li>
-
-                        <li><a href="/public/ru/catalog/museums" rel="follow" class="" title="" target="_self">
-
-                                Музеи</a></li>
-
-                        <li><a href="https://liptur.ru/ru/catalog/monument" rel="follow" class="" title=""
-                               target="_self">
-
-                                Достопримечательности</a></li>
-
-                        <li><a href="/public/ru/catalog/shrines" rel="follow" class="" title="" target="_self">
-
-                                Православные святыни</a></li>
-
-                        <li><a href="/public/ru/catalog/arts_and_recreation" rel="follow" class="" title=""
-                               target="_self">
-
-                                Театры и дома культуры</a></li>
-
-                        <li><a href="/public/ru/catalog/granges" rel="follow" class="" title="" target="_self">
-
-                                Усадьбы</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white">Где отдыхать</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/public/ru/catalog/hostel" rel="" class="" title="" target="_self">
-
-                                Гостиницы</a></li>
-
-                        <li><a href="/public/ru/catalog/sanatorium" rel="" class="" title="" target="_self">
-
-                                Санатории</a></li>
-
-                        <li><a href="/public/ru/catalog/recration-center" rel="" class="" title="" target="_self">
-
-                                Базы отдыха</a></li>
-
-                        <li><a href="/public/ru/catalog/center" rel="" class="" title="" target="_self">
-
-                                Торгово-развлекальные центры</a></li>
-
-                        <li><a href="/public/ru/catalog/beach" rel="" class="" title="" target="_self">
-
-                                Пляжи</a></li>
-
-                        <li><a href="/public/ru/catalog/park" rel="" class="" title="" target="_self">
-
-                                Парки</a></li>
-                    </ul>
-
-
-                </div>
-                <div class="col-xs-12 col-sm-3">
-
-
-                    <h4 class=" m-b text-white">Гастрономия</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/ru/catalog/gastronomy?category%5B%5D=restaurants&amp;distance=1" rel="" class=""
-                               title="Рестораны Липецкой области" target="_self">
-
-                                Рестораны</a></li>
-
-                        <li><a href="https://liptur.ru/ru/catalog/gastronomy?category%5B%5D=cafe&amp;distance=1" rel=""
-                               class="" title="" target="_self">
-
-                                Кафе</a></li>
-
-                        <li><a href="https://liptur.ru/ru/catalog/gastronomy?category%5B%5D=tastings&amp;distance=1"
-                               rel="" class="" title="" target="_self">
-
-                                Дегустации</a></li>
-
-                        <li><a href="https://liptur.ru/ru/catalog/gastronomy?category%5B%5D=bars&amp;distance=1" rel=""
-                               class="" title="" target="_self">
-
-                                Бары</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white">Готовые предложения</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li>
-                            <a href="https://liptur.ru/ru/catalog/agencie?category%5B%5D=the-offer-of-tour-operators&amp;distance=1"
-                               rel="" class="" title="" target="_self">
-
-                                Туры</a></li>
-
-                        <li><a href="/titz" rel="" class="" title="Туристско-Информационные центры" target="_self">
-
-                                ТИЦ</a></li>
-
-                        <li><a href="/public/ru/catalog/agencie" rel="" class="" title="" target="_self">
-
-                                Предложения турагентств</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white">Сделано в ЛО</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/public/ru/catalog/gift_crafts" rel="" class="" title="" target="_self">
-
-                                Сувениры и ремесла</a></li>
-                    </ul>
-
-
-                </div>
-                <div class="col-xs-12 col-sm-3">
-
-
-                    <h4 class=" m-b text-white">Прочее</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/regions" rel="" class="" title="" target="_self">
-
-                                Телефонный справочник</a></li>
-
-                        <li><a href="/public/ru/catalog/guides" rel="" class="" title="" target="_self">
-
-                                Информация для экскурсоводов</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white">Информация для туристов</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="https://liptur.ru/ru/calendar-event" rel="follow" class=""
-                               title="Календарь событий" target="_self">
-
-                                Календарь событий</a></li>
-
-                        <li><a href="/ru/catalog/info" rel="follow" class="" title="Пригодится" target="_self">
-
-                                Полезная информация</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white">Охота/Рыбалка</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/ru/catalog/hunting" rel="" class="" title="" target="_self">
-
-                                Охота</a></li>
-
-                        <li><a href="/public/ru/catalog/fishing" rel="" class="" title="" target="_self">
-
-                                Рыбалка</a></li>
-                    </ul>
-
-
-                </div>
-                <div class="col-xs-12 col-sm-3">
-
-
-                    <h4 class=" m-b text-white">Транспорт</h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-
-                        <li><a href="/public/ru/catalog/taxi" rel="" class="" title="Такси" target="_self">
-
-                                Такси</a></li>
-
-                        <li><a href="/public/ru/catalog/railway" rel="" class="" title="Вокзалы области" target="_self">
-
-                                Ж/Д Вокзалы</a></li>
-
-                        <li><a href="/public/ru/catalog/airport" rel="" class="" title="Аэропорт Липецка"
-                               target="_self">
-
-                                Аэропорт</a></li>
-                    </ul>
-
-                    <h4 class=" m-b text-white"></h4>
-
-                    <ul class="list-unstyled m-b-md text-sm">
-                    </ul>
-
-
-                </div>
+                @php 
+                    $menus = ['shop-header','footer-menu'];
+                @endphp
+                @widget('menuWidget',$menus)
             </div>
         </div>
     </div>
@@ -464,11 +237,11 @@
                 <div class="col-md-3 col-md-offset-3 text-right">
                     <div>
                         <div class="v-center">
-                            <img src="/img/artp.png" class="m-r-sm">
-                            <a class="text-campaing m-n text-left">
-                        <span>Разработка сайта – <br>
-                            Артполитика
-                        </span>
+                            <a class="text-campaing m-n text-left imgs-hovers">
+                                <img src="/img/icons/artp.png" data-src="/img/icons/artp.png" data-hover-src="/img/icons/artp-hover.png"  class="m-r-sm">
+                                <span>Разработка сайта – <br>
+                                    Артполитика
+                                </span>
                             </a>
                         </div>
                     </div>

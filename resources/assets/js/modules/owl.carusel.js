@@ -59,14 +59,6 @@ $(function () {
             }
         }
     });
-    $('.ad-carousel a').hover(function(){
-        $imgs=$(this).find('img.img-responsive');
-        $imgs.attr("src",$imgs.attr("data-hover-src"));
-        
-    },function(){
-        $imgs=$(this).find('img.img-responsive');
-        $imgs.attr("src",$imgs.attr("data-src"));
-    });
     
     $('.category-carousel').owlCarousel({
         animateOut: 'fadeOut',

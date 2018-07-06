@@ -1,5 +1,5 @@
 @foreach($menu as $item)
-    <li class="menu-item dropdown dropdown-submenu">
+    <li class="{{$class}}">
         <a class="{{$item->style}}" 
 			href="{{$item->slug}}"                  
 			title="{{$item->title}}"

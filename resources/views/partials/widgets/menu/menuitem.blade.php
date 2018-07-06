@@ -12,7 +12,8 @@
 		role="button" aria-haspopup="true" aria-expanded="false">{{$item->label}}</a>
             <ul class="dropdown-menu">
                 @include('partials.widgets.menu.dropdown',[
-                        'menu' => $item->children
+                        'menu' => $item->children,
+                        'class' => 'menu-item dropdown dropdown-submenu'
                         ])
             </ul>
 	  </li>
