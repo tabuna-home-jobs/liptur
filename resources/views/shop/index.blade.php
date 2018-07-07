@@ -3,15 +3,14 @@
 @section('description','Магазин')
 @section('keywords','Магазин')
 @section('shop')
-  <div id="shop">
+
     <section class="container-lg">
         <div class="pos-abt bg-white left w-full h-sm"></div>
-
-        <div class="row">
-            <div class="owl-carousel owl-theme main-carousel owl-with-dots hidden-xs">
+        
+            <div class="owl-carousel main-carousel owl-theme owl-with-dots hidden-xs">
                 @for ($i = 0; $i < 4; $i++)
                     <div class="item">
-                        <img class="img-responsive" src="/img/carusel/1.png">
+                        <img class="img-responsive" src="/img/carusel/index/{{$i+1}}.jpg"/>
                         <div class="owl-shop-block container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -40,7 +39,7 @@
                     @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Магазин' ])
                 </div>
             </nav>
-        </div>
+        
     </section>
 
     <section>
@@ -53,7 +52,8 @@
                     </a>
                 </div>
             </div>
-            <div class="row">
+            
+            <div  id="shop" class="row">
                 @foreach($newsAndSpecial as $product)
                     @if ($loop->index<4) 
                         <article class="col-md-3 padder-v shop-product">
@@ -88,8 +88,7 @@
                 @endforeach
             </div>
         </div>
-
-
+ 
         @include('partials.shop.index-category',[
             'categories'=>$categories
         ])
@@ -105,7 +104,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="row">
+                <div id="shop" class="row">
                     @foreach($warnings as $product)
                         @if ($loop->index<8) 
                             <article class="col-md-3 padder-v shop-product">
@@ -142,5 +141,4 @@
             </div>
         </div>
     </section>
-  </div>
 @endsection

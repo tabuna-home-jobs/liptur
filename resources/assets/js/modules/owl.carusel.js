@@ -102,6 +102,15 @@ $(function () {
         items: 1,
     });
 
+    $('.main-carousel-1').owlCarousel({
+        animateOut: 'slideOutDown',
+        animateIn: 'flipInX',
+        items:1,
+        margin:30,
+        stagePadding:30,
+        smartSpeed:450
+    });
+        
 
     $('.secondary-carousel').owlCarousel({
         animateOut: 'fadeOut',

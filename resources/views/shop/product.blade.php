@@ -256,7 +256,7 @@
                             <div class="panel panel-default box-shadow-lg pos-rlt">
                                 <div data-mh="main-news-img">
                                     <a href="{{route('shop.product',$product->slug)}}">
-                                        <img src="{{$product->attachment->first()->url()}}"
+                                        <img src="@if (!is_null($product->attachment->first())) {{$product->attachment->first()->url()}} @else  /img/icons/slon.png @endif"
                                              class="img-full img-post">
                                     </a>
                                 </div>
