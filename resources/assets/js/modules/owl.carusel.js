@@ -90,7 +90,7 @@ $(function () {
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         loop: true,
-        nav: true,
+        nav: false,
         lazyLoad: true,
         autoplay: true,
         autoplayTimeout: 5000,
@@ -102,15 +102,6 @@ $(function () {
         items: 1,
     });
 
-    $('.main-carousel-1').owlCarousel({
-        animateOut: 'slideOutDown',
-        animateIn: 'flipInX',
-        items:1,
-        margin:30,
-        stagePadding:30,
-        smartSpeed:450
-    });
-        
 
     $('.secondary-carousel').owlCarousel({
         animateOut: 'fadeOut',

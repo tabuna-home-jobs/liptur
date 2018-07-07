@@ -12,8 +12,8 @@
                     <div class="item">
                         <img class="img-responsive" src="/img/carusel/index/{{$i+1}}.jpg"/>
                         <div class="owl-shop-block container">
-                            <div class="row">
-                                <div class="col-md-12">
+                            <div class="row row-flex">
+                                <div class="col-md-8 col-sm-12">
                                     <div class="owl-shop-title">
                                         Настоящие Елецие кружева
                                     </div>
@@ -25,8 +25,10 @@
                                         воргольского удельного княжества ...
                                     </div>
                                 </div>
-                                <div class="col-md-2 owl-shop-price">
-                                    <span>от</span> 999 <span>руб.</span>
+                                <div class="col-md-3 col-sm-12 owl-shop-price">
+                                    <div class="to-bottom">
+                                        <span>от</span> 999 <span>руб.</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +106,7 @@
                         </a>
                     </div>
                 </div>
-                <div id="shop" class="row">
+                <div id="shop1" class="row">
                     @foreach($warnings as $product)
                         @if ($loop->index<8) 
                             <article class="col-md-3 padder-v shop-product">

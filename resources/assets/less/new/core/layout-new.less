@@ -111,6 +111,7 @@
     text-align: center;
     color: #ffffff;
     font-family: "William Text Pro";
+    width: 100%;
     .owl-shop-title {
       &:before {
         display: inline-block;
@@ -140,13 +141,11 @@
     }
 
     .owl-shop-price {
-      display: inline-block;
-      position: absolute;
-      bottom: 0;
       color: #ffffff;
       font-style: italic;
       line-height: 43px;
       font-size: 50px;
+      min-height: 50px;
       span {
         font-size: 30px;
       }
@@ -158,9 +157,6 @@
       bottom: 40px;
       right: 200px;
       .owl-dot {
-        &.active {
-          background: #D3E072;
-        }
         width: 9px;
         height: 9px;
         float: left;
@@ -168,6 +164,12 @@
         background:#C4C4C4;
         border-radius: 15px;
         overflow: hidden;
+        &.active {
+          background: #D3E072;
+        }
+        &:hover {
+          background: #ffdd00;
+        }
       }
     }
   }
