@@ -20,12 +20,11 @@
             <nav>
                 <div class="container">
                     @include('partials.breadcrumb',[
-                    'breadcrumb' => [],
-                    'base' => [
-                            'route' => route('shop'),
-                            'name' => 'Магазин',
-                    ],
-                    'current' => 'Каталог товаров' ])
+                        'breadcrumb' => [],
+                        'base' => [
+                                'route' => route('shop'),
+                                'name' => 'Магазин',
+                    ],'current' => 'Каталог товаров' ])
                 </div>
             </nav>
         </div>

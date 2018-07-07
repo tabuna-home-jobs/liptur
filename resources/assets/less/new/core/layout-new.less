@@ -39,6 +39,13 @@
         font-weight: 700;
         text-transform: uppercase;
       }
+      .navbar-locale a{
+        font-size: 11px;
+        &:hover {
+            background: @hover-color;
+            border: 1px solid @hover-color;
+        }
+      }
       .navbar-auth {
         a {
           color: #a5b526;
@@ -48,6 +55,14 @@
         .input-group-btn {
           z-index: 1;
           left: -25px;
+          
+          button:hover {
+            background: @hover-color;
+            border: 1px solid @hover-color;
+          }
+          i {
+            font-size: 15px;
+          }
         }
         input {
           border-radius: 25px;
@@ -198,7 +213,7 @@
 
   &:hover {
     .text-green {
-      color: #577c36;
+      color: @hover-color;
       font-family: "William Text Pro";
       font-size: 16px;
       font-weight: 700;
@@ -267,7 +282,7 @@ i.user-auth-icon {
         list-style: none;
     }
     li a:hover {
-        color: #577c36;
+        color: @hover-color;
     }
 }
 
@@ -365,6 +380,9 @@ i.cart-icon {
     font-size: 12px;
     font-weight: 400;
     line-height: 43px;
+    &:hover {
+        color: @hover-color;
+    }
   }
   &.comment-header {
     &:before {
@@ -389,7 +407,7 @@ i.cart-icon {
     }
     p {
        &:hover {
-        color: #577c36;
+        color: @hover-color;
       }
       color: #a5b526;
       font-family: "William Text Pro";
@@ -410,14 +428,14 @@ article.shop-product {
     }
 
     &a{
-      color: #577c36;
+      color: @hover-color;
     }
   }
 
 
   .shop-product-price {
     display: inline;
-    color: #577c36;
+    color: @hover-color;
     font-family: "William Text Pro";
     font-weight: 400;
     font-style: italic;
@@ -433,7 +451,7 @@ article.shop-product {
       font-size: 18px;
       font-weight: 700;
       &:hover {
-        color: #577c36;
+        color: @hover-color;
       }
     }
   }
@@ -466,6 +484,10 @@ article.shop-product {
       line-height: 34px;
       opacity: 1;
     }
+    a:hover {
+      color: @hover-color;
+    }
+    
   }
 }
 
@@ -614,7 +636,7 @@ article.shop-product {
 
 .nav-bar-sub{
   a{
-    color: #577c36;
+    color: @hover-color;
     font-family: "William Text Pro";
     font-size: 14px;
     font-weight: 700;
