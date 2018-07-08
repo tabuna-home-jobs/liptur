@@ -47,7 +47,8 @@ class ShopController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function mostPopular(){
+    public function mostPopular()
+    {
         $newsAndSpecialAndWarnings = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->new')
@@ -63,7 +64,6 @@ class ShopController extends Controller
             'newsAndSpecial' => $newsAndSpecial,
         ]);
     }
-
 
     /**
      * @return View
@@ -95,7 +95,7 @@ class ShopController extends Controller
         return view('shop.product', [
             'product'  => $product,
             'warnings' => $warnings,
-            'category' => $category
+            'category' => $category,
         ]);
     }
 

@@ -2,9 +2,7 @@
 
 namespace App\Core\Behaviors\Single;
 
-use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Behaviors\Single;
-use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 class ShippingAndPayment extends Single
 {
@@ -17,7 +15,6 @@ class ShippingAndPayment extends Single
      * @var string
      */
     public $slug = 'shipping-and-payment';
-
 
     /**
      * Rules Validation.

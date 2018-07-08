@@ -16,7 +16,6 @@ class TermsOfServicePage extends Single
      */
     public $slug = 'terms-of-service';
 
-
     /**
      * Rules Validation.
      *
