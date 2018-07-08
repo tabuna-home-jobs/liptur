@@ -79,10 +79,10 @@
             </li>
             <li class="col-md-2">
                 <div class="navbar-locale">
-                    <a href="{{Localization::getLocalizedURL('ru') }}"
+                    <a href="{{Localization::getLocalizedURL('ru','/') }}"
                        class="green-button {{App::getLocale()=='ru'? 'raised': ''}}" hreflang="ru"
                        title="Сменить язык">РФ</a>
-                    <a href="{{Localization::getLocalizedURL('en') }}"
+                    <a href="{{Localization::getLocalizedURL('en','/') }}"
                        class="green-button {{App::getLocale()=='en'? 'raised': ''}}" hreflang="en"
                        title="Сменить язык">EN</a>
                 </div>

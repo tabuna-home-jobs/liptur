@@ -23,6 +23,16 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.login');
+    }
+
+    /**
      * Where to redirect users after login / registration.
      *
      * @var string

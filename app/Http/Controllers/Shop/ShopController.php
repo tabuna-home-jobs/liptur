@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Core\Models\ShopCategory;
+use App\Core\Models\Term;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class ShopController extends Controller
 
         $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
             $newsAndSpecialAndWarnings->where('options->new', '')
-        );
+        )->take(4);
 
         $categories = ShopCategory::all();
 
@@ -42,6 +43,27 @@ class ShopController extends Controller
             'categories'     => $categories,
         ]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function mostPopular(){
+        $newsAndSpecialAndWarnings = Post::type('product')
+            ->with('attachment')
+            ->whereNotNull('options->new')
+            ->orWhereNotNull('options->special')
+            ->orWhereNotNull('options->warning')
+            ->get();
+
+        $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
+            $newsAndSpecialAndWarnings->where('options->new', '')
+        );
+
+        return view('shop.index', [
+            'newsAndSpecial' => $newsAndSpecial,
+        ]);
+    }
+
 
     /**
      * @return View
@@ -56,18 +78,24 @@ class ShopController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param \Orchid\Platform\Core\Models\Post $product
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function product(Post $product): View
     {
         $warnings = Post::type('product')
             ->with('attachment')
+            ->where('status', '<>', 'hidden')
             ->whereNotNull('options->warning')
             ->get();
+
+        $category = optional($product->taxonomies()->first())->term ?? new Term();
 
         return view('shop.product', [
             'product'  => $product,
             'warnings' => $warnings,
+            'category' => $category
         ]);
     }
 

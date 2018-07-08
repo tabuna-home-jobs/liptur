@@ -213,15 +213,15 @@
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <label class="i-checks">
-                                            <input type="checkbox" name="remember" checked=""><i></i> Я принимаю правила
-                                                                                                      сервиса
+                                            <input type="checkbox" value="1" onclick="document.getElementById('register').disabled=!document.getElementById('register').disabled;" name="remember" required> <i></i>
+                                            Я принимаю правила сервиса
                                         </label>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-lg btn-success btn-group-justified">
+                                    <button type="submit" id="register" disabled class="btn btn-lg btn-success btn-group-justified">
                                         Зарегистрироваться
                                     </button>
                                 </div>

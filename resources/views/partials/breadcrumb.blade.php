@@ -19,15 +19,19 @@
         </li>
     @endif
 
-    @foreach($breadcrumb as $route => $name)
-        <li itemprop="itemListElement" itemscope
-            itemtype="http://schema.org/ListItem">
-            <a itemprop="item" href="{{route('catalog',$route)}}">
-                <span property="name"> {{$name}}</span>
-            </a>
-            <meta property="position" content="{{ array_search($route,array_keys($breadcrumb))}}">
-        </li>
+    @foreach($base['breadcrumbs'] ?? [] as $key => $breadcrumb)
+        @if(!empty($breadcrumb['name']))
+            <li itemprop="itemListElement" itemscope
+                itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{$breadcrumb['route']}}">
+                    <span property="name"> {{$breadcrumb['name']}}</span>
+                </a>
+                <meta property="position" content="{{$key + 4}}">
+            </li>
+        @endif
     @endforeach
+
+
     <li class="active">{{$current}}</li>
 
 </ol>

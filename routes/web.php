@@ -175,15 +175,6 @@ $router->group([
         $this->get('/{user}/{catalog}', 'CraftsmenController@listing')->name('craftsmen.catalog');
     });
 
-    $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
-        $this->get('/product/{product}', 'ShopController@product')->name('shop.product');
-        $this->get('/catalog', 'ShopController@catalog')->name('shop.catalog');
-        $this->get('/products/{slug}', 'ShopController@products')->name('shop.products');
-        $this->get('/cart', 'ShopController@cart')->name('shop.cart');
-        $this->get('/order', 'ShopController@order')->name('shop.order');
-        $this->get('/', 'ShopController@index')->name('shop');
-    });
-
     /*
     |--------------------------------------------------------------------------
     | Auth Routes
@@ -192,4 +183,14 @@ $router->group([
      */
     $this->get('search', 'SearchController@index')->name('search');
     $this->post('search/places', 'SearchController@places')->name('search.places');
+});
+
+
+$this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
+    $this->get('/product/{product}', 'ShopController@product')->name('shop.product');
+    $this->get('/catalog', 'ShopController@catalog')->name('shop.catalog');
+    $this->get('/products/{slug}', 'ShopController@products')->name('shop.products');
+    $this->get('/cart', 'ShopController@cart')->name('shop.cart');
+    $this->get('/order', 'ShopController@order')->name('shop.order');
+    $this->get('/', 'ShopController@index')->name('shop');
 });

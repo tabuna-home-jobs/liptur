@@ -9,7 +9,7 @@
     <div class="bg-white">
         <section class="container-lg">
             <div class="row">
-                <div class="bg-bordo">
+                <div class="bg-bordo" style="background-image: url('{{$currentCategory->term->getContent('fullPicture')}}')">
                     <div class="container">
                         <h1 class="brand-header">Интернет-магазин</h1>
                     </div>

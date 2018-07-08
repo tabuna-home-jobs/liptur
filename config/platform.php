@@ -136,6 +136,8 @@ return [
 
     'single' => [
         \App\Core\Behaviors\Single\AboutPage::class,
+        \App\Core\Behaviors\Single\TermsOfServicePage::class,
+        \App\Core\Behaviors\Single\ShippingAndPayment::class
         /*
 \App\Core\Behaviors\Single\AboutPage::class,
 \App\Core\Behaviors\Single\InvestorPage::class,

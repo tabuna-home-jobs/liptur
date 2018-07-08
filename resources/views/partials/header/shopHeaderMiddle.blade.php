@@ -8,6 +8,19 @@
                class="{{$item->style}} text-green"
             >{{$item->label}}
             </a>
+
+
+
+            @if ($loop->last)
+                <a href="#"
+                   title="Обратная связь"
+                   class="text-green"
+                   data-toggle="modal" data-target="#support"
+                >Обратная связь
+                </a>
+            @endif
+
         </li>
     @endforeach
+
 </ul>

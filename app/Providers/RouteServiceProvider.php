@@ -50,12 +50,14 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('product', function ($value) {
             if (is_numeric($value)) {
                 return Post::where('id', $value)
+                    ->where('status', '<>', 'hidden')
                     ->where('type', 'product')
                     ->with(['attachment', 'comments.author', 'likeCounter'])
                     ->firstOrFail();
             }
 
             return Post::where('slug', $value)
+                ->where('status', '<>', 'hidden')
                 ->where('type', 'product')
                 ->with(['attachment', 'comments.author', 'likeCounter'])
                 ->firstOrFail();
