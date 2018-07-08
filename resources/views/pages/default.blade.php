@@ -24,7 +24,7 @@
                     'breadcrumb' => [],
                     'base' => [
                             'route' => route('shop'),
-                            'name' => 'Ìàãàçèí',
+                            'name' => 'ÐœÐ°Ð³Ð°Ð·Ð¸Ð½',
                     ],
                     'current' => $page->getContent('name') ])
                 </div>

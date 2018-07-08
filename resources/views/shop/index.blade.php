@@ -6,42 +6,14 @@
 
     <section class="container-lg">
         <div class="pos-abt bg-white left w-full h-sm"></div>
-        
-            <div class="owl-carousel main-carousel owl-theme owl-with-dots hidden-xs">
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="item">
-                        <img class="img-responsive" src="/img/carusel/index/{{$i+1}}.jpg"/>
-                        <div class="owl-shop-block container">
-                            <div class="row row-flex">
-                                <div class="col-md-8 col-sm-12">
-                                    <div class="owl-shop-title">
-                                        Настоящие Елецие кружева
-                                    </div>
-                                    <div class="owl-shop-description">
-                                        На восточной окраине Киевской Руси одним из древнейших был город Воргол.
-                                        Название города, как утверждают краеведы, возникло до славянской колонизации.
-                                        Слово "воргол" в переводе с древне-мордовского на современный русский язык
-                                        означает "лесная река". В период феодальной раздробленности Воргол стал центром
-                                        воргольского удельного княжества ...
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-12 owl-shop-price">
-                                    <div class="to-bottom">
-                                        <span>от</span> 999 <span>руб.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endfor
-            </div>
-
+            @include('partials.shop.topslider',[
+                'slides'=>$topslider
+            ])        
             <nav>
                 <div class="container">
                     @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Магазин' ])
                 </div>
             </nav>
-        
     </section>
 
     <section>

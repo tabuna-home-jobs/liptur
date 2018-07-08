@@ -41,7 +41,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur',
             'sort'       => 100,
         ]);
-
+        
         $dashboard->menu->add('Main', [
             'slug'       => 'Shop',
             'icon'       => 'icon-basket-loaded',
@@ -65,16 +65,6 @@ class MenuComposer
         ]);
 
         $dashboard->menu->add('Shop', [
-            'slug'       => 'shop-product',
-            'icon'       => 'icon-present',
-            'route'      => route('dashboard.posts.type', 'product'),
-            'label'      => 'Продукты',
-            'groupname'  => 'Интернет-магазин',
-            'permission' => 'dashboard.liptur.shop',
-            'sort'       => 1,
-        ]);
-
-        $dashboard->menu->add('Shop', [
             'slug'       => 'shop-category',
             'icon'       => 'icon-briefcase',
             'route'      => route('dashboard.liptur.shop.category'),
@@ -83,8 +73,18 @@ class MenuComposer
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 1,
         ]);
+        
+        $dashboard->menu->add('Shop', [
+            'slug'       => 'shop-product',
+            'icon'       => 'icon-present',
+            'route'      => route('dashboard.posts.type', 'product'),
+            'label'      => 'Продукты',
+            'permission' => 'dashboard.liptur.shop',
+            'sort'       => 10,
+        ]);
 
-        $dashboard->menu->add('Liptur', [
+
+        $dashboard->menu->add('Shop', [
             'slug'       => 'shop-order',
             'icon'       => 'icon-wallet',
             'route'      => route('dashboard.liptur.bids'),
@@ -97,7 +97,7 @@ class MenuComposer
                     return 7;
                 },
             ],
-            'sort'       => 1,
+            'sort'       => 20,
         ]);
     }
 }
