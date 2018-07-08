@@ -141,7 +141,7 @@ class ShopController extends Controller
             'request'         => $request->all(),
         ]);
     }
-    
+
     /**
      * @param string $slug
      *
@@ -154,19 +154,18 @@ class ShopController extends Controller
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->new')
             ->orWhereNotNull('options->special');
-/*
-        $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
-            $newsAndSpecialAndWarnings->where('options->new', '')
-        )->take(4);
-*/        
-        
+        /*
+                $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
+                    $newsAndSpecialAndWarnings->where('options->new', '')
+                )->take(4);
+        */
+
         $categories = ShopCategory::all();
         //$category = ShopCategory::slug($slug)->first();
-/*
-        $products = $category->posts()
-            ->where('status', '<>', 'hidden');
-  */          
-            
+        /*
+                $products = $category->posts()
+                    ->where('status', '<>', 'hidden');
+          */
 
         if (!is_null($request->get('sort'))) {
             $sort = $request->get('sort');
@@ -197,7 +196,7 @@ class ShopController extends Controller
             'request'         => $request->all(),
             'newsAndSpec'     => true,
         ]);
-    }    
+    }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
