@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="block-header col-xs-12">
                     Новинки и спецпредложения
-                    <a>
+                    <a href="{{route('shop.newsproducts')}}">
                         Самое интересное
                     </a>
                 </div>

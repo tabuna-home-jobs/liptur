@@ -3,13 +3,11 @@
 @section('description','Магазин') 
 @section('keywords','Магазин')
 
-
-
 @section('header')
     <div class="bg-white">
         <section class="container-lg">
             <div class="row">
-                <div class="bg-bordo" style="background-image: url('{{$currentCategory->term->getContent('fullPicture')}}')">
+                <div class="bg-bordo" style="background-image: url('{{$currentCategory->term->getContent('fullPicture') ?? $categories[1]->term->getContent('fullPicture')}}')">
                     <div class="container">
                         <h1 class="brand-header">Интернет-магазин</h1>
                     </div>
@@ -70,7 +68,11 @@
       <div class="col-md-9">
         <div class="row">
           <div class="col-xs-9 block-header">
-            {{$currentCategory->term->getContent('name')}}
+            @if(is_null($newsAndSpec)) 
+                {{$currentCategory->term->getContent('name')}}
+            @else  
+                Новинки и спецпредложения
+            @endif
           </div>
           <div class="col-xs-3">
          
@@ -84,7 +86,7 @@
         <ul>
           @foreach($categories as $category)
             <li class="padder-v-micro">
-              <a href="{{route('shop.products',$category->slug)}}" class="text-md font-bold @if($category->slug === $currentCategory->slug) text-green @else  text-black @endif">
+              <a href="{{route('shop.products',$category->slug)}}" class="text-md font-bold @if(($category->slug === $currentCategory->slug) && (is_null($newsAndSpec))) text-green @else  text-black @endif">
                 {{$category->term->getContent('name')}}
               </a>
             </li>
