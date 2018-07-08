@@ -185,7 +185,6 @@ $router->group([
     $this->post('search/places', 'SearchController@places')->name('search.places');
 });
 
-
 $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
     $this->get('/product/{product}', 'ShopController@product')->name('shop.product');
     $this->get('/catalog', 'ShopController@catalog')->name('shop.catalog');
