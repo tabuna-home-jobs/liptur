@@ -86,16 +86,14 @@ class AboutController extends Controller
             'page'   => getPage('investor'),
         ]);
     }
-    
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function ShippingAndPayment()
     {
-        
         return view('pages.default', [
             'page' => getPage('shipping-and-payment'),
         ]);
     }
-    
 }
