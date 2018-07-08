@@ -41,7 +41,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur',
             'sort'       => 100,
         ]);
-
+        
         $dashboard->menu->add('Main', [
             'slug'       => 'Shop',
             'icon'       => 'icon-basket-loaded',
@@ -73,7 +73,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 1,
         ]);
-
+        
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-product',
             'icon'       => 'icon-present',
@@ -97,6 +97,17 @@ class MenuComposer
                 },
             ],
             'sort'       => 20,
+        ]);
+        
+        $dashboard->menu->add('Shop', [
+            'slug'       => 'shop-shortvars',
+            'icon'       => 'icon-doc',
+            'route'      => route('dashboard.liptur.shop.shortvar.list'),
+            'groupname'  => 'Переменные',
+            'label'      => 'Переменные',
+            'permission' => 'dashboard.liptur.shop',
+            'divider'    => true,
+            'sort'       => 30,
         ]);
     }
 }

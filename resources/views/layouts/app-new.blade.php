@@ -61,7 +61,7 @@
             <li class="col-md-3 no-padder">
                 <div class="navbar-phone">
                     <i class="phone-icon"></i>
-                    <span>8-800-200-81-20</span>
+                    <span>{{setting('shop_phone','8-800-200-81-20')}}</span>
                 </div>
             </li>
             <li class="col-md-5">
@@ -148,20 +148,20 @@
         <div class="container no-padder">
             <div class="row padder-v contact-row">
                 <div class="col-md-3 hidden-sm vi-col-4">
-                    <a href="tel:+74742272360" class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
+                    <a  class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
                      <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Центр кластерного развития туризма</p>
-                            <p class="text-white text-md">Липецк, ул. Фрунзе, 10</p>
+                            <p class="text-white text-md">{{setting('shop_adress','Липецк, ул. Фрунзе, 10')}}</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-6 vi-hide">
-                    <a href="tel:+78002008120" class="wrapper-sm v-center imgs-hovers" title="Телефон">
+                    <a href="tel:{{setting('shop_phone','8-800-200-81-20')}}" class="wrapper-sm v-center imgs-hovers" title="Телефон">
                         <img class="img-responsive" data-src="/img/icons/phone-1.png" data-hover-src="/img/icons/phone-2.png" src="/img/icons/phone-1.png">
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Телефон</p>
-                            <p class="text-white text-md">8-800-200-81-20</p>
+                            <p class="text-white text-md">{{setting('shop_phone','8-800-200-81-20')}}</p>
                         </div>
                     </a>
                 </div>
@@ -172,33 +172,32 @@
                         <img class="img-responsive" data-src="/img/icons/mail-1.png" data-hover-src="/img/icons/mail-2.png" src="/img/icons/mail-1.png" style="opacity: 1;">
                         <div>
                             <p class="m-b-xs text-muted text-xs text-u-c">Почта</p>
-                            <p class="text-white text-md">info@liptur.ru</p>
+                            <p class="text-white text-md">{{setting('shop_email','info@liptur.ru')}}</p>
                         </div>
                     </a>
                 </div>
 
-
                 <div class="col-md-3 col-sm-6 vi-hide socicons">
                     <p>
-                        <a href="https://vk.com/liptur48" target="_blank" class="btn btn-icon soc-vk">
+                        <a href="{{setting('liptur_vk','https://vk.com/liptur48')}}" target="_blank" class="btn btn-icon soc-vk">
                             <i class="fa fa-vk"></i>
                         </a>
 
-                        <a href="https://ok.ru/lipsobtur" target="_blank" class="btn btn-icon soc-od">
+                        <a href="{{setting('liptur_ok','https://ok.ru/lipsobtur')}}" target="_blank" class="btn btn-icon soc-od">
                             <i class="fa fa-odnoklassniki"></i>
                         </a>
 
-                        <a href="https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8F-%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC%D0%B0-%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-1784209968567425/"
+                        <a href="{{setting('liptur_fb','https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8F-%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC%D0%B0-%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-1784209968567425/')}}"
                            target="_blank" class="btn btn-icon soc-facebook">
                             <i class="fa fa-facebook"></i>
                         </a>
 
-                        <a href="https://www.youtube.com/channel/UCI4HbPUrzve2L889GRE8D-g" target="_blank"
+                        <a href="{{setting('liptur_youtube','https://www.youtube.com/channel/UCI4HbPUrzve2L889GRE8D-g')}}" target="_blank"
                            class="btn btn-icon soc-youtube">
                             <i class="fa fa-youtube"></i>
                         </a>
 
-                        <a href="https://twitter.com/lipsobtur" target="_blank"
+                        <a href="{{setting('liptur_twitter','https://twitter.com/lipsobtur')}}" target="_blank"
                            class="btn btn-icon soc-twitter">
                             <i class="fa fa-twitter"></i>
                         </a>
