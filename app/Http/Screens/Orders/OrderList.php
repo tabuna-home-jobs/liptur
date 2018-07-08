@@ -1,45 +1,40 @@
 <?php
+
 namespace App\Http\Screens\Orders;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Orchid\Platform\Core\Models\User;
-use Orchid\Platform\Facades\Alert;
-use Orchid\Platform\Notifications\DashboardNotification;
-use Orchid\Platform\Screen\Screen;
-use Orchid\Platform\Screen\Layouts;
-use Orchid\Platform\Screen\Link;
-
 use App\Core\Models\Order;
+use Orchid\Platform\Screen\Screen;
 
 class OrderList extends Screen
 {
     /**
-     * Display header name
+     * Display header name.
      *
      * @var string
      */
     public $name = 'Список заказов';
     /**
-     * Display header description
+     * Display header description.
      *
      * @var string
      */
     public $description = 'Список заказов товаров';
+
     /**
-     * Query data
+     * Query data.
      *
      * @return array
      */
     public function query() : array
     {
-		//dd(PackagePath);
+        //dd(PackagePath);
         return [
-            'orders' => Order::paginate()
+            'orders' => Order::paginate(),
         ];
     }
+
     /**
-     * Button commands
+     * Button commands.
      *
      * @return array
      */
@@ -48,8 +43,9 @@ class OrderList extends Screen
         return [
         ];
     }
+
     /**
-     * Views
+     * Views.
      *
      * @return array
      */
