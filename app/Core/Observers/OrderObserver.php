@@ -5,7 +5,7 @@ namespace App\Core\Observers;
 use App\Core\Models\Order;
 
 /**
- * Class OrderObserver
+ * Class OrderObserver.
  */
 class OrderObserver
 {
@@ -44,5 +44,4 @@ class OrderObserver
 
         return $model;
     }
-
 }

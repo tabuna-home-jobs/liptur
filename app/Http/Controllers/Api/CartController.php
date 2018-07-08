@@ -117,6 +117,7 @@ class CartController
         ]);
 
         Cart::destroy();
+
         return response(200);
     }
 }
