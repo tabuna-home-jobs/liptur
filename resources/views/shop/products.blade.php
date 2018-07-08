@@ -68,7 +68,7 @@
       <div class="col-md-9">
         <div class="row">
           <div class="col-xs-9 block-header">
-            @if(is_null($newsAndSpec)) 
+            @if(!isset($newsAndSpec)) 
                 {{$currentCategory->term->getContent('name')}}
             @else  
                 Новинки и спецпредложения
@@ -86,7 +86,7 @@
         <ul>
           @foreach($categories as $category)
             <li class="padder-v-micro">
-              <a href="{{route('shop.products',$category->slug)}}" class="text-md font-bold @if(($category->slug === $currentCategory->slug) && (is_null($newsAndSpec))) text-green @else  text-black @endif">
+              <a href="{{route('shop.products',$category->slug)}}" class="text-md font-bold @if(($category->slug === $currentCategory->slug) && (!isset($newsAndSpec))) text-green @else  text-black @endif">
                 {{$category->term->getContent('name')}}
               </a>
             </li>

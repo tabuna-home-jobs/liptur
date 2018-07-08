@@ -102,6 +102,8 @@ $router->group([
     $this->get('/press', 'AboutController@press')->name('press');
     $this->get('/docs', 'AboutController@docs')->name('docs');
     $this->get('/regions', 'AboutController@contact')->name('regions');
+    
+    $this->get('/shop/shipping-and-payment', 'AboutController@ShippingAndPayment')->name('shipping-and-payment');
 
     /*
     |--------------------------------------------------------------------------

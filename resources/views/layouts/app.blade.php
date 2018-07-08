@@ -315,8 +315,7 @@
 </div>
 
 
-@include('partials.support')
-
+@include('partials.modals.support')
 
 
 
