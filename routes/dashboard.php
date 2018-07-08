@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -40,4 +39,8 @@ $this->domain(config('platform.domain'))->group(function () {
             ],
         ]);
     });
+ 
 });
+
+
+	

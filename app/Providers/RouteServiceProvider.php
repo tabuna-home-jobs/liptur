@@ -146,5 +146,13 @@ class RouteServiceProvider extends ServiceProvider
         ], function ($router) {
             require base_path('routes/dashboard.php');
         });
+        
+        Route::group([
+            'middleware' => ['web', 'dashboard'],
+            'namespace'  => 'App\Http\Screens',
+        ], function ($router) {
+            require base_path('routes/screen.php');
+        });
+        
     }
 }

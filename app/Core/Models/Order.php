@@ -4,11 +4,16 @@ namespace App\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Orchid\Platform\Core\Traits\MultiLanguage;
+
 /**
  * Class subscription.
  */
 class Order extends Model
 {
+    
+    use MultiLanguage;
+    
     /**
      * The database table used by the model.
      *

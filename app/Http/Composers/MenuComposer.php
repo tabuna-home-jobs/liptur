@@ -41,7 +41,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur',
             'sort'       => 100,
         ]);
-
+        
         $dashboard->menu->add('Main', [
             'slug'       => 'Shop',
             'icon'       => 'icon-basket-loaded',
@@ -73,7 +73,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 1,
         ]);
-
+        
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-product',
             'icon'       => 'icon-present',
@@ -86,7 +86,7 @@ class MenuComposer
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-order',
             'icon'       => 'icon-wallet',
-            'route'      => route('dashboard.liptur.bids'),
+            'route'      => route('dashboard.liptur.shop.order.list'),
             'label'      => 'Заказы',
             'groupname'  => 'Интернет-магазин',
             'permission' => 'dashboard.liptur.shop',
