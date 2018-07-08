@@ -41,7 +41,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur',
             'sort'       => 100,
         ]);
-        
+
         $dashboard->menu->add('Main', [
             'slug'       => 'Shop',
             'icon'       => 'icon-basket-loaded',
@@ -73,7 +73,7 @@ class MenuComposer
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 1,
         ]);
-        
+
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-product',
             'icon'       => 'icon-present',

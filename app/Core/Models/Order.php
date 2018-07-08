@@ -3,7 +3,6 @@
 namespace App\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
 use Orchid\Platform\Core\Traits\MultiLanguage;
 
 /**
@@ -11,9 +10,8 @@ use Orchid\Platform\Core\Traits\MultiLanguage;
  */
 class Order extends Model
 {
-    
     use MultiLanguage;
-    
+
     /**
      * The database table used by the model.
      *

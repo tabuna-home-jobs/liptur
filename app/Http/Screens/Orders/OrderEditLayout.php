@@ -1,13 +1,12 @@
 <?php
+
 namespace App\Http\Screens\Orders;
 
-use Orchid\Platform\Layouts\Rows;
 use Orchid\Platform\Fields\Field;
+use Orchid\Platform\Layouts\Rows;
 
 class OrderEditLayout extends Rows
 {
- 
-
     /**
      * @return array
      */
@@ -33,27 +32,25 @@ class OrderEditLayout extends Rows
                 ->type('text')
                 ->name('order.options.total')
                 ->title('Количество товаров'),
-                
+
             Field::tag('input')
                 ->type('text')
                 ->name('order.options.payment')
-                ->title('Способ оплаты'),    
+                ->title('Способ оплаты'),
 
             Field::tag('input')
                 ->type('text')
                 ->name('order.options.delivery')
-                ->title('Способ доставки'),                     
+                ->title('Способ доставки'),
 
             Field::tag('textarea')
                 ->name('order.options.content')
                 ->title('Товары'),
-                
+
             Field::tag('textarea')
                 ->name('order.options.message')
-                ->title('Комментарий'),            
+                ->title('Комментарий'),
 
-                
         ];
-
     }
 }
