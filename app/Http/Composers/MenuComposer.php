@@ -41,6 +41,18 @@ class MenuComposer
             'permission' => 'dashboard.liptur',
             'sort'       => 100,
         ]);
+        
+        $dashboard->menu->add('Main', [
+            'slug'       => 'Shop',
+            'icon'       => 'icon-basket-loaded',
+            'route'      => '#',
+            'label'      => 'Магазин',
+            'childs'     => true,
+            'main'       => true,
+            'active'     => '*/dashboard/shop*',
+            'permission' => 'dashboard.liptur.shop',
+            'sort'       => 110,
+        ]);
 
         $dashboard->menu->add('Liptur', [
             'slug'       => 'bid',
@@ -62,7 +74,7 @@ class MenuComposer
             'sort'       => 1,
         ]);
 
-        $dashboard->menu->add('Systems', [
+        $dashboard->menu->add('Shop', [
             'slug'       => 'shop-category',
             'icon'       => 'icon-briefcase',
             'route'      => route('dashboard.liptur.shop.category'),

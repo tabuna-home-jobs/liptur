@@ -5,7 +5,6 @@
         <div class="col-xs-12 col-sm-3">
     @endif
     
-    
     @if($item->children->count() > 0)
         <h4 class=" m-b text-white">{{$item->label}}</h4>
 

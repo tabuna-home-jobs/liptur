@@ -134,7 +134,8 @@
     
     @include('partials.shop.index-ad-carousel')
 
-    @include('partials.support')
+    @include('partials.modals.support')
+    @include('partials.modals.topmenu')
 
 </div>
 
