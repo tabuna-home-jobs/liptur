@@ -157,4 +157,5 @@ class ShopController extends Controller
     {
         return view('shop.order');
     }
+
 }

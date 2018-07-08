@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Core\Models\Order;
+use App\Core\Models\User;
+use App\Http\Requests\OrderRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Orchid\Platform\Core\Models\Post;
 
 class CartController
@@ -78,5 +82,41 @@ class CartController
         }
 
         return $this->index();
+    }
+
+    /**
+     * @param \App\Http\Requests\OrderRequest $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function order(OrderRequest $request)
+    {
+        if (Auth::check()) {
+            Cart::restore(Auth::id());
+        } else {
+            $user = User::create([
+                'name'     => $request->get('name'),
+                'email'    => $request->get('email'),
+                'password' => Hash::make($request->get('password')),
+                'phone'    => $request->get('name'),
+            ]);
+
+            Auth::login($user);
+        }
+
+        Order::create([
+            'user_id' => Auth::id(),
+            'options' => [
+                'payment'  => $request->get('payment'),
+                'delivery' => $request->get('delivery'),
+                'message'  => $request->get('message'),
+                'content'  => Cart::content(),
+                'total'    => Cart::total(),
+                'count'    => Cart::count(),
+            ],
+        ]);
+
+        Cart::destroy();
+        return response(200);
     }
 }

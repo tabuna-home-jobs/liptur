@@ -18,4 +18,5 @@ Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function ($router)
     $router->post('cart/{product}/{count?}', 'CartController@store');
     $router->put('cart/{row}/{count?}', 'CartController@update');
     $router->delete('cart/{row}', 'CartController@delete');
+    $router->post('cart/order', 'CartController@order');
 });
