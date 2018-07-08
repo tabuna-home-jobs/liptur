@@ -214,7 +214,7 @@
                                     <div class="checkbox">
                                         <label class="i-checks">
                                             <input type="checkbox" value="1" onclick="document.getElementById('register').disabled=!document.getElementById('register').disabled;" name="remember" required> <i></i>
-                                            Я принимаю правила сервиса
+                                            Я принимаю <a href="" data-toggle="modal" data-target="#modalpage">правила сервиса</a>
                                         </label>
                                     </div>
                                 </div>
@@ -234,6 +234,8 @@
 
     </div>
 
-
+    @include('partials.modals.page',[
+        'page'=>Orchid\Platform\Core\Models\Page::where('slug','terms-of-service')->first(),
+    ])
 
 @endsection

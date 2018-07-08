@@ -130,7 +130,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div id="shop" class="row">
           @foreach($products as $product)
           <article class="col-md-4 padder-v shop-product">
               <div class="panel panel-default box-shadow-lg pos-rlt">
