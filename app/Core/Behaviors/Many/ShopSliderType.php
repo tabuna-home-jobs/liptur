@@ -26,7 +26,7 @@ class ShopSliderType extends Many
      */
     public $slug = 'shopslider';
     /**
-     * Slug url 
+     * Slug url.
      *
      * @var string
      */
@@ -64,7 +64,7 @@ class ShopSliderType extends Many
     public function fields(): array
     {
         return [
-        
+
             Field::tag('input')
                 ->type('text')
                 ->name('name')

@@ -260,7 +260,7 @@ return [
         //Магазин
         \App\Core\Behaviors\Many\ProductType::class,
         \App\Core\Behaviors\Many\ShopSliderType::class,
-        
+
     ],
 
     /*
