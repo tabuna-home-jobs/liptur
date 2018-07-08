@@ -1,31 +1,31 @@
 <?php
+
 namespace App\Http\Screens\Shortvars;
 
+use App\Core\Models\Shortvar;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Setting;
 use Orchid\Platform\Screen\Layouts;
 use Orchid\Platform\Screen\Link;
 use Orchid\Platform\Screen\Screen;
 
-use App\Core\Models\Shortvar;
-
 class ShortvarEdit extends Screen
 {
-	
     /**
-     * Display header name
+     * Display header name.
      *
      * @var string
      */
     public $name = 'Редактирование переменной';
     /**
-     * Display header description
+     * Display header description.
      *
      * @var string
      */
     public $description = 'Редактирование переменной';
+
     /**
-     * Query data
+     * Query data.
      *
      * @param Shortvar $shortvar
      *
@@ -33,40 +33,44 @@ class ShortvarEdit extends Screen
      */
     public function query($shortvar = null) : array
     {
-        $shortvar = is_null($shortvar) ? new Shortvar() : Shortvar::where("key",$shortvar)->first();;
+        $shortvar = is_null($shortvar) ? new Shortvar() : Shortvar::where('key', $shortvar)->first();
+
         return [
             'shortvar'   => $shortvar,
         ];
     }
+
     /**
-     * Button commands
+     * Button commands.
      *
      * @return array
      */
     public function commandBar() : array
     {
-        return [				
+        return [
             Link::name('Save')->method('save'),
             Link::name('Remove')->method('remove'),
         ];
     }
+
     /**
-     * Views
+     * Views.
      *
      * @return array
      */
     public function layout() : array
     {
         return [
-		
-		    Layouts::columns([
+
+            Layouts::columns([
                 'EditShortvar' => [
-                    ShortvarEditLayout::class
+                    ShortvarEditLayout::class,
                 ],
             ]),
-		
+
         ];
     }
+
     /**
      * @param Shortvar $shortvar
      *
@@ -74,27 +78,29 @@ class ShortvarEdit extends Screen
      */
     public function save($request, Shortvar $shortvar)
     {
-		$req = $this->request->get('shortvar');
+        $req = $this->request->get('shortvar');
 
-		$shortvar->updateOrCreate(['key' => $req['key']], $req );
-        
+        $shortvar->updateOrCreate(['key' => $req['key']], $req);
+
         //Setting::set($req['key'],$req['content']);
-		
+
         Alert::info('Shortvar was saved');
+
         return redirect()->route('dashboard.liptur.shop.shortvar.list');
     }
-    
+
     /**
      * @param Shortvar $shortvar
      *
-     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-	 
     public function remove($request, Shortvar $shortvar)
     {
-		$shortvar->where('id',$request)->delete();
+        $shortvar->where('id', $request)->delete();
         Alert::info('Shortvar was removed');
+
         return redirect()->route('dashboard.liptur.shop.shortvar.list');
     }
 }

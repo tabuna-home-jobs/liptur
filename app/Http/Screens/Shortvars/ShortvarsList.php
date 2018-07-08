@@ -1,46 +1,43 @@
 <?php
+
 namespace App\Http\Screens\Shortvars;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Orchid\Platform\Core\Models\User;
-use Orchid\Platform\Facades\Alert;
-use Orchid\Platform\Notifications\DashboardNotification;
-use Orchid\Platform\Screen\Screen;
-use Orchid\Platform\Screen\Layouts;
-use Orchid\Platform\Screen\Link;
-
 use App\Core\Models\Shortvar;
+use Illuminate\Http\Request;
+use Orchid\Platform\Screen\Link;
+use Orchid\Platform\Screen\Screen;
 
 class ShortvarsList extends Screen
 {
     /**
-     * Display header name
+     * Display header name.
      *
      * @var string
      */
     public $name = 'Список переменных';
     /**
-     * Display header description
+     * Display header description.
      *
      * @var string
      */
     public $description = 'Список переменных сайта';
+
     /**
-     * Query data
+     * Query data.
      *
      * @return array
      */
     public function query() : array
     {
-		//dd(Shortvar::paginate(50));
-        
+        //dd(Shortvar::paginate(50));
+
         return [
-            'shortvars' => Shortvar::paginate(30)
+            'shortvars' => Shortvar::paginate(30),
         ];
     }
+
     /**
-     * Button commands
+     * Button commands.
      *
      * @return array
      */
@@ -50,8 +47,9 @@ class ShortvarsList extends Screen
             Link::name('Добавить переменную')->method('create'),
         ];
     }
+
     /**
-     * Views
+     * Views.
      *
      * @return array
      */
@@ -61,12 +59,13 @@ class ShortvarsList extends Screen
             ShortvarsListLayout::class,
         ];
     }
+
     /**
      * @param Request $request
      *
      * @return null
      */
-     public function create()
+    public function create()
     {
         return redirect()->route('dashboard.liptur.shop.shortvar.create');
     }
