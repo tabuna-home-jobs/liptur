@@ -36,11 +36,11 @@ class ShopController extends Controller
         )->take(4);
 
         $categories = ShopCategory::all();
-        
+
         $topslider = Post::type('shopslider')
             ->with('attachment')
             ->get();
-            
+
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
             'warnings'       => $newsAndSpecialAndWarnings->where('options->warning', ''),
