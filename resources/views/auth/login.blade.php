@@ -235,7 +235,7 @@
     </div>
 
     @include('partials.modals.page',[
-        'page'=>Orchid\Platform\Core\Models\Page::where('slug','terms-of-service')->first(),
+        'slugpage' => 'terms-of-service',
     ])
 
 @endsection

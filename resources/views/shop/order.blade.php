@@ -131,8 +131,7 @@
          <div class="form-group m-t-xxl m-b-none">
               <div class="checkbox">
                   <label class="i-checks">
-                      <input type="checkbox" name="checkme"><i></i>   Я согласен на обработку персональных 
-данных и ознакомился с правилами сервиса
+                      <input type="checkbox" name="checkme"><i></i>   Я согласен на обработку <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-personal-data">персональных данных</a> и ознакомился с <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-terms-of-service">правилами сервиса</a>
                   </label>
               </div>
           </div>
@@ -148,4 +147,12 @@
     </div>
   </div>
 </section>
+
+    @include('partials.modals.page',[
+        'slugpage' => 'terms-of-service',
+    ])
+    @include('partials.modals.page',[
+        'slugpage' => 'personal-data',
+    ])
 @endsection
+

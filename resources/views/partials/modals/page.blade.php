@@ -1,5 +1,8 @@
 <!-- Modal Support-->
-<div class="modal fade slide-up" id="modalpage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+@php
+    $page = Orchid\Platform\Core\Models\Page::where('slug',$slugpage)->first();
+@endphp 
+<div class="modal fade slide-up" id="modalpage-{{$slugpage}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content-wrapper">
             <div class="modal-content">
