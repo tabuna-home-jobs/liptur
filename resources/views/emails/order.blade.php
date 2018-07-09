@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta charset="utf-8">  <!-- utf-8 works for most cases -->
     <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
     <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
@@ -26,7 +26,7 @@
 
                            <!-- Web Font / @font-face : END -->
 
-                           <!-- CSS Reset -->
+    <!-- CSS Reset -->
     <style>
 
         /* What it does: Remove spaces around the email design added by some email clients. */
@@ -156,7 +156,7 @@
                width="100%" style="max-width: 600px;">
             <tr>
                 <td style="padding: 20px 0; text-align: center">
-                    <img src="http://localhost:8000/img/new-logo.png" aria-hidden="true" width="240px" alt="alt_text"
+                    <img src="http://liptur.ru/img/new-logo.png" aria-hidden="true" width="240px" alt="alt_text"
                          border="0"
                          style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
                 </td>
@@ -164,7 +164,7 @@
         </table>
         <!-- Email Header : END -->
 
-
+        {{-- 
         <!-- Email Body : BEGIN -->
         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center"
                width="100%"
@@ -194,7 +194,7 @@
                                         font-weight: 700;
                                         margin-bottom: 10px;
                                       ">
-                                    Здравствуйте, Владимир Владимирович!</p>
+                                    Здравствуйте, {{$order->user()->first()->name}}!</p>
 
                                 <p style="
                                 margin-top: 0;
@@ -205,7 +205,7 @@
                                 "
 
                                 >
-                                    Спасибо, что выбрали наш интернет-магазин! Ваш заказ № DF87F693
+                                    Спасибо, что выбрали наш интернет-магазин! Ваш заказ № {{$order->slug}}
                                 </p>
 
                             </td>
@@ -222,15 +222,15 @@
             <!-- 2 Even Columns : END -->
 
         </table>
+        --}}
 
 
         <!-- Email Body : BEGIN -->
         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center"
-               width="100%"
-               style="max-width: 600px;
-     border: 1px dashed #8ea256;
-    margin: 40px 0!important;">
-
+                width="100%"
+                style="max-width: 600px;
+                border: 1px dashed #8ea256;
+                margin: 40px 0!important;">
 
             <!-- 2 Even Columns : BEGIN -->
             <tr>
@@ -244,33 +244,28 @@
                     <table role="presentation" aria-hidden="true" border="0" cellpadding="0" cellspacing="0"
                            align="center" width="100%" style="max-width:660px;">
                         <tbody>
+                            <tr>
+                                <td style="margin-top: 40px; text-align: center;">
+                                    <p style="
+                                            color: #401b21;
+                                            font-family: 'William Text Pro';
+                                            font-size: 20px;
+                                            font-weight: 700;
+                                            margin-bottom: 10px;
+                                          ">
+                                        Здравствуйте, {{$order->user()->first()->name}}!</p>
 
-                        <tr>
-                            <td style="margin-top: 40px; text-align: center;">
-
-                                <p style="
-                                        color: #401b21;
-                                        font-family: 'William Text Pro';
-                                        font-size: 20px;
-                                        font-weight: 700;
-                                        margin-bottom: 10px;
-                                      ">
-                                    Здравствуйте, Владимир Владимирович!</p>
-
-                                <p style="
-                                margin-top: 0;
-                                color: #52494a;
-                                font-family: Roboto;
-                                font-size: 13px;
-                                font-weight: 400;
-                                "
-
-                                >
-                                    Спасибо, что выбрали наш интернет-магазин! Ваш заказ № DF87F693
-                                </p>
-
-                            </td>
-                        </tr>
+                                    <p style="
+                                    margin-top: 0;
+                                    color: #52494a;
+                                    font-family: Roboto;
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                    ">
+                                        Спасибо, что выбрали наш интернет-магазин! Ваш заказ № {{$order->slug}}
+                                    </p>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <!--[if mso]>
@@ -281,7 +276,6 @@
                 </td>
             </tr>
             <!-- 2 Even Columns : END -->
-
         </table>
 
 
@@ -289,8 +283,6 @@
         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center"
                width="100%"
                style="max-width: 600px; border: 1px solid rgba(0,0,0,.05); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-
-
             <!-- 2 Even Columns : BEGIN -->
             <tr>
                 <td bgcolor="#ffffff" align="center" height="100%" valign="top" width="100%">
@@ -305,47 +297,48 @@
                         <tbody>
 
                         <tr>
-                            <td style="padding: 20px 10px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;">
+                            <td style="padding: 20px 10px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;    border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                                <span style="color: #52494a;
+                                    font-family: Roboto;
+                                    font-size: 16px;
+                                    font-weight: 700;">Вы выбрали:</span><br>
 
                                 <span style="color: #52494a;
-font-family: Roboto;
-font-size: 16px;
-font-weight: 700;">Вы выбрали:</span><br>
+                                    font-family: Roboto;
+                                    font-size: 13px;
+                                    min-width: 170px;
+                                    display: block;
+                                    float: left;
+                                    font-weight: 700;">Способ получения заказа:</span>	
+                                
+                                <span style="color: #52494a;
+                                    font-family: 'William Text Pro';
+                                    font-style: italic;
+                                    font-size: 13px;
+                                    font-weight: 700;">{{$order->ordervar['delivery'][$order->options['delivery']]}}</span><br>
+                                    
+                                <span style="color: #52494a;
+                                    font-family: Roboto;
+                                    font-size: 13px;
+                                    min-width: 170px;
+                                    display: block;
+                                    float: left;
+                                    font-weight: 700;">Способ оплаты:</span> 			
 
                                 <span style="color: #52494a;
-font-family: Roboto;
-font-size: 13px;
-min-width: 170px;
-display: block;
-float: left;
-font-weight: 700;">Способ получения заказа:</span>	<span style="color: #52494a;
-font-family: 'William Text Pro';
-font-style: italic;
-font-size: 13px;
-font-weight: 700;">доставка курьером</span><br>
-                                <span style="color: #52494a;
-font-family: Roboto;
-font-size: 13px;
-min-width: 170px;
-display: block;
-float: left;
-font-weight: 700;">Способ оплаты:</span> 			<span style="color: #52494a;
-font-family: 'William Text Pro';
-font-style: italic;
-font-size: 13px;
-font-weight: 700;">наличными курьеру</span>
+                                    font-family: 'William Text Pro';
+                                    font-style: italic;
+                                    font-size: 13px;
+                                    font-weight: 700;">{{$order->ordervar['payment'][$order->options['payment']]}}</span>
                                 <br><br>
+                                
                                 <span style="color: #52494a;
-font-family: Roboto;
-font-size: 16px;
-font-weight: 700;">Ваш заказ:</span>
-
-
-
+                                    font-family: Roboto;
+                                    font-size: 16px;
+                                    font-weight: 700;">Ваш заказ:</span>
                             </td>
                         </tr>
-
+                    @foreach ($order->options['content'] as $item) 
                         <tr>
                             <td align="center" valign="top"
                                 style="font-size:13px; padding: 20px 0; border-top: 1px solid #eee">
@@ -353,40 +346,43 @@ font-weight: 700;">Ваш заказ:</span>
                                 <table role="presentation" aria-hidden="true" border="0" cellspacing="0" cellpadding="0"
                                        align="center" width="660">
 
-
                                     <tr>
                                         <td style="width: 60px;">
-                                            <img style="margin: 0 auto;width: 100%" src="http://localhost:8000/storage/2018/07/01/4ecb121947d93a97046098f8edcd9e0c89fbf3de_high.png" height="50px" width="60px">
+                                            <a href="{{$item['options']['url']}}" target="_blank">
+                                            <img style="margin: 0 auto;width: 100%" src="{{url('/')}}{{$item['options']['image']}}" height="50px" width="60px">
+                                            </a>
                                         </td>
                                         <td style="width: 250px;">
                                             <span style="
-color: #a5b526;
-font-family: 'William Text Pro';
-font-size: 14px;
-font-weight: 700;
-font-weight: 400;">Название товара. Можно не ограничивать и тянуть высоту блока</span><br>
+                                                color: #a5b526;
+                                                font-family: 'William Text Pro';
+                                                font-size: 14px;
+                                                font-weight: 700;
+                                                font-weight: 400;">{{$item['name']}}</span><br>
+                                        
                                             <span style="color: #52494a;
-font-family: Roboto;
-font-size: 12px;
-font-weight: 400;">Название категории из которой выбран товар</span><br>
+                                                font-family: Roboto;
+                                                font-size: 12px;
+                                                    font-weight: 400;">Цена: <b>{{$item['price']}} руб.</b></span><br>
+                                        
 
                                             <span style="color: #52494a;
-font-family: Roboto;
-font-size: 12px;
-font-weight: 400;">Колличество: 1 шт.</span>
+                                                font-family: Roboto;
+                                                font-size: 12px;
+                                                font-weight: 400;">Колличество: <b>{{$item['qty']}} шт.</b></span>
                                         </td>
                                         <td style="width: 100px">
                                             <span style="color: #401b21;
-
-                              font-weight: 400;
-                              font-style: italic;
-                              font-size: 16px;">2 999 руб.</span>
+                                                font-weight: 400;
+                                                font-style: italic;
+                                                font-size: 16px;">{{$item['subtotal']}} руб.</span>
                                         </td>
                                     </tr>
                                 </table>
-
                             </td>
                         </tr>
+                    @endforeach
+                        
                         </tbody>
                     </table>
                     <!--[if mso]>
@@ -414,11 +410,9 @@ font-weight: 400;">Колличество: 1 шт.</span>
                         <tbody>
 
                         <tr>
-                            <td style="padding: 0 10px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;     border-bottom: 1px solid #eee;
-    padding-bottom: 10px;">
+                            <td style="padding: 0 10px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;     border-bottom: 1px solid #eee; padding-bottom: 10px;">
                             </td>
                         </tr>
-
 
                         <tr>
                             <td align="center" valign="top" style="font-size:0;">
@@ -440,29 +434,32 @@ font-weight: 400;">Колличество: 1 шт.</span>
                                         <tbody>
                                         <tr>
                                             <td style="padding: 40px 10px;">
+                                                <span style="color: #401b21;
+                                                    font-family: Roboto;
+                                                    font-size: 12px;
+                                                    min-width: 170px;
+                                                    display: block;
+                                                    float: left;
+                                                    font-weight: 400;">Сумма заказа:</span> 			
 
-<span style="color: #401b21;
-font-family: Roboto;
-font-size: 12px;
-min-width: 170px;
-display: block;
-float: left;
-font-weight: 400;">Сумма заказа:</span> 			<span style="
-color: #52494a;
-font-weight: 700;
-font-family: 'William Text Pro';
-                                                                                              font-size: 35px;
-                                                                                              letter-spacing: -1.75px;">57 569 руб.</span><br>
-<span style="color: #401b21;
-font-family: Roboto;
-font-size: 12px;
-min-width: 170px;
-display: block;
-float: left;
-font-weight: 400;">Доставка:</span>				<span style="color: #401b21;
-font-family: Roboto;
-font-size: 12px;
-font-weight: 400;">стоимость доставки уточник менеджер</span>
+                                                <span style="
+                                                    color: #52494a;
+                                                    font-weight: 700;
+                                                    font-family: 'William Text Pro';
+                                                    font-size: 35px;
+                                                    letter-spacing: -1.75px;">{{$order->options['total']}} руб.</span><br>
+                                                <span style="color: #401b21;
+                                                    font-family: Roboto;
+                                                    font-size: 12px;
+                                                    min-width: 170px;
+                                                    display: block;
+                                                    float: left;
+                                                    font-weight: 400;">Доставка:</span>
+
+                                                <span style="color: #401b21;
+                                                    font-family: Roboto;
+                                                    font-size: 12px;
+                                                    font-weight: 400;">стоимость доставки уточник менеджер</span>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -470,8 +467,6 @@ font-weight: 400;">стоимость доставки уточник менед
                                 </div>
                                 <!--[if mso]>
                                 </td>
-                                @endforeach
-
 
                                 </tr>
                                 </table>
@@ -530,11 +525,10 @@ font-weight: 400;">стоимость доставки уточник менед
                                         <tr>
                                             <td style="padding: 40px 10px;">
                                                 <span style="color: #52494a;
-font-family: Roboto;
-font-size: 13px;
-font-weight: 400;">
-Есть вопрос? Мы с радостью на него ответим.<br>
-Воспользуйтесь функционалом «Мои Обращения» в Личном Кабинете.</span>
+                                                    font-family: Roboto;
+                                                    font-size: 13px;
+                                                    font-weight: 400;">Есть вопрос? Мы с радостью на него ответим.<br>
+                                                    Воспользуйтесь функционалом «Мои Обращения» в Личном Кабинете.</span>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -542,7 +536,6 @@ font-weight: 400;">
                                 </div>
                                 <!--[if mso]>
                                 </td>
-                                @endforeach
 
 
                                 </tr>
@@ -573,27 +566,26 @@ font-weight: 400;">
                     class="x-gmail-data-detectors">
 
                     <span style="color: #52494a;
-font-family: Roboto;
-font-size: 11px;
-font-weight: 400;
-line-height: 13px;">
+                        font-family: Roboto;
+                        font-size: 11px;
+                        font-weight: 400;
+                        line-height: 13px;">
                         ОКУ «Центр кластерного развития туризма Липецкой области»
                     </span><br>
                     <span style="
-color: #52494a;
-font-family: Roboto;
-font-size: 16px;
-font-weight: 700;
-line-height: 13px;
-">8-800-200-81-20</span><br>
+                        color: #52494a;
+                        font-family: Roboto;
+                        font-size: 16px;
+                        font-weight: 700;
+                        line-height: 13px;
+                        ">{{setting('shop_phone','8-800-200-81-20')}}</span><br>
                     <a href="http://liptur.ru/" style="
-color: #a5b526;
-font-weight: 400;
-font-family: Roboto;
-font-size: 11px;
-line-height: 13px;
-">www.liptur.ru</a>
-
+                        color: #a5b526;
+                        font-weight: 400;
+                        font-family: Roboto;
+                        font-size: 11px;
+                        line-height: 13px;
+                        ">www.liptur.ru</a>
                 </td>
             </tr>
         </table>

@@ -3,6 +3,7 @@
 namespace App\Http\Screens\Orders;
 
 use App\Core\Models\Order;
+use Illuminate\Support\Facades\Mail;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Screen\Layouts;
 use Orchid\Platform\Screen\Link;
@@ -10,6 +11,7 @@ use Orchid\Platform\Screen\Screen;
 
 class OrderEdit extends Screen
 {
+    
     /**
      * Display header name.
      *
@@ -23,6 +25,7 @@ class OrderEdit extends Screen
      */
     public $description = 'Редактирование статуса заказа';
 
+    
     /**
      * Query data.
      *
@@ -33,7 +36,7 @@ class OrderEdit extends Screen
     public function query($order_id = null) : array
     {
         $order = Order::whereId($order_id)->firstOrFail();
-
+ 
         return [
             'order'    => $order,
         ];
@@ -60,8 +63,12 @@ class OrderEdit extends Screen
     {
         return [
             Layouts::columns([
-                'OrderEdit' => [
+                'Левая колонка' => [
                     OrderEditLayout::class,
+                    OrderStatusLayout::class,
+                ],
+                'Правая колонка' => [
+                    OrderCartLayout::class,
                 ],
             ]),
         ];
@@ -72,13 +79,30 @@ class OrderEdit extends Screen
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function save($request, TypeTran $typetran)
+    public function save($order_id)
     {
-        //dd($typetran);
-        /*
-            $typetran->fill($this->request->get('typetran'))->save();
-            Alert::info('TypeTran was saved');
-            return redirect()->route('dashboard.uslugi.typetran.list');
-        */
+        
+        $order = Order::whereId($order_id)->firstOrFail();
+        $options = $this->request->get('order')['options'];
+        
+        if ($options['status']!==$order->options['status']) {
+            Alert::info('Отправка сообщения заказчику');
+            
+            $mailtitle= 'Изменение статуса заказа на сайте Liptur.ru на '.$order->ordervar['status'][$options['status']];
+            
+            Mail::send('emails.order', ['order' => $order], function ($message) use ($order, $mailtitle) {
+                //$m->from('sender@test.com', 'Sender');
+                $message->to($order->user()->first()->email,$order->user()->first()->name)
+                    ->subject($mailtitle);
+            });
+            //Send mail
+        }
+        
+        $options=array_merge($order->options,$options);
+        $order->update(['options' => $options]);
+
+        Alert::info('Заказ изменен');
+        return redirect()->route('dashboard.liptur.shop.order.list');
+        
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Composers;
 
 use Orchid\Platform\Kernel\Dashboard;
+use App\Core\Models\Order;
 
 class MenuComposer
 {
@@ -82,6 +83,8 @@ class MenuComposer
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 10,
         ]);
+        
+        
 
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-order',
@@ -93,7 +96,7 @@ class MenuComposer
             'badge'      => [
                 'class' => 'bg-primary',
                 'data'  => function () {
-                    return 7;
+                    return Order::where('options->status','new')->get()->count();
                 },
             ],
             'sort'       => 20,

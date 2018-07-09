@@ -5,12 +5,12 @@ namespace App\Http\Screens\Orders;
 use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Layouts\Rows;
 
-class OrderEditLayout extends Rows
+class OrderCartLayout extends Rows
 {
     /**
      * @var string
      */
-    public $template = 'dashboard.shop.cart.order';
+    public $template = 'dashboard.shop.cart.cart';
     
     /**
      * @return array
@@ -18,6 +18,7 @@ class OrderEditLayout extends Rows
     public function fields() : array
     {
         return [
+   
         ];
     }
     

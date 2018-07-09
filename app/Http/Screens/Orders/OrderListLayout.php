@@ -2,6 +2,7 @@
 
 namespace App\Http\Screens\Orders;
 
+
 use Orchid\Platform\Layouts\Table;
 use Orchid\Platform\Platform\Fields\TD;
 
@@ -20,18 +21,22 @@ class OrderListLayout extends Table
         return [
 
             TD::name('name')
-                ->title('ID пользователя')
+                ->title('Заказчик')
                 ->setRender(function ($order) {
                     return '<a href="'.route('dashboard.liptur.shop.order.edit',
-                        $order->id).'">'.$order->id.'</a>';
+                        $order->id).'">'.$order->user()->first()->name.'</a>';
                 }),
-            TD::name('options.count')->title('Количество товаров')
+            TD::name('created_at')->title('Дата заказа')
                 ->setRender(function ($order) {
-                    return $order->options['count'];
+                    return $order->created_at;
                 }),
-            TD::name('options.total')->title('Сумма товаров')
+            TD::name('options.total')->title('Сумма заказа')
                 ->setRender(function ($order) {
-                    return $order->options['total'];
+                    return $order->options['total'].' руб.';
+                }),
+            TD::name('options.status')->title('Статус заказа')
+                ->setRender(function ($order) {
+                    return $order->ordervar['status'][$order->options['status']];
                 }),
         ];
     }
