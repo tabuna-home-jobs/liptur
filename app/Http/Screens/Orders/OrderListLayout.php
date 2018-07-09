@@ -2,7 +2,6 @@
 
 namespace App\Http\Screens\Orders;
 
-
 use Orchid\Platform\Layouts\Table;
 use Orchid\Platform\Platform\Fields\TD;
 

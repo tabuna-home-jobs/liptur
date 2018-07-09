@@ -11,7 +11,6 @@ use Orchid\Platform\Screen\Screen;
 
 class OrderEdit extends Screen
 {
-    
     /**
      * Display header name.
      *
@@ -25,7 +24,6 @@ class OrderEdit extends Screen
      */
     public $description = 'Редактирование статуса заказа';
 
-    
     /**
      * Query data.
      *
@@ -36,7 +34,7 @@ class OrderEdit extends Screen
     public function query($order_id = null) : array
     {
         $order = Order::whereId($order_id)->firstOrFail();
- 
+
         return [
             'order'    => $order,
         ];
@@ -81,28 +79,27 @@ class OrderEdit extends Screen
      */
     public function save($order_id)
     {
-        
         $order = Order::whereId($order_id)->firstOrFail();
         $options = $this->request->get('order')['options'];
-        
-        if ($options['status']!==$order->options['status']) {
+
+        if ($options['status'] !== $order->options['status']) {
             Alert::info('Отправка сообщения заказчику');
-            
-            $mailtitle= 'Изменение статуса заказа на сайте Liptur.ru на '.$order->ordervar['status'][$options['status']];
-            
+
+            $mailtitle = 'Изменение статуса заказа на сайте Liptur.ru на '.$order->ordervar['status'][$options['status']];
+
             Mail::send('emails.order', ['order' => $order], function ($message) use ($order, $mailtitle) {
                 //$m->from('sender@test.com', 'Sender');
-                $message->to($order->user()->first()->email,$order->user()->first()->name)
+                $message->to($order->user()->first()->email, $order->user()->first()->name)
                     ->subject($mailtitle);
             });
             //Send mail
         }
-        
-        $options=array_merge($order->options,$options);
+
+        $options = array_merge($order->options, $options);
         $order->update(['options' => $options]);
 
         Alert::info('Заказ изменен');
+
         return redirect()->route('dashboard.liptur.shop.order.list');
-        
     }
 }

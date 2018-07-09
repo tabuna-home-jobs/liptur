@@ -2,7 +2,6 @@
 
 namespace App\Http\Screens\Orders;
 
-use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Layouts\Rows;
 
 class OrderEditLayout extends Rows
@@ -11,7 +10,7 @@ class OrderEditLayout extends Rows
      * @var string
      */
     public $template = 'dashboard.shop.cart.order';
-    
+
     /**
      * @return array
      */
@@ -20,12 +19,13 @@ class OrderEditLayout extends Rows
         return [
         ];
     }
-    
+
     /**
      * @param $post
      *
-     * @return array
      * @throws \Throwable
+     *
+     * @return array
      */
     public function build($post)
     {
@@ -35,6 +35,4 @@ class OrderEditLayout extends Rows
             'order'     => $post->getContent('order'),
         ])->render();
     }
-    
-    
 }

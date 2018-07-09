@@ -92,7 +92,7 @@ class CartController
      */
     public function order(OrderRequest $request)
     {
-        
+         
         if (Auth::check()) {
             Cart::restore(Auth::id());
         } else {
