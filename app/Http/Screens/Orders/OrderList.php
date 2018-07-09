@@ -27,7 +27,7 @@ class OrderList extends Screen
      */
     public function query() : array
     {
-        
+
         //dd(PackagePath);
         return [
             'orders' => Order::paginate(),

@@ -2,7 +2,6 @@
 
 namespace App\Core\Models;
 
-use App\Core\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Platform\Core\Traits\MultiLanguage;
 
@@ -36,13 +35,12 @@ class Order extends Model
     protected $casts = [
       'options' => 'array',
     ];
-    
-    
+
     /*
      * @var array
      */
-    public  $ordervar=[
-                'status' =>  [
+    public $ordervar = [
+                'status' => [
                     'new'       => 'Новый',
                     'inwork'    => 'В работе',
                     'indelivery'=> 'В доставке',
@@ -51,20 +49,20 @@ class Order extends Model
                     'canceled'  => 'Отменен',
                 ],
 
-                'delivery' =>  [
+                'delivery' => [
                     'pickup'      => 'Самовывоз',
                     'courier'     => 'Доставка курьером',
                     'boxberry'    => 'Получение в центрах выдачи boxberry',
                     'mail'        => 'Получение в отделениях Почты России',
                 ],
-                'payment' =>  [
+                'payment' => [
                     'cash'      => 'Наличными',
                     'card'      => 'Банковская карта',
                 ],
             ];
-    
+
     public function user()
     {
-        return $this->belongsTo(User::class,'user_id'); 
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

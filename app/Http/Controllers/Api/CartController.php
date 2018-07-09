@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Core\Models\Order;
 use App\Core\Models\User;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\OrderRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Orchid\Platform\Core\Models\Post;
 
 class CartController
@@ -92,7 +92,6 @@ class CartController
      */
     public function order(OrderRequest $request)
     {
-        
         if (Auth::check()) {
             Cart::restore(Auth::id());
         } else {
@@ -106,7 +105,7 @@ class CartController
             Auth::login($user);
         }
 
-        $order=Order::create([
+        $order = Order::create([
             'user_id' => Auth::id(),
             'options' => [
                 'payment'  => $request->get('payment'),
@@ -118,17 +117,15 @@ class CartController
                 'status'   => 'new',
             ],
         ]);
-        
-        $order->slug=$order->id.''.strtoupper(str_random(8));
+
+        $order->slug = $order->id.''.strtoupper(str_random(8));
         //$order->update('slug'=>$order->id.''.strtoupper(str_random(8)));
-        
-        Mail::send('emails.order', ['order' => $order ], function ($message) {
-                //$m->from('sender@test.com', 'Sender');
-                $message->to(setting('shop_admin_email'),'Администратор')
+
+        Mail::send('emails.order', ['order' => $order], function ($message) {
+            //$m->from('sender@test.com', 'Sender');
+            $message->to(setting('shop_admin_email'), 'Администратор')
                     ->subject('Новый заказ на сайте Liptur.ru');
-            });
-        
-        
+        });
 
         Cart::destroy();
 
