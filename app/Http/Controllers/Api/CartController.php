@@ -23,8 +23,8 @@ class CartController
 
         return response()->json([
             'content' => Cart::content(),
-            'total' => Cart::total(),
-            'count' => Cart::count(),
+            'total'   => Cart::total(),
+            'count'   => Cart::count(),
         ]);
     }
 
@@ -95,10 +95,10 @@ class CartController
             Cart::restore(Auth::id());
         } else {
             $user = User::create([
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
+                'name'     => $request->get('name'),
+                'email'    => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
-                'phone' => $request->get('name'),
+                'phone'    => $request->get('name'),
             ]);
 
             Auth::login($user);
@@ -107,12 +107,12 @@ class CartController
         Order::create([
             'user_id' => Auth::id(),
             'options' => [
-                'payment' => $request->get('payment'),
+                'payment'  => $request->get('payment'),
                 'delivery' => $request->get('delivery'),
-                'message' => $request->get('message'),
-                'content' => Cart::content(),
-                'total' => Cart::total(),
-                'count' => Cart::count(),
+                'message'  => $request->get('message'),
+                'content'  => Cart::content(),
+                'total'    => Cart::total(),
+                'count'    => Cart::count(),
             ],
         ]);
 
