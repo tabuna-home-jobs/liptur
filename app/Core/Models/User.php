@@ -71,10 +71,9 @@ class User extends BaseUser
     {
         return $this->hasMany('App\Core\Models\Route');
     }
-    
+
     public function orders()
     {
         return $this->hasMany('App\Core\Models\Order');
     }
-    
 }

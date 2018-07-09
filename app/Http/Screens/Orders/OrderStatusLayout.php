@@ -2,14 +2,14 @@
 
 namespace App\Http\Screens\Orders;
 
+use Orchid\Platform\Fields\Builder;
 use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Layouts\Rows;
-use Orchid\Platform\Fields\Builder;
 
 class OrderStatusLayout extends Rows
 {
-
     public $query;
+
     /**
      * @return array
      */
@@ -21,21 +21,21 @@ class OrderStatusLayout extends Rows
                 ->type('text')
                 ->name('user.name')
                 ->title('Имя Фамилия пользователя'),
-                
+
             Field::tag('input')
                 ->type('text')
                 ->name('user.name')
                 ->title('Email пользователя'),
-                
+
             Field::tag('input')
                 ->type('text')
                 ->name('user.phone')
                 ->title('Телефон пользователя'),
-                
+
             Field::tag('input')
                 ->type('text')
                 ->name('user.address')
-                ->title('Адресс пользователя'),    
+                ->title('Адресс пользователя'),
 
 
             Field::tag('input')
@@ -65,15 +65,15 @@ class OrderStatusLayout extends Rows
             Field::tag('select')
                 ->options($this->query->getContent('order')->ordervar['status'])
                 ->name('order.options.status')
-                ->title('Тип заказа'), 
-                
+                ->title('Тип заказа'),
+
             Field::tag('textarea')
                 ->name('order.options.comments')
                 ->title('Комментарий продавца к заказу'),
-                
+
         ];
     }
-    
+
     /**
      * @param $post
      *
@@ -90,6 +90,4 @@ class OrderStatusLayout extends Rows
             'form' => $form->generateForm(),
         ])->render();
     }
-    
-    
 }
