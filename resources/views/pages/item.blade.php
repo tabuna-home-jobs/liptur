@@ -64,7 +64,6 @@
                     </div>
                 </div>
 
-
                 <nav class="bg-danger box-shadow-lg">
                     <div class="container">
                         @include('partials.breadcrumb',[
@@ -72,7 +71,7 @@
                                 'route' => route('catalog',$type->slug),
                                 'name' => $type->name,
                             ],
-                            'breadcrumb' => $item->breadcrumb(),
+                            'breadcrumb' => $type->name,
                             'current' => $item->getContent('name')
                         ])
                     </div>
