@@ -207,7 +207,7 @@
         <section id="content-dark">
             @include('partials.comments.shop-comments',[
               'id' => $product->id,
-              'comments' => $product->comments,
+              'comments' => $product->comments()->orderBy('created_at', 'DESC')->get(),
               'post' => $product
              ] )
         </section>
