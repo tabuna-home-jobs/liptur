@@ -195,11 +195,11 @@
     </div>
 </div>
 
-    {{-- @include('partials.modals.page',[
+    @include('partials.modals.page',[
         'slugpage' => 'terms-of-service',
     ])
     @include('partials.modals.page',[
         'slugpage' => 'personal-data',
-    ]) --}}
+    ])
 @endsection
 
