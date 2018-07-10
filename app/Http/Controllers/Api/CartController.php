@@ -24,8 +24,8 @@ class CartController
 
         return response()->json([
             'content' => Cart::content(),
-            'total'   => Cart::total(),
-            'count'   => Cart::count(),
+            'total' => Cart::total(),
+            'count' => Cart::count(),
         ]);
     }
 
@@ -96,10 +96,10 @@ class CartController
             Cart::restore(Auth::id());
         } else {
             $user = User::create([
-                'name'     => $request->get('name'),
-                'email'    => $request->get('email'),
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
-                'phone'    => $request->get('name'),
+                'phone' => $request->get('name'),
             ]);
 
             Auth::login($user);
@@ -107,15 +107,15 @@ class CartController
 
         $order = Order::create([
             'user_id' => Auth::id(),
-            'slug'    => strtoupper(str_random(8)),
+            'slug' => strtoupper(str_random(8)),
             'options' => [
-                'payment'  => $request->get('payment'),
+                'payment' => $request->get('payment'),
                 'delivery' => $request->get('delivery'),
-                'message'  => $request->get('message'),
-                'content'  => Cart::content(),
-                'total'    => Cart::total(),
-                'count'    => Cart::count(),
-                'status'   => 'new',
+                'message' => $request->get('message'),
+                'content' => Cart::content(),
+                'total' => Cart::total(),
+                'count' => Cart::count(),
+                'status' => 'new',
             ],
         ]);
 
@@ -125,7 +125,7 @@ class CartController
         Mail::send('emails.order', ['order' => $order], function ($message) {
             //$m->from('sender@test.com', 'Sender');
             $message->to(setting('shop_admin_email'), 'Администратор')
-                    ->subject('Новый заказ на сайте Liptur.ru');
+                ->subject('Новый заказ на сайте Liptur.ru');
         });
 
         Cart::destroy();

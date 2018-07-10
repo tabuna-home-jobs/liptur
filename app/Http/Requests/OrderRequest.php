@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderRequest extends FormRequest
@@ -24,13 +25,13 @@ class OrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'    => 'sometimes|email|required|unique:users,email',
-            'name'     => 'sometimes|required|max:255',
-            'password' => 'sometimes|required|max:255',
-            'phone'    => 'sometimes|max:255',
+            'email' => Auth::check() ? 'sometimes|email|required' : 'sometimes|email|required|unique:users,email',
+            'password' => Auth::check() ? 'sometimes' : 'sometimes|required|confirmed|max:255',
+            'name' => 'sometimes|required|max:255',
+            'phone' => 'sometimes|required|max:255',
             'delivery' => 'required|in:mail,courier',
-            'comment'  => 'sometimes',
-            'payment'  => 'required|in:cash',
+            'comment' => 'sometimes',
+            'payment' => 'required|in:cash',
         ];
     }
 }

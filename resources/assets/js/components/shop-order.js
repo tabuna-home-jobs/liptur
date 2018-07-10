@@ -3,9 +3,16 @@ $(function () {
     new Vue({
       'el': '#shop-order',
       data: {
-        formData: {},
+        formData: {
+          payment: 'cash',
+          delivery: 'courier'
+        },
         errors: {},
         aggree: false
+      },
+      mounted() {
+        this.$set(this.formData, 'email', this.$refs.email.dataset.value || '');
+        this.$set(this.formData, 'phone', this.$refs.phone.dataset.value || '');
       },
       methods: {
         async sendOrder() {
@@ -15,19 +22,22 @@ $(function () {
             return false;
           }
 
-          await this.$http.post('/api/cart/order', {
-            email: formData.email,
-            name: `${formData.first_name} ${formData.last_name}`,
-            phone: formData.phone,
-            password: formData.password,
-            retry_password: formData.retry_password,
-            nick: formData.nick,
-            message: formData.message,
-            delivery: formData.delivery,
-            payment: formData.payment,
-
-          })
-          console.log(formData)
+          try {
+            await this.$http.post('/api/cart/order', {
+              email: formData.email,
+              name: formData.first_name && formData.last_name ? `${formData.first_name} ${formData.last_name}`: null,
+              phone: formData.phone,
+              password: formData.password,
+              password_confirmation: formData.password_confirmation,
+              nick: formData.nick,
+              message: formData.message,
+              delivery: formData.delivery,
+              payment: formData.payment,
+            });
+            $('#success-order-modal').modal('show');
+          } catch (e) {
+            this.$set(this, 'errors', e.body.errors)
+          }
         }
       }
     });

@@ -86,48 +86,75 @@
       <div class="clearfix m-b-md"></div>
       <div class="bg-yellow b-dashed b-1x wrapper-lg">
         <div class="font-bold text-center text-black text-lg">
-          Если вы не авторизованы - <a href="#" class="text-red">авторизуйтесь</a> или заполните поля ниже
+          Если вы не авторизованы - <a href="{{url('/'.App::getLocale().'/login')}}" class="text-red">авторизуйтесь</a> или заполните поля ниже
         </div>
       </div>
       <div class="clearfix m-b-md"></div>
       <div class="col-md-4">
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.email }">
           <label class="text-sm text-left">Введите ваш Email (это будет логин):</label>
-          <input v-model="formData.email" type="email" name="email" autofocus
-                  required  class="form-control">
+          <input v-model="formData.email" 
+                  data-value="{{Auth::check()?Auth::user()->email:null}}" 
+                  type="email" name="email" autofocus
+                  ref="email"
+                  required  class="form-control"/>
+           <span class="help-block" v-if="errors.email">
+              <strong>@{{ errors.email[0]}}</strong>
+          </span>
         </div>
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.password }">
           <label class="text-sm text-left">Введите Пароль:</label>
           <input type="password" name="password" autofocus
                   v-model="formData.password"
-                  required  class="form-control">
+                  <?php if (!Auth::guest()){ ?> disabled <?php } ?>
+                  required  class="form-control"/>
+          <span class="help-block" v-if="errors.password">
+              <strong>@{{ errors.password[0]}}</strong>
+          </span>
         </div>
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.password_confirmation }">
           <label class="text-sm text-left">Повторите пароль еще раз:</label>
-          <input type="password" name="retry_password" autofocus
-                  v-model="formData.retry_password"
-                  required  class="form-control">
+          <input type="password" name="password_confirmation" autofocus
+                  v-model="formData.password_confirmation"
+                  <?php if (!Auth::guest()){ ?> disabled <?php } ?>
+                  required  class="form-control"/>
+          <span class="help-block" v-if="errors.password_confirmation">
+              <strong>@{{ errors.password_confirmation[0]}}</strong>
+          </span>
         </div>
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.nick }">
           <label class="text-sm text-left">Ваше имя (никнейм):</label>
-          <input type="text" name="nick" autofocus class="form-control" v-model="formData.nick">
+          <input type="text" name="nick" autofocus class="form-control" v-model="formData.nick"/>
+          <span class="help-block" v-if="errors.nick">
+              <strong>@{{ errors.nick[0]}}</strong>
+          </span>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.name }">
           <label class="text-sm text-left">Имя:</label>
           <input type="text" name="first_name" autofocus
                   v-model="formData.first_name"
-                  required  class="form-control">
+                  ref="first_name"
+                  required  class="form-control"/>
+          <span class="help-block" v-if="errors.name">
+              <strong>@{{ errors.name[0]}}</strong>
+          </span>
         </div>
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.name }">
           <label class="text-sm text-left">Фамилия:</label>
-          <input type="text" name="last_name" autofocus  class="form-control" v-model="formData.last_name">
+          <input type="text" name="last_name" autofocus  class="form-control" v-model="formData.last_name" ref="last_name"/>
+          <span class="help-block" v-if="errors.name">
+              <strong>@{{ errors.name[0]}}</strong>
+          </span>
         </div>
 
-        <div class="form-group m-t-sm">
+        <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.phone }">
           <label class="text-sm text-left">Телефон:</label>
-          <input type="phone" name="phone" autofocus  class="form-control"  v-model="formData.phone">
+          <input type="phone" data-value="{{Auth::check()?Auth::user()->phone:null}}" name="phone" autofocus  class="form-control"  v-model="formData.phone" ref="phone"/>
+          <span class="help-block" v-if="errors.phone">
+              <strong>@{{ errors.phone[0]}}</strong>
+          </span>
         </div>
 
          <div class="form-group m-t-xxl m-b-none">
@@ -139,7 +166,7 @@
           </div>
       </div>
       <div class="col-md-4">
-        <div class="form-group{{ $errors->has('contacts') ? ' has-error' : '' }}">
+        <div class="form-group">
             <label class="control-label">Напишите комментарий к заказу:</label>
             <textarea class="form-control form-control-grey no-resize summernote" rows="14"
                       name="message" required  v-model="formData.message"></textarea>
@@ -149,6 +176,24 @@
     </div>
   </div>
 </section>
+{{-- сделать норм!! --}}
+<div id="success-order-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content-wrapper">
+            <div class="modal-content" style="width: auto; height: auto">
+                <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Заказ успешно создан</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
     {{-- @include('partials.modals.page',[
         'slugpage' => 'terms-of-service',
