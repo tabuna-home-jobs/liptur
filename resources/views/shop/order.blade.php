@@ -95,7 +95,6 @@
           <label class="text-sm text-left">Введите ваш Email (это будет логин):</label>
           <input v-model="formData.email" 
                   data-value="{{Auth::check()?Auth::user()->email:null}}" 
-                  <?php if (!Auth::guest()){ ?> disabled <?php } ?>
                   type="email" name="email" autofocus
                   ref="email"
                   required  class="form-control"/>
@@ -135,6 +134,7 @@
         <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.name }">
           <label class="text-sm text-left">Имя:</label>
           <input type="text" name="first_name" autofocus
+                  data-value="{{strtok(Auth::check()?Auth::user()->name:'', ' ')}}" 
                   v-model="formData.first_name"
                   ref="first_name"
                   required  class="form-control"/>
@@ -144,7 +144,11 @@
         </div>
         <div class="form-group m-t-sm"  v-bind:class="{ 'has-error': errors.name }">
           <label class="text-sm text-left">Фамилия:</label>
-          <input type="text" name="last_name" autofocus  class="form-control" v-model="formData.last_name" ref="last_name"/>
+          <input type="text" name="last_name" autofocus class="form-control"
+              v-model="formData.last_name" 
+              ref="last_name"
+              data-value="{{strstr(Auth::check()?Auth::user()->name:'', ' ')}}" 
+          />
           <span class="help-block" v-if="errors.name">
               <strong>@{{ errors.name[0]}}</strong>
           </span>

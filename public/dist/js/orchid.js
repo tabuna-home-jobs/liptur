@@ -21914,6 +21914,8 @@ $(function () {
       mounted() {
         this.$set(this.formData, 'email', this.$refs.email.dataset.value || '');
         this.$set(this.formData, 'phone', this.$refs.phone.dataset.value || '');
+        this.$set(this.formData, 'first_name', this.$refs.first_name.dataset.value || '');
+        this.$set(this.formData, 'last_name', this.$refs.last_name.dataset.value || '');
       },
       methods: {
         async sendOrder() {
