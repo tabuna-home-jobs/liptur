@@ -18,11 +18,11 @@ class CommentController
     public function comment(Post $post, CommentRequest $request)
     {
         Comment::create([
-            'post_id'   => $post->id,
-            'user_id'   => Auth::user()->id,
+            'post_id' => $post->id,
+            'user_id' => Auth::user()->id,
             'parent_id' => 0,
-            'content'   => $request->get('content'),
-            'approved'  => 1,
+            'content' => $request->get('content'),
+            'approved' => 1,
         ]);
 
         return response(200);

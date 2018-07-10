@@ -43,7 +43,7 @@
 
 
 @section('shop')
-    <div id="product">
+    <div id="product" product-id="{{$product->id}}">
         <section class="b-b box-shadow">
             <div class="container padder-v" v-cloak>
 
@@ -205,7 +205,11 @@
             </div>
         </section>
         <section id="content-dark">
-            @include('partials.comments.shop-comments',[ ] )
+            @include('partials.comments.shop-comments',[
+              'id' => $product->id,
+              'comments' => $product->comments,
+              'post' => $product
+             ] )
         </section>
 
         <section class="content">

@@ -2,6 +2,9 @@ $(function () {
   if (document.getElementById('product')) {
     new Vue({
       'el': '#product',
+      data: {
+        commentText: ""
+      },
       mounted() {
           $( '#shop-product-slider' ).sliderPro({
               width: '100%',
@@ -50,7 +53,18 @@ $(function () {
       methods: {        
         addIntoCart(id) {
           EventBus.$emit('add-product-into-cart', {id});
-        }
+        },
+        async addComment() {
+          const {commentText} = this;
+          const productId = $(this.$el).attr('product-id')
+          await this.$http.post(`/api/shop/${productId}/comment`, {
+            content: commentText,
+          });
+          location.reload();
+        },
+        clearComment() {
+          this.commentText = ''
+        },
       }
     });
   }
