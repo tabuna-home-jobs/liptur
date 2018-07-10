@@ -95,6 +95,7 @@
           <label class="text-sm text-left">Введите ваш Email (это будет логин):</label>
           <input v-model="formData.email" 
                   data-value="{{Auth::check()?Auth::user()->email:null}}" 
+                  <?php if (!Auth::guest()){ ?> disabled <?php } ?>
                   type="email" name="email" autofocus
                   ref="email"
                   required  class="form-control"/>
