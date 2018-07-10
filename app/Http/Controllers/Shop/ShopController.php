@@ -164,8 +164,7 @@ class ShopController extends Controller
                 ->where('status', '<>', 'hidden')
                 ->whereNotNull('options->new')
                 ->orWhereNotNull('options->special');
-            
-        }        
+        }
 
         $categories = ShopCategory::all();
 
