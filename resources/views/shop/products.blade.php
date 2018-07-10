@@ -55,6 +55,7 @@
             }
         }
     $colProd=$products->total().' '.num2word($products->total(), array('товар', 'товара', 'товаров'));    
+    $colSearchProd=num2word($products->total(), array('Найден', 'Найдено', 'Найдено')).' '.$products->total().' '.num2word($products->total(), array('товар', 'товара', 'товаров'));    
 @endphp
 
 
@@ -70,7 +71,9 @@
           <div class="col-xs-9 block-header">
             @if(!isset($newsAndSpec)) 
                 {{$currentCategory->term->getContent('name')}}
-            @else  
+            @elseif (isset($request['search']))
+                {{$colSearchProd}}
+            @else
                 Новинки и спецпредложения
             @endif
           </div>

@@ -154,23 +154,20 @@ class ShopController extends Controller
      */
     public function newsproducts(Request $request): View
     {
-        $products = Post::type('product')
-            ->with('attachment')
-            ->where('status', '<>', 'hidden')
-            ->whereNotNull('options->new')
-            ->orWhereNotNull('options->special');
-        /*
-                $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
-                    $newsAndSpecialAndWarnings->where('options->new', '')
-                )->take(4);
-        */
+        if (!is_null($request->get('search'))) {
+            $products = Post::type('product')
+                ->whereRaw('LOWER(`content`) LIKE \'%'.$request->get('search').'%\' ')
+                ->with('attachment');
+        } else {
+            $products = Post::type('product')
+                ->with('attachment')
+                ->where('status', '<>', 'hidden')
+                ->whereNotNull('options->new')
+                ->orWhereNotNull('options->special');
+            
+        }        
 
         $categories = ShopCategory::all();
-        //$category = ShopCategory::slug($slug)->first();
-        /*
-                $products = $category->posts()
-                    ->where('status', '<>', 'hidden');
-          */
 
         if (!is_null($request->get('sort'))) {
             $sort = $request->get('sort');
