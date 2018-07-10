@@ -219,7 +219,7 @@
 
     <hr>
 
-    <div class="wrapper bg-gray hidden-xs vi-hide">
+    <div class="wrapper bg-gray visible-lg vi-hide">
         <div class="container">
             <div class="row">
                 @php 

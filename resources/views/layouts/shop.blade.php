@@ -3,7 +3,12 @@
   
       <div class="visible-xs padder-v-micro row"></div>
       <div id="shop-header" class="row padder-l-xl no-p-xs">
-          <div class="col-xs-8 hidden-xs">
+          <div class="col-xs-8 col-md-9 hidden-xs">
+              <div class="btn-tablet visible-md">
+                <button class="btn btn-link visible-md " type="button" data-toggle="modal" data-target="#topmenu">
+                    <i class="fa fa-bars"></i>
+                </button>
+              </div>
               @widget('shopHeaderMiddle')
           </div>
           <div class="col-xs-6 visible-xs">
@@ -12,7 +17,7 @@
                   <i class="fa fa-bars fa-lg"></i>
               </button>
           </div>
-          <div class="col-xs-6 col-md-4 dropdown cart-dropdown no-padder-h">
+          <div class="col-xs-6 col-md-3 dropdown cart-dropdown no-padder-h">
               <ul class="nav nav-cart pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <li>
                       <a id="dropdownMenuShopCart" v-cloak>

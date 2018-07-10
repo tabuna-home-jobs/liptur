@@ -5,7 +5,6 @@
                 <i class="fa fa-bars"></i>
             </button>
         </li>
-        
         @include('partials.widgets.menu.menuitem',[
             'menu'=>$menu
         ])

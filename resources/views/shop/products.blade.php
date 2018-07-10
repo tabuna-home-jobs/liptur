@@ -98,7 +98,7 @@
       </div>
       <div class="col-md-9">
         <div class="row padder-v-micro">
-           <div class="col-xs-6">
+           <div class="col-xs-10">
             <label for="sel1">Сортировать:</label>
             <div class="dropdown inline">
                 @include('partials.shop.dropdownbtn',[
@@ -115,7 +115,7 @@
                     ])
             </div>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-2">
              <div class="dropdown inline pull-right">
                 @include('partials.shop.dropdownbtn',[
                     'items'  => $products,
