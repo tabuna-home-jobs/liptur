@@ -18,7 +18,7 @@ $(function () {
             0: {
                 items: 1
             },
-            600: {
+            800: {
                 items: 5
             },
             1000: {
@@ -34,8 +34,8 @@ $(function () {
         nav: true,
         lazyLoad: true,
         autoplay: true,
-        center: true,
-        autoplayTimeout: 2000,
+        center: false,
+        autoplayTimeout: 0,
         autoplayHoverPause: true,
         navText: [
             '<i class="icon-arrow-left"></i>',
@@ -44,21 +44,26 @@ $(function () {
         responsive: {
             0: {
                 items: 1,
-                stagePadding: 20,
+                stagePadding: 100,
+                nav:false,
+                loop: false,
+                autoWidth:true,
+                autoHeight:true,
             },
-            600: {
-                items: 5,
+            800: {
+                items: 6,
                 stagePadding: 100,
               },
-              1000: {
+            1200: {
                 items: 7,
-                margin: 100,
+                margin: 10,
                 stagePadding: 75,
                 slideBy: 7,
-                nav: true
+                center: false,
             }
         }
     });
+    
     
     $('.category-carousel').owlCarousel({
         animateOut: 'fadeOut',
@@ -74,11 +79,11 @@ $(function () {
                 items: 1,
                 stagePadding: 20,
             },
-            600: {
+            800: {
                 items: 4,
                 stagePadding: 100,
               },
-              1000: {
+            1000: {
                 items: 6,
                 margin: 76,
                 slideBy: 6,

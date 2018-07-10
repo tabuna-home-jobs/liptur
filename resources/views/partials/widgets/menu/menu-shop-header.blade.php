@@ -1,6 +1,6 @@
 <div class="collapse navbar-collapse m-t-md b-b no-padder menu-shop-header">
     <ul class="nav navbar-nav">
-        <li>
+        <li class="hidden-xs">
             <button class="btn btn-link" type="button" data-toggle="modal" data-target="#topmenu">
                 <i class="fa fa-bars"></i>
             </button>
