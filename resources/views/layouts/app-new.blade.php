@@ -68,7 +68,7 @@
                 <div class="input-group nav-search">
                     <form action="{{route('shop.newsproducts')}}" class="form-inline">
                         <input type="text" class="form-control form-control-grey" name="search" placeholder="Введите искомое"
-                               maxlength="100" value="{{$request['search']}}">
+                               maxlength="100" value="@if (isset($request['search'])){{$request['search']}} @endif">
                         <span class="input-group-btn">
                             <button class="green-button raised" type="submit" >
                                 <i class="fa fa-search" aria-hidden="true"></i>
