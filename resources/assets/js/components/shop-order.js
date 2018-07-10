@@ -22,9 +22,7 @@ $(function () {
             password: formData.password,
             retry_password: formData.retry_password,
             nick: formData.nick,
-            nick: formData.nick,
             message: formData.message,
-            delivery: formData.delivery,
             delivery: formData.delivery,
             payment: formData.payment,
 

@@ -21909,9 +21909,7 @@ $(function () {
             password: formData.password,
             retry_password: formData.retry_password,
             nick: formData.nick,
-            nick: formData.nick,
             message: formData.message,
-            delivery: formData.delivery,
             delivery: formData.delivery,
             payment: formData.payment,
 
@@ -21926,6 +21924,19 @@ $(function () {
   if (document.getElementById('shop')) {
     new Vue({
       'el': '#shop',
+      methods: {
+        addIntoCart(id) {
+          EventBus.$emit('add-product-into-cart', { id });
+        },
+      }
+    });
+  }
+});
+
+$(function () {
+  if (document.getElementById('shop1')) {
+    new Vue({
+      'el': '#shop1',
       methods: {
         addIntoCart(id) {
           EventBus.$emit('add-product-into-cart', { id });

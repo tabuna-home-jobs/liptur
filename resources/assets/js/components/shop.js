@@ -10,3 +10,16 @@ $(function () {
     });
   }
 });
+
+$(function () {
+  if (document.getElementById('shop1')) {
+    new Vue({
+      'el': '#shop1',
+      methods: {
+        addIntoCart(id) {
+          EventBus.$emit('add-product-into-cart', { id });
+        },
+      }
+    });
+  }
+});

@@ -16,7 +16,7 @@
           <div class="col-xs-6 col-md-4 dropdown cart-dropdown no-padder-h">
               <ul class="nav nav-cart pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <li>
-                      <a id="dropdownMenuShopCart">
+                      <a id="dropdownMenuShopCart" v-cloak>
                           <i class="cart-icon"></i> @{{cartTotalCount}} <span>@{{declOfNum(cartTotalCount, ['товар', 'товара', 'товаров'])}}</span>
                       </a>
                   </li>
