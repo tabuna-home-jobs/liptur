@@ -21198,8 +21198,27 @@ $(function () {
     });
   }
 });
+function reloadCartAffix() {
+  if($('#cart-affix-target').height() < $('#cart-affix').height() || $(window).width()<=992) {
+    $(window).off('.affix');
+    $("#cart-affix")
+    .removeClass("affix affix-top affix-bottom")
+    .removeData("bs.affix");
+    return;
+  }
+  $('#cart-affix').affix({
+    offset: {
+      top: $('#cart-affix').offset().top,
+      bottom: function () {
+        return $(document).height() - $('#cart').offset().top - $('#cart').height()
+      }
+    }
+  })
+}
+
 $(function () {
   if (document.getElementById('cart')) {
+
     new Vue({
       'el': '#cart',
       data: {
@@ -21208,15 +21227,9 @@ $(function () {
         totalCount: localCartData.count || 0
       },
       async mounted() {
-        $('#cart-affix').affix({
-          offset: {
-            top: $('#cart-affix').offset().top,
-            bottom: function () {
-              return $(document).height() - $('#cart').offset().top - $('#cart').height()
-            }
-          }
-        })
-
+        $(window).on('load resize', function () {
+          reloadCartAffix();
+        });
         const {body} = await this.$http.get('/api/cart')
         this.renderData(body);
       },
@@ -21255,6 +21268,7 @@ $(function () {
         async destroy(product) {
           const { body } = await this.$http.delete(`/api/cart/${product.rowId}`);
           this.renderData(body);
+          reloadCartAffix();
         }
       }
     });
