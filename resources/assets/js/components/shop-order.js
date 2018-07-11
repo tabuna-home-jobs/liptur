@@ -41,6 +41,8 @@ $(function () {
               text: "Ваш заказ создан!",
               icon: "success",
               button: "ОК",
+            }, function () {
+              window.location.href = '/shop';
             });
           } catch (e) {
             if(e.body.errors) {
