@@ -122,7 +122,7 @@ class CartController
         //$order->slug=$order->id.''.strtoupper(str_random(8));
         //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
 
-        Mail::send('emails.order', ['order' => $order], function ($message) {
+        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
             //$m->from('sender@test.com', 'Sender');
             $message->to(setting('shop_admin_email'), 'Администратор')
                 ->subject('Новый заказ на сайте Liptur.ru');

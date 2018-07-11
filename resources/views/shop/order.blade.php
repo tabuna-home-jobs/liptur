@@ -161,6 +161,7 @@
               <strong>@{{ errors.phone[0]}}</strong>
           </span>
         </div>
+
          <div class="form-group m-t-xxl m-b-none">
               <div class="checkbox">
                   <label class="i-checks">
