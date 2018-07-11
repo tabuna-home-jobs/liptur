@@ -48,6 +48,13 @@
                                     <span>Комментарии</span>
                                 </a>
                             </li>
+                            
+                            <li>
+                                <a href="{{route('shop.cart')}}">
+                                    <i class="icon-basket"></i>
+                                    <span>Корзина</span>
+                                </a>
+                            </li>
 
 
                             <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
