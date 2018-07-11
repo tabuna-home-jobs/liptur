@@ -67,9 +67,25 @@
 }
 
 .cart-dropdown {
+  &.notEmpty {
+    i.cart-icon {
+      background-image: url(/img/icons/cart-red.png);
+    }
+    a#dropdownMenuShopCart {
+      color: #d13636;
+    }
+  }
   &.open {
    #dropdownMenuShopCart {
       box-shadow:0px -5px 0px 0px #4F7B37 inset;
+      color: #d13636;
+      i.cart-icon {
+        background-image: url(/img/icons/cart-hover.png);
+      }
+    }
+  }
+  #dropdownMenuShopCart {
+    &:hover {
       color: #d13636;
       i.cart-icon {
         background-image: url(/img/icons/cart-hover.png);

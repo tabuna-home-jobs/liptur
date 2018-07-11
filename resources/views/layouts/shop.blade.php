@@ -17,7 +17,7 @@
                   <i class="fa fa-bars fa-lg"></i>
               </button>
           </div>
-          <div class="col-xs-6 col-sm-3 col-lg-4 dropdown cart-dropdown no-padder-h">
+          <div class="col-xs-6 col-sm-3 col-lg-4 dropdown cart-dropdown no-padder-h" v-bind:class="{notEmpty: cartTotalCount>0}">
               <ul class="nav nav-cart pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <li>
                       <a id="dropdownMenuShopCart" v-cloak>
