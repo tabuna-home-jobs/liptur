@@ -49,12 +49,16 @@
               Товаров в корзине: <b>@{{cartTotalCount}}</b>
             </div>
             <div class="row padder-v-micro">
-              <div class="col-xs-12">
+              <div class="col-xs-12" v-if="isAllow()">
                 <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatCartPrice(cartTotal) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
               </div>
+              <div class="col-xs-12" v-else>
+                <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">Под заказ</em>
+              </div>
             </div>
-            <button class="btn btn-warning w-full m-t text-u-c" v-on:click="closeCart()">Продолжить покупки</button>
-            <a href="{{route('shop.cart')}}" class="btn btn-success w-full m-t text-u-c">Перейти в корзину</a>
+            <button :disabled="!isAllow()" class="btn btn-warning w-full m-t text-u-c" v-on:click="closeCart()">Продолжить покупки</button>
+            <a v-if="isAllow()" href="{{route('shop.cart')}}" class="btn btn-success w-full m-t text-u-c">Перейти в корзину</a>
+            <a v-else disabled class="btn btn-success w-full m-t text-u-c">Перейти в корзину</a>
           </div>
         </div>
         <div class="clearfix"></div>
