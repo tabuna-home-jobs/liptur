@@ -1,7 +1,9 @@
+$(function () {
 if (document.getElementById('support')) {
     new Vue({
         el: '#support',
         data: {
+            supportAggree: false,
             'name': null,
             'email': null,
             'message': null,
@@ -24,7 +26,7 @@ if (document.getElementById('support')) {
                     formData.append('email', this.email);
                     formData.append('message', this.message);
                     formData.append('phone', $('#support input[name="phone"]').val());
-                    formData.append('upload', this.upload[0]);
+                    // formData.append('upload', this.upload[0]);
 
 
                     this.$http.post('/' + $('html').attr('lang') + '/contacts', formData, {
@@ -54,4 +56,5 @@ if (document.getElementById('support')) {
             }
         }
     });
-}
+  }
+});

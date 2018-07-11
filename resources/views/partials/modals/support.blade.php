@@ -38,15 +38,15 @@
                                     <input type="text" class="form-control" name="phone" required=""
                                            placeholder="{{trans('support.Phone Description')}}" data-mask="+ 9-999-999-99-99">
                                 </div>
-                                {{--
+                                
                                 <div class="form-group m-t-xxl m-b-none">
                                   <div class="checkbox">
                                       <label class="i-checks">
-                                          <input type="checkbox"  v-model="aggree" name="checkme"><i></i>   Я согласен на обработку <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-personal-data">персональных данных</a> и ознакомился с <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-terms-of-service">правилами сервиса</a>
+                                          <input type="checkbox"  v-model="supportAggree" name="checkme"><i></i>   Я согласен на обработку <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-personal-data">персональных данных</a> и ознакомился с <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-terms-of-service">правилами сервиса</a>
                                       </label>
                                   </div>
                                 </div>
-                                --}}
+                               
                             </div>
 
                             <div class="col-md-6">
@@ -56,7 +56,7 @@
                                               required
                                               rows="5"></textarea>
                                 </div>
-                                <button :disabled="!aggree"
+                                <button :disabled="!supportAggree"
                                         data-loading-text="Отправка <i class='fa fa-spinner fa-spin '></i>"
                                         type="submit"
                                         class="btn btn-success btn-lg btn-block m-t-5 btn-submit">
@@ -75,5 +75,11 @@
         </div>
 
     </div>
+@include('partials.modals.page',[
+        'slugpage' => 'terms-of-service',
+    ])
+    @include('partials.modals.page',[
+        'slugpage' => 'personal-data',
+    ])
 </div>
 <!-- Modal Support-->
