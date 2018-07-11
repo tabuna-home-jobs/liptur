@@ -43,7 +43,7 @@
     <div id="shop-order" v-cloak>
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-6 no-padder-h">
+          <div class="col-md-6 no-padder-h-sm m-b">
             <div class="bg-black text-white inline wrapper-sm padder-md m-r-sm">Шаг 1 </div>
             Выберите способ получения заказа:
           </div>
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 no-padder-h">
+          <div class="col-md-6 no-padder-h-sm m-b">
             <div class="bg-black text-white inline wrapper-sm padder-md m-r-sm">Шаг 2 </div>
             Выберите способ оплаты:
           </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12 no-padder-h">
+          <div class="col-md-12 no-padder-h-sm m-b">
             <div class="bg-black text-white inline wrapper-sm padder-md m-r-sm">Шаг 3 </div>
             Ввведите ваши персональные данные к заказу:
           </div>
