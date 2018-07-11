@@ -17,6 +17,14 @@ $(function () {
       },
 
       methods: {
+        isAllow() {
+          const cartTotal = this.cartTotal;
+          const num = parseInt(cartTotal.toString().replace(/\s+/g, ''))
+          if (num > 999999) {
+            return false
+          }
+          return true
+        },
         renderCart({total, count, content}, local) {
           this.cartTotal = total;
           this.cartTotalCount = count;
