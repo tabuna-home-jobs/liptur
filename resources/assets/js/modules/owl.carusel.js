@@ -50,7 +50,7 @@ $(function () {
                 autoWidth:true,
                 autoHeight:true,
             },
-            800: {
+            767: {
                 items: 6,
                 stagePadding: 100,
               },
@@ -77,16 +77,18 @@ $(function () {
         responsive: {
             0: {
                 items: 1,
+                margin: 50,
                 stagePadding: 20,
             },
-            800: {
+            767: {
                 items: 4,
-                stagePadding: 100,
+                margin: 20,
+                stagePadding: 15,
               },
-            1000: {
+            1200: {
                 items: 6,
-                margin: 76,
-                slideBy: 6,
+                margin: 40,
+                stagePadding: 15,
             }
         }
     });

@@ -4,7 +4,7 @@
 @section('keywords','Магазин')
 @section('shop')
 
-    <section class="container-lg">
+    <section class="container-lg hidden-xs">
         <div class="pos-abt bg-white left w-full h-sm"></div>
             @include('partials.shop.topslider',[
                 'slides'=>$topslider
@@ -30,7 +30,7 @@
             <div  id="shop" class="row">
                 @foreach($newsAndSpecial as $product)
                     @if ($loop->index<4) 
-                        <article class="col-md-3 padder-v shop-product">
+                        <article class="col-sm-6 col-md-3 padder-v shop-product">
                             <div class="panel panel-default box-shadow-lg pos-rlt">
                                 <div data-mh="main-news-img">
                                     <a href="{{route('shop.product',$product->slug)}}">
@@ -81,7 +81,7 @@
                 <div id="shop1" class="row">
                     @foreach($warnings as $product)
                         @if ($loop->index<8) 
-                            <article class="col-md-3 padder-v shop-product">
+                            <article class="col-sm-6 col-md-3 padder-v shop-product">
                                 <div class="panel panel-default box-shadow-lg pos-rlt">
                                     <div data-mh="main-news-img">
                                         <a href="{{route('shop.product',$product->slug)}}">

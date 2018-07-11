@@ -59,13 +59,13 @@
               </a>
             </div>
             <ul class="nav navbar-nav navbar-right hidden-xs">
-                <li class="col-md-4 no-padder">
+                <li class="col-sm-5 col-md-4 no-padder">
                     <div class="navbar-phone">
                         <i class="phone-icon"></i>
                         <span>{{setting('shop_phone','8-800-200-81-20')}}</span>
                     </div>
                 </li>
-                <li class="col-md-4 no-padder">
+                <li class="col-sm-3 col-md-4 no-padder">
                     <div class="input-group nav-search">
                         <form action="{{route('shop.newsproducts')}}" class="form-inline">
                             <input type="text" class="form-control form-control-grey" name="search" placeholder="Введите искомое"
@@ -80,7 +80,7 @@
                     <!-- <a href="#" rel="search" title="Поиск по веб-сайту" data-target="#modalSeachIn" data-toggle="modal">
                       <i class="icon-magnifier m-r-xs"></i>Поиск</a> -->
                 </li>
-                <li class="col-md-2">
+                <li class="col-sm-2 col-md-2  no-padder text-center">
                     <div class="navbar-locale">
                         <a href="{{Localization::getLocalizedURL('ru','/') }}"
                            class="green-button {{App::getLocale()=='ru'? 'raised': ''}}" hreflang="ru"
@@ -91,27 +91,23 @@
                     </div>
                 </li>
 
-
                 <!-- Авторизация  -->
                 @if (Auth::guest())
-                    <li class="col-md-2">
+                    <li class="col-sm-2 col-md-2  no-padder pull-right">
                         <div class="navbar-auth">
                             <i class="key-icon m-r-xs"></i>
                             <a href="{{ url('/login') }}">Вход</a>
                         </div>
                     </li>
                 @else
-
-                    <li>
+                    <li class="col-sm-2 col-md-2 no-padder pull-right">
                         <a href="{{ url('/profile') }}" title="Мой профиль">
-                <span class="thumb-sm avatar pull-right">
-                  <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
-                  <i class="on md b-white bottom"></i>
-                </span>
+                            <span class="thumb-sm avatar pull-right">
+                            <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
+                            <i class="on md b-white bottom"></i>
+                            </span>
                         </a>
                     </li>
-
-
                 @endif
             </ul>
         </div>
@@ -150,7 +146,7 @@
     <div class="padder-v">
         <div class="container no-padder">
             <div class="row padder-v contact-row">
-                <div class="col-md-3 hidden-xs vi-col-4">
+                <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
                     <a  class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
                      <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
                         <div>
@@ -159,7 +155,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-6 vi-hide phone">
+                <div class="col-sm-6 col-md-3 vi-hide phone">
                     <a href="tel:{{setting('shop_phone','8-800-200-81-20')}}" class="wrapper-sm v-center imgs-hovers" title="Телефон">
                         <img class="img-responsive" data-src="/img/icons/phone-1.png" data-hover-src="/img/icons/phone-2.png" src="/img/icons/phone-1.png">
                         <div>
@@ -169,7 +165,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-3 hidden-xs vi-col-4">
+                <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
                     <a class="wrapper-sm v-center imgs-hovers"  data-toggle="modal" data-target="#support"
                        title="Почта">
                         <img class="img-responsive" data-src="/img/icons/mail-1.png" data-hover-src="/img/icons/mail-2.png" src="/img/icons/mail-1.png" style="opacity: 1;">
@@ -180,7 +176,7 @@
                     </a>
                 </div>
 
-                <div class="col-md-3 col-sm-6 vi-hide hidden-xs socicons">
+                <div class="col-sm-6 col-md-3 vi-hide hidden-xs socicons">
                     <p>
                         <a href="{{setting('liptur_vk','https://vk.com/liptur48')}}" target="_blank" class="btn btn-icon soc-vk">
                             <i class="fa fa-vk"></i>

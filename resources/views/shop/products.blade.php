@@ -133,9 +133,9 @@
             </div>
           </div>
         </div>
-        <div id="shop" class="row">
+        <div id="shop" class="row shop-products">
           @foreach($products as $product)
-          <article class="col-md-4 padder-v shop-product">
+          <article class="col-sm-4 padder-v shop-product">
               <div class="panel panel-default box-shadow-lg pos-rlt">
                   <div data-mh="main-news-img">
                       <a href="{{route('shop.product',$product->slug)}}">

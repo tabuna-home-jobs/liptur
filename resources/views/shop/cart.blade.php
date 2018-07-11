@@ -43,12 +43,12 @@
     <div id="cart" v-cloak>
       <div class="col-md-8 padder-md" id="cart-affix-target">
           <div v-for="product in products" class="row panel panel-default box-shadow-lg pos-rlt">
-            <div class="col-md-4 col-xs-12 no-padder-h">
+            <div class="col-sm-4 col-xs-12 no-padder-h">
               <div class="img-full">
                 <img height="190" v-bind:src="product.options.image"/>
               </div>
             </div>
-            <div class="col-md-7 col-xs-12 padder-v">
+            <div class="col-sm-7 col-xs-12 padder-v">
                 <a class="text-green text-bold text-lg" v-bind:href="product.options.url">
                   @{{product.name}}
                 </a>

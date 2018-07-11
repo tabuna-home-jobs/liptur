@@ -1,0 +1,211 @@
+/* Extra small devices (phones, less than 768px) */
+/* xs */
+
+@media (max-width: @screen-xs-max) {
+  #header {
+    .rebrand {
+      .navbar-header {
+        .navbar-brand {
+          &.navbar-brand-left {
+            position: relative;
+          }
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    
+
+    .navbar-collapse.menu-shop-header {
+      li {
+        margin-left: 10px;
+      }
+      .dropdown-menu {
+        width: 100%;
+      }
+    }
+  }  
+  
+  #shop-header .dropdown-menu {
+    width: 100vw;
+    margin-left: -100%;
+  }
+  #content {
+    .block-header.col-xs-12 {
+      text-align: center;
+      background: #EEEFEE;
+    }
+    .paginate > div {
+        padding: 0 0px;
+    }
+  }
+  .owl-carousel.ad-carousel {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    
+    .owl-stage {
+      padding: 0px 0px;
+    } 
+    .owl-item img {
+      height: 100px;
+      width: auto;
+      margin: auto;
+    }
+    .owl-nav.disabled {
+      display: none!important;
+    }
+  }
+  
+  #footer {
+    .phone {
+      a {
+        width: 70%;
+        white-space: nowrap;
+        margin: auto;
+      }
+      p.text-white {
+        font-size: 24px;
+      }
+    }
+    .contact-row {
+      padding: 0;
+    }
+  }
+  #cart-modal .img-full {
+    width: 50%;
+    margin: auto;
+  }
+  .modal .modal-dialog .modal-content {
+    padding: 30px 0px;
+    .block-header{
+      padding-top: 30px;
+    }
+  }
+}
+
+
+/* sm, md */
+@media (min-width: @screen-sm-min) and (max-width: @screen-md-max) {
+  #header {
+    .rebrand {
+      padding-left: 0px;
+      padding-right: 0px;
+      
+      .navbar-brand {
+        padding: 0 0px;
+      }
+    
+      .menu-shop-header{
+        display:none!important;
+      }
+    }
+  }
+  
+  #shop-header {
+    padding-left:0px;
+    .btn-tablet {
+      float: left;
+      margin-top: 8px;
+    }
+    > div {
+      padding-left:0px;
+      padding-right:0px;
+    }
+    .navbar-nav > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .dropdown-menu {
+      width: 200%;
+      margin-left: -100%;
+    }
+  }
+  #content {  
+    section {
+      > container {
+        width:100%;
+      }
+    }
+  .categorymenu {
+    padding-left:0px;
+    padding-right:5px;
+  }
+  }
+  .shop-products .shop-product{
+    padding-left: 5px;
+    padding-right: 5px;
+    .wrapper-md {
+        padding: 0.7em;
+    }
+  }
+}
+
+
+/* Small devices (tablets, 768px and up) */
+/* sm */
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  #header {
+    .rebrand {
+      .navbar-header {
+        .navbar-brand {
+          &.navbar-brand-left {
+            position: relative;
+          }
+          img {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+  
+  #shop-header {
+    .navbar-nav > li > a {
+      padding-left: 6px;
+      padding-right: 6px;
+      font-size: 12px;
+    }
+  }
+
+}
+
+
+
+/* Medium devices (desktops, 992px and up) */
+/* md */
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max)  {
+
+  #footer {  
+    .contact-row > div {
+        padding: 0 0px;
+        
+        &:nth-of-type(1) {
+          width: 30%;
+        }
+        &:nth-of-type(2) {
+          width: 23%;
+        }
+        &:nth-of-type(3) {
+          width: 20%;
+        }
+        &:nth-of-type(4) {
+          width: 27%;
+        }        
+    }
+  }
+
+  .modal .modal-dialog {
+    width: 90%;
+    .modal-content {
+      padding: 30px 40px;
+    }  
+  }  
+}
+
+/* Large devices (large desktops, 1200px and up) */
+/* lg */
+@media (min-width: @screen-lg-min) { 
+
+}
