@@ -38,7 +38,7 @@
                                     <input type="text" class="form-control" name="phone" required=""
                                            placeholder="{{trans('support.Phone Description')}}" data-mask="+ 9-999-999-99-99">
                                 </div>
-                                
+                                {{--
                                 <div class="form-group m-t-xxl m-b-none">
                                   <div class="checkbox">
                                       <label class="i-checks">
@@ -46,7 +46,7 @@
                                       </label>
                                   </div>
                                 </div>
-
+                                --}}
                             </div>
 
                             <div class="col-md-6">

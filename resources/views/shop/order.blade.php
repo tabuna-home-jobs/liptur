@@ -161,7 +161,6 @@
               <strong>@{{ errors.phone[0]}}</strong>
           </span>
         </div>
-        {{--
          <div class="form-group m-t-xxl m-b-none">
               <div class="checkbox">
                   <label class="i-checks">
@@ -169,7 +168,6 @@
                   </label>
               </div>
           </div>
-        --}}
       </div>
       <div class="col-md-4">
         <div class="form-group">
