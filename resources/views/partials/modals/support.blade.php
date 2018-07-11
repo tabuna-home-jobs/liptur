@@ -3,23 +3,16 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content-wrapper">
             <div class="modal-content">
-                <div class="modal-header clearfix text-left">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
-                                class="fa fa-times"></i>
-                    </button>
-
-                    <div class="text-left">
-                    <h5>Обратная связь</h5>
-
-                    <p>
-                        Если у вас есть какие-либо вопросы - заполните эту форму, чтобы связаться с нами.<br>
-                        Мы оперативно вам ответим.
-                    </p>
-                    </div>
-
+                <div class="block-header clearfix text-left">
+                    Обратная связь
                 </div>
                 <div class="modal-body">
-
+                    <div class="text-left">
+                        <p>
+                            Если у вас есть какие-либо вопросы - заполните эту форму, чтобы связаться с нами.<br>
+                            Мы оперативно вам ответим.
+                        </p>
+                    </div>
 
                     <form action="{{route('contacts.submit')}}" class="m-t" v-on:submit.prevent="send" method="post"
                           enctype="multipart/form-data">
@@ -45,13 +38,14 @@
                                     <input type="text" class="form-control" name="phone" required=""
                                            placeholder="{{trans('support.Phone Description')}}" data-mask="+ 9-999-999-99-99">
                                 </div>
-
-                                <button
-                                        data-loading-text="Отправка <i class='fa fa-spinner fa-spin '></i>"
-                                        type="submit"
-                                        class="btn btn-success btn-lg btn-block m-t-5 btn-submit">
-                                    Отправить сообщение
-                                </button>
+                                
+                                <div class="form-group m-t-xxl m-b-none">
+                                  <div class="checkbox">
+                                      <label class="i-checks">
+                                          <input type="checkbox"  v-model="aggree" name="checkme"><i></i>   Я согласен на обработку <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-personal-data">персональных данных</a> и ознакомился с <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-terms-of-service">правилами сервиса</a>
+                                      </label>
+                                  </div>
+                                </div>
 
                             </div>
 
@@ -62,6 +56,12 @@
                                               required
                                               rows="5"></textarea>
                                 </div>
+                                <button :disabled="!aggree"
+                                        data-loading-text="Отправка <i class='fa fa-spinner fa-spin '></i>"
+                                        type="submit"
+                                        class="btn btn-success btn-lg btn-block m-t-5 btn-submit">
+                                    Отправить сообщение
+                                </button>
                             </div>
 
                         </div>
@@ -70,6 +70,7 @@
                     </form>
 
                 </div>
+                <a class="top-right wrapper-md" data-dismiss="modal" aria-hidden="true"><i class="close-modal"></i></a>
             </div>
         </div>
 
