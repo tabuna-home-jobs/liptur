@@ -664,7 +664,25 @@ article.shop-product {
 }
 
 
-
-
 [v-cloak] {display: none!important;}
 
+.modalpage.modal {
+    .modal-content {
+        height: 100vh!important;
+        .modal-body {
+            height: 95%;
+            overflow: auto;
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 20px 20px #a5b526;
+            }
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 5px 1px #edeeed;
+                border-radius: 10px;
+            }
+        }
+    }
+}
