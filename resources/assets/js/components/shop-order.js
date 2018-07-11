@@ -27,7 +27,7 @@ $(function () {
           try {
             await this.$http.post('/api/cart/order', {
               email: formData.email,
-              name: formData.first_name && formData.last_name ? `${formData.first_name} ${formData.last_name}`: null,
+              name: formData.first_name || formData.last_name ? `${formData.first_name||''} ${formData.last_name||''}`: null,
               phone: formData.phone,
               password: formData.password,
               password_confirmation: formData.password_confirmation,
@@ -36,9 +36,25 @@ $(function () {
               delivery: formData.delivery,
               payment: formData.payment,
             });
-            $('#success-order-modal').modal('show');
+            swal({
+              title: "Выполнено успешно",
+              text: "Ваш заказ создан!",
+              icon: "success",
+              button: "ОК",
+            });
           } catch (e) {
-            this.$set(this, 'errors', e.body.errors)
+            if(e.body.errors) {
+              this.$set(this, 'errors', e.body.errors)
+            } else {
+                this.$set(this, 'errors', {})
+                swal({
+                    title: "Ошибка передачи данных",
+                    text: "",
+                    timer: 2000,
+                    showConfirmButton: false,
+                    type: "error",
+                });
+            }
           }
         }
       }
