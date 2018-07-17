@@ -45,8 +45,8 @@ class CarouselType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.url'  => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.url'  => 'required|string',
         ];
     }
 
@@ -56,7 +56,7 @@ class CarouselType extends Many
     public function fields(): array
     {
         return [
-            'name'   => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
+            'name'   => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
             'source' => 'tag:input|type:url|name:url|title:Ссылка на страницу',
         ];
     }

@@ -39,8 +39,8 @@ class DemoPost extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -50,14 +50,14 @@ class DemoPost extends Many
     public function fields(): array
     {
         return [
-            'name'        => 'tag:input|type:text|name:name|max:255|required|title:Name Articles|help:Article title',
-            'body'        => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'datetime'    => 'tag:datetime|type:text|name:open|max:255|required|title:Opening date|help:The opening event will take place',
-            'free'        => 'tag:checkbox|name:robot|max:255|required|title:Free|help:Event for free|placeholder:Event for free|default:1',
+            'name'        => 'tag:input|type:text|name:name|max:255|title:Name Articles|help:Article title',
+            'body'        => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'datetime'    => 'tag:datetime|type:text|name:open|max:255|title:Opening date|help:The opening event will take place',
+            'free'        => 'tag:checkbox|name:robot|max:255|title:Free|help:Event for free|placeholder:Event for free|default:1',
             'block'       => 'tag:code|name:block|title:Code Block|help:Simple web editor',
-            'title'       => 'tag:input|type:text|name:title|max:255|required|title:Article Title|help:SEO title',
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Short description',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Keywords|help:SEO keywords',
+            'title'       => 'tag:input|type:text|name:title|max:255|title:Article Title|help:SEO title',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Short description',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Keywords|help:SEO keywords',
 
         ];
     }

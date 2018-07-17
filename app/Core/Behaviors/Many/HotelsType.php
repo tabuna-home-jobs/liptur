@@ -79,8 +79,8 @@ class HotelsType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -90,17 +90,17 @@ class HotelsType extends Many
     public function fields(): array
     {
         return [
-            'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body'  => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'open'  => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-            'close' => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
+            'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body'  => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'open'  => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
+            'close' => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
 
-            'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
-            'phone' => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
+            'place' => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
+            'phone' => 'tag:input|type:text|name:phone|max:255|title:Номер телефона|help:Записывается в свободной форме',
             'site'  => 'tag:input|type:url|name:site|title:Официальный сайт',
 
             'email'           => 'tag:input|type:email|name:email|title:Электронная почта',
-            'price'           => 'tag:input|type:text|name:price|max:255|required|title:Стоимость|help:Записывается в свободной форме',
+            'price'           => 'tag:input|type:text|name:price|max:255|title:Стоимость|help:Записывается в свободной форме',
             'number-of-seats' => 'tag:input|type:numeric|name:number-of-seats|title:Число мест|help:Записывается в свободной форме',
 
             'region'   => 'tag:region|name:region|title:Регион',
@@ -108,9 +108,9 @@ class HotelsType extends Many
 
             'booking' => 'tag:input|type:text|name:booking|max:500|title:Booking.com|help:Ссылка без параметров на страницу сайта',
 
-            'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
+            'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Упоменение',
 
         ];
     }

@@ -81,10 +81,10 @@ class FilmType extends Many
     public function fields(): array
     {
         return [
-            'Name'     => 'tag:input|type:text|name:Name|max:255|required|title:Название|help:Название фильма',
-            'body'     => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'Director' => 'tag:input|type:text|name:Director|max:255|required|title:Режиссер|help:Режиссер фильма',
-            'Country'  => 'tag:input|type:text|name:Country|max:255|required|title:Страна|help:Страна производства',
+            'Name'     => 'tag:input|type:text|name:Name|max:255|title:Название|help:Название фильма',
+            'body'     => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'Director' => 'tag:input|type:text|name:Director|max:255|title:Режиссер|help:Режиссер фильма',
+            'Country'  => 'tag:input|type:text|name:Country|max:255|title:Страна|help:Страна производства',
         ];
     }
 

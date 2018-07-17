@@ -69,7 +69,7 @@ class TourType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
+            'content.ru.name' => 'required|string',
         ];
     }
 
@@ -79,19 +79,19 @@ class TourType extends Many
     public function fields(): array
     {
         return [
-            'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'open' => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
+            'name' => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'open' => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
 
-            'close'       => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
-            'organizer'   => 'tag:input|type:text|name:organizer|required|title:Организатор',
-            'price'       => 'tag:input|type:number|name:price|required|title:Стоимость|help:В свободной форме',
-            'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
+            'close'       => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
+            'organizer'   => 'tag:input|type:text|name:organizer|title:Организатор',
+            'price'       => 'tag:input|type:number|name:price|title:Стоимость|help:В свободной форме',
+            'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Упоменение',
 
         ];
     }

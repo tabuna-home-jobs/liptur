@@ -28,7 +28,7 @@ class BidType extends Many
     public function fields(): array
     {
         return [
-            'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
+            'name' => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
 
         ];
     }

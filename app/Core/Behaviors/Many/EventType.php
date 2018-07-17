@@ -59,10 +59,10 @@ class EventType extends Many
     {
         return [
             'id'                    => 'sometimes|integer|unique:posts',
-            'content.*.name'        => 'required|string',
-            'content.*.body'        => 'required|string',
-            'content.*.title'       => 'required|string|max:255',
-            'content.*.description' => 'required|string|max:255',
+            'content.ru.name'        => 'required|string',
+            'content.ru.body'        => 'required|string',
+            'content.ru.title'       => 'required|string|max:255',
+            'content.ru.description' => 'required|string|max:255',
         ];
     }
 
@@ -72,19 +72,19 @@ class EventType extends Many
     public function fields(): array
     {
         return [
-            'name'   => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body'   => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'open'   => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-            'close'  => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
+            'name'   => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body'   => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'open'   => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
+            'close'  => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
             'source' => 'tag:input|type:url|name:source|title:Источник статьи|help:Ссылка не индексируется',
-            'place'  => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
+            'place'  => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
 
-            'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Записывайте через запятую',
+            'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Записывайте через запятую',
 
         ];
     }

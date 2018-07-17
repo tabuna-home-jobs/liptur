@@ -51,8 +51,8 @@ class ProductType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 

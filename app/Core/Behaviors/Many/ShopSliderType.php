@@ -50,9 +50,9 @@ class ShopSliderType extends Many
     public function rules(): array
     {
         return [
-            'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'id' => 'sometimes|integer|unique:posts',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -69,18 +69,15 @@ class ShopSliderType extends Many
                 ->type('text')
                 ->name('name')
                 ->max(255)
-                ->required()
                 ->title('Титл слайдера'),
 
             Field::tag('wysiwyg')
                 ->name('body')
-                ->required()
                 ->title('Аннотация слайдера'),
 
             Field::tag('input')
                 ->type('text')
                 ->name('price')
-                ->required()
                 ->title('Цена текст'),
 
             Field::tag('input')
@@ -120,10 +117,10 @@ class ShopSliderType extends Many
     {
         return [
             'ru' => [
-                'name'     => 'Russian',
-                'script'   => 'Cyrl',
-                'dir'      => 'ltr',
-                'native'   => 'Русский',
+                'name' => 'Russian',
+                'script' => 'Cyrl',
+                'dir' => 'ltr',
+                'native' => 'Русский',
                 'regional' => 'ru_RU',
                 'required' => true,
             ],

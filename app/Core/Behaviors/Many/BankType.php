@@ -63,7 +63,7 @@ class BankType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
+            'content.ru.name' => 'required|string',
         ];
     }
 
@@ -73,13 +73,13 @@ class BankType extends Many
     public function fields(): array
     {
         return [
-            'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'open'  => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-            'close' => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
+            'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'open'  => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
+            'close' => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
-            'place'    => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
+            'place'    => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
         ];
     }
 

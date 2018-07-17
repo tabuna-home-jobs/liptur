@@ -83,8 +83,8 @@ class FestivalsType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -95,47 +95,47 @@ class FestivalsType extends Many
     {
         if (Auth::user()->inRole('cfo')) {
             return [
-                'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-                'body'  => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-                'open'  => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-                'close' => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
+                'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+                'body'  => 'tag:wysiwyg|name:body|max:255|rows:10',
+                'open'  => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
+                'close' => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
 
-                'phone'     => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
-                'price'     => 'tag:input|type:text|name:price|max:255|required|title:Стоимость|help:Записывается в свободной форме',
+                'phone'     => 'tag:input|type:text|name:phone|max:255|title:Номер телефона|help:Записывается в свободной форме',
+                'price'     => 'tag:input|type:text|name:price|max:255|title:Стоимость|help:Записывается в свободной форме',
                 'site'      => 'tag:input|type:url|name:site|title:Официальный сайт',
-                'organizer' => 'tag:input|type:text|name:organizer|required|title:Организатор',
+                'organizer' => 'tag:input|type:text|name:organizer|title:Организатор',
 
-                'type-event' => 'tag:input|type:text|name:type-event|max:255|required|title:Тип событийного мероприятия|help:Я не знаю, зачем это!',
+                'type-event' => 'tag:input|type:text|name:type-event|max:255|title:Тип событийного мероприятия|help:Я не знаю, зачем это!',
 
                 'region'   => 'tag:region|name:region|title:Регион',
                 'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
 
-                'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
-                'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-                'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
+                'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
+                'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+                'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Упоменение',
 
             ];
         }
 
         return [
-            'name'      => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body'      => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'open'      => 'tag:datetime|type:text|name:open|max:255|required|title:Дата открытия|help:Открытие мероприятия состоиться',
-            'close'     => 'tag:datetime|type:text|name:close|max:255|required|title:Дата закрытия',
-            'place'     => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
-            'phone'     => 'tag:input|type:text|name:phone|max:255|required|title:Номер телефона|help:Записывается в свободной форме',
-            'price'     => 'tag:input|type:text|name:price|max:255|required|title:Стоимость|help:Записывается в свободной форме',
+            'name'      => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body'      => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'open'      => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
+            'close'     => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
+            'place'     => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
+            'phone'     => 'tag:input|type:text|name:phone|max:255|title:Номер телефона|help:Записывается в свободной форме',
+            'price'     => 'tag:input|type:text|name:price|max:255|title:Стоимость|help:Записывается в свободной форме',
             'site'      => 'tag:input|type:url|name:site|title:Официальный сайт',
-            'organizer' => 'tag:input|type:text|name:organizer|required|title:Организатор',
+            'organizer' => 'tag:input|type:text|name:organizer|title:Организатор',
 
-            'type-event' => 'tag:input|type:text|name:type-event|max:255|required|title:Тип событийного мероприятия|help:Я не знаю, зачем это!',
+            'type-event' => 'tag:input|type:text|name:type-event|max:255|title:Тип событийного мероприятия|help:Я не знаю, зачем это!',
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
 
-            'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
+            'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Упоменение',
 
         ];
     }

@@ -67,10 +67,10 @@ class NewsType extends Many
     {
         return [
             'id'                    => 'sometimes|integer|unique:posts',
-            'content.*.name'        => 'required|string',
-            'content.*.body'        => 'required|string',
-            'content.*.title'       => 'required|string|max:255',
-            'content.*.description' => 'required|string|max:255',
+            'content.ru.name'        => 'required|string',
+            'content.ru.body'        => 'required|string',
+            'content.ru.title'       => 'required|string|max:255',
+            'content.ru.description' => 'required|string|max:255',
         ];
     }
 
@@ -80,12 +80,12 @@ class NewsType extends Many
     public function fields(): array
     {
         return [
-            'name'        => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body'        => 'tag:wysiwyg|name:body|max:255|required|rows:10',
+            'name'        => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body'        => 'tag:wysiwyg|name:body|max:255|rows:10',
             'source'      => 'tag:input|type:url|name:source|title:Источник статьи|help:Ссылка не индексируется',
-            'title'       => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Вверхней части странице',
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Записывайте через запятую',
+            'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Вверхней части странице',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Записывайте через запятую',
 
         ];
     }

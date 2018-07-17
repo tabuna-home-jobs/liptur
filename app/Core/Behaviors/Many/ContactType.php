@@ -57,8 +57,8 @@ class ContactType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -68,9 +68,9 @@ class ContactType extends Many
     public function fields(): array
     {
         return [
-            'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body'  => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'place' => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
+            'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body'  => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'place' => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
         ];
     }
 

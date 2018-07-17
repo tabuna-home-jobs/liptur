@@ -58,8 +58,8 @@ class GrangesType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -69,16 +69,16 @@ class GrangesType extends Many
     public function fields(): array
     {
         return [
-            'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body'  => 'tag:wysiwyg|name:body|max:255|required|rows:10',
-            'title' => 'tag:input|type:text|name:title|max:255|required|title:Заголовок статьи|help:Упоменение',
+            'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body'  => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'title' => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
 
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
-            'place'    => 'tag:place|type:text|name:place|max:255|required|title:Место положение|help:Адрес на карте',
+            'place'    => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
 
-            'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Краткое описание',
-            'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Ключевые слова|help:Упоменение',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
+            'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Упоменение',
 
         ];
     }

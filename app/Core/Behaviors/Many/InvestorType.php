@@ -50,8 +50,8 @@ class InvestorType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
-            'content.*.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
     }
 
@@ -61,8 +61,8 @@ class InvestorType extends Many
     public function fields(): array
     {
         return [
-            'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Главный заголовок',
-            'body' => 'tag:wysiwyg|name:body|max:255|required|rows:10',
+            'name' => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
+            'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
         ];
     }
 

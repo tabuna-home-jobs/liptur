@@ -69,7 +69,7 @@ class GalleryType extends Many
     {
         return [
             'id'             => 'sometimes|integer|unique:posts',
-            'content.*.name' => 'required|string',
+            'content.ru.name' => 'required|string',
         ];
     }
 
@@ -79,7 +79,7 @@ class GalleryType extends Many
     public function fields(): array
     {
         return [
-            'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Название альбома',
+            'name' => 'tag:input|type:text|name:name|max:255|title:Название|help:Название альбома',
         ];
     }
 
