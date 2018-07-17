@@ -50,7 +50,7 @@ class CinemaType extends Many
     public function rules(): array
     {
         return [
-            'id'             => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
             'content.ru.body' => 'required|string',
         ];
