@@ -57,7 +57,7 @@ class ATMType extends Many
     public function rules(): array
     {
         return [
-            'id'             => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
         ];
     }

@@ -50,7 +50,7 @@ class ShopSliderType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
             'content.ru.body' => 'required|string',
         ];
@@ -117,10 +117,10 @@ class ShopSliderType extends Many
     {
         return [
             'ru' => [
-                'name' => 'Russian',
-                'script' => 'Cyrl',
-                'dir' => 'ltr',
-                'native' => 'Русский',
+                'name'     => 'Russian',
+                'script'   => 'Cyrl',
+                'dir'      => 'ltr',
+                'native'   => 'Русский',
                 'regional' => 'ru_RU',
                 'required' => true,
             ],
