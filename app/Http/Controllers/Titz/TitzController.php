@@ -75,7 +75,7 @@ class TitzController extends Controller
      */
     public function news(User $user): View
     {
-        $typeObject = dashboard_posts()->find('news') ?? abort(404);
+        $typeObject = dashboard_posts()->firstWhere('slug', 'news') ?? abort(404);
 
         $elements = Post::where('type', 'news')
             ->where('user_id', $user->id)
