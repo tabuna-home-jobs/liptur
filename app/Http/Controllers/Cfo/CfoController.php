@@ -54,16 +54,16 @@ class CfoController extends Controller
         $typeObject = dashboard_posts()->firstWhere('slug', $typeRequest) ?? abort(404);
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->' . App::getLocale())
+            ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest)
             ->simplePaginate(5);
 
         return view('cfo.catalog', [
             'elements' => $elements,
-            'type' => $typeObject,
-            'name' => $typeObject->name,
-            'page' => getPage($typeRequest),
-            'user' => $user,
+            'type'     => $typeObject,
+            'name'     => $typeObject->name,
+            'page'     => getPage($typeRequest),
+            'user'     => $user,
         ]);
     }
 
@@ -75,8 +75,8 @@ class CfoController extends Controller
     public function gallery(User $user)
     {
         return view('cfo.gallery', [
-            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->' . App::getLocale())->with('attachment')->paginate(20),
-            'user' => $user,
+            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
+            'user'    => $user,
         ]);
     }
 
@@ -84,7 +84,7 @@ class CfoController extends Controller
     {
         return view('cfo.page', [
             'content' => isset($user->cfo['cfo'][App::getLocale()]['invest']) ? $user->cfo['cfo'][App::getLocale()]['invest'] : 'Нет текста',
-            'user' => $user,
+            'user'    => $user,
         ]);
     }
 
@@ -92,7 +92,7 @@ class CfoController extends Controller
     {
         return view('cfo.page', [
             'content' => isset($user->cfo['cfo'][App::getLocale()]['contacts']) ? $user->cfo['cfo'][App::getLocale()]['contacts'] : 'Нет текста',
-            'user' => $user,
+            'user'    => $user,
         ]);
     }
 
@@ -129,11 +129,11 @@ class CfoController extends Controller
 
             Storage::disk('public')->makeDirectory($date);
 
-            $name = sha1($time . $name);
-            $fullPath = storage_path('app/public' . DIRECTORY_SEPARATOR . $date . DIRECTORY_SEPARATOR . $name . '.jpg');
+            $name = sha1($time.$name);
+            $fullPath = storage_path('app/public'.DIRECTORY_SEPARATOR.$date.DIRECTORY_SEPARATOR.$name.'.jpg');
             $img->save($fullPath, 60);
 
-            $user->setAttribute('cfo->avatar', '/storage/' . $date . '/' . $name . '.jpg');
+            $user->setAttribute('cfo->avatar', '/storage/'.$date.'/'.$name.'.jpg');
         }
 
         $user->save();
