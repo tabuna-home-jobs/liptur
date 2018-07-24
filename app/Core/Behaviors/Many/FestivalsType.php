@@ -61,19 +61,22 @@ class FestivalsType extends Many
     /**
      * @var array
      */
-    public $filters = [
-        SearchFilter::class,
-        StatusFilter::class,
-        CreatedFilter::class,
-        TitzFilter::class,
-        CfoFilter::class,
+    public function filters() : array
+    {
+        return [
+            SearchFilter::class,
+            StatusFilter::class,
+            CreatedFilter::class,
+            TitzFilter::class,
+            CfoFilter::class,
 
-        RegionFilters::class,
-        //DistanceFilters::class,
-        DateFilters::class,
+            RegionFilters::class,
+            //DistanceFilters::class,
+            DateFilters::class,
 
-    ];
-
+        ];
+    }
+    
     /**
      * Rules Validation.
      *

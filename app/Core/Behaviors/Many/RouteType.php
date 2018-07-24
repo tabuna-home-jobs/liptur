@@ -59,18 +59,20 @@ class RouteType extends Many
     /**
      * @var array
      */
-    public $filters = [
-        SearchFilter::class,
-        StatusFilter::class,
-        CreatedFilter::class,
-        TitzFilter::class,
+    public function filters() : array
+    {
+        return [
+            SearchFilter::class,
+            StatusFilter::class,
+            CreatedFilter::class,
+            TitzFilter::class,
 
-        CategoryFilters::class,
-        RegionFilters::class,
-        //DistanceFilters::class,
-        TitzFilter::class,
-    ];
-
+            CategoryFilters::class,
+            RegionFilters::class,
+            //DistanceFilters::class,
+            TitzFilter::class,
+        ];
+    }
     /**
      * Rules Validation.
      *

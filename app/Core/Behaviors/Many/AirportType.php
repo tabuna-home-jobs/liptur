@@ -56,10 +56,12 @@ class AirportType extends Many
     /**
      * @var array
      */
-    public $filters = [
-
-        RegionFilters::class,
-    ];
+    public function filters() : array
+    {
+        return [
+            RegionFilters::class,
+        ];
+    }
 
     /**
      * Rules Validation.

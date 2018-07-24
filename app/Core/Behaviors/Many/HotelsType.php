@@ -59,17 +59,19 @@ class HotelsType extends Many
     /**
      * @var array
      */
-    public $filters = [
-        SearchFilter::class,
-        StatusFilter::class,
-        CreatedFilter::class,
+    public function filters() : array
+    {
+        return [
+            SearchFilter::class,
+            StatusFilter::class,
+            CreatedFilter::class,
 
-        RegionFilters::class,
-        CategoryFilters::class,
-        //DistanceFilters::class,
-        ServiceFilters::class,
-    ];
-
+            RegionFilters::class,
+            CategoryFilters::class,
+            //DistanceFilters::class,
+            ServiceFilters::class,
+        ];
+    }
     /**
      * Rules Validation.
      *

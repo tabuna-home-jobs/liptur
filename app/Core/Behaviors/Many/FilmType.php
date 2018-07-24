@@ -56,7 +56,10 @@ class FilmType extends Many
     /**
      * @var array
      */
-    public $filters = [];
+    public function filters() : array
+    {
+        return [];
+    }
 
     /**
      * @var string

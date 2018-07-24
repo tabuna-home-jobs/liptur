@@ -60,15 +60,18 @@ class RestaurantsType extends Many
     /**
      * @var array
      */
-    public $filters = [
-        SearchFilter::class,
-        StatusFilter::class,
-        CreatedFilter::class,
+    public function filters() : array
+    {
+        return [
+            SearchFilter::class,
+            StatusFilter::class,
+            CreatedFilter::class,
 
-        RegionFilters::class,
-        CategoryFilters::class,
-        //DistanceFilters::class,
-    ];
+            RegionFilters::class,
+            CategoryFilters::class,
+            //DistanceFilters::class,
+        ];
+    }
 
     /**
      * Rules Validation.

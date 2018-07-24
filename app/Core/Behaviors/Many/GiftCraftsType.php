@@ -46,10 +46,13 @@ class GiftCraftsType extends Many
     /**
      * @var array
      */
-    public $filters = [
-        TitzFilter::class,
-    ];
-
+    public function filters() : array
+    {
+        return [
+            TitzFilter::class,
+        ];
+    }
+    
     /**
      * Rules Validation.
      *

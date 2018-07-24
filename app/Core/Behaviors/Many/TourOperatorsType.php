@@ -51,12 +51,15 @@ class TourOperatorsType extends Many
      *
      * @var array
      */
-    public $filters = [
-        SearchFilter::class,
-        StatusFilter::class,
-        CreatedFilter::class,
-        TitzFilter::class,
-    ];
+    public function filters() : array
+    {
+        return [
+            SearchFilter::class,
+            StatusFilter::class,
+            CreatedFilter::class,
+            TitzFilter::class,
+        ];
+    }
 
     /**
      * Rules Validation.
