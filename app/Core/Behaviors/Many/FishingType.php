@@ -67,6 +67,7 @@ class FishingType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

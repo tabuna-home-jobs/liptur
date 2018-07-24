@@ -44,6 +44,7 @@ class LeisureType extends Many
      * @var string
      */
     public $groupname = 'Главные разделы';
+
     /**
      * @var array
      */
@@ -60,7 +61,7 @@ class LeisureType extends Many
             //DistanceFilters::class,
         ];
     }
-    
+
     public function __construct()
     {
         unset($this->name);

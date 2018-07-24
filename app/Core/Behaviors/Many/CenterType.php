@@ -67,7 +67,7 @@ class CenterType extends Many
             //DistanceFilters::class,
         ];
     }
-    
+
     /**
      * Rules Validation.
      *

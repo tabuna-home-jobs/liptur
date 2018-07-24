@@ -69,6 +69,7 @@ class MuseumsType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

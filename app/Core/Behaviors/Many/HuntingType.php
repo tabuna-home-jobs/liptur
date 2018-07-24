@@ -67,7 +67,7 @@ class HuntingType extends Many
             //DistanceFilters::class,
         ];
     }
-    
+
     /**
      * Rules Validation.
      *

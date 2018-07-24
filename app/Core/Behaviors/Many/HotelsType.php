@@ -72,6 +72,7 @@ class HotelsType extends Many
             ServiceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

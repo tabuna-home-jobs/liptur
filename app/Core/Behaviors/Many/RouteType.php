@@ -73,6 +73,7 @@ class RouteType extends Many
             TitzFilter::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

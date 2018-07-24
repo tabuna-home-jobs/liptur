@@ -70,6 +70,7 @@ class RecreationCenterType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

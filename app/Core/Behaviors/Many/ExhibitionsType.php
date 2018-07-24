@@ -67,6 +67,7 @@ class ExhibitionsType extends Many
             TitzFilter::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

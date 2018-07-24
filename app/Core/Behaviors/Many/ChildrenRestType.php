@@ -67,7 +67,7 @@ class ChildrenRestType extends Many
             //DistanceFilters::class,
         ];
     }
-    
+
     /**
      * Rules Validation.
      *

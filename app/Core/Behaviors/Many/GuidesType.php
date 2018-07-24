@@ -66,6 +66,7 @@ class GuidesType extends Many
             RegionFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *
