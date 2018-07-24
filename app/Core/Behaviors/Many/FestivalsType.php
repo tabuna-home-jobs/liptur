@@ -76,7 +76,7 @@ class FestivalsType extends Many
 
         ];
     }
-    
+
     /**
      * Rules Validation.
      *

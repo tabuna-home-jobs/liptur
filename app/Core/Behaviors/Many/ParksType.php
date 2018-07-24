@@ -67,6 +67,7 @@ class ParksType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

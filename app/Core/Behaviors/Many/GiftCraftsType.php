@@ -52,7 +52,7 @@ class GiftCraftsType extends Many
             TitzFilter::class,
         ];
     }
-    
+
     /**
      * Rules Validation.
      *

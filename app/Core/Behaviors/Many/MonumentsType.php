@@ -72,6 +72,7 @@ class MonumentsType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

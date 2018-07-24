@@ -63,7 +63,7 @@ class ContestType extends Many
             // DateFilters::class,
         ];
     }
-    
+
     /**
      * Rules Validation.
      *

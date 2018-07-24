@@ -64,7 +64,7 @@ class ConcertsType extends Many
             TitzFilter::class,
         ];
     }
-    
+
     /**
      * @var array
      */

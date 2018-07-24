@@ -72,7 +72,7 @@ class AgencieType extends Many
             //DistanceFilters::class,
             TitzFilter::class,
         ];
-    }      
+    }
 
     /**
      * Rules Validation.

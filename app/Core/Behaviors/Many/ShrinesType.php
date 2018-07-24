@@ -67,6 +67,7 @@ class ShrinesType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *
