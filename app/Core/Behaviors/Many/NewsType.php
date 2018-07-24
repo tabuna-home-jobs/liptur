@@ -51,7 +51,6 @@ class NewsType extends Many
      *
      * @var array
      */
-     
     public function filters() : array
     {
         return [
@@ -60,7 +59,7 @@ class NewsType extends Many
             CreatedFilter::class,
             TitzFilter::class,
         ];
-    } 
+    }
 
     /**
      * Rules Validation.

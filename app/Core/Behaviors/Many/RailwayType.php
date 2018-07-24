@@ -67,6 +67,7 @@ class RailwayType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

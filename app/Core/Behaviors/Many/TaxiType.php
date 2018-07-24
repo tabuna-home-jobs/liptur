@@ -67,6 +67,7 @@ class TaxiType extends Many
             //DistanceFilters::class,
         ];
     }
+
     /**
      * Rules Validation.
      *

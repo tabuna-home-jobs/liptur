@@ -62,6 +62,7 @@ class GalleryType extends Many
             CfoFilter::class,
         ];
     }
+
     /**
      * Rules Validation.
      *
