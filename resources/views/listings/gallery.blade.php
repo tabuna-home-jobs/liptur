@@ -9,7 +9,6 @@
 
     <section class="container-fluid">
         <div class="row">
-
             <div style="background:url({{$mostPopular->first()->original_url}}) center center; background-size:cover">
                 <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt text-ellipsis">
                     <div class="row m-t">

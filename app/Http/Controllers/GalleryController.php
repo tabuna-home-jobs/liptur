@@ -25,19 +25,20 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $mostPopular = Cache::remember('most-popular-gallery', 30, function () {
+        $mostPopular = Cache::remember('most-popular-gallery', 0, function () {
             $popular = Attachment::whereIn('extension', [
                 'jpg',
                 'png',
                 'JPG',
-            ])->has('post')->join('likeable_like_counters', function ($join) {
+            ])
+            //->has('post')
+            ->join('likeable_like_counters', function ($join) {
                 $join->on('attachments.id', '=', 'likeable_like_counters.likable_id')
                     ->where('likeable_like_counters.likable_type', '=', Attachment::class);
             })
                 ->orderBy('likeable_like_counters.count', 'desc')
                 ->limit(16)
                 ->get();
-
             $popular->map(function ($attach) {
                 $attach->url = $attach->url('medium');
                 $attach->original_url = $attach->url();
