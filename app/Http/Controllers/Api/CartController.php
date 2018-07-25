@@ -127,6 +127,11 @@ class CartController
             $message->to(setting('shop_admin_email'), 'Администратор')
                 ->subject('Новый заказ на сайте Liptur.ru');
         });
+        
+        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
+            $message->to($order->user()->first()->email, $order->user()->first()->name)
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
 
         Cart::destroy();
 
