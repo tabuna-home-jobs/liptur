@@ -39,7 +39,6 @@ class UpdatePost extends Command
     {
         $attachments = DB::table('attachments')->select()->get();
         foreach ($attachments as $attachment) {
-
             if ($attachment->post_id2 < 1) {
                 continue;
             }
@@ -49,7 +48,6 @@ class UpdatePost extends Command
                 'attachment_id'       => $attachment->id,
             ]);
         }
-
 
         dd('test');
 

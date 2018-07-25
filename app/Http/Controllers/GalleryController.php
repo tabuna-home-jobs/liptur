@@ -63,7 +63,7 @@ class GalleryController extends Controller
      */
     public function store($id)
     {
-        $post = Post::where('id',$id)->with(['attachment'])->firstOrFail();
+        $post = Post::where('id', $id)->with(['attachment'])->firstOrFail();
 
         $attachment = Attachment::whereIn('id', $post->attachment->pluck('id'))
             ->with(['likeCounter', 'likes', 'comments.author'])->get();
