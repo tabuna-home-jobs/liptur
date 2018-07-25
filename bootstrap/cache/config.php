@@ -161,7 +161,7 @@ return [
       ],
       'file' => [
         'driver' => 'file',
-        'path'   => '/home/tabuna/GitHub/liptur/storage/framework/cache',
+        'path'   => '/home/vagrant/code/shop.liptur.loc/storage/framework/cache',
       ],
       'memcached' => [
         'driver'        => 'memcached',
@@ -276,8 +276,8 @@ return [
     'web'                  => true,
     'collect_data_always'  => false,
     'storage'              => 'files',
-    'storage_files_path'   => '/home/tabuna/GitHub/liptur/storage/clockwork',
-    'storage_sql_database' => '/home/tabuna/GitHub/liptur/storage/clockwork.sqlite',
+    'storage_files_path'   => '/home/vagrant/code/shop.liptur.loc/storage/clockwork',
+    'storage_sql_database' => '/home/vagrant/code/shop.liptur.loc/storage/clockwork.sqlite',
     'storage_sql_table'    => 'clockwork',
     'storage_expiration'   => 10080,
     'filter'               => [
@@ -464,7 +464,7 @@ return [
         'port'      => '3306',
         'database'  => 'lipturShop',
         'username'  => 'root',
-        'password'  => '',
+        'password'  => 'root',
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
@@ -503,11 +503,11 @@ return [
     'disks'   => [
       'local' => [
         'driver' => 'local',
-        'root'   => '/home/tabuna/GitHub/liptur/storage/app',
+        'root'   => '/home/vagrant/code/shop.liptur.loc/storage/app',
       ],
       'public' => [
         'driver'     => 'local',
-        'root'       => '/home/tabuna/GitHub/liptur/storage/app/public',
+        'root'       => '/home/vagrant/code/shop.liptur.loc/storage/app/public',
         'visibility' => 'public',
       ],
       's3' => [
@@ -1045,7 +1045,7 @@ return [
     'lifetime'        => 920,
     'expire_on_close' => false,
     'encrypt'         => false,
-    'files'           => '/home/tabuna/GitHub/liptur/storage/framework/sessions',
+    'files'           => '/home/vagrant/code/shop.liptur.loc/storage/framework/sessions',
     'connection'      => null,
     'table'           => 'sessions',
     'store'           => null,
@@ -1081,9 +1081,9 @@ return [
   ],
   'view' => [
     'paths' => [
-      0 => '/home/tabuna/GitHub/liptur/resources/views',
+      0 => '/home/vagrant/code/shop.liptur.loc/resources/views',
     ],
-    'compiled' => '/home/tabuna/GitHub/liptur/storage/framework/views',
+    'compiled' => '/home/vagrant/code/shop.liptur.loc/storage/framework/views',
   ],
   'widget' => [
     'widgets' => [

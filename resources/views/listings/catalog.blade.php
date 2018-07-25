@@ -163,7 +163,7 @@
                 --}}
                 <div class="row padder-v text-center">
                     <div class="col-xs-12">
-                        {{ $elements->appends(Request::except('page'))->links() }}
+                        {!! $elements->appends(Request::except('page'))->links() !!}
                     </div>
                 </div>
 

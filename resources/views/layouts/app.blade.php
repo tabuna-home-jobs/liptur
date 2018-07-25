@@ -102,6 +102,8 @@
             <ul class="nav navbar-nav navbar-right">
 
 
+                <li><a href="{{url('/shop')}}"><i class="icon-handbag m-r-xs"></i>Интернет-магазин</a></li>
+                
                 <li>
                     <a href="#" rel="search" title="Поиск по веб-сайту" data-target="#modalSeachIn" data-toggle="modal"><i
                                 class="icon-magnifier m-r-xs"></i>Поиск</a>

@@ -25,7 +25,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $mostPopular = Cache::remember('most-popular-gallery', 0, function () {
+        $mostPopular = Cache::remember('most-popular-gallery', 30, function () {
             $popular = Attachment::whereIn('extension', [
                 'jpg',
                 'png',

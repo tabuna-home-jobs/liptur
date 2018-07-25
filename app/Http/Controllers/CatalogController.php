@@ -25,6 +25,7 @@ class CatalogController extends Controller
     {
         $typeObject = dashboard_posts()->where('slug', $typeRequest)->first() ?? abort(404);
         $query = Post::published()->type($typeRequest)
+            //->orderBy('publish_at', 'ASC')
             ->whereNotNull('options->locale->'.App::getLocale())
             ->filtersApply($typeRequest);
 
