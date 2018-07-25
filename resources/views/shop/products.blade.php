@@ -79,7 +79,7 @@
           </div>
           <div class="col-xs-3">
          
-            <em class="font-bold text-sm padder-v-micro pull-right">{{ $colProd }}</em>
+            <em class="col-prod">{{ $colProd }}</em>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@
         </ul>
       </div>
       <div class="col-md-9">
-        <div class="row padder-v-micro">
+        <div class="row padder-v-micro sort-block">
            <div class="col-xs-10">
             <label for="sel1">Сортировать:</label>
             <div class="dropdown inline">
