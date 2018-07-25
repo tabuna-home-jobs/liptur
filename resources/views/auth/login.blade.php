@@ -16,7 +16,7 @@
     <div class="row">
         <nav>
             <div class="container">
-                @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Магазин' ])
+                @include('partials.breadcrumb',[ 'breadcrumb' => [], 'current' => 'Вход' ])
             </div>
         </nav>
     </div>
@@ -66,7 +66,7 @@
 
                                     <div class="m-t-md m-b-md">
                                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}  m-t-md">
-                                            <label class="text-sm text-left">Введите ваш Email:</label>
+                                            <label class="text-sm text-left">Введите пароль:</label>
                                             <input type="password" name="password"
                                                    required class="form-control">
 

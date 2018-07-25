@@ -6,18 +6,26 @@
             <img class="img-responsive" src="{{$slide->attachment->first()->url()}}"/>
             <div class="owl-shop-block container">
                 <div class="row row-flex">
-                    <div class="col-md-8 col-sm-12">
-                            <div class="owl-shop-title">
-                                {{$slide->getContent('name')}}
+                    <div class="container no-padder">
+                        <div class="row row-flex">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="owl-shop-title text-left">
+                                    {{$slide->getContent('name')}}
+                                </div>
                             </div>
-                            <div class="owl-shop-description">
-                                {!! $slide->getContent('body') !!}
-                            </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 owl-shop-price">
-                        <div class="to-bottom">
-                            {!! $slide->getContent('price') !!}
                         </div>
+                        <div class="row row-flex">
+                            <div class="col-md-8 col-sm-12 text-left">
+                                    <div class="owl-shop-description">
+                                        {!! $slide->getContent('body') !!}
+                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12 owl-shop-price">
+                                <div class="text-right">
+                                    {!! $slide->getContent('price') !!}
+                                </div>
+                            </div>
+                        </div>    
                     </div>
                 </div>
             </div>

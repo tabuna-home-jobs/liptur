@@ -93,11 +93,12 @@
 
                 <!-- Авторизация  -->
                 @if (Auth::guest())
-                    <li class="col-sm-2 col-md-2  no-padder pull-right">
-                        <div class="navbar-auth">
-                            <i class="key-icon m-r-xs"></i>
-                            <a href="{{ url('/login') }}">Вход</a>
-                        </div>
+                    <li class="col-sm-2 col-md-2  no-padder pull-right text-right">
+                        <a href="{{ url('/login') }}" class="navbar-auth">
+                            <div>
+                                <i class="key-icon m-r-xs"></i>Вход
+                            </div>
+                        </a>
                     </li>
                 @else
                     <li class="col-sm-2 col-md-2 no-padder pull-right">
@@ -143,9 +144,9 @@
 
 <footer id="footer" role="footer" class="bg-dark">
 
-    <div class="padder-v">
-        <div class="container no-padder">
-            <div class="row padder-v contact-row">
+    <div class="contact-block">
+        <div class="container">
+            <div class="row contact-row">
                 <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
                     <a  class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
                      <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
@@ -176,7 +177,7 @@
                     </a>
                 </div>
 
-                <div class="col-sm-6 col-md-3 vi-hide hidden-xs socicons">
+                <div class="col-sm-6 col-md-3 vi-hide hidden-xs socicons text-right">
                     <p>
                         <a href="{{setting('liptur_vk','https://vk.com/liptur48')}}" target="_blank" class="btn btn-icon soc-vk">
                             <i class="fa fa-vk"></i>

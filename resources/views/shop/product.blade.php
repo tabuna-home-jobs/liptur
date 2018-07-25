@@ -23,7 +23,7 @@
                         'breadcrumb' => [],
                         'base' => [
                                 'route' => route('shop'),
-                                'name' => 'Магазин',
+                                'name' => 'Интернет-магазин',
                         'breadcrumbs' => [
                             [
                                  'route' => route('shop.catalog'),

@@ -24,7 +24,7 @@
                     'breadcrumb' => [],
                     'base' => [
                             'route' => route('shop'),
-                            'name' => 'Магазин',
+                            'name' => 'Интернет-магазин',
                     ],
                     'current' => 'Корзина' ])
                 </div>

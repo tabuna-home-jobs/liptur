@@ -24,7 +24,7 @@
                     'breadcrumb' => [],
                     'base' => [
                             'route' => route('shop.cart'),
-                            'name' => 'Коризина',
+                            'name' => 'Корзина',
                     ],
                     'current' => 'Оформление заказа' ])
                 </div>

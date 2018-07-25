@@ -156,7 +156,7 @@ class ShopController extends Controller
     {
         if (!is_null($request->get('search'))) {
             $products = Post::type('product')
-                ->whereRaw('LOWER(`content`) LIKE \'%'.$request->get('search').'%\' ')
+                ->whereRaw('LOWER(`content`) LIKE \'%'.mb_strtolower($request->get('search')).'%\' ')
                 ->with('attachment');
         } else {
             $products = Post::type('product')
