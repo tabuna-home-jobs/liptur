@@ -50,7 +50,7 @@ class GalleryController extends Controller
         });
 
         return view('listings.gallery', [
-            'gallery'      => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
+            'gallery'      => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->with('attachment')->simplePaginate(20),
             'countGallery' => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->count(),
             'mostPopular'  => $mostPopular,
         ]);
@@ -63,7 +63,10 @@ class GalleryController extends Controller
      */
     public function store($id)
     {
-        $attachment = Attachment::where('post_id', $id)->with(['likeCounter', 'likes', 'comments.author'])->get();
+        $post = Post::where('id',$id)->with(['attachment'])->firstOrFail();
+
+        $attachment = Attachment::whereIn('id', $post->attachment->pluck('id'))
+            ->with(['likeCounter', 'likes', 'comments.author'])->get();
 
         $attachment->map(function ($attach) {
             $attach->url = $attach->url('high');

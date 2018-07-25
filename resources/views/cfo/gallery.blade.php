@@ -142,7 +142,8 @@
 
                                                             <p class="m-b-none  text-break">@{{message.content}}</p>
                                                         </div>
-                                                        <small class="text-muted"> @{{dataFormatLolization(message.created_at)}}
+                                                        <small class="text-muted">
+                                                            @{{dataFormatLolization(message.created_at)}}
                                                         </small>
                                                     </div>
 
@@ -217,194 +218,195 @@
 
 @push('scripts')
 
-<script>
+    <script>
 
-    const photoAlbums = new Vue({
-        el: '#photo-albums',
-        data: {
-            newMessage: '',
-            album: null,
-            photos: [],
-            active: 0,
-            status: false,
-            submit: false,
-        },
-        methods: {
-            loadData: function (id) {
-                if (this.album !== id) {
+        $(function () {
+            const photoAlbums = new Vue({
+                el: '#photo-albums',
+                data: {
+                    newMessage: '',
+                    album: null,
+                    photos: [],
+                    active: 0,
+                    status: false,
+                    submit: false,
+                },
+                methods: {
+                    loadData: function (id) {
+                        if (this.album !== id) {
 
-                    this.album = id;
-                    this.photos = [];
-                    this.active = 0;
+                            this.album = id;
+                            this.photos = [];
+                            this.active = 0;
 
-                    this.$http.post('/' + $('html').attr('lang') + '/gallery/' + id, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
+                            this.$http.post('/' + $('html').attr('lang') + '/gallery/' + id, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }).then(function (response) {
+                                this.photos = response.data;
+
+                            });
                         }
-                    }).then(function (response) {
-                        this.photos = response.data;
+                    },
+                    loadAlbom: function (id) {
 
-                    });
-                }
-            },
-            loadAlbom: function (id) {
+                        new Promise(function (resolve) {
 
-                new Promise(function (resolve) {
+                            photoAlbums.loadData(id);
 
-                    photoAlbums.loadData(id);
-
-                    setTimeout(function () {
-                        resolve(1);
-                    }, 500)
+                            setTimeout(function () {
+                                resolve(1);
+                            }, 500)
 
 
-                }).then(function (value) {
+                        }).then(function (value) {
 
-                    $('#photoShowGallery').modal('toggle');
-                });
+                            $('#photoShowGallery').modal('toggle');
+                        });
 
-            },
-            loadAlbomPhoto: function (albom, photo) {
-                photo = Number(photo);
+                    },
+                    loadAlbomPhoto: function (albom, photo) {
+                        photo = Number(photo);
 
-                new Promise(function (resolve) {
+                        new Promise(function (resolve) {
 
-                    photoAlbums.loadData(albom);
+                            photoAlbums.loadData(albom);
 
-                    setTimeout(function () {
-                        resolve(1);
-                    }, 500)
+                            setTimeout(function () {
+                                resolve(1);
+                            }, 500)
 
-                }).then(function (value) {
+                        }).then(function (value) {
 
-                    photoAlbums.photos.forEach(function (item, i, arr) {
-                        if (item.id === photo) {
-                            photoAlbums.active = i;
-                            return;
+                            photoAlbums.photos.forEach(function (item, i, arr) {
+                                if (item.id === photo) {
+                                    photoAlbums.active = i;
+                                    return;
+                                }
+                            });
+
+                            $('#photoShowGallery').modal('toggle');
+
+                        });
+
+
+                    },
+                    next: function () {
+                        if (this.active === 0) {
+                            this.active = this.photos.length - 1;
+                        } else {
+                            this.active--;
                         }
-                    });
-
-                    $('#photoShowGallery').modal('toggle');
-
-                });
-
-
-            },
-            next: function () {
-                if (this.active === 0) {
-                    this.active = this.photos.length - 1;
-                } else {
-                    this.active--;
-                }
-            },
-            prev: function () {
-                if (this.photos.length > this.active + 1) {
-                    this.active++;
-                } else {
-                    this.active = 0;
-                }
-            },
-            dateFormat: function () {
-                return moment(this.photos[this.active].created_at).format("DD.MM.YYYY");
-            },
-            dataFormatLolization: function (data) {
-                return moment(data).fromNow();
-            },
-            like: function (id) {
-                if (!this.submit) {
-                    this.submit = true;
-
-                    this.$http.put('/' + $('html').attr('lang') + '/gallery/like/' + id).then(function (response) {
-                    });
-
-                    (this.photos[this.active].count) ? this.photos[this.active].count-- : this.photos[this.active].count++;
-                    this.status = !this.status;
-                    this.submit = false;
-
-                    this.$http.post('/' + $('html').attr('lang') + '/gallery/' + this.album, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
+                    },
+                    prev: function () {
+                        if (this.photos.length > this.active + 1) {
+                            this.active++;
+                        } else {
+                            this.active = 0;
                         }
-                    }).then(function (response) {
-                        this.photos = response.data;
-                    });
+                    },
+                    dateFormat: function () {
+                        return moment(this.photos[this.active].created_at).format("DD.MM.YYYY");
+                    },
+                    dataFormatLolization: function (data) {
+                        return moment(data).fromNow();
+                    },
+                    like: function (id) {
+                        if (!this.submit) {
+                            this.submit = true;
+
+                            this.$http.put('/' + $('html').attr('lang') + '/gallery/like/' + id).then(function (response) {
+                            });
+
+                            (this.photos[this.active].count) ? this.photos[this.active].count-- : this.photos[this.active].count++;
+                            this.status = !this.status;
+                            this.submit = false;
+
+                            this.$http.post('/' + $('html').attr('lang') + '/gallery/' + this.album, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }).then(function (response) {
+                                this.photos = response.data;
+                            });
 
 
-                }
-            },
-            getStatus: function () {
-                var auth = new Boolean($('meta[name="user_id"]').attr('auth'));
-                var user = $('meta[name="user_id"]').attr('content');
-
-                if (!auth) {
-                    console.log('пользователь не авторизован');
-                    return false;
-                }
-
-                var active = false;
-                this.photos[this.active].likes.forEach(function (item, i, arr) {
-                    if (item.user_id == user) {
-                        active = true;
-                        return;
-                    }
-                });
-
-                console.log(active);
-
-                return active;
-            },
-            sendMessage: function () {
-                var message = this.newMessage.trim();
-
-                if (message) {
-                    //Показывыем клиенту
-
-                    this.$http.put('/' + $('html').attr('lang') + '/gallery/comment/' + this.photos[this.active].id, {
-                        content: message,
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
                         }
-                    }).then(function (response) {
-                        photoAlbums.newMessage = '';
+                    },
+                    getStatus: function () {
+                        var auth = new Boolean($('meta[name="user_id"]').attr('auth'));
+                        var user = $('meta[name="user_id"]').attr('content');
 
-                        photoAlbums.photos[photoAlbums.active] = response.data;
+                        if (!auth) {
+                            console.log('пользователь не авторизован');
+                            return false;
+                        }
 
-                        //photoAlbums.loadAlbom()
-                    });
+                        var active = false;
+                        this.photos[this.active].likes.forEach(function (item, i, arr) {
+                            if (item.user_id == user) {
+                                active = true;
+                                return;
+                            }
+                        });
 
-                    //$('#dialog-container').animate({scrollTop: $('#dialog-container')[0].scrollHeight}, 700);
+                        console.log(active);
+
+                        return active;
+                    },
+                    sendMessage: function () {
+                        var message = this.newMessage.trim();
+
+                        if (message) {
+                            //Показывыем клиенту
+
+                            this.$http.put('/' + $('html').attr('lang') + '/gallery/comment/' + this.photos[this.active].id, {
+                                content: message,
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }).then(function (response) {
+                                photoAlbums.newMessage = '';
+
+                                photoAlbums.photos[photoAlbums.active] = response.data;
+
+                                //photoAlbums.loadAlbom()
+                            });
+
+                            //$('#dialog-container').animate({scrollTop: $('#dialog-container')[0].scrollHeight}, 700);
+                        }
+
+
+                    },
+
+                }
+            });
+
+
+            document.onkeydown = checkKey;
+
+            function checkKey(e) {
+
+                e = e || window.event;
+
+                if (e.keyCode == '38') {
+                    // up arrow
+                }
+                else if (e.keyCode == '40') {
+                    // down arrow
+                }
+                else if (e.keyCode == '37') {
+                    // left arrow
+                    photoAlbums.prev();
+                }
+                else if (e.keyCode == '39') {
+                    // right arrow
+                    photoAlbums.next();
                 }
 
-
-            },
-
-        }
-    });
-
-
-    document.onkeydown = checkKey;
-
-    function checkKey(e) {
-
-        e = e || window.event;
-
-        if (e.keyCode == '38') {
-            // up arrow
-        }
-        else if (e.keyCode == '40') {
-            // down arrow
-        }
-        else if (e.keyCode == '37') {
-            // left arrow
-            photoAlbums.prev();
-        }
-        else if (e.keyCode == '39') {
-            // right arrow
-            photoAlbums.next();
-        }
-
-    }
-
-</script>
+            }
+        });
+    </script>
 
 @endpush

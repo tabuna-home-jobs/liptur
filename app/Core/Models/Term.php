@@ -8,6 +8,7 @@ use Cartalyst\Tags\TaggableTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Core\Traits\MultiLanguage;
 
 class Term extends Model
