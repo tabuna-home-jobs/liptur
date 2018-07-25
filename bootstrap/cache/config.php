@@ -1,33 +1,32 @@
-<?php return array (
-  'active' => 
-  array (
+<?php
+
+return [
+  'active' => [
     'class' => 'active',
-  ),
-  'app' => 
-  array (
-    'name' => 'Липецкий туристический портал',
-    'env' => 'local',
-    'debug' => true,
-    'url' => 'http://localhost:8000',
-    'timezone' => 'Europe/Moscow',
-    'locale' => 'en',
+  ],
+  'app' => [
+    'name'            => 'Липецкий туристический портал',
+    'env'             => 'local',
+    'debug'           => true,
+    'url'             => 'http://localhost:8000',
+    'timezone'        => 'Europe/Moscow',
+    'locale'          => 'en',
     'fallback_locale' => 'en',
-    'key' => 'base64:uuBwLSI8Hx7m/L4Syp6p5VL14DZadJSICiICJctjvz4=',
-    'cipher' => 'AES-256-CBC',
-    'log' => 'daily',
-    'log_level' => 'debug',
-    'providers' => 
-    array (
-      0 => 'Illuminate\\Auth\\AuthServiceProvider',
-      1 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
-      2 => 'Illuminate\\Bus\\BusServiceProvider',
-      3 => 'Illuminate\\Cache\\CacheServiceProvider',
-      4 => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
-      5 => 'Illuminate\\Cookie\\CookieServiceProvider',
-      6 => 'Illuminate\\Database\\DatabaseServiceProvider',
-      7 => 'Illuminate\\Encryption\\EncryptionServiceProvider',
-      8 => 'Illuminate\\Filesystem\\FilesystemServiceProvider',
-      9 => 'Illuminate\\Foundation\\Providers\\FoundationServiceProvider',
+    'key'             => 'base64:uuBwLSI8Hx7m/L4Syp6p5VL14DZadJSICiICJctjvz4=',
+    'cipher'          => 'AES-256-CBC',
+    'log'             => 'daily',
+    'log_level'       => 'debug',
+    'providers'       => [
+      0  => 'Illuminate\\Auth\\AuthServiceProvider',
+      1  => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
+      2  => 'Illuminate\\Bus\\BusServiceProvider',
+      3  => 'Illuminate\\Cache\\CacheServiceProvider',
+      4  => 'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider',
+      5  => 'Illuminate\\Cookie\\CookieServiceProvider',
+      6  => 'Illuminate\\Database\\DatabaseServiceProvider',
+      7  => 'Illuminate\\Encryption\\EncryptionServiceProvider',
+      8  => 'Illuminate\\Filesystem\\FilesystemServiceProvider',
+      9  => 'Illuminate\\Foundation\\Providers\\FoundationServiceProvider',
       10 => 'Illuminate\\Hashing\\HashServiceProvider',
       11 => 'Illuminate\\Mail\\MailServiceProvider',
       12 => 'Illuminate\\Notifications\\NotificationServiceProvider',
@@ -52,336 +51,276 @@
       31 => 'willvincent\\Rateable\\RateableServiceProvider',
       32 => 'Jenssegers\\Date\\DateServiceProvider',
       33 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'App' => 'Illuminate\\Support\\Facades\\App',
-      'Artisan' => 'Illuminate\\Support\\Facades\\Artisan',
-      'Auth' => 'Illuminate\\Support\\Facades\\Auth',
-      'Blade' => 'Illuminate\\Support\\Facades\\Blade',
-      'Bus' => 'Illuminate\\Support\\Facades\\Bus',
-      'Cache' => 'Illuminate\\Support\\Facades\\Cache',
-      'Config' => 'Illuminate\\Support\\Facades\\Config',
-      'Cookie' => 'Illuminate\\Support\\Facades\\Cookie',
-      'Crypt' => 'Illuminate\\Support\\Facades\\Crypt',
-      'DB' => 'Illuminate\\Support\\Facades\\DB',
-      'Eloquent' => 'Illuminate\\Database\\Eloquent\\Model',
-      'Event' => 'Illuminate\\Support\\Facades\\Event',
-      'File' => 'Illuminate\\Support\\Facades\\File',
-      'Gate' => 'Illuminate\\Support\\Facades\\Gate',
-      'Hash' => 'Illuminate\\Support\\Facades\\Hash',
-      'Lang' => 'Illuminate\\Support\\Facades\\Lang',
-      'Log' => 'Illuminate\\Support\\Facades\\Log',
-      'Mail' => 'Illuminate\\Support\\Facades\\Mail',
+    ],
+    'aliases' => [
+      'App'          => 'Illuminate\\Support\\Facades\\App',
+      'Artisan'      => 'Illuminate\\Support\\Facades\\Artisan',
+      'Auth'         => 'Illuminate\\Support\\Facades\\Auth',
+      'Blade'        => 'Illuminate\\Support\\Facades\\Blade',
+      'Bus'          => 'Illuminate\\Support\\Facades\\Bus',
+      'Cache'        => 'Illuminate\\Support\\Facades\\Cache',
+      'Config'       => 'Illuminate\\Support\\Facades\\Config',
+      'Cookie'       => 'Illuminate\\Support\\Facades\\Cookie',
+      'Crypt'        => 'Illuminate\\Support\\Facades\\Crypt',
+      'DB'           => 'Illuminate\\Support\\Facades\\DB',
+      'Eloquent'     => 'Illuminate\\Database\\Eloquent\\Model',
+      'Event'        => 'Illuminate\\Support\\Facades\\Event',
+      'File'         => 'Illuminate\\Support\\Facades\\File',
+      'Gate'         => 'Illuminate\\Support\\Facades\\Gate',
+      'Hash'         => 'Illuminate\\Support\\Facades\\Hash',
+      'Lang'         => 'Illuminate\\Support\\Facades\\Lang',
+      'Log'          => 'Illuminate\\Support\\Facades\\Log',
+      'Mail'         => 'Illuminate\\Support\\Facades\\Mail',
       'Notification' => 'Illuminate\\Support\\Facades\\Notification',
-      'Password' => 'Illuminate\\Support\\Facades\\Password',
-      'Queue' => 'Illuminate\\Support\\Facades\\Queue',
-      'Redirect' => 'Illuminate\\Support\\Facades\\Redirect',
-      'Redis' => 'Illuminate\\Support\\Facades\\Redis',
-      'Request' => 'Illuminate\\Support\\Facades\\Request',
-      'Response' => 'Illuminate\\Support\\Facades\\Response',
-      'Route' => 'Illuminate\\Support\\Facades\\Route',
-      'Schema' => 'Illuminate\\Support\\Facades\\Schema',
-      'Session' => 'Illuminate\\Support\\Facades\\Session',
-      'Storage' => 'Illuminate\\Support\\Facades\\Storage',
-      'URL' => 'Illuminate\\Support\\Facades\\URL',
-      'Validator' => 'Illuminate\\Support\\Facades\\Validator',
-      'View' => 'Illuminate\\Support\\Facades\\View',
-      'Image' => 'Intervention\\Image\\Facades\\Image',
+      'Password'     => 'Illuminate\\Support\\Facades\\Password',
+      'Queue'        => 'Illuminate\\Support\\Facades\\Queue',
+      'Redirect'     => 'Illuminate\\Support\\Facades\\Redirect',
+      'Redis'        => 'Illuminate\\Support\\Facades\\Redis',
+      'Request'      => 'Illuminate\\Support\\Facades\\Request',
+      'Response'     => 'Illuminate\\Support\\Facades\\Response',
+      'Route'        => 'Illuminate\\Support\\Facades\\Route',
+      'Schema'       => 'Illuminate\\Support\\Facades\\Schema',
+      'Session'      => 'Illuminate\\Support\\Facades\\Session',
+      'Storage'      => 'Illuminate\\Support\\Facades\\Storage',
+      'URL'          => 'Illuminate\\Support\\Facades\\URL',
+      'Validator'    => 'Illuminate\\Support\\Facades\\Validator',
+      'View'         => 'Illuminate\\Support\\Facades\\View',
+      'Image'        => 'Intervention\\Image\\Facades\\Image',
       'Localization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
-      'Feed' => 'Roumen\\Feed\\Feed',
-      'Date' => 'Jenssegers\\Date\\Date',
-      'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
-      'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
-    ),
-  ),
-  'auth' => 
-  array (
-    'defaults' => 
-    array (
-      'guard' => 'web',
+      'Feed'         => 'Roumen\\Feed\\Feed',
+      'Date'         => 'Jenssegers\\Date\\Date',
+      'NoCaptcha'    => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
+      'Cart'         => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
+    ],
+  ],
+  'auth' => [
+    'defaults' => [
+      'guard'     => 'web',
       'passwords' => 'users',
-    ),
-    'guards' => 
-    array (
-      'web' => 
-      array (
-        'driver' => 'session',
+    ],
+    'guards' => [
+      'web' => [
+        'driver'   => 'session',
         'provider' => 'users',
-      ),
-      'api' => 
-      array (
-        'driver' => 'token',
+      ],
+      'api' => [
+        'driver'   => 'token',
         'provider' => 'users',
-      ),
-    ),
-    'providers' => 
-    array (
-      'users' => 
-      array (
+      ],
+    ],
+    'providers' => [
+      'users' => [
         'driver' => 'eloquent',
-        'model' => 'App\\Core\\Models\\User',
-      ),
-    ),
-    'passwords' => 
-    array (
-      'users' => 
-      array (
+        'model'  => 'App\\Core\\Models\\User',
+      ],
+    ],
+    'passwords' => [
+      'users' => [
         'provider' => 'users',
-        'table' => 'password_resets',
-        'expire' => 60,
-      ),
-    ),
-  ),
-  'broadcasting' => 
-  array (
-    'default' => 'log',
-    'connections' => 
-    array (
-      'pusher' => 
-      array (
-        'driver' => 'pusher',
-        'key' => '',
-        'secret' => '',
-        'app_id' => '',
-        'options' => 
-        array (
-        ),
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
+        'table'    => 'password_resets',
+        'expire'   => 60,
+      ],
+    ],
+  ],
+  'broadcasting' => [
+    'default'     => 'log',
+    'connections' => [
+      'pusher' => [
+        'driver'  => 'pusher',
+        'key'     => '',
+        'secret'  => '',
+        'app_id'  => '',
+        'options' => [
+        ],
+      ],
+      'redis' => [
+        'driver'     => 'redis',
         'connection' => 'default',
-      ),
-      'log' => 
-      array (
+      ],
+      'log' => [
         'driver' => 'log',
-      ),
-      'null' => 
-      array (
+      ],
+      'null' => [
         'driver' => 'null',
-      ),
-    ),
-  ),
-  'cache' => 
-  array (
+      ],
+    ],
+  ],
+  'cache' => [
     'default' => 'file',
-    'stores' => 
-    array (
-      'apc' => 
-      array (
+    'stores'  => [
+      'apc' => [
         'driver' => 'apc',
-      ),
-      'array' => 
-      array (
+      ],
+      'array' => [
         'driver' => 'array',
-      ),
-      'database' => 
-      array (
-        'driver' => 'database',
-        'table' => 'cache',
-        'connection' => NULL,
-      ),
-      'file' => 
-      array (
+      ],
+      'database' => [
+        'driver'     => 'database',
+        'table'      => 'cache',
+        'connection' => null,
+      ],
+      'file' => [
         'driver' => 'file',
-        'path' => '/home/tabuna/GitHub/liptur/storage/framework/cache',
-      ),
-      'memcached' => 
-      array (
-        'driver' => 'memcached',
-        'persistent_id' => NULL,
-        'sasl' => 
-        array (
-          0 => NULL,
-          1 => NULL,
-        ),
-        'options' => 
-        array (
-        ),
-        'servers' => 
-        array (
-          0 => 
-          array (
-            'host' => '127.0.0.1',
-            'port' => 11211,
+        'path'   => '/home/tabuna/GitHub/liptur/storage/framework/cache',
+      ],
+      'memcached' => [
+        'driver'        => 'memcached',
+        'persistent_id' => null,
+        'sasl'          => [
+          0 => null,
+          1 => null,
+        ],
+        'options' => [
+        ],
+        'servers' => [
+          0 => [
+            'host'   => '127.0.0.1',
+            'port'   => 11211,
             'weight' => 100,
-          ),
-        ),
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
+          ],
+        ],
+      ],
+      'redis' => [
+        'driver'     => 'redis',
         'connection' => 'default',
-      ),
-    ),
+      ],
+    ],
     'prefix' => 'liptur',
-  ),
-  'captcha' => 
-  array (
-    'secret' => '6Ld9zF4UAAAAAJ7j4iCNGyFX3oYxvl19I1zYmPNn',
+  ],
+  'captcha' => [
+    'secret'  => '6Ld9zF4UAAAAAJ7j4iCNGyFX3oYxvl19I1zYmPNn',
     'sitekey' => '6Ld9zF4UAAAAAB4WwU72PSW9WA4ElEZlCiy_1Out',
-    'options' => 
-    array (
+    'options' => [
       'timeout' => 2.0,
-    ),
-  ),
-  'cart' => 
-  array (
-    'tax' => 0,
-    'database' => 
-    array (
-      'connection' => NULL,
-      'table' => 'shoppingcart',
-    ),
+    ],
+  ],
+  'cart' => [
+    'tax'      => 0,
+    'database' => [
+      'connection' => null,
+      'table'      => 'shoppingcart',
+    ],
     'destroy_on_logout' => false,
-    'format' => 
-    array (
-      'decimals' => 0,
-      'decimal_point' => '.',
+    'format'            => [
+      'decimals'           => 0,
+      'decimal_point'      => '.',
       'thousand_seperator' => ' ',
-    ),
-  ),
-  'category' => 
-  array (
-    'leisure' => 
-    array (
-      'category' => 
-      array (
-        'sports' => 'Спортивный',
+    ],
+  ],
+  'category' => [
+    'leisure' => [
+      'category' => [
+        'sports'       => 'Спортивный',
         'entertaining' => 'Развлекательный',
-        'informative' => 'Познавательный',
-      ),
-    ),
-    'recration-center' => 
-    array (
-      'category' => 
-      array (
+        'informative'  => 'Познавательный',
+      ],
+    ],
+    'recration-center' => [
+      'category' => [
         'bases-of-rest' => 'Базы отдыха',
-        'guest-houses' => 'Гостевые дома',
-      ),
-    ),
-    'exhibitions' => 
-    array (
-      'category' => 
-      array (
-        'artistic' => 'Художественная',
-        'literary' => 'Литературная',
-        'technical' => 'Техническая',
-        'photo' => 'Фото',
-        'orthodox' => 'Православная',
+        'guest-houses'  => 'Гостевые дома',
+      ],
+    ],
+    'exhibitions' => [
+      'category' => [
+        'artistic'           => 'Художественная',
+        'literary'           => 'Литературная',
+        'technical'          => 'Техническая',
+        'photo'              => 'Фото',
+        'orthodox'           => 'Православная',
         'plants-and-animals' => 'Растения и животные',
-        'branch' => 'Отраслевая',
-      ),
-    ),
-    'gastronomy' => 
-    array (
-      'category' => 
-      array (
+        'branch'             => 'Отраслевая',
+      ],
+    ],
+    'gastronomy' => [
+      'category' => [
         'restaurants' => 'Рестораны',
-        'cafe' => 'Кафе',
-        'bars' => 'Бары',
-        'tastings' => 'Дегустации',
-        'pub' => 'Пабы',
-        'fast-food' => 'Фаст фуд',
-        'night-club' => 'Ночные клубы',
-        'pizzerias' => 'Пиццерии',
-      ),
-      'kitchens' => 
-      array (
-        'russian' => 'Русская',
-        'european' => 'Европейская',
-        'italian' => 'Итальянская',
+        'cafe'        => 'Кафе',
+        'bars'        => 'Бары',
+        'tastings'    => 'Дегустации',
+        'pub'         => 'Пабы',
+        'fast-food'   => 'Фаст фуд',
+        'night-club'  => 'Ночные клубы',
+        'pizzerias'   => 'Пиццерии',
+      ],
+      'kitchens' => [
+        'russian'   => 'Русская',
+        'european'  => 'Европейская',
+        'italian'   => 'Итальянская',
         'caucasian' => 'Кавказская',
-        'french' => 'Французская',
-        'uzbek' => 'Узбекская',
+        'french'    => 'Французская',
+        'uzbek'     => 'Узбекская',
         'ukrainian' => 'Украинская',
-        'japanese' => 'Японская',
-      ),
-    ),
-    'hostel' => 
-    array (
-      'category' => 
-      array (
-        'hotel' => 'Гостиница',
-        'motel' => 'Мотель',
-        'hostel' => 'Хостел',
-        'mini-hotel' => 'Мини-гостиница',
+        'japanese'  => 'Японская',
+      ],
+    ],
+    'hostel' => [
+      'category' => [
+        'hotel'       => 'Гостиница',
+        'motel'       => 'Мотель',
+        'hostel'      => 'Хостел',
+        'mini-hotel'  => 'Мини-гостиница',
         'guest-house' => 'Гостевой дом',
-        'other' => 'Другие предложения',
-      ),
-    ),
-    'agencie' => 
-    array (
-      'category' => 
-      array (
-        'the-offer-of-tour-operators' => 'Туроператоров',
+        'other'       => 'Другие предложения',
+      ],
+    ],
+    'agencie' => [
+      'category' => [
+        'the-offer-of-tour-operators'  => 'Туроператоров',
         'the-offer-of-travel-agencies' => 'Турагентств',
-      ),
-    ),
-  ),
-  'clockwork' => 
-  array (
-    'enable' => NULL,
-    'web' => true,
-    'collect_data_always' => false,
-    'storage' => 'files',
-    'storage_files_path' => '/home/tabuna/GitHub/liptur/storage/clockwork',
+      ],
+    ],
+  ],
+  'clockwork' => [
+    'enable'               => null,
+    'web'                  => true,
+    'collect_data_always'  => false,
+    'storage'              => 'files',
+    'storage_files_path'   => '/home/tabuna/GitHub/liptur/storage/clockwork',
     'storage_sql_database' => '/home/tabuna/GitHub/liptur/storage/clockwork.sqlite',
-    'storage_sql_table' => 'clockwork',
-    'storage_expiration' => 10080,
-    'filter' => 
-    array (
+    'storage_sql_table'    => 'clockwork',
+    'storage_expiration'   => 10080,
+    'filter'               => [
       0 => 'cacheQueries',
       1 => 'routes',
       2 => 'viewsData',
-    ),
-    'filter_uris' => 
-    array (
+    ],
+    'filter_uris' => [
       0 => '/__clockwork/.*',
-    ),
-    'ignored_events' => 
-    array (
-    ),
+    ],
+    'ignored_events' => [
+    ],
     'register_helpers' => true,
-    'headers' => 
-    array (
-    ),
+    'headers'          => [
+    ],
     'server_timing' => 10,
-  ),
-  'compile' => 
-  array (
-    'files' => 
-    array (
-    ),
-    'providers' => 
-    array (
-    ),
-  ),
-  'content' => 
-  array (
+  ],
+  'compile' => [
+    'files' => [
+    ],
+    'providers' => [
+    ],
+  ],
+  'content' => [
     'install' => true,
-    'auth' => 
-    array (
+    'auth'    => [
       'display' => false,
-      'image' => '/orchid/img/background.jpg',
-    ),
-    'pages' => 
-    array (
+      'image'   => '/orchid/img/background.jpg',
+    ],
+    'pages' => [
       0 => 'App\\Core\\Behaviors\\Single\\AboutPage',
-    ),
-    'types' => 
-    array (
-      0 => 'App\\Core\\Behaviors\\Many\\NewsType',
-      1 => 'App\\Core\\Behaviors\\Many\\DocsType',
-      2 => 'App\\Core\\Behaviors\\Many\\PressType',
-      3 => 'App\\Core\\Behaviors\\Many\\ContactType',
-      4 => 'App\\Core\\Behaviors\\Many\\CarouselType',
-      5 => 'App\\Core\\Behaviors\\Many\\SecondaryCarouselType',
-      6 => 'App\\Core\\Behaviors\\Many\\InfoType',
-      7 => 'App\\Core\\Behaviors\\Many\\InvestorType',
-      8 => 'App\\Core\\Behaviors\\Many\\LeisureType',
-      9 => 'App\\Core\\Behaviors\\Many\\RecreationCenterType',
+    ],
+    'types' => [
+      0  => 'App\\Core\\Behaviors\\Many\\NewsType',
+      1  => 'App\\Core\\Behaviors\\Many\\DocsType',
+      2  => 'App\\Core\\Behaviors\\Many\\PressType',
+      3  => 'App\\Core\\Behaviors\\Many\\ContactType',
+      4  => 'App\\Core\\Behaviors\\Many\\CarouselType',
+      5  => 'App\\Core\\Behaviors\\Many\\SecondaryCarouselType',
+      6  => 'App\\Core\\Behaviors\\Many\\InfoType',
+      7  => 'App\\Core\\Behaviors\\Many\\InvestorType',
+      8  => 'App\\Core\\Behaviors\\Many\\LeisureType',
+      9  => 'App\\Core\\Behaviors\\Many\\RecreationCenterType',
       10 => 'App\\Core\\Behaviors\\Many\\ExhibitionsType',
       11 => 'App\\Core\\Behaviors\\Many\\RestaurantsType',
       12 => 'App\\Core\\Behaviors\\Many\\HotelsType',
@@ -421,439 +360,388 @@
       46 => 'App\\Core\\Behaviors\\Many\\FilmType',
       47 => 'App\\Core\\Behaviors\\Many\\EventCalendarType',
       48 => 'App\\Core\\Behaviors\\Many\\TourType',
-    ),
-    'fields' => 
-    array (
+    ],
+    'fields' => [
       'textarea' => 'Orchid\\Fields\\TextAreaField',
-      'input' => 'Orchid\\Fields\\InputField',
-      'tags' => 'Orchid\\Fields\\TagsField',
-      'robot' => 'Orchid\\Fields\\RobotField',
-      'place' => 'Orchid\\Fields\\PlaceField',
+      'input'    => 'Orchid\\Fields\\InputField',
+      'tags'     => 'Orchid\\Fields\\TagsField',
+      'robot'    => 'Orchid\\Fields\\RobotField',
+      'place'    => 'Orchid\\Fields\\PlaceField',
       'datetime' => 'Orchid\\Fields\\DateTimerField',
       'checkbox' => 'Orchid\\Fields\\CheckBoxField',
-      'path' => 'Orchid\\Fields\\PathField',
-      'code' => 'Orchid\\Fields\\CodeField',
-      'wysiwyg' => 'Orchid\\Fields\\SummernoteField',
-      'region' => 'App\\Fields\\RegionField',
-    ),
-    'menu' => 
-    array (
+      'path'     => 'Orchid\\Fields\\PathField',
+      'code'     => 'Orchid\\Fields\\CodeField',
+      'wysiwyg'  => 'Orchid\\Fields\\SummernoteField',
+      'region'   => 'App\\Fields\\RegionField',
+    ],
+    'menu' => [
       'header-middle' => 'Верхнее меню',
-      'footer' => 'Нижние меню',
-    ),
-    'images' => 
-    array (
-      'low' => 
-      array (
-        'width' => '50',
-        'height' => '50',
+      'footer'        => 'Нижние меню',
+    ],
+    'images' => [
+      'low' => [
+        'width'   => '50',
+        'height'  => '50',
         'quality' => '50',
-      ),
-      'medium' => 
-      array (
-        'width' => '600',
-        'height' => '300',
+      ],
+      'medium' => [
+        'width'   => '600',
+        'height'  => '300',
         'quality' => '75',
-      ),
-      'high' => 
-      array (
-        'width' => '1000',
-        'height' => '500',
+      ],
+      'high' => [
+        'width'   => '1000',
+        'height'  => '500',
         'quality' => '95',
-      ),
-    ),
-    'locales' => 
-    array (
-      'ru' => 
-      array (
-        'name' => 'Russian',
-        'script' => 'Cyrl',
-        'dir' => 'ltr',
-        'native' => 'Русский',
+      ],
+    ],
+    'locales' => [
+      'ru' => [
+        'name'     => 'Russian',
+        'script'   => 'Cyrl',
+        'dir'      => 'ltr',
+        'native'   => 'Русский',
         'regional' => 'ru_RU',
         'required' => true,
-      ),
-      'en' => 
-      array (
-        'name' => 'English',
-        'script' => 'Latn',
-        'dir' => 'ltr',
-        'native' => 'English',
+      ],
+      'en' => [
+        'name'     => 'English',
+        'script'   => 'Latn',
+        'dir'      => 'ltr',
+        'native'   => 'English',
         'regional' => 'en_GB',
         'required' => false,
-      ),
-    ),
-    'advertising' => 
-    array (
-      'top' => 'Верхний баннер',
-      'main-left' => 'Главный левый баннер',
+      ],
+    ],
+    'advertising' => [
+      'top'        => 'Верхний баннер',
+      'main-left'  => 'Главный левый баннер',
       'main-right' => 'Главный правый баннер',
-      'side' => 'Боковой баннер',
-      'social' => 'Социальные сети',
-      'footer' => 'Подвал баннера',
-      'investor' => 'Инвесторы баннера',
-    ),
-    'attachment' => 
-    array (
-      'image' => 
-      array (
+      'side'       => 'Боковой баннер',
+      'social'     => 'Социальные сети',
+      'footer'     => 'Подвал баннера',
+      'investor'   => 'Инвесторы баннера',
+    ],
+    'attachment' => [
+      'image' => [
         0 => 'png',
         1 => 'jpg',
         2 => 'jpeg',
         3 => 'gif',
-      ),
-      'video' => 
-      array (
+      ],
+      'video' => [
         0 => 'mp4',
         1 => 'mkv',
-      ),
-      'docs' => 
-      array (
-        0 => 'doc',
-        1 => 'docx',
-        2 => 'pdf',
-        3 => 'xls',
-        4 => 'xlsx',
-        5 => 'xml',
-        6 => 'txt',
-        7 => 'zip',
-        8 => 'rar',
-        9 => 'svg',
+      ],
+      'docs' => [
+        0  => 'doc',
+        1  => 'docx',
+        2  => 'pdf',
+        3  => 'xls',
+        4  => 'xlsx',
+        5  => 'xml',
+        6  => 'txt',
+        7  => 'zip',
+        8  => 'rar',
+        9  => 'svg',
         10 => 'ppt',
         11 => 'pptx',
-      ),
-    ),
-  ),
-  'database' => 
-  array (
-    'fetch' => 5,
-    'default' => 'mysql',
-    'connections' => 
-    array (
-      'sqlite' => 
-      array (
-        'driver' => 'sqlite',
+      ],
+    ],
+  ],
+  'database' => [
+    'fetch'       => 5,
+    'default'     => 'mysql',
+    'connections' => [
+      'sqlite' => [
+        'driver'   => 'sqlite',
         'database' => 'lipturShop',
-        'prefix' => '',
-      ),
-      'mysql' => 
-      array (
-        'driver' => 'mysql',
-        'host' => 'LOCALHOST',
-        'port' => '3306',
-        'database' => 'lipturShop',
-        'username' => 'root',
-        'password' => '',
-        'charset' => 'utf8',
+        'prefix'   => '',
+      ],
+      'mysql' => [
+        'driver'    => 'mysql',
+        'host'      => 'LOCALHOST',
+        'port'      => '3306',
+        'database'  => 'lipturShop',
+        'username'  => 'root',
+        'password'  => '',
+        'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
-        'prefix' => '',
-        'strict' => true,
-        'engine' => NULL,
-        'modes' => 
-        array (
-        ),
-      ),
-      'pgsql' => 
-      array (
-        'driver' => 'pgsql',
-        'host' => 'LOCALHOST',
-        'port' => '3306',
+        'prefix'    => '',
+        'strict'    => true,
+        'engine'    => null,
+        'modes'     => [
+        ],
+      ],
+      'pgsql' => [
+        'driver'   => 'pgsql',
+        'host'     => 'LOCALHOST',
+        'port'     => '3306',
         'database' => 'lipturShop',
         'username' => 'root',
         'password' => '',
-        'charset' => 'utf8',
-        'prefix' => '',
-        'schema' => 'public',
-        'sslmode' => 'prefer',
-      ),
-    ),
+        'charset'  => 'utf8',
+        'prefix'   => '',
+        'schema'   => 'public',
+        'sslmode'  => 'prefer',
+      ],
+    ],
     'migrations' => 'migrations',
-    'redis' => 
-    array (
+    'redis'      => [
       'cluster' => false,
-      'default' => 
-      array (
-        'host' => '127.0.0.1',
-        'password' => NULL,
-        'port' => '6379',
+      'default' => [
+        'host'     => '127.0.0.1',
+        'password' => null,
+        'port'     => '6379',
         'database' => 0,
-      ),
-    ),
-  ),
-  'filesystems' => 
-  array (
+      ],
+    ],
+  ],
+  'filesystems' => [
     'default' => 'local',
-    'cloud' => 's3',
-    'disks' => 
-    array (
-      'local' => 
-      array (
+    'cloud'   => 's3',
+    'disks'   => [
+      'local' => [
         'driver' => 'local',
-        'root' => '/home/tabuna/GitHub/liptur/storage/app',
-      ),
-      'public' => 
-      array (
-        'driver' => 'local',
-        'root' => '/home/tabuna/GitHub/liptur/storage/app/public',
+        'root'   => '/home/tabuna/GitHub/liptur/storage/app',
+      ],
+      'public' => [
+        'driver'     => 'local',
+        'root'       => '/home/tabuna/GitHub/liptur/storage/app/public',
         'visibility' => 'public',
-      ),
-      's3' => 
-      array (
+      ],
+      's3' => [
         'driver' => 's3',
-        'key' => 'your-key',
+        'key'    => 'your-key',
         'secret' => 'your-secret',
         'region' => 'your-region',
         'bucket' => 'your-bucket',
-      ),
-    ),
-  ),
-  'htmlmin' => 
-  array (
+      ],
+    ],
+  ],
+  'htmlmin' => [
     'blade' => false,
     'force' => false,
-  ),
-  'icon' => 
-  array (
-    'attributes' => 
-    array (
-      'icon-lip-live-music' => 'Живая музыка',
-      'icon-lip-music' => 'Музыка',
+  ],
+  'icon' => [
+    'attributes' => [
+      'icon-lip-live-music'        => 'Живая музыка',
+      'icon-lip-music'             => 'Музыка',
       'icon-lip-american-football' => 'Американский футбол',
-      'icon-lip-boxing' => 'Бокс',
-      'icon-lip-bowling' => 'Боулинг',
-      'icon-lip-stadium' => 'Стадион',
-      'icon-lip-rapier' => 'Рапиры',
-      'icon-lip-billiards' => 'Бильярд',
-      'icon-lip-chess' => 'Шахматы',
-      'icon-lip-volleyball' => 'Волейбол',
-      'icon-lip-quad-bike' => 'Квадроцикл',
-      'icon-lip-refill' => 'Заправка',
-      'icon-lip-dolphinarium' => 'Дельфинарий',
-      'icon-lip-snowmobile' => 'Снегоход',
-      'icon-lip-hat' => 'Шляпа',
-      'icon-lip-scooter' => 'Скутер',
-      'icon-lip-skiing' => 'Лыжи',
-      'icon-lip-dinner' => 'Обед',
-      'icon-lip-towels' => 'Вешалка',
-      'icon-lip-tennis' => 'теннис',
-      'icon-lip-embroidery' => 'Вышивка',
-      'icon-lip-backpack' => 'Рюкзак',
-      'icon-lip-boat-trip' => 'Водная прогулка',
-      'icon-lip-inflatable-boat' => 'Надувная лодка',
-      'icon-lip-snowboard' => 'Сноуборд',
-      'icon-lip-cableway' => 'Канатная дорого',
-      'icon-lip-mountains' => 'Горы',
-      'icon-lip-aqualung' => 'Акваланг',
-      'icon-lip-balloon' => 'Воздушный шар',
-      'icon-lip-tickets' => 'Билеты',
-      'icon-lip-cocktail' => 'Коктейль',
-      'icon-lip-run-baggage' => 'Тележка для багажа',
-      'icon-lip-bike' => 'Велосипед',
-      'icon-lip-map' => 'Карта',
-      'icon-lip-table-tennis' => 'Настольный теннис',
-      'icon-lip-passport' => 'Паспорт',
-      'icon-lip-sailing-ship' => 'Парусная лодка',
-      'icon-lip-key' => 'Ключ',
-      'icon-lip-lunch-room' => 'Обеды в номер',
-      'icon-lip-helicopter' => 'Вертолёт',
-      'icon-lip-baggage' => 'Багаж',
-      'icon-lip-masquerade' => 'Маскарад',
-      'icon-lip-safe' => 'Сейф',
-      'icon-lip-recliner' => 'Шезлонг',
-      'icon-lip-train' => 'Поезд',
-      'icon-lip-tent' => 'Палатка',
-      'icon-lip-sandals' => 'Сандалии',
-      'icon-lip-wigwam' => 'Виг-вам',
-      'icon-lip-scuba-suit' => 'Водный костюм',
-      'icon-lip-beach-cocktail' => 'Пляжный коктейль',
-      'icon-lip-kayak' => 'Байдарка',
-      'icon-lip-pizza' => 'Пицца',
-      'icon-lip-burger' => 'Бургер',
-      'icon-lip-rolls' => 'Ролы',
-      'icon-lip-rice' => 'Рис',
-      'icon-lip-soup' => 'Супы',
-      'icon-lip-cooking' => 'Варка',
-      'icon-lip-fish' => 'Рыба',
-      'icon-lip-tea' => 'Чай',
-      'icon-lip-frankfurters' => 'Немецкие сосиски',
-      'icon-lip-administration' => 'Администрация',
-      'icon-lip-church' => 'Церковь',
-      'icon-lip-ferris-wheel' => 'Колесо обозрения',
-      'icon-lip-hotel' => 'Отель',
-      'icon-lip-summer-cafe' => 'Летнее кафе',
-      'icon-lip-Coffee' => 'Кофе',
-      'icon-lip-disabled' => 'Доступная среда',
-      'icon-lip-champagne' => 'Шампанское',
-      'icon-lip-guide' => 'Гид',
-      'icon-lip-dog' => 'С животными',
-      'icon-lip-building' => 'Строение',
-      'icon-lip-park' => 'Парк',
-      'icon-lip-bus' => 'Автобус',
-      'icon-lip-taxi' => 'Такси',
-      'icon-lip-parking' => 'Парковка',
-      'icon-lip-afoot' => 'Пешком',
-      'icon-lip-videography' => 'Видеосъемка',
-      'icon-lip-photo' => 'Фотография',
-      'icon-lip-credit-card' => 'Безналичный расчёт',
+      'icon-lip-boxing'            => 'Бокс',
+      'icon-lip-bowling'           => 'Боулинг',
+      'icon-lip-stadium'           => 'Стадион',
+      'icon-lip-rapier'            => 'Рапиры',
+      'icon-lip-billiards'         => 'Бильярд',
+      'icon-lip-chess'             => 'Шахматы',
+      'icon-lip-volleyball'        => 'Волейбол',
+      'icon-lip-quad-bike'         => 'Квадроцикл',
+      'icon-lip-refill'            => 'Заправка',
+      'icon-lip-dolphinarium'      => 'Дельфинарий',
+      'icon-lip-snowmobile'        => 'Снегоход',
+      'icon-lip-hat'               => 'Шляпа',
+      'icon-lip-scooter'           => 'Скутер',
+      'icon-lip-skiing'            => 'Лыжи',
+      'icon-lip-dinner'            => 'Обед',
+      'icon-lip-towels'            => 'Вешалка',
+      'icon-lip-tennis'            => 'теннис',
+      'icon-lip-embroidery'        => 'Вышивка',
+      'icon-lip-backpack'          => 'Рюкзак',
+      'icon-lip-boat-trip'         => 'Водная прогулка',
+      'icon-lip-inflatable-boat'   => 'Надувная лодка',
+      'icon-lip-snowboard'         => 'Сноуборд',
+      'icon-lip-cableway'          => 'Канатная дорого',
+      'icon-lip-mountains'         => 'Горы',
+      'icon-lip-aqualung'          => 'Акваланг',
+      'icon-lip-balloon'           => 'Воздушный шар',
+      'icon-lip-tickets'           => 'Билеты',
+      'icon-lip-cocktail'          => 'Коктейль',
+      'icon-lip-run-baggage'       => 'Тележка для багажа',
+      'icon-lip-bike'              => 'Велосипед',
+      'icon-lip-map'               => 'Карта',
+      'icon-lip-table-tennis'      => 'Настольный теннис',
+      'icon-lip-passport'          => 'Паспорт',
+      'icon-lip-sailing-ship'      => 'Парусная лодка',
+      'icon-lip-key'               => 'Ключ',
+      'icon-lip-lunch-room'        => 'Обеды в номер',
+      'icon-lip-helicopter'        => 'Вертолёт',
+      'icon-lip-baggage'           => 'Багаж',
+      'icon-lip-masquerade'        => 'Маскарад',
+      'icon-lip-safe'              => 'Сейф',
+      'icon-lip-recliner'          => 'Шезлонг',
+      'icon-lip-train'             => 'Поезд',
+      'icon-lip-tent'              => 'Палатка',
+      'icon-lip-sandals'           => 'Сандалии',
+      'icon-lip-wigwam'            => 'Виг-вам',
+      'icon-lip-scuba-suit'        => 'Водный костюм',
+      'icon-lip-beach-cocktail'    => 'Пляжный коктейль',
+      'icon-lip-kayak'             => 'Байдарка',
+      'icon-lip-pizza'             => 'Пицца',
+      'icon-lip-burger'            => 'Бургер',
+      'icon-lip-rolls'             => 'Ролы',
+      'icon-lip-rice'              => 'Рис',
+      'icon-lip-soup'              => 'Супы',
+      'icon-lip-cooking'           => 'Варка',
+      'icon-lip-fish'              => 'Рыба',
+      'icon-lip-tea'               => 'Чай',
+      'icon-lip-frankfurters'      => 'Немецкие сосиски',
+      'icon-lip-administration'    => 'Администрация',
+      'icon-lip-church'            => 'Церковь',
+      'icon-lip-ferris-wheel'      => 'Колесо обозрения',
+      'icon-lip-hotel'             => 'Отель',
+      'icon-lip-summer-cafe'       => 'Летнее кафе',
+      'icon-lip-Coffee'            => 'Кофе',
+      'icon-lip-disabled'          => 'Доступная среда',
+      'icon-lip-champagne'         => 'Шампанское',
+      'icon-lip-guide'             => 'Гид',
+      'icon-lip-dog'               => 'С животными',
+      'icon-lip-building'          => 'Строение',
+      'icon-lip-park'              => 'Парк',
+      'icon-lip-bus'               => 'Автобус',
+      'icon-lip-taxi'              => 'Такси',
+      'icon-lip-parking'           => 'Парковка',
+      'icon-lip-afoot'             => 'Пешком',
+      'icon-lip-videography'       => 'Видеосъемка',
+      'icon-lip-photo'             => 'Фотография',
+      'icon-lip-credit-card'       => 'Безналичный расчёт',
       'icon-lip-currency-exchange' => 'Обмен валюты',
-      'icon-lip-temple' => 'Храм',
-      'icon-lip-no-photo' => 'Фото запрещено',
-      'icon-lip-no-smoking' => 'Не курить',
-      'icon-lip-shops' => 'Магазин',
-      'icon-lip-purchases' => 'Шопинг',
-      'icon-lip-time' => 'Время',
-      'icon-lip-wifi' => 'Wi-Fi',
-      'icon-lip-list' => 'По списку',
-      'icon-lip-support' => 'Помощь',
-      'icon-lip-pass' => 'Требуется подтверждение личности',
-      'icon-lip-meeting' => 'Митинг',
-      'icon-lip-pool' => 'Бассейн',
-      'icon-lip-swim' => 'Плавать',
-      'icon-lip-extra-bed' => 'Дополнительная кровать',
-      'icon-lip-double-bed' => 'Двуспальная кровать',
-      'icon-lip-twin-beds' => 'Раздельные кровати',
-      'icon-lip-hostel' => 'Хостел',
-      'icon-lip-tv' => 'Телевизор',
-      'icon-lip-gym' => 'Спортзал',
-      'icon-lip-shower' => 'Душ',
-      'icon-lip-aircraft' => 'Самолёт',
-      'icon-lip-palm' => 'Пальмы',
-      'icon-lip-abike' => 'Велосипед',
-    ),
-    'map' => 
-    array (
-    ),
-  ),
-  'image' => 
-  array (
+      'icon-lip-temple'            => 'Храм',
+      'icon-lip-no-photo'          => 'Фото запрещено',
+      'icon-lip-no-smoking'        => 'Не курить',
+      'icon-lip-shops'             => 'Магазин',
+      'icon-lip-purchases'         => 'Шопинг',
+      'icon-lip-time'              => 'Время',
+      'icon-lip-wifi'              => 'Wi-Fi',
+      'icon-lip-list'              => 'По списку',
+      'icon-lip-support'           => 'Помощь',
+      'icon-lip-pass'              => 'Требуется подтверждение личности',
+      'icon-lip-meeting'           => 'Митинг',
+      'icon-lip-pool'              => 'Бассейн',
+      'icon-lip-swim'              => 'Плавать',
+      'icon-lip-extra-bed'         => 'Дополнительная кровать',
+      'icon-lip-double-bed'        => 'Двуспальная кровать',
+      'icon-lip-twin-beds'         => 'Раздельные кровати',
+      'icon-lip-hostel'            => 'Хостел',
+      'icon-lip-tv'                => 'Телевизор',
+      'icon-lip-gym'               => 'Спортзал',
+      'icon-lip-shower'            => 'Душ',
+      'icon-lip-aircraft'          => 'Самолёт',
+      'icon-lip-palm'              => 'Пальмы',
+      'icon-lip-abike'             => 'Велосипед',
+    ],
+    'map' => [
+    ],
+  ],
+  'image' => [
     'driver' => 'gd',
-  ),
-  'laravellocalization' => 
-  array (
-    'supportedLocales' => 
-    array (
-      'en' => 
-      array (
-        'name' => 'English',
-        'script' => 'Latn',
-        'native' => 'English',
+  ],
+  'laravellocalization' => [
+    'supportedLocales' => [
+      'en' => [
+        'name'     => 'English',
+        'script'   => 'Latn',
+        'native'   => 'English',
         'regional' => 'en_GB',
-      ),
-      'ru' => 
-      array (
-        'name' => 'Russian',
-        'script' => 'Cyrl',
-        'native' => 'русский',
+      ],
+      'ru' => [
+        'name'     => 'Russian',
+        'script'   => 'Cyrl',
+        'native'   => 'русский',
         'regional' => 'ru_RU',
-      ),
-    ),
+      ],
+    ],
     'useAcceptLanguageHeader' => true,
-    'hideDefaultLocaleInURL' => false,
-    'localesOrder' => 
-    array (
-    ),
-  ),
-  'link' => 
-  array (
+    'hideDefaultLocaleInURL'  => false,
+    'localesOrder'            => [
+    ],
+  ],
+  'link' => [
     'phone' => '',
     'email' => 'tourclaster@liptur.ru',
-  ),
-  'mail' => 
-  array (
+  ],
+  'mail' => [
     'driver' => 'smtp',
-    'host' => 'smtp.yandex.ru',
-    'port' => '465',
-    'from' => 
-    array (
+    'host'   => 'smtp.yandex.ru',
+    'port'   => '465',
+    'from'   => [
       'address' => 'robot@octavian48.ru',
-      'name' => 'Липецкий туристический портал',
-    ),
+      'name'    => 'Липецкий туристический портал',
+    ],
     'encryption' => 'ssl',
-    'username' => 'robot@octavian48.ru',
-    'password' => 'MUiobDEpLudSJQWbwEvHDaNx3RtQxmZY',
-    'sendmail' => '/usr/sbin/sendmail -bs',
-  ),
-  'platform' => 
-  array (
-    'headless' => false,
-    'domain' => 'localhost',
-    'prefix' => 'dashboard',
-    'middleware' => 
-    array (
-      'public' => 
-      array (
+    'username'   => 'robot@octavian48.ru',
+    'password'   => 'MUiobDEpLudSJQWbwEvHDaNx3RtQxmZY',
+    'sendmail'   => '/usr/sbin/sendmail -bs',
+  ],
+  'platform' => [
+    'headless'   => false,
+    'domain'     => 'localhost',
+    'prefix'     => 'dashboard',
+    'middleware' => [
+      'public' => [
         0 => 'web',
-      ),
-      'private' => 
-      array (
+      ],
+      'private' => [
         0 => 'web',
         1 => 'dashboard',
-      ),
-    ),
-    'auth' => 
-    array (
+      ],
+    ],
+    'auth' => [
       'display' => true,
-      'image' => '/orchid/img/background.jpg',
-      'slogan' => 'dashboard::auth/account.slogan',
-    ),
-    'locales' => 
-    array (
-      'ru' => 
-      array (
-        'name' => 'Russian',
-        'script' => 'Cyrl',
-        'dir' => 'ltr',
-        'native' => 'Русский',
+      'image'   => '/orchid/img/background.jpg',
+      'slogan'  => 'dashboard::auth/account.slogan',
+    ],
+    'locales' => [
+      'ru' => [
+        'name'     => 'Russian',
+        'script'   => 'Cyrl',
+        'dir'      => 'ltr',
+        'native'   => 'Русский',
         'regional' => 'ru_RU',
         'required' => true,
-      ),
-      'en' => 
-      array (
-        'name' => 'English',
-        'script' => 'Latn',
-        'dir' => 'ltr',
-        'native' => 'English',
+      ],
+      'en' => [
+        'name'     => 'English',
+        'script'   => 'Latn',
+        'dir'      => 'ltr',
+        'native'   => 'English',
         'regional' => 'en_GB',
         'required' => false,
-      ),
-    ),
-    'fields' => 
-    array (
-      'textarea' => 'Orchid\\Platform\\Fields\\Types\\TextAreaField',
-      'input' => 'Orchid\\Platform\\Fields\\Types\\InputField',
-      'list' => 'Orchid\\Platform\\Fields\\Types\\ListField',
-      'tags' => 'Orchid\\Platform\\Fields\\Types\\TagsField',
-      'select' => 'Orchid\\Platform\\Fields\\Types\\SelectField',
+      ],
+    ],
+    'fields' => [
+      'textarea'     => 'Orchid\\Platform\\Fields\\Types\\TextAreaField',
+      'input'        => 'Orchid\\Platform\\Fields\\Types\\InputField',
+      'list'         => 'Orchid\\Platform\\Fields\\Types\\ListField',
+      'tags'         => 'Orchid\\Platform\\Fields\\Types\\TagsField',
+      'select'       => 'Orchid\\Platform\\Fields\\Types\\SelectField',
       'relationship' => 'Orchid\\Platform\\Fields\\Types\\RelationshipField',
-      'place' => 'Orchid\\Platform\\Fields\\Types\\PlaceField',
-      'picture' => 'Orchid\\Platform\\Fields\\Types\\PictureField',
-      'datetime' => 'Orchid\\Platform\\Fields\\Types\\DateTimerField',
-      'checkbox' => 'Orchid\\Platform\\Fields\\Types\\CheckBoxField',
-      'code' => 'Orchid\\Platform\\Fields\\Types\\CodeField',
-      'wysiwyg' => 'Orchid\\Platform\\Fields\\Types\\TinyMCEField',
-      'password' => 'Orchid\\Platform\\Fields\\Types\\PasswordField',
-      'markdown' => 'Orchid\\Platform\\Fields\\Types\\SimpleMDEField',
-      'region' => 'App\\Fields\\RegionField',
-    ),
-    'single' => 
-    array (
+      'place'        => 'Orchid\\Platform\\Fields\\Types\\PlaceField',
+      'picture'      => 'Orchid\\Platform\\Fields\\Types\\PictureField',
+      'datetime'     => 'Orchid\\Platform\\Fields\\Types\\DateTimerField',
+      'checkbox'     => 'Orchid\\Platform\\Fields\\Types\\CheckBoxField',
+      'code'         => 'Orchid\\Platform\\Fields\\Types\\CodeField',
+      'wysiwyg'      => 'Orchid\\Platform\\Fields\\Types\\TinyMCEField',
+      'password'     => 'Orchid\\Platform\\Fields\\Types\\PasswordField',
+      'markdown'     => 'Orchid\\Platform\\Fields\\Types\\SimpleMDEField',
+      'region'       => 'App\\Fields\\RegionField',
+    ],
+    'single' => [
       0 => 'App\\Core\\Behaviors\\Single\\AboutPage',
       1 => 'App\\Core\\Behaviors\\Single\\TermsOfServicePage',
       2 => 'App\\Core\\Behaviors\\Single\\ShippingAndPayment',
       3 => 'App\\Core\\Behaviors\\Single\\PersonalData',
-    ),
-    'many' => 
-    array (
-      0 => 'App\\Core\\Behaviors\\Many\\NewsType',
-      1 => 'App\\Core\\Behaviors\\Many\\DocsType',
-      2 => 'App\\Core\\Behaviors\\Many\\PressType',
-      3 => 'App\\Core\\Behaviors\\Many\\ContactType',
-      4 => 'App\\Core\\Behaviors\\Many\\CarouselType',
-      5 => 'App\\Core\\Behaviors\\Many\\SecondaryCarouselType',
-      6 => 'App\\Core\\Behaviors\\Many\\InfoType',
-      7 => 'App\\Core\\Behaviors\\Many\\InvestorType',
-      8 => 'App\\Core\\Behaviors\\Many\\LeisureType',
-      9 => 'App\\Core\\Behaviors\\Many\\RecreationCenterType',
+    ],
+    'many' => [
+      0  => 'App\\Core\\Behaviors\\Many\\NewsType',
+      1  => 'App\\Core\\Behaviors\\Many\\DocsType',
+      2  => 'App\\Core\\Behaviors\\Many\\PressType',
+      3  => 'App\\Core\\Behaviors\\Many\\ContactType',
+      4  => 'App\\Core\\Behaviors\\Many\\CarouselType',
+      5  => 'App\\Core\\Behaviors\\Many\\SecondaryCarouselType',
+      6  => 'App\\Core\\Behaviors\\Many\\InfoType',
+      7  => 'App\\Core\\Behaviors\\Many\\InvestorType',
+      8  => 'App\\Core\\Behaviors\\Many\\LeisureType',
+      9  => 'App\\Core\\Behaviors\\Many\\RecreationCenterType',
       10 => 'App\\Core\\Behaviors\\Many\\ExhibitionsType',
       11 => 'App\\Core\\Behaviors\\Many\\RestaurantsType',
       12 => 'App\\Core\\Behaviors\\Many\\HotelsType',
@@ -895,402 +783,329 @@
       48 => 'App\\Core\\Behaviors\\Many\\TourType',
       49 => 'App\\Core\\Behaviors\\Many\\ProductType',
       50 => 'App\\Core\\Behaviors\\Many\\ShopSliderType',
-    ),
-    'common' => 
-    array (
-      'user' => 'Orchid\\Platform\\Behaviors\\Base\\UserBase',
+    ],
+    'common' => [
+      'user'     => 'Orchid\\Platform\\Behaviors\\Base\\UserBase',
       'category' => 'Orchid\\Platform\\Behaviors\\Base\\CategoryBase',
-    ),
-    'menu' => 
-    array (
-      'header-middle' => 'Верхнее меню',
-      'footer' => 'Нижние меню',
-      'shop-header' => 'Верхнее меню магазин',
+    ],
+    'menu' => [
+      'header-middle'      => 'Верхнее меню',
+      'footer'             => 'Нижние меню',
+      'shop-header'        => 'Верхнее меню магазин',
       'shop-header-middle' => 'Верхнее меню магазин (Вторая строка)',
-      'shop-footer' => 'Нижние меню магазин',
-    ),
-    'disks' => 
-    array (
+      'shop-footer'        => 'Нижние меню магазин',
+    ],
+    'disks' => [
       'media' => 'public',
-    ),
-    'images' => 
-    array (
-      'low' => 
-      array (
-        'width' => '50',
-        'height' => '50',
+    ],
+    'images' => [
+      'low' => [
+        'width'   => '50',
+        'height'  => '50',
         'quality' => '50',
-      ),
-      'medium' => 
-      array (
-        'width' => '600',
-        'height' => '300',
+      ],
+      'medium' => [
+        'width'   => '600',
+        'height'  => '300',
         'quality' => '75',
-      ),
-      'high' => 
-      array (
-        'width' => '1000',
-        'height' => '500',
+      ],
+      'high' => [
+        'width'   => '1000',
+        'height'  => '500',
         'quality' => '95',
-      ),
-    ),
-    'attachment' => 
-    array (
-      'image' => 
-      array (
+      ],
+    ],
+    'attachment' => [
+      'image' => [
         0 => 'png',
         1 => 'jpg',
         2 => 'jpeg',
         3 => 'gif',
-      ),
-      'video' => 
-      array (
+      ],
+      'video' => [
         0 => 'mp4',
         1 => 'mkv',
-      ),
-      'docs' => 
-      array (
-        0 => 'doc',
-        1 => 'docx',
-        2 => 'pdf',
-        3 => 'xls',
-        4 => 'xlsx',
-        5 => 'xml',
-        6 => 'txt',
-        7 => 'zip',
-        8 => 'rar',
-        9 => 'svg',
+      ],
+      'docs' => [
+        0  => 'doc',
+        1  => 'docx',
+        2  => 'pdf',
+        3  => 'xls',
+        4  => 'xlsx',
+        5  => 'xml',
+        6  => 'txt',
+        7  => 'zip',
+        8  => 'rar',
+        9  => 'svg',
         10 => 'ppt',
         11 => 'pptx',
-      ),
-    ),
-    'main_widgets' => 
-    array (
+      ],
+    ],
+    'main_widgets' => [
       0 => 'Orchid\\Platform\\Http\\Widgets\\UpdateWidget',
-    ),
-    'resource' => 
-    array (
-      'stylesheets' => 
-      array (
-      ),
-      'scripts' => 
-      array (
-      ),
-    ),
-  ),
-  'queue' => 
-  array (
-    'default' => 'sync',
-    'connections' => 
-    array (
-      'sync' => 
-      array (
+    ],
+    'resource' => [
+      'stylesheets' => [
+      ],
+      'scripts' => [
+      ],
+    ],
+  ],
+  'queue' => [
+    'default'     => 'sync',
+    'connections' => [
+      'sync' => [
         'driver' => 'sync',
-      ),
-      'database' => 
-      array (
-        'driver' => 'database',
-        'table' => 'jobs',
-        'queue' => 'default',
+      ],
+      'database' => [
+        'driver'      => 'database',
+        'table'       => 'jobs',
+        'queue'       => 'default',
         'retry_after' => 90,
-      ),
-      'beanstalkd' => 
-      array (
-        'driver' => 'beanstalkd',
-        'host' => 'localhost',
-        'queue' => 'default',
+      ],
+      'beanstalkd' => [
+        'driver'      => 'beanstalkd',
+        'host'        => 'localhost',
+        'queue'       => 'default',
         'retry_after' => 90,
-      ),
-      'sqs' => 
-      array (
+      ],
+      'sqs' => [
         'driver' => 'sqs',
-        'key' => 'your-public-key',
+        'key'    => 'your-public-key',
         'secret' => 'your-secret-key',
         'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
-        'queue' => 'your-queue-name',
+        'queue'  => 'your-queue-name',
         'region' => 'us-east-1',
-      ),
-      'redis' => 
-      array (
-        'driver' => 'redis',
-        'connection' => 'default',
-        'queue' => 'default',
+      ],
+      'redis' => [
+        'driver'      => 'redis',
+        'connection'  => 'default',
+        'queue'       => 'default',
         'retry_after' => 90,
-      ),
-    ),
-    'failed' => 
-    array (
+      ],
+    ],
+    'failed' => [
       'database' => 'mysql',
-      'table' => 'failed_jobs',
-    ),
-  ),
-  'region' => 
-  array (
-    'volovskiy' => 
-    array (
+      'table'    => 'failed_jobs',
+    ],
+  ],
+  'region' => [
+    'volovskiy' => [
       'name' => 'Воловский район',
       'sort' => 10,
-    ),
-    'gryazi' => 
-    array (
+    ],
+    'gryazi' => [
       'name' => 'Грязинский район',
       'sort' => 10,
-    ),
-    'dankovsky' => 
-    array (
+    ],
+    'dankovsky' => [
       'name' => 'Данковский район',
       'sort' => 10,
-    ),
-    'bobrinskii' => 
-    array (
+    ],
+    'bobrinskii' => [
       'name' => 'Добринский район',
       'sort' => 10,
-    ),
-    'bobrovskij' => 
-    array (
+    ],
+    'bobrovskij' => [
       'name' => 'Добровский район',
       'sort' => 10,
-    ),
-    'bolgorukovsky' => 
-    array (
+    ],
+    'bolgorukovsky' => [
       'name' => 'Долгоруковский район',
       'sort' => 10,
-    ),
-    'eletskii' => 
-    array (
+    ],
+    'eletskii' => [
       'name' => 'Елец',
       'sort' => 3,
-    ),
-    'zadonsk' => 
-    array (
+    ],
+    'zadonsk' => [
       'name' => 'Задонск',
       'sort' => 2,
-    ),
-    'izmalkovsky' => 
-    array (
+    ],
+    'izmalkovsky' => [
       'name' => 'Измалковский район',
       'sort' => 10,
-    ),
-    'krasninskoe' => 
-    array (
+    ],
+    'krasninskoe' => [
       'name' => 'Краснинский район',
       'sort' => 10,
-    ),
-    'lebedyansky' => 
-    array (
+    ],
+    'lebedyansky' => [
       'name' => 'Лебедянский район',
       'sort' => 10,
-    ),
-    'levTolstoy' => 
-    array (
+    ],
+    'levTolstoy' => [
       'name' => 'Лев-Толстовский район',
       'sort' => 10,
-    ),
-    'lipetsk' => 
-    array (
+    ],
+    'lipetsk' => [
       'name' => 'Липецк',
       'sort' => 1,
-    ),
-    'stanovlyansky' => 
-    array (
+    ],
+    'stanovlyansky' => [
       'name' => 'Становлянский район',
       'sort' => 10,
-    ),
-    'terbunsky' => 
-    array (
+    ],
+    'terbunsky' => [
       'name' => 'Тербунский район',
       'sort' => 10,
-    ),
-    'usman' => 
-    array (
+    ],
+    'usman' => [
       'name' => 'Усманский район',
       'sort' => 10,
-    ),
-    'khlevensky' => 
-    array (
+    ],
+    'khlevensky' => [
       'name' => 'Хлевенский район',
       'sort' => 10,
-    ),
-    'chaplyginsky' => 
-    array (
+    ],
+    'chaplyginsky' => [
       'name' => 'Чаплыгинский район',
       'sort' => 10,
-    ),
-    'tambov' => 
-    array (
+    ],
+    'tambov' => [
       'name' => 'Тамбовский район',
       'sort' => 50,
-    ),
-    'eletskii_area' => 
-    array (
+    ],
+    'eletskii_area' => [
       'name' => 'Елецкий район',
       'sort' => 6,
-    ),
-    'zadonsk_area' => 
-    array (
+    ],
+    'zadonsk_area' => [
       'name' => 'Задонский район',
       'sort' => 5,
-    ),
-    'lipetsk_area' => 
-    array (
+    ],
+    'lipetsk_area' => [
       'name' => 'Липецкий район',
       'sort' => 4,
-    ),
-  ),
-  'scout' => 
-  array (
-    'driver' => 'null',
-    'prefix' => 'octavian',
-    'queue' => true,
-    'algolia' => 
-    array (
-      'id' => '',
+    ],
+  ],
+  'scout' => [
+    'driver'  => 'null',
+    'prefix'  => 'octavian',
+    'queue'   => true,
+    'algolia' => [
+      'id'     => '',
       'secret' => '',
-    ),
-    'elasticsearch' => 
-    array (
-      'index' => 'liptur',
+    ],
+    'elasticsearch' => [
+      'index'   => 'liptur',
       'version' => '5.0.0',
-      'config' => 
-      array (
-        'hosts' => 
-        array (
+      'config'  => [
+        'hosts' => [
           0 => 'localhost',
-        ),
-      ),
-    ),
-  ),
-  'services' => 
-  array (
-    'mailgun' => 
-    array (
-      'domain' => NULL,
-      'secret' => NULL,
-    ),
-    'ses' => 
-    array (
-      'key' => NULL,
-      'secret' => NULL,
+        ],
+      ],
+    ],
+  ],
+  'services' => [
+    'mailgun' => [
+      'domain' => null,
+      'secret' => null,
+    ],
+    'ses' => [
+      'key'    => null,
+      'secret' => null,
       'region' => 'us-east-1',
-    ),
-    'sparkpost' => 
-    array (
-      'secret' => NULL,
-    ),
-    'stripe' => 
-    array (
-      'model' => 'App\\User',
-      'key' => NULL,
-      'secret' => NULL,
-    ),
-    'google-maps' => 
-    array (
+    ],
+    'sparkpost' => [
+      'secret' => null,
+    ],
+    'stripe' => [
+      'model'  => 'App\\User',
+      'key'    => null,
+      'secret' => null,
+    ],
+    'google-maps' => [
       'key' => 'AIzaSyB_9M5O7t88YovZa2mePQ9VX4f79c86cqg',
-    ),
-    'openweathermap' => 
-    array (
-      'q' => 'Lipetsk',
+    ],
+    'openweathermap' => [
+      'q'   => 'Lipetsk',
       'key' => 'e63a446c64e2ed9c50d202d36d17c023',
-    ),
-    'google' => 
-    array (
-      'analytics' => 
-      array (
+    ],
+    'google' => [
+      'analytics' => [
         'key' => '34148171340-p93lfd3vj04p62jktae0airf0u7n3e1p.apps.googleusercontent.com',
-      ),
-      'maps' => 
-      array (
+      ],
+      'maps' => [
         'key' => 'AIzaSyB_9M5O7t88YovZa2mePQ9VX4f79c86cqg',
-      ),
-      'recaptcha' => 
-      array (
+      ],
+      'recaptcha' => [
         'sitekey' => '6Ld9zF4UAAAAAB4WwU72PSW9WA4ElEZlCiy_1Out',
-      ),
-    ),
-    'rambler' => 
-    array (
-      'use_proxy' => false,
-      'api_key' => '3c9f4e3a-30ae-40a9-959e-edddbef22e37',
+      ],
+    ],
+    'rambler' => [
+      'use_proxy'      => false,
+      'api_key'        => '3c9f4e3a-30ae-40a9-959e-edddbef22e37',
       'buy_widget_key' => '004224e0-2c5e-4fef-bcc6-05753405cd0a',
-      'city_name' => 'липецк',
-    ),
-  ),
-  'session' => 
-  array (
-    'driver' => 'file',
-    'lifetime' => 920,
+      'city_name'      => 'липецк',
+    ],
+  ],
+  'session' => [
+    'driver'          => 'file',
+    'lifetime'        => 920,
     'expire_on_close' => false,
-    'encrypt' => false,
-    'files' => '/home/tabuna/GitHub/liptur/storage/framework/sessions',
-    'connection' => NULL,
-    'table' => 'sessions',
-    'store' => NULL,
-    'lottery' => 
-    array (
+    'encrypt'         => false,
+    'files'           => '/home/tabuna/GitHub/liptur/storage/framework/sessions',
+    'connection'      => null,
+    'table'           => 'sessions',
+    'store'           => null,
+    'lottery'         => [
       0 => 2,
       1 => 100,
-    ),
-    'cookie' => 'liptur_session',
-    'path' => '/',
-    'domain' => NULL,
-    'secure' => false,
+    ],
+    'cookie'    => 'liptur_session',
+    'path'      => '/',
+    'domain'    => null,
+    'secure'    => false,
     'http_only' => true,
-  ),
-  'sluggable' => 
-  array (
-    'source' => NULL,
-    'maxLength' => NULL,
+  ],
+  'sluggable' => [
+    'source'             => null,
+    'maxLength'          => null,
     'maxLengthKeepWords' => true,
-    'method' => NULL,
-    'separator' => '-',
-    'unique' => true,
-    'uniqueSuffix' => NULL,
-    'includeTrashed' => false,
-    'reserved' => NULL,
-    'onUpdate' => false,
-  ),
-  'tinker' => 
-  array (
-    'dont_alias' => 
-    array (
-    ),
-  ),
-  'trustedproxy' => 
-  array (
-    'proxies' => NULL,
+    'method'             => null,
+    'separator'          => '-',
+    'unique'             => true,
+    'uniqueSuffix'       => null,
+    'includeTrashed'     => false,
+    'reserved'           => null,
+    'onUpdate'           => false,
+  ],
+  'tinker' => [
+    'dont_alias' => [
+    ],
+  ],
+  'trustedproxy' => [
+    'proxies' => null,
     'headers' => 30,
-  ),
-  'view' => 
-  array (
-    'paths' => 
-    array (
+  ],
+  'view' => [
+    'paths' => [
       0 => '/home/tabuna/GitHub/liptur/resources/views',
-    ),
+    ],
     'compiled' => '/home/tabuna/GitHub/liptur/storage/framework/views',
-  ),
-  'widget' => 
-  array (
-    'widgets' => 
-    array (
-      'advertising' => 'App\\Http\\Widgets\\AdvertisingWidget',
-      'mainNews' => 'App\\Http\\Widgets\\MainNewsWidget',
-      'mainEvents' => 'App\\Http\\Widgets\\MainEventsWidget',
-      'mainCinema' => 'App\\Http\\Widgets\\MainCinemaWidget',
-      'mainCoursel' => 'App\\Http\\Widgets\\MainCarouselWidget',
-      'mainCategory' => 'App\\Http\\Widgets\\MainCategoryWidget',
-      'secondarySlider' => 'App\\Http\\Widgets\\SecondarySlider',
-      'subscription' => 'App\\Http\\Widgets\\EmailSubscription',
-      'EmailSecondary' => 'App\\Http\\Widgets\\EmailSecondaryWidget',
-      'option' => 'App\\Http\\Widgets\\OptionWidget',
-      'reservation' => 'App\\Http\\Widgets\\ReservationWidget',
-      'FilmInfo' => 'App\\Http\\Widgets\\FilmInfoWidget',
-      'menuCategory' => 'App\\Http\\Widgets\\MenuCategoryWidget',
+  ],
+  'widget' => [
+    'widgets' => [
+      'advertising'        => 'App\\Http\\Widgets\\AdvertisingWidget',
+      'mainNews'           => 'App\\Http\\Widgets\\MainNewsWidget',
+      'mainEvents'         => 'App\\Http\\Widgets\\MainEventsWidget',
+      'mainCinema'         => 'App\\Http\\Widgets\\MainCinemaWidget',
+      'mainCoursel'        => 'App\\Http\\Widgets\\MainCarouselWidget',
+      'mainCategory'       => 'App\\Http\\Widgets\\MainCategoryWidget',
+      'secondarySlider'    => 'App\\Http\\Widgets\\SecondarySlider',
+      'subscription'       => 'App\\Http\\Widgets\\EmailSubscription',
+      'EmailSecondary'     => 'App\\Http\\Widgets\\EmailSecondaryWidget',
+      'option'             => 'App\\Http\\Widgets\\OptionWidget',
+      'reservation'        => 'App\\Http\\Widgets\\ReservationWidget',
+      'FilmInfo'           => 'App\\Http\\Widgets\\FilmInfoWidget',
+      'menuCategory'       => 'App\\Http\\Widgets\\MenuCategoryWidget',
       'menuTopMiddleColum' => 'App\\Http\\Widgets\\MenuTopMiddleColum',
-      'menuFooter' => 'App\\Http\\Widgets\\MenuFooterWidget',
-      'menuWidget' => 'App\\Http\\Widgets\\MenuWidget',
-      'mainRoute' => 'App\\Http\\Widgets\\RandomRouteWidget',
-      'lastEventSidebar' => 'App\\Http\\Widgets\\LastEventsSidebarWidget',
-      'shopHeaderMiddle' => 'App\\Http\\Widgets\\ShopHeaderMiddleWidget',
-    ),
-  ),
-);
+      'menuFooter'         => 'App\\Http\\Widgets\\MenuFooterWidget',
+      'menuWidget'         => 'App\\Http\\Widgets\\MenuWidget',
+      'mainRoute'          => 'App\\Http\\Widgets\\RandomRouteWidget',
+      'lastEventSidebar'   => 'App\\Http\\Widgets\\LastEventsSidebarWidget',
+      'shopHeaderMiddle'   => 'App\\Http\\Widgets\\ShopHeaderMiddleWidget',
+    ],
+  ],
+];

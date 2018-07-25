@@ -14,7 +14,7 @@ class CreateOrchidUsersTable extends Migration
             $table->timestamp('last_login')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-           // $table->string('avatar')->nullable();
+            // $table->string('avatar')->nullable();
             //$table->string('website')->nullable();
             //$table->text('about')->nullable();
             //$table->string('phone')->nullable();
