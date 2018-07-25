@@ -34,6 +34,9 @@
 @endsection
 
 @section('shop')
+@php 
+    $order=(new App\Core\Models\Order)->ordervar;
+@endphp
 
 <section>
   <div class="container padder-v">
@@ -50,8 +53,9 @@
           <div class="col-md-6">
             <div class="form-group">
               <select name="delivery" class="select2 form-control" v-model="formData.delivery">
-                <option value="mail">Почта</option>
-                <option value="courier">Курьер</option>
+                @foreach ($order['delivery'] as $key=>$delivery)
+                  <option value="{{$key}}">{{$delivery}}</option>
+                @endforeach 
               </select>
             </div>
           </div>
@@ -64,7 +68,9 @@
           <div class="col-md-6">
             <div class="form-group">
               <select name="payment" class="select2 form-control" v-model="formData.payment">
-                <option value="cash">Наличными</option>
+                @foreach ($order['payment'] as $key=>$payment)
+                  <option value="{{$key}}">{{$payment}}</option>
+                @endforeach 
               </select>
             </div>
           </div>
