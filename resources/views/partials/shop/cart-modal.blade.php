@@ -5,20 +5,20 @@
             Товар добавлен в корзину
         </div>
         <div class="col-md-8">
-          <div v-for="product in cartProducts" class="row panel panel-default box-shadow-lg pos-rlt m-b-none">
+          <div v-for="product in cartProducts" class="row row-flex panel panel-default box-shadow-lg pos-rlt m-b-none">
             <div class="col-md-4 col-xs-12 no-padder-h">
               <div class="img-full">
                 <img height="190" v-bind:src="product.options.image"/>
               </div>
             </div>
-            <div class="col-md-7 col-xs-12 padder-v">
+            <div class="col-md-8 col-xs-12 padder-v prod-desc">
               <a class="text-green text-bold text-lg" v-bind:href="product.options.url">
                   @{{product.name}}
                 </a>
               <div class="padder-v-micro text-sm">
                 @{{product.options.annotation}}
               </div>
-              <div class="row m-t">
+              <div class="row m-t row-flex">
                 <div class="col-xs-4">
                   <div class="input-group cart-component">
                     <input type="text" class="form-control" v-model="product.qty" v-on:change="updateCartInput(product)"/>
@@ -50,10 +50,10 @@
             </div>
             <div class="row padder-v-micro">
               <div class="col-xs-12" v-if="isAllow()">
-                <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatCartPrice(cartTotal) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
+                <span class="text-md">На сумму:&nbsp;</span><em class="text-red text-35px">@{{ formatCartPrice(cartTotal) }}</em>&nbsp;<em class="text-red text-md">руб.</em>
               </div>
               <div class="col-xs-12" v-else>
-                <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">Под заказ</em>
+                <span class="text-md">На сумму:&nbsp;</span><em class="text-red text-35px">Под заказ</em>
               </div>
             </div>
             <button :disabled="!isAllow()" class="btn btn-warning w-full m-t text-u-c" v-on:click="closeCart()">Продолжить покупки</button>

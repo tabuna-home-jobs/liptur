@@ -42,20 +42,20 @@
     </div>
     <div id="cart" v-cloak>
       <div class="col-md-8 padder-md" id="cart-affix-target">
-          <div v-for="product in products" class="row panel panel-default box-shadow-lg pos-rlt">
+          <div v-for="product in products" class="row row-flex panel box-shadow-lg pos-rlt">
             <div class="col-sm-4 col-xs-12 no-padder-h">
               <div class="img-full">
                 <img height="190" v-bind:src="product.options.image"/>
               </div>
             </div>
-            <div class="col-sm-7 col-xs-12 padder-v">
+            <div class="col-sm-7 col-xs-12 padder-v prod-desc">
                 <a class="text-green text-bold text-lg" v-bind:href="product.options.url">
                   @{{product.name}}
                 </a>
                 <div class="padder-v-micro text-sm">
                   @{{product.options.annotation}}
                 </div>
-                <div class="row m-t">
+                <div class="row m-t row-flex">
                   <div class="col-xs-4">
                     <div class="input-group cart-component">
                     <input type="text" class="form-control" v-model="product.qty" v-on:change="updateInput(product)"/>
@@ -81,7 +81,7 @@
             <div class="top-right">
               <div class="padder-v padder text-center">
                 <a v-on:click="destroy(product)">
-                  <i class="fa fa-close fa-lg text-green"></i>
+                  <i class="close-cart"></i>
                 </a>
               </div>
             </div>
