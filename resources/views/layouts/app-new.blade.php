@@ -236,7 +236,7 @@
                 </div>
                 <div class="col-xs-12 col-md-3 col-md-offset-3 text-right">
                     <div>
-                        <div class="v-center">
+                        <div class="v-center pull-right">
                             <a class="text-campaing m-n text-left imgs-hovers">
                                 <img src="/img/icons/artp.png" data-src="/img/icons/artp.png" data-hover-src="/img/icons/artp-hover.png"  class="m-r-sm">
                                 <span>Разработка сайта – <br>

@@ -2,16 +2,36 @@
   display: none;
 }
 
-#shop-product-slider .sp-thumbnail-image-container {
-  width:    100px;
-  height:   80px;
-  overflow: hidden;
-  float:    left;
+#shop-product-slider {
+    margin-right: 0px;
+    
+    .sp-thumbnail-image-container {
+      width:    110px;
+      height:   110px;
+      overflow: hidden;
+      float:    left;
+    }
+    
+    .sp-thumbnail-image {
+      height: 100%;
+    }
+    
+    .sp-thumbnail-container.sp-selected-thumbnail img {
+        opacity: 0.4;
+    }
+    .sp-right-thumbnails.sp-has-pointer {
+        margin-left: 16px;
+    }
+   
+    .sp-right-thumbnails.sp-has-pointer .sp-thumbnail {
+        position: unset;
+    }
 }
 
-#shop-product-slider .sp-thumbnail-image {
-  height: 100%;
-}
+
+
+
+
 
 @media (max-width: 500px) {
   #shop-product-slider .sp-thumbnail {

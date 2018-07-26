@@ -76,7 +76,7 @@
                                         <div class="sp-thumbnail">
                                             <div class="sp-thumbnail-image-container">
                                                 <img class="sp-thumbnail-image img-full"
-                                                     src="{{$attachment->url('small')}}"/>
+                                                     src="{{$attachment->url('medium')}}"/>
                                             </div>
                                         </div>
                                     @endforeach

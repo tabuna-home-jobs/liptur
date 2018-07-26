@@ -21895,16 +21895,20 @@ $(function () {
               height: 600,
               orientation: 'vertical',
               loop: false,
-              arrows: true,
+              arrows: false,
               buttons: false,
+              autoplay: false,
+              touchSwipe: false,
               thumbnailsPosition: 'right',
               thumbnailPointer: true,
+              thumbnailArrows: true,
               thumbnailWidth: 110,
+              thumbnailHeight: 110,
               breakpoints: {
                   800: {
                       thumbnailsPosition: 'bottom',
                       thumbnailWidth: 110,
-                      thumbnailHeight: 80
+                      thumbnailHeight: 110
                   },
                   500: {
                       thumbnailsPosition: 'bottom',
