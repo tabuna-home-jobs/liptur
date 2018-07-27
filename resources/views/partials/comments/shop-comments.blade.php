@@ -8,7 +8,7 @@
                 <div class="col-xs-12">
                     @if (Auth::guest())
                         <a href="{{url('/login')}}" class="text-green text-bold">
-                            <button class="btn btn-success btn-circled  m-r-xs">
+                            <button class="btn btn-primary btn-circled  m-r-xs">
                                 <i class="user-auth-icon"></i>
                             </button>
                             Войти
@@ -41,8 +41,8 @@
                         ></textarea>
                       </div>
                       <div>
-                          <button v-on:click="addComment()" <?php if (Auth::guest()){ ?> disabled <?php } ?> class="btn btn-success">ДОБАВИТЬ</button>
-                          <button v-on:click="clearComment()" class="btn">Отменить</button>
+                          <button v-on:click="addComment()" <?php if (Auth::guest()){ ?> disabled <?php } ?> class="btn btn-primary">ДОБАВИТЬ</button>
+                          <a v-on:click="clearComment()" class="btn">Отменить</a>
                       </div>
                     </div>
                 </div>

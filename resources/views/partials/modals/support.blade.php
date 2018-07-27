@@ -19,9 +19,9 @@
 
                         {!! csrf_field() !!}
 
-                        <div class="row">
+                        <div class="row row-flex">
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 flex-column">
                                 <div class="form-group has-feedback">
                                     <label for="username" class="control-label">{{trans('support.Name')}}</label>
                                     <input type="text" class="form-control" name="name" v-model="name" required maxlength="60">
@@ -39,8 +39,8 @@
                                            placeholder="{{trans('support.Phone Description')}}" data-mask="+ 9-999-999-99-99">
                                 </div>
                                 
-                                <div class="form-group m-t-xxl m-b-none">
-                                  <div class="checkbox">
+                                <div class="form-group m-b-none">
+                                  <div class="checkbox m-b-none">
                                       <label class="i-checks">
                                           <input type="checkbox"  v-model="supportAggree" name="checkme"><i></i>   Я согласен на обработку <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-personal-data">персональных данных</a> и ознакомился с <a href="" class="text-sm text-green" data-toggle="modal" data-target="#modalpage-terms-of-service">правилами сервиса</a>
                                       </label>
@@ -49,7 +49,7 @@
                                
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 flex-column">
                                 <div class="form-group">
                                     <label for="message" class="control-label">{{trans('support.Message')}}</label>
                                     <textarea class="form-control no-resize" name="message" v-model="message" maxlength="500"

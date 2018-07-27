@@ -21129,6 +21129,9 @@ $(function () {
     }
 });
 $(function () {
+    
+ 
+    
 
     $('.poster-carousel').owlCarousel({
         animateOut: 'fadeOut',
@@ -21198,6 +21201,7 @@ $(function () {
     $('.category-carousel').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
+        onResized: callback,
         lazyLoad: true,
         // center: true,
         navText: [
@@ -21222,7 +21226,24 @@ $(function () {
             }
         }
     });
-
+    
+    
+    function callback() {
+        $('.category-carousel').trigger('refresh.owl.carousel');
+		console.log('callback: onResized');
+	}
+	
+       /*$(window).resize(function(){ $('.category-carousel').trigger('refresh.owl.carousel'); });*/
+    /*   
+    function owlres() {
+        var $carousel = $('.category-carousel');
+        
+        $carousel.data('owl.carousel')._invalidated.width = true;
+        $carousel.trigger('refresh.owl.carousel');
+        
+		console.log('owlres');
+	}  */ 
+    
     $('.main-carousel').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
@@ -21945,10 +21966,30 @@ $(function () {
         async addComment() {
           const {commentText} = this;
           const productId = $(this.$el).attr('product-id')
-          await this.$http.post(`/api/shop/${productId}/comment`, {
-            content: commentText,
-          });
-          location.reload();
+          try {
+                await this.$http.post(`/api/shop/${productId}/comment`, {
+                    content: commentText,
+                });
+                swal({
+                  title: "Выполнено успешно",
+                  text: "Ваш комментарий добавлен!",
+                  type: "success",
+                  confirmButtonClass: "btn-success",
+                  confirmButtonText: "Закрыть",
+                }, function () {
+                  location.reload();
+                });
+          } catch (e) {
+                swal({
+                    title: "Ошибка",
+                    text: "Не получилось добавить комментарий!",
+                    type: "error",
+                    confirmButtonClass: "btn-warning",
+                    confirmButtonText: "Закрыть",
+                });
+          }  
+              
+              
         },
         clearComment() {
           this.commentText = ''
@@ -22320,8 +22361,9 @@ $(function () {
             swal({
               title: "Выполнено успешно",
               text: "Ваш заказ создан!",
-              icon: "success",
-              button: "ОК",
+              type: "success",
+              confirmButtonClass: "btn-success",
+              confirmButtonText: "Перейти на главную страницу",
             }, function () {
               window.location.href = '/shop';
             });

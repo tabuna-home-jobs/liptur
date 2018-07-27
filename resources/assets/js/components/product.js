@@ -61,10 +61,30 @@ $(function () {
         async addComment() {
           const {commentText} = this;
           const productId = $(this.$el).attr('product-id')
-          await this.$http.post(`/api/shop/${productId}/comment`, {
-            content: commentText,
-          });
-          location.reload();
+          try {
+                await this.$http.post(`/api/shop/${productId}/comment`, {
+                    content: commentText,
+                });
+                swal({
+                  title: "Выполнено успешно",
+                  text: "Ваш комментарий добавлен!",
+                  type: "success",
+                  confirmButtonClass: "btn-success",
+                  confirmButtonText: "Закрыть",
+                }, function () {
+                  location.reload();
+                });
+          } catch (e) {
+                swal({
+                    title: "Ошибка",
+                    text: "Не получилось добавить комментарий!",
+                    type: "error",
+                    confirmButtonClass: "btn-warning",
+                    confirmButtonText: "Закрыть",
+                });
+          }  
+              
+              
         },
         clearComment() {
           this.commentText = ''

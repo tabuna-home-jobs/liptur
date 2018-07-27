@@ -103,20 +103,23 @@
                                         Войти на сайт
                                     </button>
 
-                                    <h2>
-                                        Войти при помощи соц.сетей
-                                    </h2>
-
-                                    <div class="m-t-md">
-                                        @include('auth.social')
-                                    </div>
-
 
                                 </form>
 
                             </div>
 
 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>
+                                Войти при помощи соц.сетей
+                            </h2>
+
+                            <div class="m-t-md">
+                                @include('auth.social')
+                            </div>
                         </div>
                     </div>
                 </div>

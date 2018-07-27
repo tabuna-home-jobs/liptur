@@ -52,14 +52,14 @@
 
 
     <div class="container padder-t rebrand">
-        <div class="navbar-row">
+        <div class="navbar-row header-top">
             <div class="navbar-header text-center">
               <a href="/{{App::getLocale()}}" class="navbar-brand navbar-brand-left" title="На главную">
                 <img src="/img/new-logo.png" alt="LipTur">
               </a>
             </div>
-            <ul class="nav navbar-nav navbar-right hidden-xs">
-                <li class="col-sm-5 col-md-4 no-padder">
+            <ul class="nav navbar-nav navbar-right hidden-xs row-flex">
+                <li class="no-padder">
                     <div class="navbar-phone">
                         <i class="phone-icon"></i>
                         <span>{{setting('shop_phone','8-800-200-81-20')}}</span>
@@ -80,7 +80,7 @@
                     <!-- <a href="#" rel="search" title="Поиск по веб-сайту" data-target="#modalSeachIn" data-toggle="modal">
                       <i class="icon-magnifier m-r-xs"></i>Поиск</a> -->
                 </li>
-                <li class="col-sm-2 col-md-2  no-padder text-center">
+                <li class="no-padder text-center">
                     <div class="navbar-locale">
                         <a href="{{Localization::getLocalizedURL('ru','/') }}"
                            class="green-button {{App::getLocale()=='ru'? 'raised': ''}}" hreflang="ru"
@@ -93,7 +93,7 @@
 
                 <!-- Авторизация  -->
                 @if (Auth::guest())
-                    <li class="col-sm-2 col-md-2  no-padder pull-right text-right">
+                    <li class="no-padder pull-right text-right">
                         <a href="{{ url('/login') }}" class="navbar-auth">
                             <div>
                                 <i class="key-icon m-r-xs"></i>Вход
@@ -101,7 +101,7 @@
                         </a>
                     </li>
                 @else
-                    <li class="col-sm-2 col-md-2 no-padder pull-right">
+                    <li class=" no-padder pull-right">
                         <a href="{{ url('/profile') }}" title="Мой профиль">
                             <span class="thumb-sm avatar pull-right">
                             <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">

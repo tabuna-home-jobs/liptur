@@ -39,8 +39,9 @@ $(function () {
             swal({
               title: "Выполнено успешно",
               text: "Ваш заказ создан!",
-              icon: "success",
-              button: "ОК",
+              type: "success",
+              confirmButtonClass: "btn-success",
+              confirmButtonText: "Перейти на главную страницу",
             }, function () {
               window.location.href = '/shop';
             });
