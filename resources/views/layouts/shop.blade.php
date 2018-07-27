@@ -3,7 +3,7 @@
   
       <div class="visible-xs padder-v-micro row"></div>
       <div id="shop-header" class="row padder-l-xl no-p-xs">
-          <div class="col-xs-8 col-sm-9 col-lg-8 hidden-xs">
+          <div class="col-xs-8 col-sm-9 col-lg-8 no-padder-h hidden-xs">
               <div class="btn-tablet hidden-lg">
                 <button class="btn btn-link hidden-lg" type="button" data-toggle="modal" data-target="#topmenu">
                     <i class="fa fa-bars"></i>
@@ -34,7 +34,7 @@
                           <img v-bind:src="product.options.image"/>
                         </div>
                       </div>
-                      <div class="col-xs-6">
+                      <div class="col-xs-7">
                         <a class="text-white text-bold" v-bind:href="product.options.url">
                           @{{product.name}}
                         </a>
@@ -42,9 +42,9 @@
                           @{{product.options.annotation}}
                         </div>
                       </div>
-                      <div class="col-xs-4 no-padder-h">
+                      <div class="col-xs-3 no-padder-h">
                         <div class="pull-right text-right">
-                          <a v-on:click="destroy(product, $event)"><i class="fa fa-close text-muted"></i></a>
+                          <a v-on:click="destroy(product, $event)"><i class="close-dropcart"></i></a>
                           <div class="padder-v-micro">
                             <em class="text-white text-md">@{{formatPrice(product.subtotal)}}</em>&nbsp;<em class="text-sm text-white">руб.</em>
                           </div>

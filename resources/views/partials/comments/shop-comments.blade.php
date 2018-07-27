@@ -1,4 +1,4 @@
-<div class="container padder-v">
+<div class="container padder-v comments">
     <div class="block-header comment-header padder-v">
         Комментарии
     </div>
@@ -59,6 +59,9 @@
                         <div>
                             <strong>{{$comment->author->name}}</strong>
                             <span class="text-muted text-sm block">
+                                    @php
+                                        Carbon\Carbon::setLocale('ru');
+                                    @endphp
                                     {{$comment->created_at->diffForHumans()}}
                                 </span>
                         </div>

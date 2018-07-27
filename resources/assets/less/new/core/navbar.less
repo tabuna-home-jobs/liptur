@@ -67,6 +67,9 @@
 }
 
 .cart-dropdown {
+    margin-right: 15px;
+    margin-left: -15px;
+
   &.notEmpty {
     i.cart-icon {
       background-image: url(/img/icons/cart-red.png);
@@ -85,8 +88,12 @@
     }
   }
   #dropdownMenuShopCart {
+    padding-left: 0px;
+    padding-right: 0px;
+    
     &:hover {
       color: #d13636;
+      background-color: #fff;
       i.cart-icon {
         background-image: url(/img/icons/cart-hover.png);
       }
@@ -95,8 +102,16 @@
   .dropdown-menu {
     background-color: #4F7B37;
     color: #fff;
+    border-radius: 0px;
+    margin-left: -30px;
+    min-width: ~"calc(100% + 30px)";
     .b-b {
       border-color: #688E53;
+    }
+    .text-sm {
+        font-family:"Roboto";
+        font-size: 12px;
+        color:#a1b98b;
     }
 
     a.text-white:hover, i:hover {
@@ -104,6 +119,8 @@
     }
 
     .btn-success {
+        padding-top: 11px;
+        padding-bottom: 7px;
       &:hover {
         background-color: #d3e068;
       }

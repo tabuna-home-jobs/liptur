@@ -94,13 +94,16 @@ class ShopController extends Controller
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->warning')
             ->get();
-
+        
         $category = optional($product->taxonomies()->first())->term ?? new Term();
-
+        
+        $comments=$product->comments()->where('approved',1)->orderBy('created_at', 'DESC')->get();
+        
         return view('shop.product', [
             'product'  => $product,
             'warnings' => $warnings,
             'category' => $category,
+            'comments' => $comments,
         ]);
     }
 

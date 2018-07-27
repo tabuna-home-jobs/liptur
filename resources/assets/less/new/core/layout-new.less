@@ -306,6 +306,17 @@ i.close-cart {
     background-image: url(/img/icons/close-cart-hover.png);
   }
 }
+i.close-dropcart {
+  background-image: url(/img/icons/close-dropcart.png);
+  display: inline-block;
+  background-size: cover;
+  width: 12px;
+  height: 11px;
+  vertical-align: middle;
+  a:hover &{
+    background-image: url(/img/icons/close-dropcart-hover.png);
+  }
+}
 
 i.user-auth-icon {
   background-image: url(/img/icons/user.png);
@@ -489,6 +500,9 @@ article.shop-product {
     }
   }
   .h4 {
+    height: 40px;
+    min-height: 40px;
+    overflow:hidden;
     a {
       color: #a5b526;
       font-family: "William Text Pro";
@@ -498,6 +512,14 @@ article.shop-product {
         color: @hover-color;
       }
     }
+  }
+  .text-xs{
+    font-family: "Roboto";
+    font-size: 13px;
+    height: 35px;
+    min-height: 35px;
+    overflow: hidden;
+    text-align: justify;
   }
   a.cart-button {
     float: right;
@@ -733,5 +755,58 @@ article.shop-product {
     .row-flex{
         align-items: center;
         margin-top: 30px;
+    }
+}
+
+div#shop-header {
+    padding-left: 48px;
+}
+#product {
+    .btn-success:hover {
+        background-color: #007e1e;
+    }
+    .pluso {
+        margin-left: 5px;
+    }
+    a.pluso-more {
+        margin-right: 0px;
+    }
+    .product-right{
+        .list-unstyled {
+            margin-bottom: 0px;
+            span {
+                font-size: 14px;
+                margin-left: 5px;
+            }
+        }
+        .bg-white > .wrapper{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .col-xs-3.no-padder.text-black.m-t {
+            font-size: 16px;
+        }
+    }
+    .prod-warnings{
+        .block-header {
+            margin-top:17px;
+            margin-bottom:4px;
+        }
+        .owl-carousel .owl-stage {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.comments {
+    .b-b {
+        border-bottom: 1px solid #cecece;
+        &:last-child{
+            border-bottom:none;
+        }
+    }
+    .col-md-4 {
+        padding-right: 0px;
+        padding-left: 30px;
     }
 }

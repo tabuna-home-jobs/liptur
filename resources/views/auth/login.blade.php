@@ -167,7 +167,7 @@
 
                             <div>
                                 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label class="text-sm text-left">Введите ваш Email (это будет логин)     :</label>
+                                    <label class="text-sm text-left">Введите ваш Email (это будет логин)  <span class="text-red">*</span>   :</label>
                                     <input type="email" name="email" value="{{ old('email') }}" required=""
                                           class="form-control">
 
@@ -180,7 +180,7 @@
 
 
                                 <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label class="text-sm text-left">Введите  пароль     :</label>
+                                    <label class="text-sm text-left">Введите  пароль <span class="text-red">*</span> :</label>
                                     <input type="password" name="password" value="" required=""
                                            class="form-control">
 
@@ -193,13 +193,13 @@
 
 
                                 <div class="form-group">
-                                    <label class="text-sm text-left">Повторите пароль еще раз     :</label>
+                                    <label class="text-sm text-left">Повторите пароль еще раз   <span class="text-red">*</span>  :</label>
                                     <input type="password" name="password_confirmation" value="" required=""
                                            class="form-control">
                                 </div>
 
                                 <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                                    <label class="text-sm text-left">Ваше имя (никнейм):</label>
+                                    <label class="text-sm text-left">Ваше имя (никнейм) <span class="text-red">*</span> :</label>
                                     <input type="text" maxlength="200" min="3" name="name" value="{{ old('name') }}"
                                            required="" class="form-control">
 
@@ -214,7 +214,7 @@
                                     <div class="checkbox">
                                         <label class="i-checks">
                                             <input type="checkbox" value="1" onclick="document.getElementById('register').disabled=!document.getElementById('register').disabled;" name="remember" required> <i></i>
-                                            Я принимаю <a href="" data-toggle="modal" data-target="#modalpage">правила сервиса</a>
+                                            Я принимаю <a href=""  class="text-green" data-toggle="modal" data-target="#modalpage-terms-of-service">правила сервиса</a>
                                         </label>
                                     </div>
                                 </div>

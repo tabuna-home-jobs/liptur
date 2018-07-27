@@ -22,7 +22,7 @@ class CommentController
             'user_id'   => Auth::user()->id,
             'parent_id' => 0,
             'content'   => $request->get('content'),
-            'approved'  => 1,
+            'approved'  => 0,
         ]);
 
         return response(200);

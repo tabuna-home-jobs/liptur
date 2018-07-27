@@ -89,7 +89,7 @@
                         </div>
 
                     </main>
-                    <div class="col-md-4">
+                    <div class="col-md-4 product-right">
 
                         <div class="bg-white w-full b">
 
@@ -121,7 +121,7 @@
                                 <ul class="list-unstyled text-sm text-grey">
                                     <li>Артикул: <span>{{$product->getOption('ski')}}</span></li>
                                     <li class="padder-v-micro">Продавец: <span
-                                                class="text-black">{{$product->getContent('seller.name')}}</span></li>
+                                                class="text-darkred">{{$product->getContent('seller.name')}}</span></li>
                                 </ul>
 
                             </div>
@@ -207,12 +207,12 @@
         <section id="content-dark">
             @include('partials.comments.shop-comments',[
               'id' => $product->id,
-              'comments' => $product->comments()->orderBy('created_at', 'DESC')->get(),
+              'comments' => $comments,
               'post' => $product
              ] )
         </section>
 
-        <section class="content">
+        <section class="content prod-warnings">
             <div class="container padder-v">
                 <div class="col-md-12">
                     <div class="row">
@@ -233,7 +233,7 @@
                                     <div class="wrapper-md">
 
                                         <p class="h4 m-b-xs" data-mh="main-shop-header">
-                                            <a href="{{route('shop.product',$product->slug)}}">{{$product->getContent('name')}}</a>
+                                            <a href="{{route('shop.product',$product->slug)}}" title="{{$product->getContent('name')}}">{{$product->getContent('name')}}</a>
                                         </p>
                                         <p class="text-xs" data-mh="main-shop-body">
                                             {{$product->getContent('annotation')}}
