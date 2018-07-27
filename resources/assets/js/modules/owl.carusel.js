@@ -36,9 +36,8 @@ $(function () {
         loop: true,
         nav: true,
         lazyLoad: true,
-        autoplay: true,
+        autoplay: false,
         center: false,
-        autoplayTimeout: 0,
         autoplayHoverPause: true,
         navText: [
             '<i class="icon-arrow-left"></i>',
@@ -69,9 +68,9 @@ $(function () {
     
     
     $('.category-carousel').owlCarousel({
+        
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
-        onResized: callback,
         lazyLoad: true,
         // center: true,
         navText: [
@@ -97,22 +96,7 @@ $(function () {
         }
     });
     
-    
-    function callback() {
-        $('.category-carousel').trigger('refresh.owl.carousel');
-		console.log('callback: onResized');
-	}
-	
-       /*$(window).resize(function(){ $('.category-carousel').trigger('refresh.owl.carousel'); });*/
-    /*   
-    function owlres() {
-        var $carousel = $('.category-carousel');
-        
-        $carousel.data('owl.carousel')._invalidated.width = true;
-        $carousel.trigger('refresh.owl.carousel');
-        
-		console.log('owlres');
-	}  */ 
+
     
     $('.main-carousel').owlCarousel({
         animateOut: 'fadeOut',
@@ -162,6 +146,8 @@ $(function () {
         ],
         items: 1,
     });
+    
+    
     
     
 });
