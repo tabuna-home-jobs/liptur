@@ -102,13 +102,15 @@
                     </li>
                 @else
                     <li class=" no-padder pull-right">
-                        <a href="{{ url('/profile') }}" title="Мой профиль">
-                            <span class="thumb-sm avatar">
-                            <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
-                            <i class="on md b-white bottom"></i>
-                            </span>
-                            <span class="m-l-sm">Выход</span>
-                        </a>
+                        <div class="navbar-profile">
+                            <a href="{{ url('/profile') }}" title="Мой профиль">
+                                <span class="thumb-sm avatar">
+                                <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
+                                <i class="on md b-white bottom"></i>
+                                </span>
+                            </a>
+                            <a href="{{ url('/logout') }}" title="Выход" class="navbar-auth">Выход</a>
+                        </div>
                     </li>
                 @endif
             </ul>

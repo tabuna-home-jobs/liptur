@@ -21694,7 +21694,6 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     methods: {
       load: function (type) {
-        console.log("asfasfas")
         var lang = this.language;
         this.$http.get('/' + lang + '/maps/' + type).then(function (response) {
           //console.log(response);
@@ -21706,7 +21705,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(this.show, 1000);
       },
       show: function () {
-        console.log("Asfasfas")
         this.map.markers.forEach(function (marker) {
           marker.setMap(null)
         });
@@ -21742,6 +21740,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
           window.markersArray.push(marker);
+          var infowindow = new google.maps.InfoWindow();
+          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, key));
+
+          console.log(marker)
 
           loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 
@@ -21855,6 +21862,11 @@ $(function () {
             }
         });
     }
+});
+$(function () {
+    $('#topmenu').on('shown.bs.modal', function () {
+      $('.modal-backdrop.in').addClass('hidden');
+    })
 });
 if (document.getElementById('newletter')) {
     new Vue({
@@ -22343,15 +22355,15 @@ $(function () {
 
           try {
             await this.$http.post('/api/cart/order', {
-              email: formData.email,
+              email: formData.email || '',
               name: formData.first_name || formData.last_name ? `${formData.first_name||''} ${formData.last_name||''}`: null,
-              phone: formData.phone,
-              password: formData.password,
-              password_confirmation: formData.password_confirmation,
-              nick: formData.nick,
-              message: formData.message,
-              delivery: formData.delivery,
-              payment: formData.payment,
+              phone: formData.phone || '',
+              password: formData.password || '',
+              password_confirmation: formData.password_confirmation || '',
+              nick: formData.nick || '',
+              message: formData.message || '',
+              delivery: formData.delivery || '',
+              payment: formData.payment || '',
             });
             swal({
               title: "Выполнено успешно",

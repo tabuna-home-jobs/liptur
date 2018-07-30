@@ -201,9 +201,15 @@
 #topmenu.modal {
     background: #401b21;
     opacity: .95!important;
-    .modal-dialog.modal-lg .modal-content {
+    
+    .modal-content-wrapper{
+      vertical-align: top;
+      padding-top: 125px;
+    }
+    
+    .modal-dialog .modal-content {
         background: none;
-        padding: 30px 0px;
+        padding: 82px 0px 30px;
     }
     button.close {
         color: #d3e068;
@@ -214,16 +220,21 @@
     .flex-menu {
         display: inline-flex;
         flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
     }
     .flex-menu-item {
         margin: 0 10px;
         font-size: 13px;
+        position: relative;
         > li {
-            height: 40px;
+            height: 32px;
+            margin-top: 7px;
             margin-bottom: 10px;
         }
         li{
-            color: #8e8082;    
+            color: #8e8082;  
+            
         }
         li a, button {
             color: #d3e068;
@@ -231,8 +242,30 @@
         li a:hover, button:hover {
             color: #7db701;
         }
+        ul {
+          position: absolute;
+          li {
+            margin-bottom: 8px;
+          }
+        }
+        &:first-child {
+          width:10px;
+          margin-left: -32px;
+        }
+        &:last-child {
+          text-align: right;
+          margin-right: -1px;
+          ul {
+            position: absolute;
+            right: 0;
+            width: 200px;
+          }
+        }
     }
 }
+
+
+
 
 .modalpage.modal {
     &.fade.slide-up {

@@ -1,5 +1,23 @@
 #header .menu-shop-header {
-    
+    ul.navbar-nav {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      
+      > li {
+        
+        &:first-child {
+          margin-left: -14px;
+        }
+        &:last-child {
+          a.dropdown-toggle {
+            padding-right: 0px;
+          }
+        }
+      }
+      
+    }
+
     .dropdown-menu {
         width: 250px;
         background-color: #577c36;
@@ -28,7 +46,7 @@
     > li {
       > button {
         padding-top: 10px;
-        padding-bottom: 15px;
+        padding-bottom: 13px;
         &:hover {
           color:@hover-color;
         }

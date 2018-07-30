@@ -3,20 +3,15 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content-wrapper">
             <div class="modal-content">
-                <div class="modal-header clearfix text-left">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <i class="fa fa-times"></i>
-                    </button>
-                </div>
                 <div class="modal-body">
                     @php 
                         $menus = ['shop-header','modal-menu'];
                     @endphp
                     @widget('menuWidget',$menus)
                 </div>
+                <a class="top-right wrapper-md" data-dismiss="modal" aria-hidden="true"><i class="close-modal"></i></a>
             </div>
         </div>
-
     </div>
 </div>
 <!-- Modal Support-->

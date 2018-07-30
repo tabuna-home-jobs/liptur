@@ -20,15 +20,7 @@
               </a>
           </figure>
         @endforeach
-    {{--        
-        @for($i=1; $i<8; $i++)
-           <figure class="item">	           
-              <a href="#">
-                <img class="owl-lazy img-responsive" data-src="/img/carusel/b-{{$i}}.png">
-              </a>
-          </figure>
-        @endfor 
-    --}}      
+   
       </div>
     </div>
 </div>
