@@ -21184,14 +21184,13 @@ $(function () {
             },
             767: {
                 items: 6,
-                stagePadding: 100,
+                margin: 5,
+                stagePadding: 5,
               },
             1200: {
                 items: 7,
                 margin: 10,
-                stagePadding: 75,
-                slideBy: 7,
-                center: false,
+                stagePadding: 5,
             }
         }
     });
