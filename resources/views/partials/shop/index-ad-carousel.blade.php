@@ -1,6 +1,5 @@
 @php
-    $page = Orchid\Platform\Core\Models\Page::where('slug','carousel-links')->with('attachment')->first();
-    dd($page);
+    $images = Orchid\Platform\Core\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
 @endphp
 
 <div class="bg-white padder-v">
@@ -13,13 +12,23 @@
         </filter>
       </svg>
       <div class="owl-carousel ad-carousel">
-        @for($i=1; $i<6; $i++)
+        
+        @foreach ($images as $image) 
            <figure class="item">
               <a href="#">
-                <img class="owl-lazy img-responsive" src="/img/carusel/color/b-{{$i}}.png">
+                <img class="owl-lazy img-responsive" data-src="{{$image->url()}}">
               </a>
           </figure>
-        @endfor
+        @endforeach
+    {{--         
+        @for($i=1; $i<6; $i++)
+           <figure class="item">	           
+              <a href="#">
+                <img class="owl-lazy img-responsive" data-src="/img/carusel/b-{{$i}}.png">
+              </a>
+          </figure>
+        @endfor 
+    --}}
       </div>
     </div>
 </div>
