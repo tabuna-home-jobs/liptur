@@ -26,15 +26,15 @@ $(function () {
 
           try {
             await this.$http.post('/api/cart/order', {
-              email: formData.email,
+              email: formData.email || '',
               name: formData.first_name || formData.last_name ? `${formData.first_name||''} ${formData.last_name||''}`: null,
-              phone: formData.phone,
-              password: formData.password,
-              password_confirmation: formData.password_confirmation,
-              nick: formData.nick,
-              message: formData.message,
-              delivery: formData.delivery,
-              payment: formData.payment,
+              phone: formData.phone || '',
+              password: formData.password || '',
+              password_confirmation: formData.password_confirmation || '',
+              nick: formData.nick || '',
+              message: formData.message || '',
+              delivery: formData.delivery || '',
+              payment: formData.payment || '',
             });
             swal({
               title: "Выполнено успешно",

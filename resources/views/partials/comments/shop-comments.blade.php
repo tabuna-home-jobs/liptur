@@ -1,10 +1,10 @@
 <div class="container padder-v comments">
-    <div class="block-header comment-header padder-v">
+    <div class="block-header comment-header padder-v-micro padder-b-v-xs">
         Комментарии
     </div>
     <div class="col-md-8">
         <div class="row">
-            <div class="panel panel-default padder-v">
+            <div class="panel panel-default padder-v padder-b-v-md" ref="textAreaBlock">
                 <div class="col-xs-12">
                     @if (Auth::guest())
                         <a href="{{url('/login')}}" class="text-green text-bold">
@@ -42,7 +42,7 @@
                       </div>
                       <div>
                           <button v-on:click="addComment()" <?php if (Auth::guest()){ ?> disabled <?php } ?> class="btn btn-primary">ДОБАВИТЬ</button>
-                          <a v-on:click="clearComment()" class="btn">Отменить</a>
+                          <a class="btn" v-on:click="clearComment()" <?php if (Auth::guest()){ ?> disabled <?php } ?>>Отменить</a>
                       </div>
                     </div>
                 </div>
@@ -78,6 +78,7 @@
         </div>
     </div>
     <div class="col-md-4 visible-lg">
+      <div class="fun-collapse" ref="commentsRulesBlock">
         <div>
             Модераторы и администрация портала оставляют за собой право принимать те или иные решения по
             блокировке учетных записей и по удалению любого сообщения, размещенного на сайте без
@@ -97,6 +98,9 @@
             <li>Неоднократный и настойчивый флуд и оффтоп-сообщения.</li>
             <li>Комментарии пользователей на любых языках, кроме русского.запрещены.</li>
         </ol>
-        </p>
+      </div>
+      <div class="text-center padder-v">
+        <a class="text-green" ref="showAllRulesLink" v-on:click="showRules">Далее</a>
+      </div>
     </div>
 </div>

@@ -1,13 +1,34 @@
+@php
+    $images = Orchid\Platform\Core\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
+@endphp
+
 <div class="bg-white padder-v">
     <div class="container no-padder">
+      <svg class="defs-only">
+        <filter id="monochrome">
+           <feColorMatrix in="SourceGraphic" 
+                          type="matrix" 
+                          values=".25 .10 .13 0 0 0 .01 0 0 0 0 0 .01 0 0 0 0 0 1 0 "></feColorMatrix>
+        </filter>
+      </svg>
       <div class="owl-carousel ad-carousel">
-        @for($i=1; $i<6; $i++)
+   
+        @foreach ($images as $image) 
            <figure class="item">
               <a href="#">
-                <img class="owl-lazy img-hovers img-responsive" data-src="/img/carusel/b-{{$i}}.png" data-hover-src="/img/carusel/color/b-{{$i}}.png">
+                <img class="owl-lazy img-responsive" data-src="{{$image->url()}}">
               </a>
           </figure>
-        @endfor
+        @endforeach
+    {{--        
+        @for($i=1; $i<8; $i++)
+           <figure class="item">	           
+              <a href="#">
+                <img class="owl-lazy img-responsive" data-src="/img/carusel/b-{{$i}}.png">
+              </a>
+          </figure>
+        @endfor 
+    --}}      
       </div>
     </div>
 </div>

@@ -441,8 +441,29 @@ i.cart-icon {
   }
   &.comment-header {
     &:before {
+      margin-right: 0px;
       background-image:  url(/img/icons/comments.png);
       background-repeat: no-repeat;
+    }
+  }
+}
+
+.fun-collapse {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: "";
+    left: 0px;
+    bottom: 0px;
+    height: 30%;
+    width: 100%;
+    background: linear-gradient(transparent, #E2E2E2);
+  }
+
+  &.show-all {
+    &:after {
+      content: none
     }
   }
 }

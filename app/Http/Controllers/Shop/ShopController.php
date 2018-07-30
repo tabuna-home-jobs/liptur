@@ -43,7 +43,7 @@ class ShopController extends Controller
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $newsAndSpecialAndWarnings->where('options->warning', ''),
+            'warnings'       => $newsAndSpecialAndWarnings,
             'categories'     => $categories,
             'topslider'      => $topslider,
         ]);
