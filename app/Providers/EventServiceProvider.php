@@ -7,6 +7,8 @@ use App\Core\Observers\ProductObserver;
 use App\Core\Observers\TitzObserver;
 use App\Core\Observers\UserObserver;
 use App\Events\Shop\ShopCategoryEvent;
+use App\Listeners\AdvertisingBaseListener;
+use App\Listeners\AdvertisingCodeListener;
 use App\Listeners\Shop\ShopCategoryBaseListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Orchid\Platform\Core\Models\Post;
@@ -21,6 +23,11 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         ShopCategoryEvent::class => [
             ShopCategoryBaseListener::class,
+        ],
+
+        \App\Events\AdvertisingEvent::class => [
+            AdvertisingBaseListener::class,
+            AdvertisingCodeListener::class,
         ],
     ];
 

@@ -39,4 +39,20 @@ $this->domain(config('platform.domain'))->group(function () {
             ],
         ]);
     });
+
+
+    $this->group([
+        'middleware' => config('platform.middleware.private'),
+        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems/advertising'),
+    ], function (\Illuminate\Routing\Router $router) {
+        $router->resource('advertising', 'Dashboard\AdvertisingController', [
+            'names' => [
+                'index'  => 'dashboard.marketing.advertising.index',
+                'create' => 'dashboard.marketing.advertising.create',
+                'edit'   => 'dashboard.marketing.advertising.edit',
+                'update' => 'dashboard.marketing.advertising.update',
+                'store'  => 'dashboard.marketing.advertising.store',
+            ],
+        ]);
+    });
 });

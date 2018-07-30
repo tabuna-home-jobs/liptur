@@ -100,6 +100,15 @@ class MenuComposer
             'sort'       => 20,
         ]);
 
+        $dashboard->menu->add('Liptur', [
+            'slug'       => 'advertising',
+            'icon'       => 'fa fa-id-card-o',
+            'route'      => route('dashboard.marketing.advertising.index'),
+            'label'      => 'Реклама',
+            'groupname'  => 'Блоки',
+            'sort'       => 1,
+        ]);
+
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-shortvars',
             'icon'       => 'icon-doc',
