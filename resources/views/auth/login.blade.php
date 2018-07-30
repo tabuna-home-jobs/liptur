@@ -148,7 +148,7 @@
 
                                 <strong>Подпишись и:</strong>
 
-                                <ul>
+                                <ul class="no-padder">
                                     <li class="v-center m-t m-b-sm"><img src="/img/other/list-1.png" class="img-responsive m-r">читай историю региона;</li>
                                     <li class="v-center m-t m-b-sm"><img src="/img/other/list-2.png" class="img-responsive m-r">общайся с единомышленниками;</li>
                                     <li class="v-center m-t m-b-sm"><img src="/img/other/list-3.png" class="img-responsive m-r">строй свои маршруты;</li>

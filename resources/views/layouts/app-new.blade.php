@@ -107,6 +107,7 @@
                             <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
                             <i class="on md b-white bottom"></i>
                             </span>
+                            Выход
                         </a>
                     </li>
                 @endif
@@ -230,13 +231,13 @@
 
     <div class="bg-black-opacity">
         <div class="container">
-            <div class="row padder-v m-t-md m-b-md v-center">
+            <div class="padder-v m-t-md m-b-md v-center">
                 <div class="col-xs-12 col-md-6">
                     <p class="text-copyright m-b-n">© 2016-2018 ОКУ «Центр кластерного развития туризма Липецкой области»</p>
                 </div>
-                <div class="col-xs-12 col-md-3 col-md-offset-3 text-right">
-                    <div>
-                        <div class="v-center pull-right">
+                <div class="col-xs-12 col-md-3 col-md-offset-3 text-right no-padder">
+                    <div class="pull-right">
+                        <div class="v-center">
                             <a class="text-campaing m-n text-left imgs-hovers">
                                 <img src="/img/icons/artp.png" data-src="/img/icons/artp.png" data-hover-src="/img/icons/artp-hover.png"  class="m-r-sm">
                                 <span>Разработка сайта – <br>
