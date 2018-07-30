@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     methods: {
       load: function (type) {
-        console.log("asfasfas")
         var lang = this.language;
         this.$http.get('/' + lang + '/maps/' + type).then(function (response) {
           //console.log(response);
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(this.show, 1000);
       },
       show: function () {
-        console.log("Asfasfas")
         this.map.markers.forEach(function (marker) {
           marker.setMap(null)
         });
@@ -105,6 +103,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           });
           window.markersArray.push(marker);
+          var infowindow = new google.maps.InfoWindow();
+          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, key));
+
+          console.log(marker)
 
           loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 
