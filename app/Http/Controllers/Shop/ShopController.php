@@ -43,9 +43,9 @@ class ShopController extends Controller
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $newsAndSpecialAndWarnings->where('options->warning', ''),
-            'categories'     => $categories,
-            'topslider'      => $topslider,
+            'warnings' => $newsAndSpecialAndWarnings,
+            'categories' => $categories,
+            'topslider' => $topslider,
         ]);
     }
 
@@ -100,7 +100,7 @@ class ShopController extends Controller
         $comments = $product->comments()->where('approved', 1)->orderBy('created_at', 'DESC')->get();
 
         return view('shop.product', [
-            'product'  => $product,
+            'product' => $product,
             'warnings' => $warnings,
             'category' => $category,
             'comments' => $comments,
@@ -123,10 +123,10 @@ class ShopController extends Controller
         if (!is_null($request->get('sort'))) {
             $sort = $request->get('sort');
             $asort = [
-                'price_asc'  => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
+                'price_asc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
                 'price_desc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'desc', true],
-                'name_asc'   => ['content->ru->name', 'asc', false],
-                'name_desc'  => ['content->ru->name', 'desc', false],
+                'name_asc' => ['content->ru->name', 'asc', false],
+                'name_desc' => ['content->ru->name', 'desc', false],
             ];
             $orderBy = $asort[$sort];
         } else {
@@ -134,7 +134,7 @@ class ShopController extends Controller
             $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true];
         }
         if ($orderBy[2]) {
-            $products = $products->orderByRaw($orderBy[0].$orderBy[1]);
+            $products = $products->orderByRaw($orderBy[0] . $orderBy[1]);
         } else {
             $products = $products->orderBy($orderBy[0], $orderBy[1]);
         }
@@ -143,10 +143,10 @@ class ShopController extends Controller
             ->appends($request->all());
 
         return view('shop.products', [
-            'categories'      => $categories,
+            'categories' => $categories,
             'currentCategory' => $category,
-            'products'        => $products,
-            'request'         => $request->all(),
+            'products' => $products,
+            'request' => $request->all(),
         ]);
     }
 
@@ -159,7 +159,7 @@ class ShopController extends Controller
     {
         if (!is_null($request->get('search'))) {
             $products = Post::type('product')
-                ->whereRaw('LOWER(`content`) LIKE \'%'.mb_strtolower($request->get('search')).'%\' ')
+                ->whereRaw('LOWER(`content`) LIKE \'%' . mb_strtolower($request->get('search')) . '%\' ')
                 ->with('attachment');
         } else {
             $products = Post::type('product')
@@ -174,10 +174,10 @@ class ShopController extends Controller
         if (!is_null($request->get('sort'))) {
             $sort = $request->get('sort');
             $asort = [
-                'price_asc'  => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
+                'price_asc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
                 'price_desc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'desc', true],
-                'name_asc'   => ['content->ru->name', 'asc', false],
-                'name_desc'  => ['content->ru->name', 'desc', false],
+                'name_asc' => ['content->ru->name', 'asc', false],
+                'name_desc' => ['content->ru->name', 'desc', false],
             ];
             $orderBy = $asort[$sort];
         } else {
@@ -185,7 +185,7 @@ class ShopController extends Controller
             $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true];
         }
         if ($orderBy[2]) {
-            $products = $products->orderByRaw($orderBy[0].$orderBy[1]);
+            $products = $products->orderByRaw($orderBy[0] . $orderBy[1]);
         } else {
             $products = $products->orderBy($orderBy[0], $orderBy[1]);
         }
@@ -194,11 +194,11 @@ class ShopController extends Controller
             ->appends($request->all());
 
         return view('shop.products', [
-            'categories'      => $categories,
+            'categories' => $categories,
             'currentCategory' => $categories[0],
-            'products'        => $products,
-            'request'         => $request->all(),
-            'newsAndSpec'     => true,
+            'products' => $products,
+            'request' => $request->all(),
+            'newsAndSpec' => true,
         ]);
     }
 
