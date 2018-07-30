@@ -21943,8 +21943,18 @@ $(function () {
             }
           }
         });
+        var commentsRulesBlock = $(this.$refs.commentsRulesBlock);
+        var textAreaBlock = $(this.$refs.textAreaBlock);
+        commentsRulesBlock.height(textAreaBlock.height()+30)
       },
-      methods: {        
+      methods: {
+        showRules() {
+          var showAllRulesLink = $(this.$refs.showAllRulesLink);
+          var commentsRulesBlock = $(this.$refs.commentsRulesBlock);
+          commentsRulesBlock.height('100%')
+          commentsRulesBlock.addClass('show-all')
+          showAllRulesLink.hide()
+        } ,       
         addIntoCart(id) {
           EventBus.$emit('add-product-into-cart', {id});
         },

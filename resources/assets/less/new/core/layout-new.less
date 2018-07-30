@@ -448,6 +448,26 @@ i.cart-icon {
   }
 }
 
+.fun-collapse {
+  overflow: hidden;
+  position: relative;
+  &:after {
+    position: absolute;
+    content: "";
+    left: 0px;
+    bottom: 0px;
+    height: 30%;
+    width: 100%;
+    background: linear-gradient(transparent, #E2E2E2);
+  }
+
+  &.show-all {
+    &:after {
+      content: none
+    }
+  }
+}
+
 .shop-categories-widget {
   white-space: nowrap;
   overflow:    auto;
