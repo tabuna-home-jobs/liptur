@@ -22,7 +22,6 @@ class CarouselLinks extends Single
      */
     public $icon = 'fa fa-picture-o';
 
-
     /**
      * @return array
      */
