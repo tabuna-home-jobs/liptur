@@ -105,11 +105,11 @@ class RouteServiceProvider extends ServiceProvider
             // });
         });
 
-
         Route::bind('advertising', function ($value) {
             if (is_numeric($value)) {
                 return Post::type('advertising')->where('id', $value)->firstOrFail();
             }
+
             return Post::type('advertising')->where('slug', $value)->firstOrFail();
         });
     }

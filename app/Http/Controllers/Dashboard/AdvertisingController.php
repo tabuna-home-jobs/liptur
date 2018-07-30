@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use Illuminate\Http\Request;
 use App\Http\Forms\Advertising\AdvertisingFormGroup;
+use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Post;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Http\Controllers\Controller;
@@ -54,7 +54,8 @@ class AdvertisingController extends Controller
     public function store(Request $request, Post $post = null)
     {
         $this->form->save($request, $post);
-        Alert::success("Блок сохранён");
+        Alert::success('Блок сохранён');
+
         return back();
     }
 
@@ -81,7 +82,8 @@ class AdvertisingController extends Controller
     public function update(Request $request, Post $user)
     {
         $this->form->save($request, $user);
-        Alert::success("Блок сохранён");
+        Alert::success('Блок сохранён');
+
         return back();
     }
 
@@ -93,7 +95,8 @@ class AdvertisingController extends Controller
     public function destroy(Post $user)
     {
         $this->form->remove($user);
-        Alert::success("Блок сохранён");
+        Alert::success('Блок сохранён');
+
         return redirect()->route('dashboard.marketing.users');
     }
 }
