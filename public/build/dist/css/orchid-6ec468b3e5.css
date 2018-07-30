@@ -20891,12 +20891,6 @@ main video {
 .error .glow-bar {
   box-shadow: -3px 0 15px 1px rgba(244, 67, 54, 0.4);
 }
-.maps a,
-.maps span,
-.maps .gm-style-cc,
-.maps .gmnoprint {
-  display: none !important;
-}
 .maps .gm-style .gm-style-iw {
   font-weight: 300;
   font-size: 13px;
@@ -20916,12 +20910,6 @@ main video {
 .global-maps {
   height: calc(100vh - 186px) !important;
   width: 100vw;
-}
-.global-maps a,
-.global-maps span,
-.global-maps .gm-style-cc,
-.global-maps .gmnoprint {
-  display: none !important;
 }
 .global-maps .gm-style-iw {
   left: 0 !important;
