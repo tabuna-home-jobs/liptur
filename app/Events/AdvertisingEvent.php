@@ -2,8 +2,8 @@
 
 namespace App\Events;
 
-use Illuminate\Queue\SerializesModels;
 use App\Http\Forms\Advertising\AdvertisingFormGroup;
+use Illuminate\Queue\SerializesModels;
 
 class AdvertisingEvent
 {

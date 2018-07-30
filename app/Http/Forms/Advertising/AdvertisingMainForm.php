@@ -23,7 +23,6 @@ class AdvertisingMainForm extends Form
      */
     protected $model = Post::class;
 
-
     /**
      * AdvertisingMainForm constructor.
      *

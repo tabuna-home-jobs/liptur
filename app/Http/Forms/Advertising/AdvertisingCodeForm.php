@@ -21,7 +21,6 @@ class AdvertisingCodeForm extends Form
      */
     protected $model = Post::class;
 
-
     /**
      * AdvertisingCodeForm constructor.
      *
@@ -31,7 +30,6 @@ class AdvertisingCodeForm extends Form
     {
         parent::__construct($request);
     }
-
 
     /**
      * @param Post $adv
