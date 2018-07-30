@@ -20,50 +20,52 @@
             }
         }
     
-    }    
-    
-    .navbar-nav  {
-        > li {
-            > button {
-                padding-top: 10px;
-                padding-bottom: 15px;
-                &:hover {
-                    color:@hover-color;
-                }
-            }
-            
-            > a {
-                font-size: 13px;
-                padding: 10px 10px;
-                
-                &:hover,
-                &:focus {
-                    background-color: #fff;
-                    color: #577c36;
-                }
-            } 
-            
-            &.dropdown > a:focus {
-                background-color: #fff;
-                color: #577c36;
-                border-bottom: 5px solid #577c36;
-                padding-bottom: 10px;
-                transition: unset;
-            }
-        } 
-        
-        li:last-child .dropdown-menu {
-            left: auto;
-            right: 0;
-        }
-        
-        li.with-wz .dropdown-menu  {
-            background-image: url(/img/icons/wz-icon.png);
-            background-position: ~"calc(100% - 20px) calc(100% - 20px)";
-            background-repeat: no-repeat;
-        }
-        
     }
+}
+
+#header{
+  .navbar-nav  {
+    > li {
+      > button {
+        padding-top: 10px;
+        padding-bottom: 15px;
+        &:hover {
+          color:@hover-color;
+        }
+      }
+
+      > a {
+        font-size: 13px;
+        padding: 10px 10px;
+
+        &:hover,
+        &:focus {
+          background-color: #fff;
+          color: #577c36;
+        }
+      }
+
+      &.dropdown > a:focus {
+        background-color: #fff;
+        color: #577c36;
+        border-bottom: 5px solid #577c36;
+        padding-bottom: 10px;
+        transition: unset;
+      }
+    }
+
+    li:last-child .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+
+    li.with-wz .dropdown-menu  {
+      background-image: url(/img/icons/wz-icon.png);
+      background-position: ~"calc(100% - 20px) calc(100% - 20px)";
+      background-repeat: no-repeat;
+    }
+
+  }
 }
 
 .cart-dropdown {

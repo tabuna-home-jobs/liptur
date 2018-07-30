@@ -140,7 +140,7 @@
                                     h.appendChild(s);
                                 }
                             })();</script>
-                        <div class="m-t-lg text-right">
+                        <div class="m-t-lg text-right m-r-sm">
                             <em class="text-grey padder-sm padder-v-micro">Поделиться: </em>
                             <div class="inline v-middle pluso" data-background="transparent"
                                  data-options="medium,square,line,horizontal,nocounter,theme=06"
@@ -207,7 +207,7 @@
         <section id="content-dark">
             @include('partials.comments.shop-comments',[
               'id' => $product->id,
-              'comments' => $comments,
+              'comments' =>$product->comments,
               'post' => $product
              ] )
         </section>
@@ -233,7 +233,8 @@
                                     <div class="wrapper-md">
 
                                         <p class="h4 m-b-xs" data-mh="main-shop-header">
-                                            <a href="{{route('shop.product',$product->slug)}}" title="{{$product->getContent('name')}}">{{$product->getContent('name')}}</a>
+                                            <a href="{{route('shop.product',$product->slug)}}"
+                                               title="{{$product->getContent('name')}}">{{$product->getContent('name')}}</a>
                                         </p>
                                         <p class="text-xs" data-mh="main-shop-body">
                                             {{$product->getContent('annotation')}}

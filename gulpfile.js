@@ -48,7 +48,7 @@ elixir(function (mix) {
     "./resources/assets/vendor/fancybox/dist/jquery.fancybox.min.js",
 
     "./resources/assets/vendor/summernote/dist/summernote.min.js",
-    "./resources/assets/vendor/vue-recaptcha/dist/vue-recaptcha.js",
+    "./node_modules/vue-recaptcha/dist/vue-recaptcha.js",
 
     "./resources/assets/js/app.js",
     "./resources/assets/js/components/bus.js",

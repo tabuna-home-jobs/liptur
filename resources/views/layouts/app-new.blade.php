@@ -58,7 +58,7 @@
                 <img src="/img/new-logo.png" alt="LipTur">
               </a>
             </div>
-            <ul class="nav navbar-nav navbar-right hidden-xs row-flex">
+            <ul class="nav navbar-nav navbar-right hidden-xs row-flex v-center">
                 <li class="no-padder">
                     <div class="navbar-phone">
                         <i class="phone-icon"></i>
@@ -103,11 +103,11 @@
                 @else
                     <li class=" no-padder pull-right">
                         <a href="{{ url('/profile') }}" title="Мой профиль">
-                            <span class="thumb-sm avatar pull-right">
+                            <span class="thumb-sm avatar">
                             <img src="{{Auth::user()->getAvatar() }}" alt="{{Auth::user()->name}}">
                             <i class="on md b-white bottom"></i>
                             </span>
-                            Выход
+                            <span class="m-l-sm">Выход</span>
                         </a>
                     </li>
                 @endif
