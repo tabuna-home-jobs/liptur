@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use URL;
 
 class LoginController extends Controller
 {
@@ -16,7 +17,7 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     use AuthenticatesUsers;
 
@@ -32,7 +33,18 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = URL::previous();
+
         $this->middleware('guest', ['except' => 'logout']);
         $this->middleware('cache');
+    }
+
+    public function showLoginForm()
+    {
+        if (!session()->has('url.intended')) {
+            session(['url.intended' => url()->previous()]);
+        }
+
+        return view('auth.login');
     }
 }
