@@ -223,7 +223,7 @@
         <div class="container">
             <div class="row">
                 @php 
-                    $menus = ['shop-header','footer-menu'];
+                    $menus = ['shop-footer','footer-menu'];
                 @endphp
                 @widget('menuWidget',$menus)
             </div>
