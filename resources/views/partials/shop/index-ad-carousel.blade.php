@@ -1,5 +1,6 @@
 @php
     $images = Orchid\Platform\Core\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
+    //dd ($images->alt);
 @endphp
 
 <div class="bg-white padder-v">
@@ -14,11 +15,11 @@
       <div class="owl-carousel ad-carousel">
    
         @foreach ($images as $image) 
-           <figure class="item">
-              <a href="#">
-                <img class="owl-lazy img-responsive" data-src="{{$image->url()}}">
+            <figure class="item">
+              <a href="{{$image->alt}}">
+                <img class="owl-lazy img-responsive" data-src="{{$image->url('high')}}" title="{{$image->description}}">
               </a>
-          </figure>
+            </figure>
         @endforeach
    
       </div>

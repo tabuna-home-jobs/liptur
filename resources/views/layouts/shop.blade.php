@@ -1,6 +1,5 @@
 @extends('layouts.app-new')
   @section('submenu')
-  
       <div class="visible-xs padder-v-micro row"></div>
       <div id="shop-header" class="row padder-l-xl no-p-xs">
           <div class="col-xs-8 col-sm-9 col-lg-8 no-padder-h hidden-xs">
