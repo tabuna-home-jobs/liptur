@@ -30,12 +30,12 @@ class ShopController extends Controller
             ->orWhereNotNull('options->special')
             ->where('status', '<>', 'hidden')
             ->get()->take(4);
-            
+
         $warnings = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->warning')
             ->where('status', '<>', 'hidden')
-            ->get()->take(8);    
+            ->get()->take(8);
 
         $categories = ShopCategory::all();
 
@@ -60,7 +60,7 @@ class ShopController extends Controller
             ->with('attachment')
             ->whereNotNull('options->new')
             ->orWhereNotNull('options->special')
-            ->where('status', '<>', 'hidden')            
+            ->where('status', '<>', 'hidden')
             ->get();
 
         return view('shop.index', [
