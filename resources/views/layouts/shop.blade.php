@@ -2,7 +2,7 @@
   @section('submenu')
       <div class="visible-xs padder-v-micro row"></div>
       <div id="shop-header" class="row padder-l-xl no-p-xs">
-          <div class="col-xs-8 col-sm-9 col-lg-8 no-padder-h hidden-xs">
+          <div class="col-xs-8 col-sm-9 col-lg-8 no-padder-h hidden-xs pt-1-xs">
               <div class="btn-tablet hidden-lg">
                 <button class="btn btn-link hidden-lg" type="button" data-toggle="modal" data-target="#topmenu">
                     <i class="fa fa-bars"></i>
