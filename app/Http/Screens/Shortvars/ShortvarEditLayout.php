@@ -17,7 +17,8 @@ class ShortvarEditLayout extends Rows
      */
     public function dfields(): array
     {
-        //dd($this->query->getContent('shortvar'));
+        //$this->query->getContent('shortvar')->set('value','111');
+       //dd($this->query++);
 
         $fields = [
             'key'		=> Field::tag('input')
@@ -42,6 +43,7 @@ class ShortvarEditLayout extends Rows
                     'input'    => 'Input',
                     'textarea' => 'Textarea',
                     'picture'  => 'Picture',
+                    'array'    => 'Array (JSON)',
                     'tags'     => 'Tags',
                 ])
                 ->name('shortvar.options.type')
@@ -55,7 +57,7 @@ class ShortvarEditLayout extends Rows
         if (!is_null($this->query->getContent('shortvar.options.type'))) {
             $type = $this->query->getContent('shortvar.options.type');
         } elseif (is_array($this->query->getContent('shortvar.value'))) {
-            $type = 'textarea';
+            $type = 'array';
         } else {
             $type = 'input';
         }
@@ -74,14 +76,27 @@ class ShortvarEditLayout extends Rows
                          ->width($this->query->getContent('shortvar.value.width') ?? 500)
                          ->height($this->query->getContent('shortvar.value.height') ?? 300);
                 break;
+            case 'array':
+            case 'code':
+                $fields['value'] = Field::tag('arrayjson')
+                 ->title('Value')
+                 ->name('shortvar.value');
+                 /*->modifyValue([
+                    'tag'=>'input',
+                    'name'=>'shortvar.value',
+                    'value'=>'Hello'//json_encode($this->query->getContent('shortvar.value'))
+                ]);*/
+                 //->title('Value');
+                 //dd(json_encode($this->query->getContent('shortvar.value')));
+                break;    
             default:
                 $fields['value'] = Field::tag($type)
                  ->name('shortvar.value')
+                 ->title('Value');
                  //->modifyValue(json_encode($this->query->getContent('shortvar.value')))
                  //->modifyName('shortvar.value')
-                 //->modifyValue('Hello')
+                 //->getOldValue('Hello');
                  //->value('hello')
-                 ->title('Value');
         }
 
         return $fields;

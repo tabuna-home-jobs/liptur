@@ -123,6 +123,7 @@ return [
         'password'     => Orchid\Platform\Fields\Types\PasswordField::class,
         'markdown'     => Orchid\Platform\Fields\Types\SimpleMDEField::class,
         'region'       => \App\Fields\RegionField::class,
+        'arrayjson'    => \App\Fields\ArrayJsonField::class,
     ],
 
     /*

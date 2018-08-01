@@ -79,7 +79,11 @@ class ShortvarEdit extends Screen
     public function save($request, Shortvar $shortvar)
     {
         $req = $this->request->get('shortvar');
-
+        //dump($req);
+        if ($req['options']['type']=='array') {
+            $req['value']=json_decode($req['value'], true);
+        }
+        //dd($req);
         $shortvar->updateOrCreate(['key' => $req['key']], $req);
 
         //Setting::set($req['key'],$req['content']);
