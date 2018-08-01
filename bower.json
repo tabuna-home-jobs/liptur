@@ -55,8 +55,7 @@
     "bootstrap-sweetalert": "~1.0.1",
     "g-map-field": "*",
     "seiyria-bootstrap-slider": "^9.7.3",
-    "fancybox": "^3.0.47",
-    "owl.carousel2.thumbs": "^0.1.7"
+    "fancybox": "^3.0.47"
   },
   "resolutions": {
     "jquery": "^3.1.1",
