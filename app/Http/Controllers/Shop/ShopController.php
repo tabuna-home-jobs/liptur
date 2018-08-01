@@ -24,16 +24,18 @@ class ShopController extends Controller
      */
     public function index(): View
     {
-        $newsAndSpecialAndWarnings = Post::type('product')
+        $newsAndSpecial = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->new')
             ->orWhereNotNull('options->special')
-            ->orWhereNotNull('options->warning')
-            ->get();
-
-        $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
-            $newsAndSpecialAndWarnings->where('options->new', '')
-        )->take(4);
+            ->where('status', '<>', 'hidden')
+            ->get()->take(4);
+            
+        $warnings = Post::type('product')
+            ->with('attachment')
+            ->whereNotNull('options->warning')
+            ->where('status', '<>', 'hidden')
+            ->get()->take(8);    
 
         $categories = ShopCategory::all();
 
@@ -43,7 +45,7 @@ class ShopController extends Controller
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
-            'warnings'       => $newsAndSpecialAndWarnings,
+            'warnings'       => $warnings,
             'categories'     => $categories,
             'topslider'      => $topslider,
         ]);
@@ -54,16 +56,12 @@ class ShopController extends Controller
      */
     public function mostPopular()
     {
-        $newsAndSpecialAndWarnings = Post::type('product')
+        $newsAndSpecial = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->new')
             ->orWhereNotNull('options->special')
-            ->orWhereNotNull('options->warning')
+            ->where('status', '<>', 'hidden')            
             ->get();
-
-        $newsAndSpecial = $newsAndSpecialAndWarnings->where('options->special', '')->merge(
-            $newsAndSpecialAndWarnings->where('options->new', '')
-        );
 
         return view('shop.index', [
             'newsAndSpecial' => $newsAndSpecial,
@@ -91,8 +89,8 @@ class ShopController extends Controller
     {
         $warnings = Post::type('product')
             ->with('attachment')
-            ->where('status', '<>', 'hidden')
             ->whereNotNull('options->warning')
+            ->where('status', '<>', 'hidden')
             ->get();
 
         $category = optional($product->taxonomies()->first())->term ?? new Term();
@@ -164,9 +162,9 @@ class ShopController extends Controller
         } else {
             $products = Post::type('product')
                 ->with('attachment')
-                ->where('status', '<>', 'hidden')
                 ->whereNotNull('options->new')
-                ->orWhereNotNull('options->special');
+                ->orWhereNotNull('options->special')
+                ->where('status', '<>', 'hidden');
         }
 
         $categories = ShopCategory::all();
