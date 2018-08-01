@@ -30,7 +30,7 @@ class ArrayJsonField extends Field
      */
     public $view = 'fields.arrayjson';
 
-     /**
+    /**
      * Required Attributes.
      *
      * @var array
