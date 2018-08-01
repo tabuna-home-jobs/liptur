@@ -18,7 +18,7 @@ class ShortvarEditLayout extends Rows
     public function dfields(): array
     {
         //$this->query->getContent('shortvar')->set('value','111');
-       //dd($this->query++);
+        //dd($this->query++);
 
         $fields = [
             'key'		=> Field::tag('input')
@@ -88,7 +88,7 @@ class ShortvarEditLayout extends Rows
                 ]);*/
                  //->title('Value');
                  //dd(json_encode($this->query->getContent('shortvar.value')));
-                break;    
+                break;
             default:
                 $fields['value'] = Field::tag($type)
                  ->name('shortvar.value')

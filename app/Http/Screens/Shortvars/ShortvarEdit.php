@@ -80,8 +80,8 @@ class ShortvarEdit extends Screen
     {
         $req = $this->request->get('shortvar');
         //dump($req);
-        if ($req['options']['type']=='array') {
-            $req['value']=json_decode($req['value'], true);
+        if ($req['options']['type'] == 'array') {
+            $req['value'] = json_decode($req['value'], true);
         }
         //dd($req);
         $shortvar->updateOrCreate(['key' => $req['key']], $req);
