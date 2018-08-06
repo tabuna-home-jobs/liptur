@@ -67,8 +67,10 @@ class SearchController extends Controller
     {
         $places = DB::table('posts')
             ->whereNotIn('type', ['gift_crafts', 'reserves', 'leisure', 'contact', 'festivals', 'news', 'event', 'holidays', 'test', 'tour', 'page', 'investor', 'secondary-carousel', 'press', 'film', 'guides', 'info', 'shrines', 'people', 'investor', 'event_calendar', 'carousel', 'docs', 'contest', 'advertising', 'agencie', 'bid', 'competition', 'concerts'])
-            ->whereRaw('LOWER(content->"$.'.App::getLocale().'.name") like ?',
-                '%'.mb_strtolower($request->input('query')).'%')
+            ->whereRaw(
+                'LOWER(content->"$.'.App::getLocale().'.name") like ?',
+                '%'.mb_strtolower($request->input('query')).'%'
+            )
             ->get();
 
         $items = [];

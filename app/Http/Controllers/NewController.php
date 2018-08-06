@@ -102,7 +102,7 @@ class NewController extends Controller
                 // set item's title, author, url, pubdate, description, content, enclosure (optional)*
                 $feed->add(
                     $new->getContent('name'),
-                    'Липецкий туристический портал',//$post->author,
+                    'Липецкий туристический портал', //$post->author,
                     URL::to($new->slug),
                     $new->created_at,
                     $new->getContent('description'),
