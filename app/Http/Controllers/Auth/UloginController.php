@@ -48,7 +48,6 @@ class UloginController extends Controller
 
             return Redirect::back();
         } else {
-
             //Create new user in DB
             $newUser = User::create([
                 'name'     => $user['first_name'].' '.$user['last_name'],

@@ -112,7 +112,6 @@ class RussianTravelApi extends Command
         $content = json_decode($response->getBody()->getContents());
 
         foreach ($content->items as $item) {
-
             /*
              * Первый id
              */

@@ -61,14 +61,14 @@ class PostApiController extends ApiController
             case 'post':
                 {
                     $model = Post::class;
-                }
+            }
                 break;
             default:
                 {
                     $type = Dashboard::getPosts()->find($typeIndex);
                     $model = $type->model;
-                }
-        }
+            }
+            }
 
         return $model;
     }

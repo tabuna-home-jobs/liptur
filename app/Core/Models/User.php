@@ -69,6 +69,6 @@ class User extends BaseUser
 
     public function routes()
     {
-        return $this->hasMany('App\Core\Models\Route');
+        return $this->hasMany(\App\Core\Models\Route::class);
     }
 }
