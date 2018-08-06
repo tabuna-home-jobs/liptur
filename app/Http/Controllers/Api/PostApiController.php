@@ -70,7 +70,7 @@ class PostApiController extends ApiController
             }
             }
 
-            return $model;
+        return $model;
     }
 
     /**
