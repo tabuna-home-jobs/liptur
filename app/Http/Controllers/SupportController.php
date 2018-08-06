@@ -17,7 +17,7 @@ class SupportController extends Controller
     {
         Mail::send('emails.support', ['request' => $request->all()], function ($message) use ($request) {
             $message
-                ->to(Config::get('link.email'))
+                ->to(config('link.email'))
                 ->subject('Сообщение с веб-сайта');
 
             if (!is_null($request->file('upload'))) {
