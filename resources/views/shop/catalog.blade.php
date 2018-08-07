@@ -7,7 +7,7 @@
     <div class="bg-white">
         <section class="container-lg">
             <div class="row">
-                <div class="bg-bordo" style="background-image: url('{{$categories[1]->term->getContent('fullPicture')}}')"">
+                <div class="bg-bordo" style="background-image: url('{{$categories[0]->term->getContent('fullPicture')}}')"">
                     <div class="container">
                         <h1 class="brand-header">Интернет-магазин</h1>
                     </div>
