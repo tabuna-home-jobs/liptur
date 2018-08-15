@@ -448,20 +448,6 @@
                                                     font-family: 'William Text Pro';
                                                     font-size: 35px;
                                                     letter-spacing: -1.75px;">{{$order->options['total']}} руб.</span><br>
-                                                {{--
-                                                <span style="color: #401b21;
-                                                    font-family: Roboto;
-                                                    font-size: 12px;
-                                                    min-width: 170px;
-                                                    display: block;
-                                                    float: left;
-                                                    font-weight: 400;">Доставка:</span>
-
-                                                <span style="color: #401b21;
-                                                    font-family: Roboto;
-                                                    font-size: 12px;
-                                                    font-weight: 400;">стоимость доставки уточник менеджер</span>
-                                                --}}  
                                             </td>
                                         </tr>
                                         </tbody>

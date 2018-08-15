@@ -28,8 +28,9 @@ class OrderListLayout extends Table
             TD::name('name')
                 ->title('Заказчик')
                 ->setRender(function ($order) {
+                    //dd($order);
                     return '<a href="'.route('dashboard.liptur.shop.order.edit',
-                        $order->id).'">'.$order->user()->first()->name.'</a>';
+                        $order->id).'">'.optional($order->user()->first())->name.'</a>';
                 }),
             TD::name('created_at')->title('Дата заказа')
                 ->setRender(function ($order) {

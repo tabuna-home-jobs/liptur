@@ -128,7 +128,6 @@ class ShopController extends Controller
             ];
             $orderBy = $asort[$sort];
         } else {
-            //$orderBy=['created_at','asc',false];
             $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true];
         }
         if ($orderBy[2]) {

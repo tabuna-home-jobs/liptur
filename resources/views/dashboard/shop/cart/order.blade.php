@@ -46,7 +46,7 @@
                         <p>Имя Фамилия</p>
                     </div>
                     <div class="col-md-8">
-                        <h6>{{$order->user()->first()->name}}</h6>
+                        <h6>{{optional($order->user()->first())->name}}</h6>
                     </div>
                 </div>
                 <div class="row">
@@ -54,7 +54,7 @@
                         <p>Телефон</p>
                     </div>
                     <div class="col-md-8">
-                        <h6>{{$order->user()->first()->phone}}</h6>
+                        <h6>{{optional($order->user()->first())->phone}}</h6>
                     </div>
                 </div>                
                 <div class="row">
@@ -62,7 +62,7 @@
                         <p>Email:</p>
                     </div>
                     <div class="col-md-8">
-                        <h6>{{$order->user()->first()->email}}</h6>
+                        <h6>{{optional($order->user()->first())->email}}</h6>
                     </div>
                 </div>   
                 <div class="row">
@@ -70,7 +70,7 @@
                         <p>Адрес:</p>
                     </div>
                     <div class="col-md-8">
-                        <h6>{{$order->user()->first()->adress}}</h6>
+                        <h6>{{optional($order->user()->first())->adress}}</h6>
                     </div>
                 </div>
                 <div class="row">
