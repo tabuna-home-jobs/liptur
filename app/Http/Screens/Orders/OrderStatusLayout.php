@@ -16,52 +16,7 @@ class OrderStatusLayout extends Rows
     public function dfields() : array
     {
         return [
-        /*
-            Field::tag('input')
-                ->type('text')
-                ->name('user.name')
-                ->title('Имя Фамилия пользователя'),
 
-            Field::tag('input')
-                ->type('text')
-                ->name('user.name')
-                ->title('Email пользователя'),
-
-            Field::tag('input')
-                ->type('text')
-                ->name('user.phone')
-                ->title('Телефон пользователя'),
-
-            Field::tag('input')
-                ->type('text')
-                ->name('user.address')
-                ->title('Адресс пользователя'),
-
-
-            Field::tag('input')
-                ->type('text')
-                ->name('order.options.count')
-                ->title('Количество товаров'),
-
-            Field::tag('input')
-                ->type('text')
-                ->name('order.options.total')
-                ->title('Количество товаров'),
-
-            Field::tag('input')
-                ->type('text')
-                ->name('order.options.payment')
-                ->title('Способ оплаты'),
-
-            Field::tag('input')
-                ->type('text')
-                ->name('order.options.delivery')
-                ->title('Способ доставки'),
-
-            Field::tag('textarea')
-                ->name('order.options.content')
-                ->title('Товары'),
-*/
             Field::tag('select')
                 ->options($this->query->getContent('order')->ordervar['status'])
                 ->name('order.options.status')

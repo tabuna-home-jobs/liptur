@@ -42,6 +42,10 @@ class AppServiceProvider extends ServiceProvider
                   'slug'        => 'dashboard.liptur.shop',
                   'description' => 'Интернет магазин',
                 ],
+                [
+                    'slug'        => 'dashboard.liptur.shortvar',
+                    'description' => 'Переменные',
+                ],
             ],
 
         ];

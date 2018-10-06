@@ -130,7 +130,7 @@
                                                         href="{{route($type->route(),[$element->type,$element->slug])}}">{{$element->getContent('name')}}</a>
                                             </p>
                                             <p class="text-xs">
-                                                {{str_strip_limit_words($element->getContent('body'))}}
+                                                {!! str_strip_limit_words($element->getContent('body')) !!}
                                             </p>
                                         </div>
 

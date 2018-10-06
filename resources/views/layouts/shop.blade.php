@@ -2,7 +2,7 @@
   @section('submenu')
       <div class="visible-xs padder-v-micro row"></div>
       <div id="shop-header" class="row padder-l-xl no-p-xs">
-          <div class="col-xs-8 col-sm-9 col-lg-8 no-padder-h hidden-xs pt-1-xs">
+          <div class="col-xs-8 col-sm-10 col-lg-8 no-padder-h hidden-xs pt-1-xs">
               <div class="btn-tablet hidden-lg">
                 <button class="btn btn-link hidden-lg" type="button" data-toggle="modal" data-target="#topmenu">
                     <i class="fa fa-bars"></i>
@@ -16,7 +16,7 @@
                   <i class="fa fa-bars fa-lg"></i>
               </button>
           </div>
-          <div class="col-xs-6 col-sm-3 col-lg-4 dropdown cart-dropdown no-padder-h" v-bind:class="{notEmpty: cartTotalCount>0}">
+          <div class="col-xs-6 col-sm-2 col-lg-4 dropdown cart-dropdown no-padder-h" v-bind:class="{notEmpty: cartTotalCount>0}">
               <ul class="nav nav-cart pull-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <li>
                       <a id="dropdownMenuShopCart" v-cloak>

@@ -48,9 +48,14 @@ class GalleryController extends Controller
 
             return $popular;
         });
+        $gallery = Post::type('gallery')
+            ->whereNotNull('content->'.App::getLocale())
+            ->orderBy('updated_at','desc')
+            ->with('attachment')
+            ->simplePaginate(20);
 
         return view('listings.gallery', [
-            'gallery'      => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->with('attachment')->simplePaginate(20),
+            'gallery'      => $gallery,
             'countGallery' => Post::type('gallery')->whereNotNull('content->'.App::getLocale())->count(),
             'mostPopular'  => $mostPopular,
         ]);

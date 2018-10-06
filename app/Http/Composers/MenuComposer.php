@@ -115,7 +115,7 @@ class MenuComposer
             'route'      => route('dashboard.liptur.shop.shortvar.list'),
             'groupname'  => 'Переменные',
             'label'      => 'Переменные',
-            'permission' => 'dashboard.liptur.shop',
+            'permission' => 'dashboard.liptur.shortvar',
             'divider'    => true,
             'sort'       => 30,
         ]);

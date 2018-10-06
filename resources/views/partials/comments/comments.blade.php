@@ -6,24 +6,25 @@
 
     <div>
 
-
         @forelse($comments as $comment)
-            <div class="m-b-md">
-                <p class="pull-left thumb-sm">
-                    <img src="{{$comment->author->avatar}}" class="img-circle">
-                </p>
-                <div class="m-l-xxl m-b">
-                    <div>
-                        <strong>{{$comment->author->name}}</strong>
-                        <span class="text-muted text-xs block">
-                                {{$comment->created_at->diffForHumans()}}
-                             </span>
-                    </div>
-                    <div class="m-t-sm">
-                        {!! nl2br(e($comment->content)) !!}
+            @if ($comment->approved)
+                <div class="m-b-md">
+                    <p class="pull-left thumb-sm">
+                        <img src="{{$comment->author->avatar}}" class="img-circle">
+                    </p>
+                    <div class="m-l-xxl m-b">
+                        <div>
+                            <strong>{{$comment->author->name}}</strong>
+                            <span class="text-muted text-xs block">
+                                    {{$comment->created_at->diffForHumans()}}
+                                 </span>
+                        </div>
+                        <div class="m-t-sm">
+                            {!! nl2br(e($comment->content)) !!}
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         @empty
             <div class="alert alert-info text-center" role="alert">Пока нет комментариев</div>
         @endforelse

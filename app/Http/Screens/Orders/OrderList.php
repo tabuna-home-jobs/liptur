@@ -27,10 +27,9 @@ class OrderList extends Screen
      */
     public function query() : array
     {
-
-        //dd(PackagePath);
+        $orders= Order::orderBy('updated_at','desc')->paginate();
         return [
-            'orders' => Order::paginate(),
+            'orders' => $orders,
         ];
     }
 
