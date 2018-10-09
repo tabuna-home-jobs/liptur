@@ -48,6 +48,7 @@ class OrderEdit extends Screen
     public function commandBar() : array
     {
         return [
+            Link::name('Delete Order')->method('remove'),
             Link::name('Save Order')->method('save'),
         ];
     }
@@ -73,7 +74,7 @@ class OrderEdit extends Screen
     }
 
     /**
-     * @param Order $order
+     * @param Order $order_id
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -99,6 +100,20 @@ class OrderEdit extends Screen
         $order->update(['options' => $options]);
 
         Alert::info('Заказ изменен');
+
+        return redirect()->route('dashboard.liptur.shop.order.list');
+    }
+
+    /**
+     * @param Order $order_id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function remove($order_id) {
+        $order = Order::whereId($order_id)->firstOrFail();
+        $order->delete();
+
+        Alert::info('Заказ удален');
 
         return redirect()->route('dashboard.liptur.shop.order.list');
     }

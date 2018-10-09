@@ -4,13 +4,15 @@ namespace App\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Platform\Core\Traits\MultiLanguage;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class subscription.
  */
 class Order extends Model
 {
-    use MultiLanguage;
+    use MultiLanguage, SoftDeletes;
+
 
     /**
      * The database table used by the model.
@@ -29,6 +31,8 @@ class Order extends Model
         'slug',
         'options',
     ];
+
+    protected $dates = ['deleted_at'];
 
     /**
      * @var array
