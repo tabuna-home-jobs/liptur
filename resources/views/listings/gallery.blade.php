@@ -163,7 +163,7 @@
                             </div>
                             <div class="col-sm-4 bg-white m-t-xl no-padder">
                                 <div class="padder">
-                                    <p class="font-bold text-md text-ellipsis">@{{photos[active].original_name}}</p>
+                                    <p class="font-bold text-md">@{{photos[active].original_name}}</p>
                                     <p class="small text-dark text-ellipsis" v-bind:alt="photos[active].description">
                                         @{{photos[active].description}}
                                     </p>

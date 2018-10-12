@@ -99,7 +99,7 @@ class FestivalsType extends Many
         if (Auth::user()->inRole('cfo')) {
             return [
                 'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
-                'body'  => 'tag:wysiwyg|name:body|max:255|rows:10',
+                'body'  => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
                 'open'  => 'tag:datetime|type:text|name:open|max:255|title:Дата открытия|help:Открытие мероприятия состоиться',
                 'close' => 'tag:datetime|type:text|name:close|max:255|title:Дата закрытия',
 

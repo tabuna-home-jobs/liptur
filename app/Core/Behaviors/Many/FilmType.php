@@ -85,7 +85,7 @@ class FilmType extends Many
     {
         return [
             'Name'     => 'tag:input|type:text|name:Name|max:255|title:Название|help:Название фильма',
-            'body'     => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'body'     => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
             'Director' => 'tag:input|type:text|name:Director|max:255|title:Режиссер|help:Режиссер фильма',
             'Country'  => 'tag:input|type:text|name:Country|max:255|title:Страна|help:Страна производства',
         ];

@@ -82,7 +82,7 @@ class TourOperatorsType extends Many
     {
         return [
             'name'  => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
-            'body'  => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'body'  => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
             'place' => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',
 
             'region'   => 'tag:region|name:region|title:Регион',

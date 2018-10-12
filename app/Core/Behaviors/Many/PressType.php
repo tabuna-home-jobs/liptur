@@ -58,7 +58,7 @@ class PressType extends Many
     {
         return [
             'name'        => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
-            'body'        => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'body'        => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
             'title'       => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
             'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
             'keywords'    => 'tag:tags|name:keywords|max:255|title:Ключевые слова|help:Упоменение',

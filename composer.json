@@ -73,5 +73,12 @@
     "optimize-autoloader": true
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "repositories": [
+        {
+            "packagist.org": false,
+            "type": "path",
+            "url": "/home/vagrant/code/package/platform"
+        }
+	]
 }

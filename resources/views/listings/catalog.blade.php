@@ -117,7 +117,6 @@
                         @foreach($elementChunk as $element)
                             <article class="col-md-6">
                                 <div class="panel panel-default box-shadow-lg pos-rlt" data-mh="main-news">
-
                                     <div data-mh="main-news-img">
                                         <a href="{{route($type->route(),[$element->type,$element->slug])}}"><img
                                                     src="{{$element->hero('medium') ?? '/img/no-image.jpg'}}"

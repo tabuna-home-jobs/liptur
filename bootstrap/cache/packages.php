@@ -1,114 +1,150 @@
-<?php
-
-return [
-  'anhskohbo/no-captcha' => [
-    'providers' => [
+<?php return array (
+  'anhskohbo/no-captcha' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
-    ],
-  ],
-  'cartalyst/tags' => [
-    'providers' => [
+    ),
+  ),
+  'cartalyst/tags' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Cartalyst\\Tags\\TagsServiceProvider',
-    ],
-  ],
-  'cviebrock/eloquent-sluggable' => [
-    'providers' => [
+    ),
+  ),
+  'cviebrock/eloquent-sluggable' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
-    ],
-  ],
-  'fideloper/proxy' => [
-    'providers' => [
+    ),
+  ),
+  'fideloper/proxy' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
-    ],
-  ],
-  'gloudemans/shoppingcart' => [
-    'providers' => [
+    ),
+  ),
+  'gloudemans/shoppingcart' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
-    ],
-  ],
-  'intervention/image' => [
-    'providers' => [
+    ),
+  ),
+  'intervention/image' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Intervention\\Image\\ImageServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Image' => 'Intervention\\Image\\Facades\\Image',
-    ],
-  ],
-  'itsgoingd/clockwork' => [
-    'providers' => [
-      0 => 'Clockwork\\Support\\Laravel\\ClockworkServiceProvider',
-    ],
-    'aliases' => [
-      'Clockwork' => 'Clockwork\\Support\\Laravel\\Facade',
-    ],
-  ],
-  'jenssegers/date' => [
-    'providers' => [
+    ),
+  ),
+  'jenssegers/date' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Jenssegers\\Date\\DateServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Date' => 'Jenssegers\\Date\\Date',
-    ],
-  ],
-  'laravel/scout' => [
-    'providers' => [
+    ),
+  ),
+  'laravel/scout' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Laravel\\Scout\\ScoutServiceProvider',
-    ],
-  ],
-  'laravel/socialite' => [
-    'providers' => [
+    ),
+  ),
+  'laravel/socialite' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
-    ],
-  ],
-  'laravel/tinker' => [
-    'providers' => [
+    ),
+  ),
+  'laravel/tinker' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ],
-  ],
-  'mcamara/laravel-localization' => [
-    'providers' => [
+    ),
+  ),
+  'mcamara/laravel-localization' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'LaravelLocalization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
-    ],
-  ],
-  'nunomaduro/collision' => [
-    'providers' => [
+    ),
+  ),
+  'nunomaduro/collision' => 
+  array (
+    'providers' => 
+    array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    ],
-  ],
-  'orchid/platform' => [
-    'providers' => [
+    ),
+  ),
+  'orchid/platform' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Dashboard' => 'Orchid\\Platform\\Facades\\Dashboard',
-    ],
-  ],
-  'roumen/feed' => [
-    'providers' => [
+    ),
+  ),
+  'roumen/feed' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Roumen\\Feed\\FeedServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Feed' => 'Roumen\\Feed\\Feed',
-    ],
-  ],
-  'watson/active' => [
-    'providers' => [
+    ),
+  ),
+  'watson/active' => 
+  array (
+    'providers' => 
+    array (
       0 => 'Watson\\Active\\ActiveServiceProvider',
-    ],
-    'aliases' => [
+    ),
+    'aliases' => 
+    array (
       'Active' => 'Watson\\Watson\\Facades\\Active',
-    ],
-  ],
-];
+    ),
+  ),
+  'willvincent/laravel-rateable' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'willvincent\\Rateable\\RateableServiceProvider',
+    ),
+  ),
+);

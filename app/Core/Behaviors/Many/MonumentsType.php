@@ -95,7 +95,7 @@ class MonumentsType extends Many
         if (Auth::user()->inRole('cfo')) {
             return [
                 'name' => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
-                'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
+                'body' => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
 
                 'region'   => 'tag:region|name:region|title:Регион',
                 'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',

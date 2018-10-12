@@ -32,7 +32,6 @@ class CatalogController extends Controller
         if ($typeRequest !== 'festivals') {
             $query->orderBy('publish_at', 'DESC');
         }
-
         $elements = $query->simplePaginate(10);
         $view = property_exists($typeObject, 'listing') ? $typeObject->listing : 'listings.catalog';
 

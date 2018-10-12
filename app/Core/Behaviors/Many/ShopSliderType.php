@@ -73,7 +73,8 @@ class ShopSliderType extends Many
 
             Field::tag('wysiwyg')
                 ->name('body')
-                ->title('Аннотация слайдера'),
+                ->title('Аннотация слайдера')
+                ->theme('modern'),
 
             Field::tag('input')
                 ->type('text')

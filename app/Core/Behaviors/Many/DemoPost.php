@@ -51,7 +51,7 @@ class DemoPost extends Many
     {
         return [
             'name'        => 'tag:input|type:text|name:name|max:255|title:Name Articles|help:Article title',
-            'body'        => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'body'        => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
             'datetime'    => 'tag:datetime|type:text|name:open|max:255|title:Opening date|help:The opening event will take place',
             'free'        => 'tag:checkbox|name:robot|max:255|title:Free|help:Event for free|placeholder:Event for free|default:1',
             'block'       => 'tag:code|name:block|title:Code Block|help:Simple web editor',

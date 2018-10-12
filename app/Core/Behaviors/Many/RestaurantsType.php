@@ -94,7 +94,7 @@ class RestaurantsType extends Many
     {
         return [
             'name' => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
-            'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
+            'body' => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
 
             'phone' => 'tag:input|type:text|name:phone|max:255|title:Номер телефона|help:Записывается в свободной форме',
             'price' => 'tag:input|type:text|name:price|max:255|title:Средний чек|help:Записывается в свободной форме',

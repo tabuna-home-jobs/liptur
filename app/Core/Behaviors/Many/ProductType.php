@@ -94,7 +94,8 @@ class ProductType extends Many
             Field::tag('wysiwyg')
                 ->name('body')
                 ->required()
-                ->title('Описание товара'),
+                ->title('Описание товара')
+                ->theme('modern'),
 
             Field::tag('input')
                 ->type('text')
