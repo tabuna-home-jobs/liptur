@@ -26,15 +26,13 @@
 
 
     <div class="line line-dashed b-b line-lg"></div>
-
-
     <div class="form-group">
         <label class="col-sm-2 control-label">Период</label>
-
             <div class="col-sm-4">
                 <div class="input-group">
                     <input required type='text' class="form-control datetimepicker"
-                           value="{{\Carbon\Carbon::createFromTimestamp($adv->getOption('startDate'))->toDateTimeString()}}"
+                           data-date-format="YYYY-MM-DD HH:mm:ss"
+                           value="{{\Carbon\Carbon::createFromTimestamp($adv->getOption('startDate') ?? now()->timestamp)->toDateTimeString()}}"
                            placeholder=""
 
                            name="options[startDate]"
@@ -45,7 +43,8 @@
             <div class="col-sm-4">
                 <div class="input-group">
                     <input required type='text' class="form-control datetimepicker"
-                           value="{{\Carbon\Carbon::createFromTimestamp($adv->getOption('endDate'))->toDateTimeString()}}"
+                           data-date-format="YYYY-MM-DD HH:mm:ss"
+                           value="{{\Carbon\Carbon::createFromTimestamp($adv->getOption('endDate') ?? now()->timestamp)->toDateTimeString()}}"
                            placeholder=""
 
                            name="options[endDate]"

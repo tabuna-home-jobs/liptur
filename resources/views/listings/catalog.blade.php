@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 
 @section('title',$type->display()->get('title',$name))

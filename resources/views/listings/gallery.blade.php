@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.app-new')
 
 @section('title','Галерея')
 @section('description','Изображения Липецкой области')

@@ -58,6 +58,7 @@ class CarouselType extends Many
         return [
             'name'   => 'tag:input|type:text|name:name|max:255|title:Название|help:Главный заголовок',
             'source' => 'tag:input|type:url|name:url|title:Ссылка на страницу',
+            'description' => 'tag:textarea|name:description|max:255|rows:5|title:Краткое описание',
         ];
     }
 

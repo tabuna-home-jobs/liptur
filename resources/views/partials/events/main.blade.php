@@ -1,3 +1,76 @@
+<section>
+    <div class="container padder-v">
+        <div class="row  m-b-md">
+            <div class="block-header col-xs-12 pt-3">
+                Интересные события Липецкой области
+
+                <div class="input-group  datepicker pull-right" id="select-news">
+                    <a href="{{route('catalog',['catalog' => 'festivals'])}}">
+                        Все актуальные события
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        @foreach($events->chunk(3) as $eventChunk)
+
+            <div class="row">
+
+                @foreach($eventChunk as $event)
+                    <div @if($loop->parent->first && $loop->first) class="col-md-8 col-xs-12"
+                         @else class="col-md-4 col-xs-12" @endif>
+
+                        <div class="pos-rlt">
+                            <div class="news-date">
+                                {{Date::parse($event->getContent('open'))->formatLocalized('%d %b')}}
+                            </div>
+                            <a href="{{route('item',[$event->type,$event->slug])}}"
+                               title="{{$event->getContent('name')}}">
+                                <img src="{{$event->hero('medium') ?? '/img/no-image.jpg'}}"
+                                     alt="{{$event->getContent('name')}}" class="img-responsive img-rounded"
+                                     style="
+                                     @if(!$loop->parent->first || !$loop->first) height: 200px; @else height: 350px; @endif
+                                             -o-object-fit: cover;
+                                             object-fit: cover;
+                                             width: 100%;
+                                             margin: 0 auto;">
+                            </a>
+                            <div class="header padder-v m-b-xs">
+
+                                @if($loop->parent->first && $loop->first)
+                                    <div class="page-header m-t-md">
+                                        <a class="h3 font-thin" href="{{route('item',[$event->type,$event->slug])}}"
+                                           title="{{$event->getContent('name')}}">
+                                            {{$event->getContent('name')}}
+                                        </a>
+                                    </div>
+                                @else
+                                    <a class="h4 l-h-1x font-thin" href="{{route('item',[$event->type,$event->slug])}}"
+                                       title="{{$event->getContent('name')}}">
+                                        {{$event->getContent('name')}}
+                                    </a>
+                                @endif
+
+                                @if($loop->parent->first && $loop->first)
+                                    <p class="text-xs m-t-md">
+                                        {!! str_strip_limit_words($event->getContent('body'),300) !!}
+                                    </p>
+                                @endif
+
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+
+
+            </div>
+        @endforeach
+    </div>
+</section>
+
+
+{{--
 <div class="container-fluid bg-white b-b box-shadow-lg padder-v">
     <div class="container">
 
@@ -82,3 +155,4 @@
 
     </div>
 </div>
+--}}

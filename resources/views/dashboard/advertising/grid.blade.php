@@ -9,7 +9,7 @@
     <div class="col-sm-6 col-xs-12 text-right">
         <div class="btn-group" role="group">
             <a href="{{ route('dashboard.marketing.advertising.create')}}" class="btn btn-link">
-                <i class="icon-plus fa fa-2x"></i>
+                <i class="icon-plus fa fa-2x"></i> Добавить
             </a>
         </div>
     </div>
@@ -38,8 +38,9 @@
                                 @foreach ($ads as $item)
                                     <tr>
                                         <td class="text-center">
-                                            <a href="{{ route('dashboard.marketing.advertising.edit', $item->id) }}"><i
-                                                        class="fa fa-bars"></i></a>
+                                            <a href="{{ route('dashboard.marketing.advertising.edit', $item->id) }}">
+                                                <i class="icon-menu"></i>
+                                            </a>
                                         </td>
                                         <td>{{ $item->slug }}</td>
 

@@ -83,7 +83,7 @@ class CatalogController extends Controller
 
             $parametersMap['addition'] = $data;
         }
-
+        //dd($viewTemplate);
         return view($viewTemplate, $parametersMap);
     }
 

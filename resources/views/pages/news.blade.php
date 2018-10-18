@@ -1,67 +1,87 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('title',$new->getContent('title'))
 @section('description',$new->getContent('description'))
 @section('keywords',$new->getContent('keywords'))
 @section('image',config('app.url').$new->hero('high'))
 
+
+@section('header')
+    <div id="post-header">
+        <div class="bg-white">
+            <section class="container-lg">
+                <div class="row">
+                    <div class="bg-bordo" style="background-image: url('/img/tour/background/news-bg.jpg')">
+                        <div class="container">
+                            <h1 class="brand-header">Новости</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
+                    <div class="container">
+                        @include('partials.breadcrumb',[
+                        'breadcrumb' => [],
+                         'base' => [
+                                'route' => route('news'),
+                                'name' => 'Новости',
+                        ],
+                        'current' => $new->getContent('name')])
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+@endsection
+
+
 @section('content')
-
-
     <section id="post-{{$new->id}}">
-        <div class="container">
-
+        <div class="container padder-v">
+            <div class="row padder-v" id="post-title">
+                <div class="col-md-12">
+                    <div class="block-header">
+                            {{$new->getContent('name')}}
+                    </div>
+                </div>
+            </div>
             <div class="row m-t-md m-b-md">
                 <div class="col-md-8 col-sm-12 col-xs-12">
-                    <div class="blog-post">
-                        <div class="panel panel-default">
-
-
-                            <div class="padder-md">
-                                <div class="page-header m-b-xs">
-
-                                    <h1 class="h3 l-h-1x">
-                                        {{$new->getContent('name')}}
-                                    </h1>
-
+                    <div>
+                        <div class="panel-default">
+                            <div class="row">
+                                <div class="padder-md col-md-12">
+                                    <div class="small text-muted m-t-md">
+                                        {{$new->publish_at->formatLocalized('%d %b %Y')}}
+                                        <div class="pull-right">
+                                            @include('partials.marketing.like',[
+                                                'post' => $new
+                                            ])
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <p class="small text-muted m-t-md">{{$new->publish_at->formatLocalized('%d %b %Y')}}
-
-
-                                    <a title="Перейти на источник записи"
-                                       href="{{$new->getContent('source')}}"
-                                       target="_blank"
-                                       rel="nofollow"
-                                       class="text-muted m-r-md pull-right"
-                                    >
-                                        <i class="icon-briefcase"></i> Источник
-                                    </a>
-
-
-                                </p>
-
                             </div>
 
                             @if(count($new->attachment) > 0)
 
                                 <div class="owl-carousel owl-theme own-content">
                                     @foreach($new->attachment as $image)
-
                                         @if($loop->first)
                                             <figure class="item">
                                                 <img class="img-responsive" src="{{$image->url('standart')}}"
                                                      alt="{{$image->alt}}"
-                                                     style="width: auto;margin: 0 auto;     max-height: 600px;">
+                                                     style="width: auto;margin: 0 auto; max-height: 600px;">
                                             </figure>
                                         @else
                                             <figure class="item">
                                                 <img class="img-responsive owl-lazy"
                                                      data-src="{{$image->url('standart')}}" alt="{{$image->alt}}"
-                                                     style="width: auto;margin: 0 auto;    max-height: 600px;">
+                                                     style="width: auto;margin: 0 auto; max-height: 600px;">
                                             </figure>
                                         @endif
-
                                     @endforeach
                                 </div>
 
@@ -75,24 +95,20 @@
 
 
                                 <div class="wrapper-md b-t">
-
                                     <div class="row v-center">
-
-
                                         <div class="col-sm-6 col-xs-12">
-
-                                            @include('partials.marketing.like',[
-                                                'post' => $new
-                                            ])
-
-
+                                            <a title="Перейти на источник записи"
+                                               href="{{$new->getContent('source')}}"
+                                               target="_blank"
+                                               rel="nofollow"
+                                               class="text-muted m-r-md">
+                                                <i class="icon-briefcase"></i> Источник
+                                            </a>
                                         </div>
 
                                         <div class="col-sm-6 text-right hidden-xs" role="group"
                                              aria-label="Social Links">
-
                                             @include('partials.marketing.socialShare')
-
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +121,6 @@
 
                     <div class="row hidden-xs hidden-sm">
                         @foreach($similars as $similar)
-
 
                             <article class="col-md-6 padder-v">
                                 <div class="panel panel-default box-shadow-lg pos-rlt">
@@ -135,18 +150,20 @@
                             </article>
                         @endforeach
                     </div>
-
-
+                    @include('partials.comments.comments',[
+                      'id' => $new->id,
+                      'comments' =>$new->comments,
+                      'post' => $new
+                     ] )
+                    {{--
                     @include('partials.comments.comments',[
                         'id' => $new->id,
                         'comments' => $new->comments,
                         'post' => $new
                     ])
-
-
+                    --}}
                 </div>
                 <aside class="col-md-4 hidden-xs hidden-sm">
-
 
                     <div class="aside-affix">
                         <div class="panel b box-shadow-lg" data-mh="main-info-block"
@@ -156,13 +173,11 @@
 
                         </div>
 
-
                         @if($new->attachment('docs')->count() > 0)
                             <div class="panel b box-shadow-lg wrapper-lg">
-
-                                <p class="h3 font-thin  m-b-lg">Докуметы для <span class="text-danger">Загрузки</span>
+                                <p class="h3 font-thin  m-b-lg">
+                                    Докуметы для <span class="text-danger">Загрузки</span>
                                 </p>
-
                                 <div class="list-group list-group-lg list-group-sp list-no-border b-t">
                                     @foreach($new->attachment('docs')->orderBy('sort','desc')->get() as $attachment)
                                         <a href="{{$attachment->url()}}"
@@ -171,12 +186,9 @@
                                             <span class="text-ellipsis">{{$attachment->original_name}}</span>
                                         </a>
                                     @endforeach
-
                                 </div>
-
                             </div>
                         @endif
-
 
                         @widget('EmailSecondary')
 

@@ -1,3 +1,22 @@
+section {
+  .h3, .h4 {
+    color: @brand-text-green;
+    font-family: "William Text Pro";
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .h3 {
+    font-size: 20px;
+  }
+
+  .text-xs {
+    color: @brand-text-grey;
+    font-family: Roboto;
+    font-size: 13px;
+  }
+
+}
+
 .rebrand {
   position: relative;
 
@@ -392,14 +411,17 @@ i.cart-icon {
   }
 }
 
+
+
 .brand-header {
   &:before {
     display:         inline-block;
     margin-right:    5px;
+    margin-bottom:   -6px;
     content:         " ";
     background:      url(/img/icons/flower.png);
     width:           71px;
-    height:          53px;
+    height:          57px;
     vertical-align:  sub;
     background-size: cover;
   }
@@ -430,6 +452,8 @@ i.cart-icon {
   font-size:   25px;
   font-weight: 700;
   line-height: 43px;
+  padding-left: 64px;
+  text-indent: -51px;
   a {
     float:       right;
     color:       #a5b526;
@@ -889,4 +913,104 @@ div#shop-header {
 .flex-item-bootom {
   align-items: flex-end;
   display:     flex;
+}
+
+.news-date {
+  width: 92px;
+  height: 48px;
+  position: absolute;
+  background-color: @layout-new-background-color;
+  color:@brand-dark;
+  padding-top: 14px;
+  text-align: center;
+  font-style: italic;
+}
+
+.news {
+  .h4 a {
+    color: @brand-text-green;
+    font-family: "William Text Pro";
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .text-xs {
+    color: @brand-text-grey;
+    font-family: Roboto;
+    font-size: 13px;
+  }
+}
+.news-email {
+  .h3 {
+    color: @brand-dark;
+    font-family: "William Text Pro";
+    font-size: 18px;
+    font-weight: 700;
+
+    &:before {
+      display: inline-block;
+      background-image: url(/img/other/2.png);
+      background-repeat: no-repeat;
+      background-position: center center;
+      content: " ";
+      width: 38px;
+      height: 38px;
+      margin-bottom: -12px;
+    }
+  }
+}
+
+#post-header.catalog-item{
+  .time {
+    position: relative;
+    width: 192px;
+    height: 81px;
+    margin-left: 15px;
+    padding-top: 20px;
+    background: #d3e068;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 40px solid transparent;
+      top: 81px;
+      border-top-color: #d3e068;
+      border-bottom: 0;
+      border-width: 22px 96px 22px 96px;
+    }
+    span {
+      font-style: italic;
+    }
+  }
+  .m-l-xl {
+    margin-left: 90px;
+  }
+  h1.brand-header {
+    font-size: 30px;
+    text-indent: -86px;
+    &::before{
+      margin-right: 15px;
+    }
+  }
+  p {
+    font-family: Roboto;
+  }
+}
+
+.row.equal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weather-img {
+  height: 430px;
+  margin: 0 auto;
+}
+
+.map-bg {
+  background: url(/img/other/map-bg.jpg) center;
+  position: relative;
+  overflow: hidden;
 }

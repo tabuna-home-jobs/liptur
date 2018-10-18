@@ -59,19 +59,22 @@ class AdvertisingMainForm extends Form
      */
     public function persist(Request $request = null, Post $post = null)
     {
-        $parameters = $request->all();
 
+        $parameters = $request->all();
+        //dump($parameters);
         $parameters['type'] = 'advertising';
         $parameters['options']['startDate'] = Carbon::parse($parameters['options']['startDate'])->timestamp;
         $parameters['options']['endDate'] = Carbon::parse($parameters['options']['endDate'])->timestamp;
         $parameters['user_id'] = Auth::user()->id;
-
+        //dd($parameters);
         if (is_null($post)) {
-            Post::created([$parameters]);
-        } else {
-            $post->fill($parameters);
-            $post->save();
+            $post = new Post;
+           // Post::created([$parameters]);
         }
+        $post->fill($parameters);
+        $post->save();
+        //dd($post);
+
     }
 
     /**

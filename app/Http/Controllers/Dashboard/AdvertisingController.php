@@ -53,6 +53,7 @@ class AdvertisingController extends Controller
      */
     public function store(Request $request, Post $post = null)
     {
+
         $this->form->save($request, $post);
         Alert::success('Блок сохранён');
 

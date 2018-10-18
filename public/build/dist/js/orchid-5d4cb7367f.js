@@ -23970,11 +23970,26 @@ $(document).ready(function () {
                     var top = 0;
                 }
 
-                console.log($('#header').outerHeight(true) + top + 15);
+                if (document.getElementById('post-title')) {
+                    top += $('#post-title').outerHeight(true)
+                }
+
+                //console.log($('#header').outerHeight(true) + top + 15);
                 return (this.top = $('#header').outerHeight(true) + top + 15)
             },
             bottom: function () {
-                return (this.bottom = $('#footer').outerHeight(true) + 20)
+                if (document.getElementById('ad-carousel')) {
+                    var bottom = $('#ad-carousel').outerHeight(true)
+                } else {
+                    var bottom = 0;
+                }
+                if (document.getElementById('comments')) {
+                    var comments = $('#comments').outerHeight(true)
+                } else {
+                    var comments = 0;
+                }
+                console.log($('#footer').outerHeight(true) + bottom + comments + 130);
+                return (this.bottom = $('#footer').outerHeight(true) + bottom + comments + 130)
             }
         }
     })
@@ -24901,6 +24916,60 @@ $(function () {
       }
     });
   }
+});
+$(function () {
+    if (document.getElementById('comments')) {
+        new Vue({
+            'el': '#comments',
+            data: {
+                commentText: ""
+            },
+            mounted() {
+                var commentsRulesBlock = $(this.$refs.commentsRulesBlock);
+                var textAreaBlock = $(this.$refs.textAreaBlock);
+                commentsRulesBlock.height(textAreaBlock.height()+30)
+
+            },
+            methods: {
+                showRules() {
+                    var showAllRulesLink = $(this.$refs.showAllRulesLink);
+                    var commentsRulesBlock = $(this.$refs.commentsRulesBlock);
+                    commentsRulesBlock.height('100%')
+                    commentsRulesBlock.addClass('show-all')
+                    showAllRulesLink.hide()
+                },
+                async addComment() {
+                    const {commentText} = this;
+                    const postId = $(this.$el).attr('post-id')
+                    try {
+                        await this.$http.post(`/api/shop/${postId}/comment`, {
+                            content: commentText,
+                        });
+                        swal({
+                            title: "Выполнено успешно",
+                            text: "Ваш комментарий добавлен!",
+                            type: "success",
+                            confirmButtonClass: "btn-success",
+                            confirmButtonText: "Закрыть",
+                        }, function () {
+                            location.reload();
+                        });
+                    } catch (e) {
+                        swal({
+                            title: "Ошибка",
+                            text: "Не получилось добавить комментарий!",
+                            type: "error",
+                            confirmButtonClass: "btn-warning",
+                            confirmButtonText: "Закрыть",
+                        });
+                    }
+                },
+                clearComment() {
+                    this.commentText = ''
+                },
+            }
+        });
+    }
 });
 document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('global-map-wrapper') == null) {

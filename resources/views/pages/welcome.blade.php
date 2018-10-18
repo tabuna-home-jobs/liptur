@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 
 
@@ -6,11 +6,12 @@
 
 
 
-    <div class="black dk b-b vi-hide">
-        <div class="row no-gutter item-info-overlay">
-            @widget('mainCoursel')
-        </div>
-    </div>
+
+    <section class="container-lg hidden-xs">
+        <div class="pos-abt bg-white left w-full h-sm"></div>
+        @widget('mainCoursel')
+    </section>
+
 
 
     @widget('mainEvents')
@@ -22,14 +23,16 @@
     {{--
         @widget('mainPopular')
     --}}
+    @widget('mainNews')
 
-    @widget('mainCinema')
+
+    {{-- @widget('mainCinema') --}}
 
 
     <section class="container m-b-md vi-hide m-t-md">
         <div class="row">
 
-            <div class="col-md-4 hidden-xs text-center">
+            <div class="col-md-3 hidden-xs text-center">
                 <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
 width: 100%;
 background: #c6c6c6;
@@ -45,7 +48,7 @@ align-items: center;
                 </div>
             </div>
 
-            <div class="col-md-4 col-xs-12 text-center">
+            <div class="col-md-3 col-xs-12 text-center">
                 <div class="panel wrapper-xl b box-shadow-lg  padder-lg" data-mh="main-info-block">
                     <i class="icon-chart text-danger icon-title"></i>
                     <p class="h4 font-thin padder-v" data-mh="main-info-block-title">Инвесторам</p>
@@ -57,7 +60,7 @@ align-items: center;
             </div>
 
 
-            <div class="col-md-4 hidden-xs text-center">
+            <div class="col-md-3 hidden-xs text-center">
                 <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
 width: 100%;
 background: #c6c6c6;
@@ -71,11 +74,23 @@ align-items: center;
                 </div>
             </div>
 
+            <div class="col-md-3 col-xs-12 text-center">
+                <div class="panel wrapper-xl b box-shadow-lg  padder-lg" data-mh="main-info-block">
+                    <i class="icon-chart text-danger icon-title"></i>
+                    <p class="h4 font-thin padder-v" data-mh="main-info-block-title">Инвесторам</p>
+                    <p class="padder-v" data-mh="main-info-block-body">
+                        Создадим комфортную среду для туристов вместе!
+                    </p>
+                    <a href="{{route('investor')}}" class="btn btn-danger btn-rounded">Подробнее</a>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
 
-
+{{--
     <section class="container-fluid bg-white m-t-md b-t box-shadow-lg">
         <div class="container padder-v">
 
@@ -101,15 +116,13 @@ align-items: center;
 
         </div>
     </section>
-
+--}}
 
 
 
 
     @include('partials.marketing.maps')
 
-
-    @widget('mainNews')
 
 
 

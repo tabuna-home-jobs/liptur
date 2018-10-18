@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('title',$item->getContent('title'))
 @section('description',$item->getContent('description'))
@@ -6,65 +6,40 @@
 @section('image',config('app.url').$item->hero('high'))
 
 
-@section('content')
-
-
-    <div itemscope itemtype="http://schema.org/Article">
-
-        <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage"
-              itemid="{{ url()->current() }}"/>
-
-
-        <section class="container-fluid" id="post-header">
-
-
-            <div class="row">
-
-                <div style="background:url({{$item->hero('high')}}) center center; background-size:cover">
-                    <div class="bg-black-opacity bg-dark">
-
-
-                        <div class="container pos-rlt min-h-h">
-                            <div class="pos-rlt top-desc-block ">
-                                <div class="row">
-                                    @if($type->display()->get('time') === true)
-                                        <time class=" time text-center w-md wrapper-lg bg-danger">@include('partials.date.'.str_date_top($item->getContent('open'),$item->getContent('close')),[
+@section('header')
+    <div id="post-header" class="catalog-item">
+        <div style="background:url({{$item->hero('high')}}) center center; background-size:cover">
+            <div class="bg-black-opacity bg-dark">
+                <div class="container pos-rlt min-h-h">
+                    <div class="pos-rlt top-desc-block ">
+                        <div class="row">
+                            @if($type->display()->get('time') === true)
+                                <time class=" time text-center w-md ">@include('partials.date.'.str_date_top($item->getContent('open'),$item->getContent('close')),[
                                     'open' => date_parse($item->getContent('open')),
                                     'close' => date_parse($item->getContent('close')),
                                 ])</time>
-                                    @endif
+                            @endif
+                        </div>
+                    </div>
 
-                                </div>
-
-                            </div>
-
-
-                            <div class="row m-t-xxl m-b-md padder-v">
-
-                                <div class="pull-bottom text-white padder-v">
-
-                                    <h1 class="text-white" itemprop="headline">{{$item->getContent('name')}}</h1>
-
-                                    <p class="text-white">{{$item->getContent('place')['name'] or ''}}</p>
-
-                                    <div class="lead hidden-xs v-center">
-                                           <span id="stars-existing" class="starrr text-warning-lt"
+                    <div class="row m-t-xxl m-b-md padder-v">
+                        <div class="pull-bottom text-white padder-v m-l-xl">
+                            <h1 class="text-white brand-header" itemprop="headline">{{$item->getContent('name')}}</h1>
+                            <p class="text-white text-sm"><i class="fa fa-map-marker"></i> {{$item->getContent('place')['name'] or ''}}</p>
+                            <div class="lead hidden-xs v-center">
+                               <span id="stars-existing" class="starrr text-warning-lt"
                                                  data-rating='{{$rating->percent}}' data-post-id='{{$item->id}}'
                                                  style="cursor: pointer;"></span>
-                                        {{--  <small class="m-l-sm"> Вы оценили в <span id="count-existing">{{$rating->percent}}</span> звезд(ы)</small> --}}
-                                        <small class="m-l-sm"> Средний рейтинг {{$rating->percent}} звезд(ы)</small>
-                                    </div>
-
-                                </div>
-
+                               <em class="m-l-sm text-sm"> Средний рейтинг {{$rating->percent}} звезд(ы)</em>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
-                <nav class="bg-danger box-shadow-lg">
+            </div>
+        </div>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
                     <div class="container">
                         @include('partials.breadcrumb',[
                             'base' => [
@@ -76,10 +51,19 @@
                         ])
                     </div>
                 </nav>
-
-
             </div>
         </section>
+    </div>
+@endsection
+
+
+@section('content')
+
+
+    <div itemscope itemtype="http://schema.org/Article">
+
+        <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage"
+              itemid="{{ url()->current() }}"/>
 
 
         <section id="post-{{$item->id}}">
@@ -89,7 +73,7 @@
                 <div class="m-t-md m-b-md">
 
                     <div class="row">
-                        <div class="col-md-8 bg-white no-padder box-shadow-lg">
+                        <div class="col-md-8 no-padder box-shadow-lg">
 
 
                             @if(!empty($item->getOption('option','')))
@@ -154,16 +138,6 @@
                                     <span>На карте</span>
                                 </a>
 
-                                {{--
-                                                                    @if(!empty($item->getContent('email')))
-                                                                        <li class="list-group-item padder-v padder-lg">
-                                                                            <strong>E-mail: </strong>
-                                                                            <span class="pull-right text-xs">
-                                                                                        {{$item->getContent('email')}}
-                                                                                    </span>
-                                                                        </li>
-                                                                    @endif
-                                --}}
                                 @if(!empty($item->getContent('organizer')))
                                     <span title="Организатор: {{$item->getContent('organizer')}}"
                                           class="col padder-v text-muted b-r b-light">
@@ -246,7 +220,8 @@
                                         <p class="font-thin  m-t-sm">
                                             <time datetime="{{ $item->created_at->toRfc3339String() }}">
                                                 <i class="fa fa-clock-o text-muted"></i>
-                                                Опубликовано {{$item->created_at->diffForHumans()}}
+
+                                                <em>Опубликовано {{$item->created_at->diffForHumans()}}</em>
 
                                                 <meta itemprop="dateModified"
                                                       content="{{ $item->updated_at->toRfc3339String() }}"/>

@@ -1,5 +1,4 @@
 <div class="owl-carousel main-carousel owl-theme owl-with-dots hidden-xs">
-
     @foreach ($slides as $slide)
         <div class="item">
             <a href="{{$slide->getContent('link')}}">

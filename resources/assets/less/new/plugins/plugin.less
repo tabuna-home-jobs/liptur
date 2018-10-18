@@ -245,10 +245,11 @@
   .button {
     .btn;
     .btn-outline;
-    .btn-danger;
     .btn-rounded!important;
     .btn-sm;
     .btn-icon;
+    box-shadow: 0 0 0 1px @brand-green inset;
+    color: @brand-green !important;
 
     display: inherit;
     .btn-sm {
@@ -266,9 +267,9 @@
     cursor: pointer;
 
     .button {
-      box-shadow: 0 0 0 1px @brand-danger inset;
+      box-shadow: 0 0 0 1px @brand-green inset;
       color: @brand-white !important;
-      background: @brand-danger;
+      background: @brand-green;
     }
 
   }
@@ -305,4 +306,10 @@
 
 .affix-bottom {
   position: relative;
+}
+
+#like {
+  span.m-r-xs {
+    display: none;
+  }
 }

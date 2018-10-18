@@ -27,6 +27,7 @@ class NewController extends Controller
     {
         if ($request->has('date')) {
             $date = Carbon::parse($request->date);
+            $hasdate= true;
             $news = Post::published()->where('type', 'news')
                 ->whereNotNull('options->locale->'.App::getLocale())
                 ->whereDate('publish_at', $date->format('Y-m-d'))
@@ -34,14 +35,15 @@ class NewController extends Controller
                 ->get();
         } else {
             $date = Carbon::now();
+            $hasdate= false;
             $news = Post::published()->where('type', 'news')
                 ->whereNotNull('options->locale->'.App::getLocale())
                 ->orderBy('publish_at', 'DESC')
-                ->simplePaginate(14);
+                ->paginate(14);
         }
-
         return view('listings.news', [
             'news' => $news,
+            'hasdate' => $hasdate,
             'date' => $date,
             'page' => getPage('news'),
         ]);

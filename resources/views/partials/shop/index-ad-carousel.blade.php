@@ -3,7 +3,7 @@
     //dd ($images->alt);
 @endphp
 
-<div class="bg-white padder-v">
+<div class="bg-white padder-v" id="ad-carousel">
     <div class="container no-padder">
       <svg class="defs-only">
         <filter id="monochrome">
@@ -13,15 +13,13 @@
         </filter>
       </svg>
       <div class="owl-carousel ad-carousel">
-   
-        @foreach ($images as $image) 
+        @foreach ($images as $image)
             <figure class="item">
               <a href="{{$image->alt}}">
                 <img class="owl-lazy img-responsive" data-src="{{$image->url('high')}}" title="{{$image->description}}">
               </a>
             </figure>
         @endforeach
-   
       </div>
     </div>
 </div>

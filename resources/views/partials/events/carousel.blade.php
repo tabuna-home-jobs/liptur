@@ -1,8 +1,6 @@
+{{--
 <div class="hidden-xs col-xs-12 col-sm-12 col-md-12 text-white container-owl-carousel">
-
-
     <div class="owl-carousel owl-theme main-carousel">
-
         @foreach($carousel as $item)
             <figure class="item">
                 <a href="{{$item->getContent('url')}}">
@@ -19,7 +17,36 @@
                 </a>
             </figure>
         @endforeach
-
     </div>
+</div>
+--}}
 
+<div class="owl-carousel main-carousel owl-theme owl-with-dots hidden-xs">
+    @foreach ($carousel as $item)
+        <div class="item">
+            <a href="{{$item->getContent('url')}}">
+                <img class="img-responsive" src="{{$item->hero()}}"/>
+                <div class="owl-shop-block container">
+                    <div class="row row-flex">
+                        <div class="container no-padder">
+                            <div class="row row-flex">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="owl-shop-title text-left">
+                                        {{$item->getContent('name')}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-flex">
+                                <div class="col-md-8 col-sm-12 text-left">
+                                    <div class="owl-shop-description">
+                                        {!! $item->getContent('description') !!}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    @endforeach
 </div>

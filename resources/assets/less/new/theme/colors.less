@@ -65,6 +65,41 @@
   .font-variant(@brand-danger);
 }
 
+.border-gradient-bottom(@from: #000, @to: #fff) {
+  border-color: @from;
+  -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+  -webkit-border-image: -webkit-linear-gradient(top, @from, @to);
+  -moz-border-image: -moz-linear-gradient(top, @from, @to);
+  -o-border-image: -o-linear-gradient(top, @from, @to);
+  border-image: linear-gradient(to bottom, @from, @to);
+}
+
+.bg-gray {
+  background-color: #e2e2e2;
+  /*
+  border-bottom-width: 8px;
+  border-style: solid;
+  .border-gradient-bottom(#e2e2e2, #d7d7d7);
+  //border-bottom-color: -moz-linear-gradient(top, #555555, #111111);
+  //border-image: linear-gradient(to bottom, #e2e2e2, #d7d7d7);
+  //#gradient > .vertical(rgba(40, 50, 60, 0), rgba(40, 50, 60, 0.075), 0, 100%);
+  */
+  &:before {
+    content: " ";
+    width:100%;
+    height: 8px;
+    display: block;
+    #gradient > .vertical(rgba(40, 50, 60, 0.075), rgba(40, 50, 60, 0),  0, 100%);
+  }
+  &:after {
+    content: " ";
+    width:100%;
+    height: 8px;
+    display: block;
+    #gradient > .vertical(rgba(40, 50, 60, 0), rgba(40, 50, 60, 0.075), 0, 100%);
+  }
+}
+
 .bg-white {
   background-color: #fff;
   color: @text-color;
@@ -148,4 +183,8 @@ a.bg-light {
 
 .text-muted {
   color: @text-muted;
+}
+
+.text-brand-green {
+  color: @brand-green;
 }
