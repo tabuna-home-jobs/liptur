@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 
 @section('title','О нас')
@@ -6,42 +6,37 @@
 @section('keywords','')
 
 
+@section('header')
+    <div id="post-header" class="catalog-item">
+        <div style="background:url('/img/category/about.jpg') center center; background-size:cover">
+            <div class="bg-black-opacity bg-dark">
+                <div class="container pos-rlt min-h-h">
 
-@section('content')
-
-
-    <section class="container-fluid">
-        <div class="row">
-
-
-            <div style="background:url('/img/category/about.jpg') center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
-                    <div class="row m-t">
-                        <div class="container m-t-md top-desc-block">
-                            <div class="col-md-6  pull-bottom text-white">
-                                <h1 class="text-white text-ellipsis padder-v xs-x-scroll">О нас</h1>
-                            </div>
+                    <div class="row m-t-xxl m-b-md padder-v">
+                        <div class="pull-bottom text-white padder-v m-l-xl">
+                            <h1 class="text-white brand-header" itemprop="headline">О нас</h1>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <nav class="bg-danger box-shadow-lg">
-                <div class="container">
-
-                    @include('partials.breadcrumb',[
-                        'breadcrumb' => [],
-                        'current' => 'О нас'
-                    ])
-
-                </div>
-            </nav>
-
         </div>
-    </section>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
+                    <div class="container">
+                        @include('partials.breadcrumb',[
+                            'breadcrumb' => [],
+                            'current' => 'О нас'
+                        ])
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+@endsection
 
 
-
+@section('content')
 
 
     <section>

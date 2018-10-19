@@ -6,53 +6,37 @@
 @section('keywords',$type->display()->get('description',$name))
 
 
+@section('header')
+    <div id="post-header" class="catalog-item">
+        <div style="background:url({{$type->image}}) center center; background-size:cover">
+            <div class="bg-black-opacity bg-dark">
+                <div class="container pos-rlt min-h-h">
 
-@section('content')
-
-    <section class="container-fluid">
-        <div class="row">
-
-            <div style="background:url({{$type->image}}) center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
-                    <div class="row m-t">
-
-
-                        <div class="container m-t-md top-desc-block">
-
-
-                            <div class="col-md-6  pull-bottom text-white">
-
-
-                                <h1 class="text-white text-ellipsis padder-v xs-x-scroll">{{$name}}</h1>
-
-
-                            </div>
-
-
+                    <div class="row m-t-xxl m-b-md padder-v">
+                        <div class="pull-bottom text-white padder-v m-l-xl">
+                            <h1 class="text-white brand-header" itemprop="headline">{{$name}}</h1>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-            <nav class="bg-danger box-shadow-lg">
-                <div class="container">
-
-                    @include('partials.breadcrumb',[
-                        'breadcrumb' => [],
-                        'current' => $name
-                    ])
-
-                </div>
-            </nav>
-
-
         </div>
-    </section>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
+                    <div class="container">
+                        @include('partials.breadcrumb',[
+                            'breadcrumb' => [],
+                            'current' => $name
+                        ])
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+@endsection
 
 
-
+@section('content')
 
 
     <section class="bg-white b-t box-shadow-lg">

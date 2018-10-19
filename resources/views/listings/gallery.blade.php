@@ -4,50 +4,48 @@
 @section('description','Изображения Липецкой области')
 @section('keywords','Липецк фото, липецкая область фото')
 
-@section('content')
 
-    <section class="container-fluid">
-        <div class="row">
-            <div style="background:url({{$mostPopular->first()->original_url}}) center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt text-ellipsis">
-                    <div class="row m-t">
 
-                        <div class="container m-t-md top-desc-block">
-                            <div class="col-md-6  pull-bottom text-white">
-                                <h1 class="text-white text-ellipsis padder-v xs-x-scroll">Галерея</h1>
-                            </div>
+
+@section('header')
+    <div id="post-header" class="catalog-item">
+        <div style="background:url({{$mostPopular->first()->original_url}}) center center; background-size:cover">
+            <div class="bg-black-opacity bg-dark">
+                <div class="container pos-rlt min-h-h">
+
+                    <div class="row m-t-xxl m-b-md padder-v">
+                        <div class="pull-bottom text-white padder-v m-l-xl">
+                            <h1 class="text-white brand-header" itemprop="headline">Галерея</h1>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-            <nav class="bg-danger box-shadow-lg">
-                <div class="container">
-
-                    @include('partials.breadcrumb',[
-                        'breadcrumb' => [],
-                        'current' => 'Галерея'
-                    ])
-
-                </div>
-            </nav>
-
-
         </div>
-    </section>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
+                    <div class="container">
+                        @include('partials.breadcrumb',[
+                            'breadcrumb' => [],
+                            'current' => 'Галерея'
+                        ])
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+@endsection
 
-    <section class="bg-white b-t box-shadow-lg" id="photo-albums">
+
+
+@section('content')
+
+    <section class="b-t box-shadow-lg" id="photo-albums">
         <div class="container padder-v">
             <div class="wrapper m-b-md">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="page-header">
-                            <h2 class="font-thin">Альбомы
-                                <small><span class="text-danger">{{$countGallery}}</span></small>
-                            </h2>
-                        </div>
+                    <div class="block-header col-xs-12 pt-3">
+                        Альбомы <span class="text-danger">{{$countGallery}}</span>
                     </div>
                 </div>
 
@@ -140,7 +138,7 @@
              aria-hidden="false">
             <div class="modal-dialog modal-lg modal-xl" id="view-photo">
                 <div class="modal-content-wrapper">
-                    <div class="modal-content no-border" v-if="photos.length > 0">
+                    <div class="modal-content no-border no-padder" v-if="photos.length > 0">
                         <div class="row bg-white scroll-h">
                             <div class="col-sm-8 bg-black">
                                 <div class="pos-rlt image-wrapper">
@@ -205,7 +203,7 @@
 
 
                                     <!-- BEGIN Alert List !-->
-                                    <div class="list-view-wrapper list-view b-t" style="height: 100vh;
+                                    <div class="list-view-wrapper list-view b-t" style="height: 100%;
     max-height: 480px;">
 
 

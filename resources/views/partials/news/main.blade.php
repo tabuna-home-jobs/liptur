@@ -1,4 +1,4 @@
-<section class="container-fluid b-t box-shadow-lg">
+<section class="container-fluid bg-white b-t box-shadow-lg">
     <div class="container padder-v">
         <div class="row  m-b-md">
             <div class="block-header col-xs-12 pt-3">

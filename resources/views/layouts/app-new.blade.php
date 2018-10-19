@@ -219,7 +219,7 @@
 
     <hr>
 
-    <div class="wrapper bg-gray visible-lg vi-hide">
+    <div class="wrapper visible-lg vi-hide">
         <div class="container">
             <div class="row">
                 @php 
@@ -256,7 +256,7 @@
 
 </footer>
 <!-- / footer -->
-
+@stack('scripts')
 </body>
 
 </html>

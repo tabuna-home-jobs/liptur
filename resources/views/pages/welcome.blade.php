@@ -30,12 +30,12 @@
 
 
     <section class="container m-b-md vi-hide m-t-md">
-        <div class="row">
+        <div class="row equal">
 
             <div class="col-md-3 hidden-xs text-center">
                 <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
 width: 100%;
-background: #c6c6c6;
+background: #fff;
 display: flex;
 align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@ align-items: center;
             <div class="col-md-3 hidden-xs text-center">
                 <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
 width: 100%;
-background: #c6c6c6;
+background: #fff;
 display: flex;
 align-items: center;
   justify-content: center;
@@ -74,17 +74,27 @@ align-items: center;
                 </div>
             </div>
 
-            <div class="col-md-3 col-xs-12 text-center">
-                <div class="panel wrapper-xl b box-shadow-lg  padder-lg" data-mh="main-info-block">
-                    <i class="icon-chart text-danger icon-title"></i>
-                    <p class="h4 font-thin padder-v" data-mh="main-info-block-title">Инвесторам</p>
-                    <p class="padder-v" data-mh="main-info-block-body">
-                        Создадим комфортную среду для туристов вместе!
+            <div class="col-md-3 hidden-xs news-email">
+                <div class="panel b box-shadow-lg wrapper-md text-center" data-mh="main-info-block">
+                    <p class="h3 font-thin m-b-lg text-center">
+                        Подписаться на рассылку
                     </p>
-                    <a href="{{route('investor')}}" class="btn btn-danger btn-rounded">Подробнее</a>
+                    Хотите быть в курсе всех основных событий культурной и событийной жизни Липецкой области - подпишитесь на рассылку.
+                    <form role="form" data-mh="main-last-block">
+                        <div class="form-group m-t-md">
+                            <label class="text-sm text-left">Введите ваш Email:</label>
+                            <input type="email" placeholder="Введите Email" class="form-control">
+                        </div>
+                    </form>
+
+                    <p class="text-center m-t-md">
+                        <button type="submit" class="btn btn-success btn-group-justified text-u-c">
+                            Подписаться
+                        </button>
+                    </p>
+
                 </div>
             </div>
-
 
         </div>
     </section>

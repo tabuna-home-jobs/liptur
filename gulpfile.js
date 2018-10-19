@@ -42,7 +42,7 @@ elixir(function (mix) {
     './resources/assets/vendor/waypoints/lib/jquery.waypoints.min.js',
     './resources/assets/vendor/isotope/dist/isotope.pkgd.min.js',
 
-    "./resources/assets/vendor/vue/dist/vue.min.js",
+    "./resources/assets/vendor/vue/dist/vue.js",
     "./resources/assets/vendor/vue-resource/dist/vue-resource.js",
 
     "./resources/assets/vendor/fancybox/dist/jquery.fancybox.min.js",
