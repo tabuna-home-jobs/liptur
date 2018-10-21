@@ -1,9 +1,9 @@
-<section class="bg-gray">
-    <div class="container hidden-xs hidden-sm container-owl-carousel m-t-xxl m-b-xxl" >
+<section class="bg-gray main-secondary-slider">
+    <div class="container container-owl-carousel m-t-xxl m-b-xxl" >
 
         <div class="row equal" style="overflow: hidden">
 
-            <div class="col-md-8" style="overflow: hidden">
+            <div class="col-md-8 col-xs-12" style="overflow: hidden">
 
                     <div class="owl-carousel owl-theme secondary-carousel">
                         @foreach($carousel as $item)
@@ -20,7 +20,7 @@
             </div>
 
 
-            <div class="col-md-4 bg-white">
+            <div class="col-md-4 col-xs-12 bg-white">
                 <div class="vbox">
                     <img src="/img/weather/{{$weather['weather'][0]['icon']}}.jpg" alt="" class="img-responsive weather-img">
                     <div class="wrapper-sm">

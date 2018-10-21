@@ -7,5 +7,4 @@ $(function () {
     });
 });
 
-
 moment.locale($('html').attr('lang'));

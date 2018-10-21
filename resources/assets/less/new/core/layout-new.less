@@ -1,4 +1,4 @@
-section {
+section .container{
   .h3, .h4 {
     color: @brand-text-green;
     font-family: "William Text Pro";
@@ -1082,5 +1082,16 @@ div#shop-header {
   .item:not(:hover) & {
     transition: 400ms;
   }
-
+}
+.main-events {
+  img.img-responsive{
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    margin: 0 auto;
+    height: 200px;
+    &.first-image{
+      height: 350px;
+    }
+  }
 }

@@ -45,12 +45,12 @@ $(function () {
         ],
         responsive: {
             0: {
-                items: 1,
-                stagePadding: 100,
+                items: 2,
+                stagePadding: 5,
                 nav:false,
                 loop: false,
-                autoWidth:true,
-                autoHeight:true,
+                /*autoWidth:true,
+                autoHeight:true,*/
             },
             767: {
                 items: 6,

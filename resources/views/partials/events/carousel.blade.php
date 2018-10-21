@@ -21,7 +21,7 @@
 </div>
 --}}
 
-<div class="owl-carousel main-carousel owl-theme owl-with-dots hidden-xs">
+<div class="owl-carousel main-carousel owl-theme owl-with-dots">
     @foreach ($carousel as $item)
         <div class="item">
             <a href="{{$item->getContent('url')}}">

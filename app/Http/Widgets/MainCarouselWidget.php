@@ -25,7 +25,6 @@ class MainCarouselWidget extends Widget
                 ->limit(10)
                 ->get();
         });
-
         if ($carousel->count() != 0) {
             return view('partials.events.carousel', [
                 'carousel' => $carousel,

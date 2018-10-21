@@ -7,7 +7,7 @@
 
 
 
-    <section class="container-lg hidden-xs">
+    <section class="container-lg no-padder">
         <div class="pos-abt bg-white left w-full h-sm"></div>
         @widget('mainCoursel')
     </section>
@@ -29,10 +29,10 @@
     {{-- @widget('mainCinema') --}}
 
 
-    <section class="container m-b-md vi-hide m-t-md">
+    <section class="container main-advertising m-b-md vi-hide m-t-md">
         <div class="row equal">
 
-            <div class="col-md-3 hidden-xs text-center">
+            <div class="col-xs-3 text-center">
                 <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
 width: 100%;
 background: #fff;
@@ -48,7 +48,7 @@ align-items: center;
                 </div>
             </div>
 
-            <div class="col-md-3 col-xs-12 text-center">
+            <div class="col-xs-3 text-center">
                 <div class="panel wrapper-xl b box-shadow-lg  padder-lg" data-mh="main-info-block">
                     <i class="icon-chart text-danger icon-title"></i>
                     <p class="h4 font-thin padder-v" data-mh="main-info-block-title">Инвесторам</p>
@@ -60,7 +60,7 @@ align-items: center;
             </div>
 
 
-            <div class="col-md-3 hidden-xs text-center">
+            <div class="col-xs-3 text-center">
                 <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
 width: 100%;
 background: #fff;
@@ -74,7 +74,7 @@ align-items: center;
                 </div>
             </div>
 
-            <div class="col-md-3 hidden-xs news-email">
+            <div class="col-xs-3 news-email">
                 <div class="panel b box-shadow-lg wrapper-md text-center" data-mh="main-info-block">
                     <p class="h3 font-thin m-b-lg text-center">
                         Подписаться на рассылку

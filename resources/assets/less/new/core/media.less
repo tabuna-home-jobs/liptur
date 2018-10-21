@@ -31,15 +31,44 @@
     width: 100vw;
     margin-left: -100%;
   }
+  section{
+    .h4 {
+      font-size: 14px;
+    }
+  }
+
   #content {
-    .block-header.col-xs-12 {
-      text-align: center;
-      background: #EEEFEE;
+    .block-header {
+      font-size: 20px;
+      line-height: 14px;
+      &.col-xs-12 {
+        text-align: center;
+        background: #EEEFEE;
+      }
     }
     .paginate > div {
         padding: 0 0px;
     }
   }
+  .owl-carousel {
+    .owl-shop-block {
+      .owl-shop-title {
+        font-size: 34px;
+        text-align: center;
+        &:before {
+          display: none;
+        }
+      }
+      .owl-shop-description {
+        margin-left: 15px;
+        text-align: center;
+      }
+    }
+    &.owl-with-dots .owl-dots {
+      right: 15px;
+    }
+  }
+
   .owl-carousel.ad-carousel {
     width: 100%;
     height: 100px;
@@ -55,6 +84,65 @@
     }
     .owl-nav.disabled {
       display: none!important;
+    }
+  }
+
+  .main-events {
+    img.img-responsive{
+      &.first-image{
+        height: 178px;
+      }
+    }
+    .pos-rlt.change-xs {
+      display: flex;
+      .news-date {
+        background-color: inherit;
+        text-align: left;
+        position: inherit;
+        width: 89px;
+        flex: none;
+      }
+    }
+  }
+  .main-secondary-slider {
+    &:before, &:after{
+      display: none;
+    }
+    .container{
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .main-news {
+    padding: 0;
+    .panel {
+      box-shadow: none;
+      border: none;
+      margin-bottom: 0px;
+    }
+    .news-date {
+      background-color: inherit;
+      text-align: left;
+      position: inherit;
+      padding-top: 0px;
+      height: auto;
+      padding-bottom: 5px;
+    }
+    p.text-xs {
+      padding-top: 10px;
+    }
+    .wrapper-md {
+      padding: 0;
+    }
+  }
+
+  .main-advertising{
+    width: 100%;
+    overflow-x: scroll;
+    .row.equal {
+      width: 400%;
     }
   }
   

@@ -1,10 +1,10 @@
-<section>
+<section class="main-events">
     <div class="container padder-v">
         <div class="row  m-b-md">
-            <div class="block-header col-xs-12 pt-3">
+            <div class="block-header pt-3">
                 Интересные события Липецкой области
 
-                <div class="input-group  datepicker pull-right" id="select-news">
+                <div class="input-group pull-right hidden-xs" id="select-news">
                     <a href="{{route('catalog',['catalog' => 'festivals'])}}">
                         Все актуальные события
                     </a>
@@ -20,20 +20,16 @@
                     <div @if($loop->parent->first && $loop->first) class="col-md-8 col-xs-12"
                          @else class="col-md-4 col-xs-12" @endif>
 
-                        <div class="pos-rlt">
+                        <div class="pos-rlt @if(!$loop->parent->first || !$loop->first) change-xs @endif">
                             <div class="news-date">
                                 {{Date::parse($event->getContent('open'))->formatLocalized('%d %b')}}
                             </div>
                             <a href="{{route('item',[$event->type,$event->slug])}}"
-                               title="{{$event->getContent('name')}}">
+                               title="{{$event->getContent('name')}}"
+                               class="@if(!$loop->parent->first || !$loop->first) hidden-xs @endif">
                                 <img src="{{$event->hero('medium') ?? '/img/no-image.jpg'}}"
-                                     alt="{{$event->getContent('name')}}" class="img-responsive img-rounded"
-                                     style="
-                                     @if(!$loop->parent->first || !$loop->first) height: 200px; @else height: 350px; @endif
-                                             -o-object-fit: cover;
-                                             object-fit: cover;
-                                             width: 100%;
-                                             margin: 0 auto;">
+                                     alt="{{$event->getContent('name')}}"
+                                     class="img-responsive @if($loop->parent->first && $loop->first) first-image @endif">
                             </a>
                             <div class="header padder-v m-b-xs">
 
@@ -63,9 +59,13 @@
                     </div>
                 @endforeach
 
-
             </div>
         @endforeach
+        <div class="input-group  visible-xs  text-center" id="select-news">
+            <a class="h4" href="{{route('catalog',['catalog' => 'festivals'])}}">
+                Все актуальные события
+            </a>
+        </div>
     </div>
 </section>
 
