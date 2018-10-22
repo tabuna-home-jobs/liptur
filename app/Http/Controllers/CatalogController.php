@@ -34,7 +34,7 @@ class CatalogController extends Controller
         }
         $elements = $query->simplePaginate(10);
         $view = property_exists($typeObject, 'listing') ? $typeObject->listing : 'listings.catalog';
-
+        //dd($view);
         return view($view, [
             'elements' => $elements,
             'type'     => $typeObject,

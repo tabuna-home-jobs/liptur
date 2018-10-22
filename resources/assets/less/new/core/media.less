@@ -25,6 +25,30 @@
         width: 100%;
       }
     }
+    .submenu {
+      .nav-search {
+        .input-group-btn {
+
+          z-index: 1;
+          left:    -25px;
+
+          button:hover {
+            background: @hover-color;
+            border:     1px solid @hover-color;
+          }
+          i {
+            font-size: 15px;
+          }
+        }
+        input {
+          border-radius: 25px;
+          height:        @layout-new-icons-size;
+          min-height:    @layout-new-icons-size;
+          overflow:      hidden;
+          z-index:       0;
+        }
+      }
+    }
   }  
   
   #shop-header .dropdown-menu {
@@ -111,6 +135,14 @@
     .container{
       margin-top: 0;
       margin-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .row.equal {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .col-xs-12{
       padding-left: 0;
       padding-right: 0;
     }

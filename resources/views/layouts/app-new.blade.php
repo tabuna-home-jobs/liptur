@@ -120,6 +120,32 @@
 
         @widget('menuWidget','shop-header')
 
+        @section('submenu')
+            <div class="submenu visible-xs">
+                <div class="padder-v-micro row b-b"></div>
+                <div class="row padder-l-xl no-p-xs">
+                    <div class="col-xs-2">
+                        <button class="btn btn-link visible-xs m-r m-v" type="button" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <i class="fa fa-bars fa-lg"></i>
+                        </button>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="input-group nav-search m-t-md">
+                            <form action="{{route('shop.newsproducts')}}" class="form-inline">
+                                <input type="text" class="form-control form-control-grey" name="search" placeholder="Введите искомое"
+                                       maxlength="100" value="@if (isset($request['search'])){{$request['search']}} @endif">
+                                <span class="input-group-btn">
+                                    <button class="green-button raised" type="submit" >
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @stop
 
         @yield('submenu')
 

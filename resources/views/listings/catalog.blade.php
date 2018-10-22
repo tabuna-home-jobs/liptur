@@ -102,6 +102,11 @@
                             <article class="col-md-6">
                                 <div class="panel panel-default box-shadow-lg pos-rlt" data-mh="main-news">
                                     <div data-mh="main-news-img">
+                                        @if($type->display()->get('time') === true)
+                                        <div class="news-date">
+                                            {{Date::parse($element->getContent('open'))->formatLocalized("%d %b %Y")}}
+                                        </div>
+                                        @endif
                                         <a href="{{route($type->route(),[$element->type,$element->slug])}}"><img
                                                     src="{{$element->hero('medium') ?? '/img/no-image.jpg'}}"
                                                     alt="{{$element->getContent('name')}}"
@@ -109,21 +114,11 @@
                                     </div>
                                     <div class="wrapper-md">
                                         <div class="clear" data-mh="main-news-body">
-                                            <p class="h4 m-b-xs"><a
-                                                        href="{{route($type->route(),[$element->type,$element->slug])}}">{{$element->getContent('name')}}</a>
-                                            </p>
+                                            <a class="h4" href="{{route($type->route(),[$element->type,$element->slug])}}">{{$element->getContent('name')}}</a>
                                             <p class="text-xs">
                                                 {!! str_strip_limit_words($element->getContent('body')) !!}
                                             </p>
                                         </div>
-
-                                        @if($type->display()->get('time') === true)
-                                            <p class="top-left wrapper bg-danger">
-                                                <time class="font-bold text-white">
-                                                    {{Date::parse($element->getContent('open'))->formatLocalized("%d %b %Y")}}
-                                                </time>
-                                            </p>
-                                        @endif
                                     </div>
                                 </div>
                             </article>
