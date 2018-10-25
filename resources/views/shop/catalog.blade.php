@@ -4,32 +4,17 @@
 @section('keywords','Магазин')
 
 @section('header')
-    <div class="bg-white">
-        <section class="container-lg">
-            <div class="row">
-                <div class="bg-bordo" style="background-image: url('{{$categories[0]->term->getContent('fullPicture')}}')"">
-                    <div class="container">
-                        <h1 class="brand-header">Интернет-магазин</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <section class="container-lg">
-        <div class="row">
-            <nav>
-                <div class="container">
-                    @include('partials.breadcrumb',[
+    @include('partials.header.headerMin',[
+                'image'  => $categories[0]->term->getContent('fullPicture'),
+                'title' => 'Интернет-магазин',
+                'breadcrumb' =>[
                     'breadcrumb' => [],
                     'base' => [
                             'route' => route('shop'),
                             'name' => 'Интернет-магазин',
                     ],
-                    'current' => 'Каталог товаров' ])
-                </div>
-            </nav>
-        </div>
-    </section>
+                    'current' => 'Каталог товаров' ]
+            ])
 @endsection
 
 @section('shop')

@@ -1,10 +1,10 @@
-<section class="container-fluid bg-white b-t box-shadow-lg main-news">
+<section class="container-fluid b-t box-shadow-lg main-news">
     <div class="container padder-v">
         <div class="row  m-b-md">
             <div class="block-header pt-3">
                 Новости
 
-                <div class="pull-right hidden-xs text-right">
+                <div class="pull-right hidden-xs text-right m-r-md">
                     <a href="{{route('news')}}">
                         Все новости
                     </a>

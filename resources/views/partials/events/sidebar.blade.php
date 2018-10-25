@@ -1,7 +1,8 @@
 
-<div class="panel wrapper-xl b box-shadow-lg padder-lg text-center">
+<div class="panel wrapper-xl b box-shadow-lg padder-lg text-center news-email">
 
-    <p class="h4 font-thin  m-b-lg">Ближайшие <span class="text-danger">События</span>
+    <p class="h3 font-thin  m-b-lg">
+        Ближайшие События
     </p>
 
     <div class="text-left">

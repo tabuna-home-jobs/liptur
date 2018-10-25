@@ -1,32 +1,14 @@
 @extends('layouts.app-new')
 
 @section('header')
-    <div id="post-header" class="catalog-item">
-        <div style="background:url(/img/tour/background/contact.jpg) center center; background-size:cover">
-            <div class="bg-black-opacity bg-dark">
-                <div class="container pos-rlt min-h-h">
-
-                    <div class="row m-t-xxl m-b-md padder-v">
-                        <div class="pull-bottom text-white padder-v m-l-xl">
-                            <h1 class="text-white brand-header" itemprop="headline">Контакты</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="container-lg">
-            <div class="row">
-                <nav>
-                    <div class="container">
-                        @include('partials.breadcrumb',[
-                            'breadcrumb' => [],
-                            'current' => 'Контакты'
-                        ])
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </div>
+    @include('partials.header.headerList',[
+            'image'  => '/img/tour/background/contact.jpg',
+            'title' => 'Контакты',
+            'breadcrumb' =>[
+                'breadcrumb' => [],
+                'current' => 'Контакты'
+            ]
+        ])
 @endsection
 
 
@@ -100,7 +82,7 @@
                         <div class="m-t-md clearfix">
                             <p class="pull-left small m-t-xs">Настоящим я подтверждаю, что даю согласие на обработку
                                 персональных данных </p>
-                            <button form="helpletter-form" type="submit" class="btn btn-danger btn-rounded pull-right">
+                            <button form="helpletter-form" type="submit" class="btn btn-success btn-rounded pull-right">
                                 Отправить сообщение
                             </button>
                         </div>

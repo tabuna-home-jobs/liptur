@@ -4,8 +4,8 @@
 </div>
 
 @push("scripts")
-<script src="/js/route-app.js"></script>
-<script src="/dist/js/g-map-route.js"></script>
+    <script src="/js/route-app.js"></script>
+    <script src="/dist/js/g-map-route.js"></script>
 @endpush
 
 @push("stylesheet")

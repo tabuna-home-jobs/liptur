@@ -17,11 +17,10 @@
                 </div>
                 <div class="wrapper-md">
                     <div class="clear" data-mh="main-news-body">
-                        <p class="h4 m-b-xs"><a
-                                    href="{{route('new',[$element->slug])}}">{{$element->getContent('name')}}</a>
-                        </p>
+                        <a class="h4" href="{{route('new',[$element->slug])}}">{{$element->getContent('name')}}</a>
+
                         <p class="text-xs">
-                            {{str_strip_limit_words($element->getContent('body'),400)}}
+                            {!! str_strip_limit_words($element->getContent('body'),400) !!}
                         </p>
                     </div>
                 </div>
@@ -30,7 +29,7 @@
 
     @empty
 
-        <div class="text-center bg-white  padder-v ">
+        <div class="text-center  padder-v ">
             <div class=" wrapper-xl">
                 Список пуст
             </div>

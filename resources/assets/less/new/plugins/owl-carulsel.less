@@ -29,6 +29,11 @@
       height: 0;
     }
   }
+  &.global-maps-menu-carousel {
+    .owl-stage {
+      padding: 0px;
+    }
+  }
 
   .bg-gray & .owl-stage{
     padding-top: 0;
@@ -400,7 +405,7 @@
 
 }
 
-.secondary-carousel {
+.secondary-carousel, .own-content {
   .owl-nav div {
     font-size: 3rem;
     color: #fff;
@@ -411,4 +416,10 @@
       }
     }
   }
+}
+.own-content.owl-carousel .owl-item img {
+  width: 100%!important;
+  height: 100%;
+  object-fit: cover;
+  max-width: initial;
 }

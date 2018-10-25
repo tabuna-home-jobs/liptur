@@ -147,4 +147,80 @@
     }
   }
 }
-    
+
+.dropdown-menu {
+  margin: 0;
+  padding: 0;
+  min-width: auto;
+  width: 100%;
+  border-top: 0;
+  li {
+    background-color: #3f7d2c;
+    a {
+      color: @brand-white;
+      &:hover {
+        background-color: #3f7d2c!important;
+        color: #d3e068;
+      }
+    }
+  }
+}
+
+.menu-header-mobile {
+  background-image: url(/img/icons/wz-icon.png);
+  background-position: ~"calc(100% - 20px) calc(100% - 20px)";
+  background-repeat: no-repeat;
+  background-color: #3f7d2c;
+  margin: 0 -15px;
+  .flex {
+    justify-content: space-between;
+    padding-top: 10px;
+    .m-l-md {
+      margin-left: 15px;
+    }
+    .m-r-md {
+      margin-right: 15px;
+    }
+    .avatar img {
+      border-radius: 500px;
+      width: 100%;
+      height: 32px;
+      width: 32px;
+    }
+    a.navbar-auth {
+      color: #a5b526;
+      padding-right: 0px!important;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  .navbar-nav {
+    margin: 7.5px 0px;
+    > li > a {
+      padding: 10px 15px!important;
+    }
+    > li.dropdown > a:focus {
+      border-bottom:none!important;
+    }
+  }
+  .dropdown-menu {
+    background-image: none!important;
+    background-color: inherit!important;
+    li {
+      background-color: inherit!important;
+    }
+  }
+  li {
+    a {
+      color: @brand-white;
+      &:hover {
+        background-color: inherit!important;
+        color: #d3e068!important;
+      }
+      &:focus {
+        border-bottom:none;
+      }
+    }
+  }
+}

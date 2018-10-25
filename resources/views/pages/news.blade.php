@@ -71,14 +71,14 @@
                                     @foreach($new->attachment as $image)
                                         @if($loop->first)
                                             <figure class="item">
-                                                <img class="img-responsive" src="{{$image->url('standart')}}"
+                                                <img class="img-responsive" src="{{$image->url('high')}}"
                                                      alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
                                             </figure>
                                         @else
                                             <figure class="item">
                                                 <img class="img-responsive owl-lazy"
-                                                     data-src="{{$image->url('standart')}}" alt="{{$image->alt}}"
+                                                     data-src="{{$image->url('high')}}" alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
                                             </figure>
                                         @endif
@@ -106,7 +106,7 @@
                                             </a>
                                         </div>
 
-                                        <div class="col-sm-6 text-right hidden-xs" role="group"
+                                        <div class="col-sm-6 text-right hidden-xs " role="group"
                                              aria-label="Social Links">
                                             @include('partials.marketing.socialShare')
                                         </div>
@@ -166,6 +166,13 @@
                 <aside class="col-md-4 hidden-xs hidden-sm">
 
                     <div class="aside-affix">
+                        @if($new->attachment('docs')->count() > 0)
+                            @include('partials.item.attachment',[
+                                'title' => 'Файлы к новости',
+                                'attachments' => $new->attachment('docs')->orderBy('sort','desc')->get(),
+                            ])
+                        @endif
+
                         <div class="panel b box-shadow-lg" data-mh="main-info-block"
                              style="width: 100%; display: flex; align-items: center; justify-content: center; max-height: 500px; background: rgb(198, 198, 198);">
 
@@ -173,22 +180,6 @@
 
                         </div>
 
-                        @if($new->attachment('docs')->count() > 0)
-                            <div class="panel b box-shadow-lg wrapper-lg">
-                                <p class="h3 font-thin  m-b-lg">
-                                    Докуметы для <span class="text-danger">Загрузки</span>
-                                </p>
-                                <div class="list-group list-group-lg list-group-sp list-no-border b-t">
-                                    @foreach($new->attachment('docs')->orderBy('sort','desc')->get() as $attachment)
-                                        <a href="{{$attachment->url()}}"
-                                           class="list-group-item"
-                                           title="{{$attachment->alt}}">
-                                            <span class="text-ellipsis">{{$attachment->original_name}}</span>
-                                        </a>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endif
 
                         @widget('EmailSecondary')
 

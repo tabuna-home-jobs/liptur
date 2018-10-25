@@ -1,40 +1,38 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
+
+
+@section('header')
+    <div id="post-header" class="catalog-item">
+        <div style="background:url(/img/tour/background/tits.png) center center; background-size:cover">
+            <div class="bg-black-opacity bg-dark">
+                <div class="container pos-rlt min-h-h">
+
+                    <div class="row m-t-xxl m-b-md padder-v">
+                        <div class="pull-bottom text-white padder-v m-l-xl">
+                            <h1 class="text-white brand-header" itemprop="headline">ТИЦ</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
+                    <div class="container">
+                        @include('partials.breadcrumb',[
+                            'breadcrumb' => [],
+                            'current' => 'ТИЦы'
+                        ])
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+@endsection
 
 
 
 @section('content')
-
-
-    <section class="container-fluid">
-        <div class="row">
-
-            <div style="background:url(/img/tour/background/tits.png) center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
-                    <div class="row m-t">
-
-                        <div class="container m-t-md top-desc-block">
-                            <div class="col-md-6 pull-bottom text-white">
-                                <h1 class="text-white text-ellipsis padder-v xs-x-scroll">ТИЦ</h1>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <nav class="bg-danger box-shadow-lg">
-                <div class="container">
-                    @include('partials.breadcrumb',[
-                        'breadcrumb' => [],
-                        'current' => 'ТИЦы'
-                    ])
-                </div>
-            </nav>
-
-
-        </div>
-    </section>
 
 
     <div class="bg-white">
@@ -73,7 +71,7 @@
                             <div class="col-md-2">
 
                                 <div class="padder">
-                                    <a href="{{route('titz.catalog',[$user->id,'festivals'])}}" class="btn btn-danger btn-rounded">Подробнее</a>
+                                    <a href="{{route('titz.catalog',[$user->id,'festivals'])}}" class="btn btn-success">Подробнее</a>
                                 </div>
                             </div>
 

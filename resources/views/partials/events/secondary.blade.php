@@ -9,7 +9,7 @@
                         @foreach($carousel as $item)
                             <figure class="item">
                                 <a href="{{$item->getContent('url')}}">
-                                    <img class="owl-lazy img-responsive" data-src="{{ $item->hero('standart') }}" alt=""
+                                    <img class="owl-lazy img-responsive" data-src="{{ $item->hero('high') }}" alt=""
                                          width="800px"
                                          height="534px">
                                 </a>
@@ -20,7 +20,7 @@
             </div>
 
 
-            <div class="col-md-4 col-xs-12 bg-white">
+            <div class="col-md-4 col-xs-12">
                 <div class="vbox">
                     <img src="/img/weather/{{$weather['weather'][0]['icon']}}.jpg" alt="" class="img-responsive weather-img">
                     <div class="wrapper-sm">

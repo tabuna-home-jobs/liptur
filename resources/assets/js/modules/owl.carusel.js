@@ -131,13 +131,12 @@ $(function () {
     });
 
 
-    $('.own-content').owlCarousel({
+    var owlContent = $('.own-content').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         loop: false,
         nav: true,
         lazyLoad: true,
-        autoHeight: true,
         autoplay: false,
         navText: [
             '<i class="icon-arrow-left"></i>',
@@ -145,8 +144,13 @@ $(function () {
         ],
         items: 1,
     });
-    
-    
-    
+
+    var carTimer = setInterval(function () {
+        /*console.log('Heigh=' + owlContent.height());*/
+        if (owlContent.height() > 1) clearInterval(carTimer);
+        owlContent.trigger('refresh.owl.carousel', [100]);
+    }, 300);
+
+
     
 });

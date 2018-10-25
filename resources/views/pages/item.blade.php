@@ -7,6 +7,7 @@
 
 
 @section('header')
+
     <div id="post-header" class="catalog-item">
         <div style="background:url({{$item->hero('high')}}) center center; background-size:cover">
             <div class="bg-black-opacity bg-dark">
@@ -25,7 +26,9 @@
                     <div class="row m-t-xxl m-b-md padder-v">
                         <div class="pull-bottom text-white padder-v m-l-xl">
                             <h1 class="text-white brand-header" itemprop="headline">{{$item->getContent('name')}}</h1>
-                            <p class="text-white text-sm"><i class="fa fa-map-marker"></i> {{$item->getContent('place')['name'] or ''}}</p>
+                            @if (!empty($item->getContent('place')['name']))
+                                <p class="text-white text-sm"><i class="fa fa-map-marker"></i> {{$item->getContent('place')['name'] or ''}}</p>
+                            @endif
                             <div class="lead hidden-xs v-center">
                                <span id="stars-existing" class="starrr text-warning-lt"
                                                  data-rating='{{$rating->percent}}' data-post-id='{{$item->id}}'
@@ -37,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <section class="container-lg">
+        <section class="container-lg  hidden-xs">
             <div class="row">
                 <nav>
                     <div class="container">
@@ -95,7 +98,7 @@
                                             <figure class="item" itemprop="image" itemscope
                                                     itemtype="https://schema.org/ImageObject">
                                                 <img class="img-responsive" itemprop="contentUrl"
-                                                     src="{{$image->url('standart')}}" alt="{{$image->alt}}"
+                                                     src="{{$image->url('high')}}" alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
 
 
@@ -110,7 +113,7 @@
                                             <figure class="item" itemprop="image" itemscope
                                                     itemtype="https://schema.org/ImageObject">
                                                 <img class="img-responsive owl-lazy" itemprop="contentUrl"
-                                                     data-src="{{$image->url('standart')}}"
+                                                     data-src="{{$image->url('high')}}"
                                                      alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
 
@@ -239,7 +242,6 @@
                                 </div>
                             </div>
 
-
                             @if(!empty($item->getContent('place')) && key_exists('name',$item->getContent('place')) && $item->status != 'cfo')
                                 <div id="map-event" class="maps"
                                      data-lat="{{$item->getContent('place')['lat']}}"
@@ -276,25 +278,20 @@
                                 @endif
 
                                 @if(!empty($item->getContent('phone')))
-                                    <div class="panel wrapper-xl b box-shadow-lg padder-lg text-center">
-                                        <p class="h3 font-thin  m-b-lg">Контактный <span
-                                                    class="text-danger">Телефон</span>
-                                        </p>
-
-                                        <p class="h3 font-thin">
-                                            <i class="icon-phone text-danger icon-title"></i>
-                                            <a href="tel://{{$item->getContent('phone')}}"
-                                               class="phone block m-t-md">{{$item->getContent('phone')}}</a>
-                                        </p>
-
-                                        <p class="m-t padder small">{{$item->getContent('place')['name'] or ''}}</p>
-                                    </div>
+                                    @include('partials.item.phone',[
+                                        'phone' => $item->getContent('phone'),
+                                        'address' => $item->getContent('place')['name'],
+                                    ])
                                 @endif
+
                                 @if($item->type == 'tour')
                                     @widget('reservation',['postid'=>$item->id] )
                                 @endif
-
-
+                                @if($item->attachment('docs')->count() > 0)
+                                    @include('partials.item.attachment',[
+                                        'attachments' => $item->attachment('docs')->get(),
+                                    ])
+                                @endif
 
                                 @if(strlen(strip_tags($item->getContent('body'))) >= 1000)
                                     <div id="adb" class="panel b box-shadow-lg text-center"
@@ -303,32 +300,6 @@
                                         @widget('advertising','side')
                                     </div>
                                 @endif
-
-
-                                @if($item->attachment('docs')->count() > 0)
-
-
-                                    <div class="panel b box-shadow-lg wrapper-lg">
-
-                                        <p class="h3 font-thin  m-b-lg">Докуметы для <span
-                                                    class="text-danger">Загрузки</span></p>
-
-                                        <div class="list-group list-group-lg list-group-sp list-no-border b-t">
-                                            @foreach($item->attachment('docs')->get() as $attachment)
-                                                <a href="{{$attachment->url()}}"
-                                                   class="list-group-item"
-                                                   title="{{$attachment->alt}}">
-                                                    <span class="text-ellipsis">{{$attachment->original_name}}</span>
-                                                </a>
-                                            @endforeach
-
-                                        </div>
-
-                                    </div>
-
-
-                                @endif
-
 
                                 @widget('EmailSecondary')
 
@@ -350,6 +321,6 @@
 
 
 @push('scripts')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9M5O7t88YovZa2mePQ9VX4f79c86cqg"
+<script src="https://maps.googleapis.com/maps/api/js?key={{config('services.google.maps.key')}}"
         type="text/javascript"></script>
 @endpush

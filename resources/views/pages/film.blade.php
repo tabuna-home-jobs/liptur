@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('title',$item->getContent('title'))
 @section('description',$item->getContent('description'))

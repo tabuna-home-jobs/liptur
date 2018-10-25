@@ -149,7 +149,7 @@
             {!! method_field('PUT') !!}
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9 text-right">
-                    <button type="submit" class="btn  btn-danger btn-rounded">Сохранить</button>
+                    <button type="submit" class="btn  btn-success btn-rounded">Сохранить</button>
                 </div>
             </div>
         </form>

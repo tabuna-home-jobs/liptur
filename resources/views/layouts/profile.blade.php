@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('content')
 
@@ -15,7 +15,7 @@
                         <ul class="nav">
 
 
-                            <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                            <li class="hidden-folded text-green padder m-t m-b-sm text-xs">
                                 <span>Мой профиль</span>
                             </li>
                             <li>
@@ -57,7 +57,7 @@
                             </li>
 
 
-                            <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                            <li class="hidden-folded text-green padder m-t m-b-sm text-xs">
                                 <span class="">Общие настройки</span>
                             </li>
                             <li>
@@ -92,7 +92,7 @@
                             --}}
 
                             @if(empty(Auth::user()->getRoles()))
-                                <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                                <li class="hidden-folded text-green padder m-t m-b-sm text-xs">
                                     <span class="">Организация</span>
                                 </li>
 
@@ -142,7 +142,7 @@
                                     </a>
                                 </li>
                             @elseif(Auth::user()->inRole('cfo'))
-                                <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                                <li class="hidden-folded text-green padder m-t m-b-sm text-xs">
                                     <span class="">Параметры ЦФО</span>
                                 </li>
 
@@ -153,7 +153,7 @@
                                     </a>
                                 </li>
                             @elseif(Auth::user()->inRole('craftsmen'))
-                                <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                                <li class="hidden-folded text-green padder m-t m-b-sm text-xs">
                                     <span class="">Параметры </span>
                                 </li>
 
@@ -170,7 +170,7 @@
 
                         <ul class="nav">
 
-                            <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                            <li class="hidden-folded text-green padder m-t m-b-sm text-xs">
                                 <span class="">Управление</span>
                             </li>
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 @section('title',$page->getContent('title'))
 @section('description',$page->getContent('description'))
 @section('keywords',$page->getContent('keywords'))

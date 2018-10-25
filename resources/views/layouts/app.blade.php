@@ -58,9 +58,7 @@
 
 <header id="header" class="navbar bg-white-only b-b box-shadow-lg">
 
-
     @widget('advertising','top')
-
 
     <div class="container padder-v navbar-center-brand">
         <div class="navbar-header">
@@ -94,27 +92,20 @@
                         </div>
                     </div>
                 </li>
-
-
             </ul>
 
 
             <ul class="nav navbar-nav navbar-right">
-
-
                 <li><a href="{{url('/shop')}}"><i class="icon-handbag m-r-xs"></i>Интернет-магазин</a></li>
-                
                 <li>
                     <a href="#" rel="search" title="Поиск по веб-сайту" data-target="#modalSeachIn" data-toggle="modal"><i
                                 class="icon-magnifier m-r-xs"></i>Поиск</a>
                 </li>
 
-
                 {{--
                 <li><a href="{{route('investor')}}" rel="prefetch" title="Хорошие предложения">Инвесторам</a></li>
                 <li><a href="{{route('contacts')}}" rel="contact" title="Связаться с нами">Контакты</a></li>
                 --}}
-
 
                 <li>
                     @if(App::getLocale() == 'en')

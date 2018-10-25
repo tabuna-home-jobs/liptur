@@ -7,28 +7,14 @@
 
 
 @section('header')
-    <div class="bg-white">
-        <section class="container-lg">
-            <div class="row">
-                <div class="bg-bordo" style="background-image: url('/img/tour/background/news-bg.jpg')">
-                    <div class="container">
-                        <h1 class="brand-header">Новости</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <section class="container-lg">
-        <div class="row">
-            <nav>
-                <div class="container">
-                    @include('partials.breadcrumb',[
-                    'breadcrumb' => [],
-                    'current' => 'Новости' ])
-                </div>
-            </nav>
-        </div>
-    </section>
+    @include('partials.header.headerMin',[
+                    'image'  => '/img/tour/background/news-bg.jpg',
+                    'title' => 'Новости',
+                    'breadcrumb' =>[
+                        'breadcrumb' => [],
+                        'current' => 'Новости'
+                    ]
+                ])
 @endsection
 
 @section('content')
@@ -101,9 +87,7 @@
                             </div>
                             <div class="wrapper-md">
                                 <div class="clear" data-mh="main-news-body">
-                                    <p class="h4 m-b-xs">
-                                        <a href="{{route('new',[$new->slug])}}">{!! $new->getContent('name') !!}</a>
-                                    </p>
+                                    <a class="h4" href="{{route('new',[$new->slug])}}">{!! $new->getContent('name') !!}</a>
                                     <p class="text-xs">
                                         {!! str_strip_limit_words($new->getContent('body')) !!}
                                     </p>

@@ -28,8 +28,8 @@ elixir(function (mix) {
     './resources/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
     "./resources/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
     './resources/assets/vendor/matchheight/dist/jquery.matchHeight-min.js',
-    './resources/assets/vendor/owl.carousel/dist/owl.carousel.js',
-    './node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js',
+    './resources/assets/vendor/owl.carousel/dist/owl.carousel.min.js',
+    './resources/assets/vendor/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js',
     "./resources/assets/vendor/slider-pro/dist/js/jquery.sliderPro.js",
     "./resources/assets/vendor/gmaps/gmaps.min.js",
     "./resources/assets/vendor/onepage-scroll/jquery.onepage-scroll.min.js",
@@ -42,7 +42,7 @@ elixir(function (mix) {
     './resources/assets/vendor/waypoints/lib/jquery.waypoints.min.js',
     './resources/assets/vendor/isotope/dist/isotope.pkgd.min.js',
 
-    "./resources/assets/vendor/vue/dist/vue.js",
+    "./resources/assets/vendor/vue/dist/vue.min.js",
     "./resources/assets/vendor/vue-resource/dist/vue-resource.js",
 
     "./resources/assets/vendor/fancybox/dist/jquery.fancybox.min.js",

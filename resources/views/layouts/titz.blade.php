@@ -1,47 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
+
+@section('header')
+    <div id="post-header" class="catalog-item">
+        <div style="background:url('{{isset($user->titz['avatar']) ? $user->titz['avatar'] : $user->avatar}}') center center; background-size:cover">
+            <div class="bg-black-opacity bg-dark">
+                <div class="container pos-rlt min-h-h">
+
+                    <div class="row m-t-xxl m-b-md padder-v">
+                        <div class="pull-bottom text-white padder-v m-l-xl">
+                            <h1 class="text-white brand-header" itemprop="headline">{{$user->name}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="container-lg">
+            <div class="row">
+                <nav>
+                    <div class="container">
+                        @include('partials.breadcrumb',[
+                            'breadcrumb' => [
+                                 '../titz'=> 'Туристско-Информационные центры'
+                            ],
+                            'current' => $user->name
+                        ])
+                    </div>
+                </nav>
+            </div>
+        </section>
+    </div>
+@endsection
 
 
 
 @section('content')
-
-
-    <section class="container-fluid">
-        <div class="row">
-
-            <div style="background:url('{{isset($user->titz['avatar']) ? $user->titz['avatar'] : $user->avatar}}') center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
-                    <div class="row m-t">
-
-                        <div class="container m-t-md top-desc-block">
-                            <div class="col-md-6  pull-bottom text-white">
-                                <h1 class="text-white text-ellipsis padder-v xs-x-scroll">{{$user->name}}</h1>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <nav class="bg-danger box-shadow-lg">
-                <div class="container">
-
-                    @include('partials.breadcrumb',[
-                        'breadcrumb' => [
-                             '../titz'=> 'Туристско-Информационные центры'
-                        ],
-                        'current' => $user->name
-                    ])
-
-                </div>
-            </nav>
-
-
-        </div>
-    </section>
-
-
-
 
     <section class="container"  id="post-header">
 
@@ -159,19 +151,12 @@
 
             <aside class="col-md-4 hidden-xs hidden-sm">
 
-
-                <div class="panel wrapper-xl b box-shadow-lg padder-lg text-center">
-                    <p class="h3 font-thin m-b-lg">Контактный <span class="text-danger">Телефон</span>
-                    </p>
-
-                    <p class="h3 font-thin">
-                        <i class="icon-phone text-danger icon-title"></i>
-                        <a href="tel://{{$user->phone}}" class="phone block m-t-md">{{$user->phone}}</a>
-                    </p>
-
-                    <p class="m-t padder small">{{$user->address}}</p>
-                </div>
-
+                @if(!empty($user->phone))
+                    @include('partials.item.phone',[
+                        'phone' => $user->phone,
+                        'address' => $user->address,
+                    ])
+                @endif
 
                 @widget('lastEventSidebar',10)
 

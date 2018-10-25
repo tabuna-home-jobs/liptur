@@ -4,32 +4,17 @@
 @section('keywords','Магазин')
 
 @section('header')
-    <div class="bg-white">
-        <section class="container-lg">
-            <div class="row">
-                <div class="bg-bordo" style="background-image: url('{{$currentCategory->term->getContent('fullPicture') ?? $categories[1]->term->getContent('fullPicture')}}')">
-                    <div class="container">
-                        <h1 class="brand-header">Интернет-магазин</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <section class="container-lg">
-        <div class="row">
-            <nav>
-                <div class="container">
-                    @include('partials.breadcrumb',[
+    @include('partials.header.headerMin',[
+            'image'  => $currentCategory->term->getContent('fullPicture') ?? $categories[1]->term->getContent('fullPicture'),
+            'title' => 'Интернет-магазин',
+            'breadcrumb' =>[
                     'breadcrumb' => [],
                     'base' => [
                             'route' => route('shop'),
                             'name' => 'Интернет-магазин',
                     ],
-                    'current' => 'Каталог товаров' ])
-                </div>
-            </nav>
-        </div>
-    </section>
+                    'current' => 'Каталог товаров' ]
+        ])
 @endsection
 
 
@@ -139,7 +124,7 @@
               <div class="panel panel-default box-shadow-lg pos-rlt">
                   <div data-mh="main-news-img">
                       <a href="{{route('shop.product',$product->slug)}}">
-                            <img src="@if (!is_null($product->attachment->first())) {{$product->attachment->first()->url()}} @else {{$currentCategory->term->getContent('smallPicture')}} @endif"
+                            <img src="@if (!is_null($product->attachment->first())) {{$product->attachment->first()->url('high')}} @else {{$currentCategory->term->getContent('smallPicture')}} @endif"
                                class="img-full img-post">
                       </a>
                   </div>

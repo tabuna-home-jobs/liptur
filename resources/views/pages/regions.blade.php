@@ -18,8 +18,7 @@
                                         class="img-full img-responsive" alt="" style="height: 100px">
                             </div>
                             <div class="col-md-10">
-                                <p class="h4 font-thin"><span class="text-danger">{{$item->getContent('name')}}</span>
-                                </p>
+                                <p class="h4 font-thin">{{$item->getContent('name')}} </p>
                                 <address> {{$item->getContent('place')['name'] or ''}} </address>
                             </div>
                         </div>

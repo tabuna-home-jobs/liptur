@@ -1,20 +1,35 @@
-section .container{
+section .container, section.container{
   .h3, .h4 {
     color: @brand-text-green;
     font-family: "William Text Pro";
     font-size: 16px;
     font-weight: 700;
+    &:hover {
+      color: @hover-color;
+    }
+    i.fa {
+      color: @brand-dark;
+      &:hover {
+        color: inherit;
+      }
+    }
   }
   .h3 {
     font-size: 20px;
   }
 
   .text-xs {
-    color: @brand-text-grey;
-    font-family: Roboto;
     font-size: 13px;
   }
+}
 
+.text-xs {
+  color: @brand-text-grey;
+  font-family: Roboto;
+}
+
+.flex{
+  display: flex;
 }
 
 .rebrand {
@@ -454,8 +469,12 @@ i.cart-icon {
   line-height: 43px;
   padding-left: 64px;
   text-indent: -51px;
+
   div {
     text-indent: 0px;
+  }
+  .m-r-md {
+    margin-right: 17px;
   }
   a {
     float:       right;
@@ -571,8 +590,6 @@ article.shop-product {
     }
   }
   .text-xs {
-    font-family: "Roboto";
-    font-size:   13px;
     height:      35px;
     min-height:  35px;
     overflow:    hidden;
@@ -944,19 +961,16 @@ div#shop-header {
     font-size: 16px;
     font-weight: 700;
   }
-  .text-xs {
-    color: @brand-text-grey;
-    font-family: Roboto;
-    font-size: 13px;
-  }
 }
 .news-email {
-  .h3 {
+  p.h3 {
     color: @brand-dark;
     font-family: "William Text Pro";
     font-size: 18px;
     font-weight: 700;
-
+    &:hover {
+      color: @brand-dark;
+    }
     &:before {
       display: inline-block;
       background-image: url(/img/other/2.png);
@@ -1082,6 +1096,9 @@ div#shop-header {
   .item:not(:hover) & {
     transition: 400ms;
   }
+}
+.main-news {
+  background-color: #fff;
 }
 .main-events {
   img.img-responsive{

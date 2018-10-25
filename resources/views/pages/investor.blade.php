@@ -1,10 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 
 
-@section('content')
-
-
+@section('header')
     <section class="container-fluid ">
         <div class="row">
 
@@ -72,12 +70,11 @@
             </div>
 
 
-            <nav class="bg-danger box-shadow-lg">
+            <nav>
                 <div class="container">
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="icon-location-pin"></i> Главная</a></li>
-                        <li class="active">Инвестору</li>
-                    </ol>
+                    @include('partials.breadcrumb',[
+                        'current' => 'Инвестору'
+                    ])
                 </div>
             </nav>
 
@@ -86,8 +83,10 @@
     </section>
 
 
+@endsection
 
 
+@section('content')
 
     <div class="video_container hidden-xs hidden-sm" style="
         position: relative;
@@ -251,7 +250,7 @@
             <div class="col-md-6 center">
 
                 <main class="wrapper-lg">
-                    <p class="h1 font-thin m-b-md">Краткая <span class="text-danger">Информация</span></p>
+                    <p class="h1 font-thin m-b-md text-green">Краткая Информация</p>
 
                     <p class="text-justify">Липецкая область расположена в центре наиболее освоенной европейской части
                         России, на пересечении транспортных потоков, соединяющих Северо-Запад и центр
@@ -291,7 +290,7 @@
             <div class="col-md-6 center">
                 <div class=" wrapper-lg">
                     <div class="">
-                        <small class="text-danger">О регионах Липецкой области</small>
+                        <small class="text-green">О регионах Липецкой области</small>
                         <h3 class="font-thin">Инвестируй в туризм. Инвестиционная привлекательность туризма Липецкой
                             области</h3>
                     </div>
@@ -306,7 +305,7 @@
                                                 class="fa fa-play-circle fa-2x text-white"></i></a>
                                 </div>
                                 <div class="top">
-                                    <span class="font-thin badge bg-danger m-l-sm m-t-sm">22:09</span>
+                                    <span class="font-thin badge bg-primary m-l-sm m-t-sm">22:09</span>
                                 </div>
                                 <a href="#" data-toggle="modal" data-target="#investorVideo"><img
                                             src="/img/tour/video.jpg" alt="" class="img-full"></a>
@@ -352,7 +351,7 @@
 
 
                         <div class="wrapper-xl">
-                            <p class="h4 font-thin  m-b-md text-dark">ТРК <span class="text-danger">«Елец»</span></p>
+                            <p class="h4 font-thin  m-b-md text-green">ТРК «Елец»</p>
                             <div class="m-b-md">
                                 <p class="text-justify small">Город Елец – один из красивейших городов России и самый
                                     древний город Липецкой области, сохранивший самобытную архитектуру конца XVI
@@ -363,7 +362,7 @@
                             </div>
 
                             <p class="text-center m-t-md">
-                                <a href="/panoram/elets/index.html" target="_blank" class="btn btn-danger btn-rounded">
+                                <a href="/panoram/elets/index.html" target="_blank" class="btn btn-success">
                                     Посмотреть виртуальный тур ТРК «Елец»
                                 </a>
                             </p>
@@ -384,7 +383,7 @@
 
 
                         <div class="wrapper-xl">
-                            <p class="h4 font-thin m-b-md text-dark">АТК <span class="text-danger">«Задонщина»</span>
+                            <p class="h4 font-thin m-b-md text-green">АТК «Задонщина»
                             </p>
                             <div class="m-b-md">
                                 <p class="text-justify small">Сочетание уникальных туристских ресурсов местности,
@@ -396,7 +395,7 @@
 
                             <p class="text-center m-t-md" style="margin-top:14px; display:block;">
                                 <a href="https://liptur.ru/panoram/zadonshchina/index.html" target="_blank"
-                                   class="btn btn-danger btn-rounded">
+                                   class="btn btn-success">
                                     Посмотреть виртуальный тур АТК «Задонщина»
                                 </a>
 
@@ -476,7 +475,7 @@
                                          aria-labelledby="{{str_slug($offer->slug)}}-tab">
 
                                         <div class="page-header m-t-xs">
-                                            <p class="h3">{{$offer->term->getContent('name')}}</p>
+                                            <p class="h3 text-green">{{$offer->term->getContent('name')}}</p>
                                         </div>
                                         <div>
                                             {!! $offer->term->getContent('body')!!}

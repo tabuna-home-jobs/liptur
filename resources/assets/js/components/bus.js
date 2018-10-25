@@ -1,4 +1,4 @@
-let CART_LOCAL_STORAGE_KEY = "CART_LOCAL_STORAGE_KEY"
+var CART_LOCAL_STORAGE_KEY = "CART_LOCAL_STORAGE_KEY";
 
 const getLocalCartData = () => {
   const localCartData = localStorage.getItem(CART_LOCAL_STORAGE_KEY);

@@ -16,7 +16,7 @@
                         @foreach($attachments as $attachment)
                             <div class="col-md-6 col-xs-12">
                                 <a href="{{$attachment->url()}}" class="block l-h-2x wrapper-md  btn-more font-thin">
-                                <span class="btn btn-lg btn-danger btn-rounded btn-sm btn-icon btn-default m-r-sm">
+                                <span class="btn btn-lg btn-success btn-rounded btn-sm btn-icon btn-default m-r-sm">
                                 <i class="icon-doc fa-2x" aria-hidden="true"></i>
                             </span>
                                     {{$attachment->original_name}}

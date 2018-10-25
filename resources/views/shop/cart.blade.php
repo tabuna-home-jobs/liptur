@@ -5,32 +5,17 @@
 
 
 @section('header')
-    <div class="bg-white">
-        <section class="container-lg">
-            <div class="row">
-                <div class="bg-bordo">
-                    <div class="container">
-                        <h1 class="brand-header">Корзина</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <section class="container-lg">
-        <div class="row">
-            <nav>
-                <div class="container">
-                    @include('partials.breadcrumb',[
-                    'breadcrumb' => [],
-                    'base' => [
-                            'route' => route('shop'),
-                            'name' => 'Интернет-магазин',
-                    ],
-                    'current' => 'Корзина' ])
-                </div>
-            </nav>
-        </div>
-    </section>
+    @include('partials.header.headerMin',[
+            'image'  => '',
+            'title' => 'Корзина',
+            'breadcrumb' =>[
+                'breadcrumb' => [],
+                'base' => [
+                        'route' => route('shop'),
+                        'name' => 'Интернет-магазин',
+                ],
+                'current' => 'Корзина' ]
+        ])
 @endsection
 
 @section('shop')

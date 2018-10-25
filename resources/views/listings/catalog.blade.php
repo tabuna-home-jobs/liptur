@@ -7,32 +7,14 @@
 
 
 @section('header')
-    <div id="post-header" class="catalog-item">
-        <div style="background:url({{$type->image}}) center center; background-size:cover">
-            <div class="bg-black-opacity bg-dark">
-                <div class="container pos-rlt min-h-h">
-
-                    <div class="row m-t-xxl m-b-md padder-v">
-                        <div class="pull-bottom text-white padder-v m-l-xl">
-                            <h1 class="text-white brand-header" itemprop="headline">{{$name}}</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <section class="container-lg">
-            <div class="row">
-                <nav>
-                    <div class="container">
-                        @include('partials.breadcrumb',[
-                            'breadcrumb' => [],
-                            'current' => $name
-                        ])
-                    </div>
-                </nav>
-            </div>
-        </section>
-    </div>
+    @include('partials.header.headerList',[
+                'image'  => $type->image,
+                'title' => $name,
+                'breadcrumb' =>[
+                    'breadcrumb' => [],
+                    'current' => $name
+                ]
+            ])
 @endsection
 
 
@@ -65,7 +47,7 @@
                                 <p class="text-center m-t-sm">
                                     <a href="{{route(Request::route()->getName(),$type->slug)}}" class="btn btn-link text-xs m-r-sm reset-form">Сбросить
                                     </a>
-                                    <button type="submit" class="btn btn-danger btn-rounded">Подобрать</button>
+                                    <button type="submit" class="btn btn-success">Подобрать</button>
                                 </p>
                             </form>
                         </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-new')
 
 @section('content')
 
@@ -68,7 +68,7 @@
                 <div id="add_route_wrapper">
                     <input type="text" id="find_route_input" placeholder="+ Добавить пункт маршрута">
 
-                    <button id="find_route_btn" class="btn btn-danger btn-rounded" type="button">
+                    <button id="find_route_btn" class="btn btn-success btn-rounded" type="button">
                             <i class="fa fa-search"></i> Найти
                     </button>
                 </div>

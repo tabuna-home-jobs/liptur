@@ -5,6 +5,19 @@
 
 
 @section('header')
+    @include('partials.header.headerMin',[
+                'image'  => '',
+                'title' => $page->getContent('name'),
+                'breadcrumb' =>[
+                    'breadcrumb' => [],
+                    'base' => [
+                            'route' => route('shop'),
+                            'name' => 'Магазин',
+                    ],
+                    'current' => $page->getContent('name') ]
+            ])
+
+{{--
     <div class="bg-white">
         <section class="container-lg">
             <div class="row">
@@ -31,6 +44,7 @@
             </nav>
         </div>
     </section>
+    --}}
 @endsection
 
 @section('shop')

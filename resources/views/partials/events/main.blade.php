@@ -4,7 +4,7 @@
             <div class="block-header pt-3">
                 Интересные события Липецкой области
 
-                <div class="input-group pull-right hidden-xs" id="select-news">
+                <div class="input-group pull-right hidden-xs m-r-md" id="select-news">
                     <a href="{{route('catalog',['catalog' => 'festivals'])}}">
                         Все актуальные события
                     </a>

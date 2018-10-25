@@ -69,12 +69,12 @@ overflow:hidden!important;
   width: 140px;
   height: 30px;
   background-color: white;
-  border: 1px solid red;
+  border: 1px solid @layout-new-background-color;
   border-radius: 25px;
-  color: #F05050;
+  color: @layout-new-background-color;
 
   &:hover {
-    background-color: #f58a8a;
+    background-color: @hover-color;
     color: white;
   }
 }
@@ -107,7 +107,7 @@ overflow:hidden!important;
   justify-content: center;
   height: 15%;
   text-align: center;
-  background-color: #F05050;
+  background-color: @layout-new-background-color;
   color: white;
 }
 
@@ -173,7 +173,7 @@ overflow:hidden!important;
   justify-content: center;
   height: 70px;
   text-align: center;
-  background-color: #F05050;
+  background-color: @layout-new-background-color;
   color: white;
 }
 
@@ -242,19 +242,19 @@ overflow:hidden!important;
 
 .route_delete_btn_container {
   width: 5%;
-  background-color: #F05050;
+  background-color: @layout-new-background-color;
 }
 
 #delete_route_btn {
   width: 100%;
   height: 100%;
-  background-color: #F05050;
+  background-color: @layout-new-background-color;
   border: none;
   border-radius: 5px;
   color: white;
 
   &:hover {
-    background-color: #f58a8a;
+    background-color: @hover-color;
   }
 }
 
@@ -265,7 +265,7 @@ overflow:hidden!important;
   align-items: center;
   flex-direction: column;
   width: 98%;
-  height: 103px;
+  height: 113px;
   background-color: white;
   border-radius: 3px;
   margin-bottom: 10px;
@@ -276,7 +276,7 @@ overflow:hidden!important;
   height: 50px;
   width: 98%;
   border: 2px dashed;
-  border-color: #F05050;
+  border-color: @layout-new-background-color;
   background-color: white;
   border-radius: 5px;
   font-size: 14px;
@@ -310,15 +310,15 @@ overflow:hidden!important;
 #save_reset_buttons .save_reset_btn {
   width: 40%;
   background-color: white!important;
-  color: #F05050!important;
-  border: 1px solid red!important;
+  color: @layout-new-background-color!important;
+  border: 1px solid @layout-new-background-color!important;
   border-radius: 25px;
   margin: 0 25px;
   padding: 10px 20px;
   font-size: 14px;
 
   &:hover {
-    background-color: #f58a8a!important;
+    background-color: @hover-color!important;
     color: white!important;
     border: none!important;
   }
@@ -365,11 +365,11 @@ overflow:hidden!important;
   width: 5vw;
   height: 105px;
   float: left;
-  background-color: #F05050;
+  background-color: @layout-new-background-color;
   color: white;
 
   &:hover {
-    background-color: #f58a8a;
+    background-color: @hover-color;
   }
 
   @media @mobile {
@@ -988,19 +988,19 @@ overflow:hidden!important;
   }
 
   ::-webkit-input-placeholder { /* Chrome */
-    color: #F05050;
+    color: @layout-new-background-color;
     text-align: center;
   }
   :-ms-input-placeholder { /* IE 10+ */
-    color: #F05050;
+    color: @layout-new-background-color;
     text-align: center;
   }
   ::-moz-placeholder { /* Firefox 19+ */
-    color: #F05050;
+    color: @layout-new-background-color;
     text-align: center;
   }
   :-moz-placeholder { /* Firefox 4 - 18 */
-    color: #F05050;
+    color: @layout-new-background-color;
     text-align: center;
   }
 
