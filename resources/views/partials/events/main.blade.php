@@ -27,7 +27,7 @@
                             <a href="{{route('item',[$event->type,$event->slug])}}"
                                title="{{$event->getContent('name')}}"
                                class="@if(!$loop->parent->first || !$loop->first) hidden-xs @endif">
-                                <img src="{{$event->hero('medium') ?? '/img/no-image.jpg'}}"
+                                <img src="@if(!$loop->parent->first || !$loop->first) {{$event->hero('medium') ?? '/img/no-image.jpg'}} @else {{$event->hero('high') ?? '/img/no-image.jpg'}} @endif"
                                      alt="{{$event->getContent('name')}}"
                                      class="img-responsive @if($loop->parent->first && $loop->first) first-image @endif">
                             </a>
