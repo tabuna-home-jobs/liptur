@@ -1,4 +1,5 @@
 @extends('layouts.app-new')
+@section('top-advertising','')
 
 @section('content')
 
@@ -119,6 +120,9 @@
     </section>
 
 @endsection
+
+@section('ad-carousel','')
+@section('footer','')
 
 @push('scripts')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9M5O7t88YovZa2mePQ9VX4f79c86cqg"

@@ -137,6 +137,7 @@ $(function () {
         loop: false,
         nav: true,
         lazyLoad: true,
+        autoHeight: true,
         autoplay: false,
         navText: [
             '<i class="icon-arrow-left"></i>',

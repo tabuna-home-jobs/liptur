@@ -47,9 +47,10 @@
 
 <header id="header" class="navbar bg-white-only">
 
-
-    @widget('advertising','top')
-
+    @section('top-advertising')
+        @widget('advertising','top')
+    @stop
+    @yield('top-advertising')
 
     <div class="container padder-t rebrand">
         <div class="navbar-row header-top">
@@ -160,16 +161,18 @@
 
     @yield('content')
 
-    
-    
-    @include('partials.shop.index-ad-carousel')
+
+    @section('ad-carousel')
+        @include('partials.shop.index-ad-carousel')
+    @stop
+    @yield('ad-carousel')
 
     @include('partials.modals.support')
     @include('partials.modals.topmenu')
 
 </div>
 
-
+@section('footer')
 <!-- footer -->
 
 <footer id="footer" role="footer" class="bg-dark">
@@ -283,7 +286,8 @@
 
 </footer>
 <!-- / footer -->
-
+@stop
+@yield('footer')
 
 
 <!-- Yandex.Metrika counter -->

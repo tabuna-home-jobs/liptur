@@ -2,7 +2,8 @@
 @section('title',$page->getContent('title'))
 @section('description',$page->getContent('description'))
 @section('keywords',$page->getContent('keywords'))
-
+    
+@section('top-advertising','')
 
 @section('content')
 
@@ -118,3 +119,6 @@ background: url(/img/tour/about/hero9-min.jpg); background-size: cover;
 
 
 @endsection
+
+@section('ad-carousel','')
+@section('footer','')
