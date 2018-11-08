@@ -10,6 +10,9 @@
             <div class="panel panel-default box-shadow-lg pos-rlt" data-mh="main-news">
 
                 <div data-mh="main-news-img">
+                    <div class="news-date">
+                        {{$element->publish_at->formatLocalized("%d %b")}}
+                    </div>
                     <a href="{{route('new',[$element->slug])}}"><img
                                 src="{{$element->hero('medium') ?? '/img/no-image.jpg'}}"
                                 alt="{{$element->getContent('name')}}"

@@ -49,13 +49,22 @@ align-items: center;
             </div>
 
             <div class="col-xs-3 text-center">
-                <div class="panel wrapper-xl b box-shadow-lg  padder-lg" data-mh="main-info-block">
-                    <i class="icon-chart text-danger icon-title"></i>
+                <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
+width: 100%;
+background: #fff;
+display: flex;
+align-items: center;
+  justify-content: center;
+">
+                    @widget('advertising','main-2')
+                    {{--
+                    <i class="icon-chart text-success icon-title"></i>
                     <p class="h4 font-thin padder-v" data-mh="main-info-block-title">Инвесторам</p>
                     <p class="padder-v" data-mh="main-info-block-body">
                         Создадим комфортную среду для туристов вместе!
                     </p>
-                    <a href="{{route('investor')}}" class="btn btn-danger btn-rounded">Подробнее</a>
+                    <a href="{{route('investor')}}" class="btn btn-success">Подробнее</a>
+                    --}}
                 </div>
             </div>
 
@@ -69,11 +78,17 @@ align-items: center;
   justify-content: center;
 ">
 
-                    @widget('advertising','main-right')
+                    @widget('advertising','main-3')
 
                 </div>
             </div>
 
+            <div class="col-xs-3 text-center">
+                <div class="panel wrapper-xl b box-shadow-lg  padder-lg" data-mh="main-info-block">
+                    @widget('advertising','main-right')
+                </div>
+            </div>
+            {{--
             <div class="col-xs-3 news-email">
                 <div class="panel b box-shadow-lg wrapper-md text-center" data-mh="main-info-block">
                     <p class="h3 font-thin m-b-lg text-center">
@@ -95,6 +110,7 @@ align-items: center;
 
                 </div>
             </div>
+            --}}
 
         </div>
     </section>

@@ -56,9 +56,9 @@ class TitzController extends Controller
         $elements = Post::where('type', $typeRequest)
             ->where('user_id', $user->id)
             ->whereNotNull('options->locale->'.App::getLocale())
-            ->filtersApply($typeRequest)
+            ->orderBy('publish_at', 'DESC')
+            //->filtersApply($typeRequest)
             ->simplePaginate(5);
-
         return view('titz.catalog', [
             'elements' => $elements,
             'type'     => $typeObject,
@@ -80,6 +80,7 @@ class TitzController extends Controller
         $elements = Post::where('type', 'news')
             ->where('user_id', $user->id)
             ->whereNotNull('options->locale->'.App::getLocale())
+            ->orderBy('publish_at', 'DESC')
             ->filtersApply('news')
             ->simplePaginate(5);
 
@@ -100,7 +101,7 @@ class TitzController extends Controller
     public function gallery(User $user)
     {
         return view('titz.gallery', [
-            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->with('attachment')->paginate(20),
+            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->orderBy('publish_at', 'DESC')->with('attachment')->paginate(20),
             'user'    => $user,
         ]);
     }

@@ -46,7 +46,7 @@
                     <ul class="nav">
 
 
-                        <li class="hidden-folded text-danger padder m-t m-b-sm text-xs">
+                        <li class="hidden-folded text-success  padder m-t m-b-sm text-xs">
                             <span>Каталог ТИЦа</span>
                         </li>
                         <li>
@@ -95,14 +95,14 @@
                                 <span>Галерея</span>
                             </a>
                         </li>
-
+                        --}}
                         <li>
                             <a href="{{route('titz.photo',[$user->id])}}" class="text-ellipsis">
                                 <i class="icon-lip-photo text-lg"></i>
-                                <span>Фото</span>
+                                <span>Галерея</span>
                             </a>
                         </li>
-                        --}}
+
                         <!-- <li>
                             <a href="{{route('titz.catalog',[$user->id,'contest'])}}" class="text-ellipsis">
                                 <i class="icon-lip-concert text-lg"></i>
