@@ -20,7 +20,7 @@ class HotelsType extends Many
     /**
      * @var string
      */
-    public $name = 'Гостиницы';
+    public $name = 'Где разместиться';
 
     /**
      * @var string
@@ -149,9 +149,8 @@ class HotelsType extends Many
     public function display()
     {
         return collect([
-            'name' => 'Гостиницы',
-
-            'title'       => 'Гостиницы Липецкой области',
+            'name'        => 'Где разместиться',
+            'title'       => 'Где разместиться в Липецкой области',
             'description' => 'Места размещения, для жителей и гостей региона',
             'icon'        => 'icon-lip-hotel',
             'svg'         => '/dist/svg/maps/hostels.svg',

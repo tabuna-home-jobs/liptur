@@ -26,7 +26,6 @@ elixir(function (mix) {
     "./resources/assets/vendor/jquery/dist/jquery.min.js",
 
     './resources/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
-    "./resources/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
     './resources/assets/vendor/matchheight/dist/jquery.matchHeight-min.js',
     './resources/assets/vendor/owl.carousel/dist/owl.carousel.min.js',
     './resources/assets/vendor/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js',
@@ -35,8 +34,7 @@ elixir(function (mix) {
     "./resources/assets/vendor/onepage-scroll/jquery.onepage-scroll.min.js",
     "./resources/assets/vendor/moment/min/moment-with-locales.js",
     "./resources/assets/vendor/bootstrap-sweetalert/dist/sweetalert.min.js",
-    "./resources/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
-    './resources/assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+
 
     './resources/assets/vendor/jquery.easing/js/jquery.easing.min.js',
     './resources/assets/vendor/waypoints/lib/jquery.waypoints.min.js',
@@ -49,6 +47,10 @@ elixir(function (mix) {
 
     "./resources/assets/vendor/summernote/dist/summernote.min.js",
     "./node_modules/vue-recaptcha/dist/vue-recaptcha.js",
+    
+    "./resources/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
+    "./resources/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
+    './resources/assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
 
     "./resources/assets/js/app.js",
     "./resources/assets/js/components/bus.js",
