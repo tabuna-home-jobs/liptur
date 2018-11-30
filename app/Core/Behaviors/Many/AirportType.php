@@ -27,7 +27,7 @@ class AirportType extends Many
     /**
      * @var string
      */
-    public $icon = 'fa fa-bed';
+    public $icon = 'fa fa-plane';
 
     /**
      * @var string
@@ -136,7 +136,7 @@ class AirportType extends Many
         return collect([
             'name'   => 'Аэропорт',
             'icon'   => 'icon-lip-helicopter',
-            'svg'    => '/dist/svg/maps/bus.svg',
+            'svg'    => '/dist/svg/maps/m_helicopter.svg',
             'mapUrl' => true,
             'time'   => false,
         ]);

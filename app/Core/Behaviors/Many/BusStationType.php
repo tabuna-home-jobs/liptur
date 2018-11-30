@@ -23,7 +23,7 @@ class BusStationType extends Many
     /**
      * @var string
      */
-    public $icon = 'fa fa-bed';
+    public $icon = 'fa fa-bus';
 
     /**
      * @var string

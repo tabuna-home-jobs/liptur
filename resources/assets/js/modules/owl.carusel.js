@@ -30,13 +30,15 @@ $(function () {
         }
     });
 
+
     $('.ad-carousel').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         loop: true,
         nav: true,
         lazyLoad: true,
-        autoplay: false,
+        autoplay: true,
+        autoplayTimeout: 4000,
         center: false,
         autoplayHoverPause: true,
         navText: [

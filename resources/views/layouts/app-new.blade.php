@@ -20,13 +20,13 @@
     <meta property="og:title" content="@yield('title',setting('site_title','')) - Липецкий туристский сервер">
     <meta property="og:description" content="@yield('description',setting('site_description',''))">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="@yield('image', config('app.url').'/img/tour/logo.png')">
+    <meta property="og:image" content="@yield('image', config('app.url').'/img/new-logo.png')">
     <meta property="og:url" content="{{url()->current()}}">
 
     <!-- CSRF Token -->
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <link href="{{ elixir("/dist/css/shop.css") }}" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="/img/new-logo.png">
+    <link rel="shortcut icon" type="image/png" href="/android-chrome-192x192.png">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png">
@@ -181,10 +181,10 @@
         <div class="container">
             <div class="row contact-row">
                 <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
-                    <a  class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
+                    <a  href="{{route('contacts')}}" class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
                      <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
                         <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">Центр кластерного развития туризма</p>
+                            <p class="m-b-xs text-muted text-xs text-u-c">ОБЛАСТНОЙ ЦЕНТР СОБЫТИЙНОГО ТУРИЗМА</p>
                             <p class="text-white text-md">{{setting('shop_adress','Липецк, ул. Фрунзе, 10')}}</p>
                         </div>
                     </a>
@@ -212,6 +212,10 @@
 
                 <div class="col-sm-6 col-md-3 vi-hide hidden-xs socicons text-right">
                     <p>
+                        <a href="{{setting('liptur_instagram','https://www.instagram.com/lipsobtur/')}}" target="_blank" class="btn btn-icon soc-vk">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+
                         <a href="{{setting('liptur_vk','https://vk.com/liptur48')}}" target="_blank" class="btn btn-icon soc-vk">
                             <i class="fa fa-vk"></i>
                         </a>

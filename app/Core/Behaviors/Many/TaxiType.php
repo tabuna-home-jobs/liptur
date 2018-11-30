@@ -27,7 +27,7 @@ class TaxiType extends Many
     /**
      * @var string
      */
-    public $icon = 'fa fa-bed';
+    public $icon = 'fa fa-car';
 
     /**
      * @var string
@@ -137,7 +137,7 @@ class TaxiType extends Many
         return collect([
             'name'   => 'Такси',
             'icon'   => 'icon-lip-taxi',
-            'svg'    => '/dist/svg/maps/bus.svg',
+            'svg'    => '/dist/svg/maps/m_taxi.svg',
             'mapUrl' => true,
             'time'   => false,
         ]);

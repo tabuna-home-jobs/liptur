@@ -239,6 +239,7 @@ return [
         \App\Core\Behaviors\Many\AgencieType::class,
         \App\Core\Behaviors\Many\GrangesType::class,
         \App\Core\Behaviors\Many\FestivalsType::class,
+        \App\Core\Behaviors\Many\NewYearType::class,
         \App\Core\Behaviors\Many\RouteType::class,
 
         // Вспомогательные разделы

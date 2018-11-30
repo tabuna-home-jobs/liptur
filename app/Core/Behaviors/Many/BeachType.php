@@ -34,7 +34,7 @@ class BeachType extends Many
     /**
      * @var string
      */
-    public $icon = 'ion-android-happy';
+    public $icon = 'fa fa-swimmer';
 
     /**
      * @var string

@@ -80,6 +80,8 @@ if (document.getElementById('reservation')) {
                     'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь',
                     'Октябрь', 'Ноябрь', 'Декабрь'],
                 dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                prevText: "<",
+                nextText: ">",
                 firstDay: 1,
                 dateFormat: 'yy-mm-dd'
             }).on('changeDate', function () {

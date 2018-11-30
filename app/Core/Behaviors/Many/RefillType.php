@@ -108,7 +108,7 @@ class RefillType extends Many
         return collect([
             'name'   => 'Заправки',
             'icon'   => 'icon-lip-refill',
-            'svg'    => '/dist/svg/maps/bus.svg',
+            'svg'    => '/dist/svg/maps/m_refill.svg',
             'mapUrl' => false,
             'time'   => false,
         ]);

@@ -24,6 +24,8 @@ elixir(function (mix) {
 
   mix.scripts([
     "./resources/assets/vendor/jquery/dist/jquery.min.js",
+    /*"./resources/assets/vendor/jquery-ui/jquery-ui.min.js",*/
+    "./resources/assets/vendor/jquery-ui/ui/datepicker.js",
 
     './resources/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
     './resources/assets/vendor/matchheight/dist/jquery.matchHeight-min.js',
@@ -47,7 +49,7 @@ elixir(function (mix) {
 
     "./resources/assets/vendor/summernote/dist/summernote.min.js",
     "./node_modules/vue-recaptcha/dist/vue-recaptcha.js",
-    
+
     "./resources/assets/vendor/bootstrap/dist/js/bootstrap.min.js",
     "./resources/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js",
     './resources/assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',

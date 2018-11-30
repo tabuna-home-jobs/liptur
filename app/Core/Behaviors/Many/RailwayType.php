@@ -27,7 +27,7 @@ class RailwayType extends Many
     /**
      * @var string
      */
-    public $icon = 'fa fa-bed';
+    public $icon = 'fa fa-train';
 
     /**
      * @var string

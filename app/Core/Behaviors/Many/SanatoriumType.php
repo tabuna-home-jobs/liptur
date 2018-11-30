@@ -136,7 +136,7 @@ class SanatoriumType extends Many
         return collect([
             'name'   => 'Санатории',
             'icon'   => 'icon-lip-building',
-            'svg'    => '/dist/svg/maps/shrines.svg',
+            'svg'    => '/dist/svg/maps/m_building.svg',
             'mapUrl' => true,
             'time'   => false,
         ]);
