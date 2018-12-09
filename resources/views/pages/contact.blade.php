@@ -36,7 +36,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group  form-group-default">
                                     <label class="small">Ваша фамилия</label>
-                                    <input type="text" required class="form-control" placeholder="Иванович"
+                                    <input type="text" required class="form-control" placeholder="Иванов"
                                            v-model="formData.lastName">
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                 <div class="form-group form-group-default">
                                     <label for="phone" class="small">Ваш номер телефона</label>
                                     <input type="text" data-maSsk="+ 9-999-999-99-99" class="form-control" name="phone"
-                                           required placeholder="+795554545" v-model="formData.phone">
+                                           required placeholder="+79455545454" v-model="formData.phone">
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                       class="form-control  no-resize" v-model="formData.message"></textarea>
                         </div>
 
-
+                        {{--
                         <div class="m-t-md clearfix">
                             <vue-recaptcha ref="recaptcha"
                             @verify="onVerify"
@@ -79,6 +79,7 @@
                         <div v-if="errors['g-recaptcha-response']" class="alert alert-warning">
                             <strong>Докажите, что вы не робот.</strong>
                         </div>
+                        --}}
                         <div class="m-t-md clearfix">
                             <p class="pull-left small m-t-xs">Настоящим я подтверждаю, что даю согласие на обработку
                                 персональных данных </p>
@@ -116,7 +117,7 @@
                             <p class=""><span class="font-bold">Факс:</span>
                                 <span class="font-thin"><a href="tel:+74742220358">+7(4742) 22-03-58</a></span></p>
                             <p class=""><span class="font-bold">Электронная почта</span>
-                                <span class="font-thin"><a href="mailto:tourclaster@liptur.ru">tourclaster@liptur.ru</a></span>
+                                <span class="font-thin"><a href="mailto:{{setting('contact_email')}}">{{setting('contact_email')}}</a></span>
                             </p>
 
                         </div>
@@ -193,9 +194,10 @@
 
 
 
-
+{{--
 @push('scripts')
 <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9M5O7t88YovZa2mePQ9VX4f79c86cqg"
 type="text/javascript"></script>
 @endpush
+--}}

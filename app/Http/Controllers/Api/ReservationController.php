@@ -50,9 +50,9 @@ class ReservationController extends Controller
             ];
             $message = (new MailReservationObject($param));
             if (isset($post_email) && $post_email) {
-                Mail::to($post_email)->cc('tourclaster@liptur.ru')->send($message);
+                Mail::to($post_email)->cc(setting('contact_email'))->send($message);
             } else {
-                $post_email = 'tourclaster@liptur.ru';
+                $post_email = setting('contact_email');
                 Mail::to($post_email)->send($message);
             }
 

@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'robot@octavian48.ru',
+        'address' => 'robot@liptur.ru',
         'name'    => 'Липецкий туристический портал',
     ],
 

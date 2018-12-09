@@ -3,5 +3,5 @@
 
 return [
     'phone' => '',
-    'email' => 'tourclaster@liptur.ru',
+    'email' => 'info@liptur.ru',
 ];

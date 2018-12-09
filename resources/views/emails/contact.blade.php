@@ -171,7 +171,8 @@
 
                             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
                                 <small>Контактные данные</small>
-                                <br>Имя : {{$request['name']}}
+                                <br>Имя : {{$request['firstName']}}
+                                <br>Фамилия : {{$request['lastName']}}
                                 <br>Email : {{$request['email']}}
                                 <br>Телефон : {{$request['phone']}}
                             </p>

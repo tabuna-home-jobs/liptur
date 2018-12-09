@@ -9,10 +9,10 @@
 @section('header')
     @include('partials.header.headerList',[
                 'image'  => $type->image,
-                'title' => $name,
+                'title' => $type->display()->get('title',$name),
                 'breadcrumb' =>[
                     'breadcrumb' => [],
-                    'current' => $name
+                    'current' => $type->display()->get('title',$name)
                 ]
             ])
 @endsection

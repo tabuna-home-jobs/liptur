@@ -29,9 +29,24 @@ class ContactsController extends Controller
 
     public function store(Request $request)
     {
+        /*
         $this->validate($request, [
             'g-recaptcha-response' => 'required|captcha',
         ]);
+        */
+        try {
+            $send = Mail::send('emails.contact', ['request' => $request->all()], function ($message) use ($request) {
+                $message
+                    ->to(setting('contact_email'))
+                    ->subject('Сообщение с веб-сайта');
+            });
+        } catch(\Exception $e){
+            return response()->json([
+                'title'   => 'Ошибка',
+                'message' => 'Не удалось отправить сообщение, свяжитесь другим способом',
+                'type'    => 'error',
+            ]);
+        }
 
         return response()->json([
             'title'   => 'Успешно',
