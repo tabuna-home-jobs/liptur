@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 
-        $schedule->command('download:films липецк')->hourly();
+        //$schedule->command('download:films липецк')->hourly();
         $schedule->command('weather:update')->hourly();
 
         $schedule->command('newsletter:send')->cron('0 12 * * 1');

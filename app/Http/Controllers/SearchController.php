@@ -32,7 +32,6 @@ class SearchController extends Controller
 
         //$posts = Post::published()->where('content', 'like', '%' . $request->query('query') . '%')->paginate()->items();
         $posts = Post::published()->whereRaw('LOWER(content) LIKE ?', '%'.mb_strtolower($request->query('query')).'%')->paginate()->items();
-        //dd($posts);
 
         foreach ($posts as $key => $value) {
             try {
@@ -102,4 +101,6 @@ class SearchController extends Controller
 
         return $response;
     }
+
+
 }

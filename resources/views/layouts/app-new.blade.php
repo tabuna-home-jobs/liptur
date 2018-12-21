@@ -68,7 +68,7 @@
                 </li>
                 <li class="col-sm-3 col-md-4 no-padder">
                     <div class="input-group nav-search">
-                        <form action="{{route('shop.newsproducts')}}" class="form-inline">
+                        <form action="{{Request::is('shop/*')?route('shop.newsproducts'):route('catalog.search')}}" class="form-inline">
                             <input type="text" class="form-control form-control-grey" name="search" placeholder="Введите искомое"
                                    maxlength="100" value="@if (isset($request['search'])){{$request['search']}} @endif">
                             <span class="input-group-btn">
@@ -110,7 +110,11 @@
                                 <i class="on md b-white bottom"></i>
                                 </span>
                             </a>
-                            <a href="{{ url('/logout') }}" title="Выход" class="navbar-auth">Выход</a>
+                            <a href="{{ url('/logout') }}" title="Выход" onclick="event.preventDefault();
+                                                     document.getElementById('logout-top-form').submit();" class="navbar-auth">Выход</a>
+                            <form id="logout-top-form" action="{{ route('logout') }}" method="POST">
+                                {{ csrf_field() }}
+                            </form>
                         </div>
                     </li>
                 @endif

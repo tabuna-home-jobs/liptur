@@ -5,17 +5,10 @@ namespace App\Http\Controllers;
 use App\Core\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
-    /**
-     * CatalogController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cache');
-    }
-
     /**
      * @param $typeRequest
      *
@@ -24,6 +17,7 @@ class CatalogController extends Controller
     public function index($typeRequest): View
     {
         $typeObject = dashboard_posts()->where('slug', $typeRequest)->first() ?? abort(404);
+
         $query = Post::published()->type($typeRequest)
             //->orderBy('publish_at', 'ASC')
             ->whereNotNull('options->locale->'.App::getLocale())
@@ -105,4 +99,27 @@ class CatalogController extends Controller
             'name'     => $category->getContent('name'),
         ]);
     }
+
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function search(Request $request)
+    {
+        //dd($request);
+
+        $typeObject = dashboard_posts()->where('slug', 'news')->first() ?? abort(404);
+        //$posts = Post::published()->where('content', 'like', '%' . $request->query('query') . '%')->paginate()->items();
+        $posts = Post::published()->whereRaw('LOWER(content) LIKE ?', '%'.mb_strtolower($request->get('search')).'%')->simplePaginate();
+        //dd($posts);
+
+        return view('listings.catalog', [
+            'elements' => $posts,
+            'type'     => $typeObject,
+            'name'     => 'Поиск',
+        ]);
+    }
+
 }

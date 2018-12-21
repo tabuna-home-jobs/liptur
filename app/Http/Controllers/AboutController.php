@@ -8,14 +8,6 @@ use Orchid\Platform\Core\Models\Taxonomy;
 class AboutController extends Controller
 {
     /**
-     * AboutController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cache');
-    }
-
-    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()

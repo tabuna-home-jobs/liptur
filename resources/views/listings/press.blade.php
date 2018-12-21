@@ -22,10 +22,10 @@
                                             href="{{route('item',[
                                         'type' => 'press',
                                         'slug' => $item->slug
-                                        ])}}">{{$item->getContent('name')}}</a>
+                                        ])}}">{!! $item->getContent('name') !!}</a>
                                 </p>
                                 <p class="text-xs">
-                                    {{str_strip_limit_words($item->getContent('body'))}}
+                                    {!! str_strip_limit_words($item->getContent('body')) !!}
                                 </p>
                             </div>
                         </div>

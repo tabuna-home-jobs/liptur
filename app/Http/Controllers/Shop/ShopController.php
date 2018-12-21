@@ -12,14 +12,6 @@ use Orchid\Platform\Core\Models\Post;
 class ShopController extends Controller
 {
     /**
-     * AboutController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cache');
-    }
-
-    /**
      * @return View
      */
     public function index(): View

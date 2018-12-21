@@ -24451,6 +24451,7 @@ if (document.getElementById('modalSeachIn')) {
         }
     });
 }
+
 $(function () {
   if (document.getElementById('shop-header')) {
     new Vue({

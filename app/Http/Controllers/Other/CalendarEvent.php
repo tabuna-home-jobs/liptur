@@ -10,14 +10,6 @@ use Orchid\Platform\Core\Models\Post;
 class CalendarEvent extends Controller
 {
     /**
-     * CalendarEvent constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cache');
-    }
-
-    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()

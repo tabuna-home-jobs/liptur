@@ -21,7 +21,6 @@ class MapsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('cache');
         $this->locale = App::getLocale();
     }
 

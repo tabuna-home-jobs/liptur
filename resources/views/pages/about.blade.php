@@ -2,7 +2,7 @@
 @section('title',$page->getContent('title'))
 @section('description',$page->getContent('description'))
 @section('keywords',$page->getContent('keywords'))
-    
+
 @section('top-advertising','')
 
 @section('content')

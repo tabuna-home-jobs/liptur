@@ -119,5 +119,16 @@ class MenuComposer
             'divider'    => true,
             'sort'       => 30,
         ]);
+
+        $dashboard->menu->add('Systems', [
+            'slug'       => 'recycle',
+            'icon'       => 'icon-trash',
+            'route'      => route('dashboard.systems.recycle.list'),
+            'label'      => 'Корзина',
+            'permission' => 'dashboard.systems',
+            'divider'    => true,
+            'sort'       => 1,
+        ]);
+
     }
 }

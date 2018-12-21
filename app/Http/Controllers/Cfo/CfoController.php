@@ -17,14 +17,6 @@ use Orchid\Platform\Facades\Alert;
 class CfoController extends Controller
 {
     /**
-     * AboutController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cache');
-    }
-
-    /**
      * @return View
      */
     public function index(): View

@@ -67,7 +67,6 @@ class NewYearType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
             CfoFilter::class,
 
             RegionFilters::class,
@@ -215,7 +214,6 @@ class NewYearType extends Many
         return [
             'publish' => 'Опубликовано',
             'draft'   => 'Черновик',
-            'titz'    => 'Тиц',
             'cfo'     => 'ЦФО',
         ];
     }

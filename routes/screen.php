@@ -1,6 +1,7 @@
 <?php
 
 $this->domain(config('platform.domain'))->group(function () {
+
     $this->group([
         'middleware' => config('platform.middleware.private'),
         'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/shop'),
@@ -20,4 +21,14 @@ $this->domain(config('platform.domain'))->group(function () {
         $router->screen('shortvar/create', 'Shortvars\ShortvarEdit', $path.'shortvar.create');
         $router->screen('shortvar', 'Shortvars\ShortvarsList', $path.'shortvar.list');
     });
+
+
+    $this->group([
+        'middleware' => config('platform.middleware.private'),
+        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems'),
+    ],
+        function (\Illuminate\Routing\Router $router, $path = 'dashboard.systems.recycle.') {
+            $router->screen('recycle/{id}/edit', 'Recycle\RecycleEdit', $path.'edit');
+            $router->screen('recycle', 'Recycle\RecycleList', $path.'list');
+        });
 });

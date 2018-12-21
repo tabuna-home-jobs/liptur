@@ -22,7 +22,7 @@ class UloginController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('cache');
+       // $this->middleware('cache');
     }
 
     /**

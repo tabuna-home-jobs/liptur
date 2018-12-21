@@ -11,6 +11,8 @@
 |
  */
 
+$this->any('logout', 'Auth\LoginController@logout')->name('logout');
+
 $router->group([
     'prefix'     => Localization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'carbon-localize'],
@@ -75,6 +77,7 @@ $router->group([
     |--------------------------------------------------------------------------
     |
      */
+    $this->get('catalog/search', 'CatalogController@search')->name('catalog.search');
     $this->get('catalog/{catalog}', 'CatalogController@index')->name('catalog');
     $this->get('category/{category}', 'CatalogController@category')->name('category');
     $this->get('catalog/{catalog}/{item}', 'CatalogController@show')->name('item');
@@ -179,7 +182,7 @@ $router->group([
 
     /*
     |--------------------------------------------------------------------------
-    | Auth Routes
+    | Search Routes
     |--------------------------------------------------------------------------
     |
      */

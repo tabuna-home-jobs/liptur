@@ -79,6 +79,23 @@
                         <div class="col-md-8 no-padder box-shadow-lg">
 
 
+                            @if(!empty($item->getContent('guide')))
+                                <div class="panel v-center hidden-sm hidden-md hidden-lg"
+                                     style="box-shadow: 0 1px 1px #dee5e7; background-color: #d4de75;">
+
+                                    <a href="{{ $item->getContent('guide') }}" class="wrapper-md block w-full v-center">
+                                        <img src="/img/icon-sound.png"
+                                             style="width: 62px;height: 45px;margin-right: 10px">
+                                        <span style="color: #411b20;
+                                font-family: 'William Text Pro';
+                              font-size: 20px;
+                              font-weight: 700;">Послушать аудиогид</span>
+                                    </a>
+                                </div>
+                            @endif
+
+
+
                             @if(!empty($item->getOption('option','')))
                                 <div class="text-center l-h-1x icon-list-options b-b">
                                     @foreach($item->getOption('option',[]) as $key => $value)
@@ -273,6 +290,7 @@
                                 --}}
 
 
+
                                 @if(!empty($item->getContent('booking')))
                                     @include('partials.item.booking')
                                 @endif
@@ -298,6 +316,22 @@
                                          data-mh="main-info-block"
                                          style="width: 100%; display: flex; align-items: center; justify-content: center; max-height: 500px; background: rgb(198, 198, 198);">
                                         @widget('advertising','side')
+                                    </div>
+                                @endif
+
+
+                                @if(!empty($item->getContent('guide')))
+                                    <div class="panel v-center hidden-xs"
+                                         style="box-shadow: 0 1px 1px #dee5e7; background-color: #d4de75;">
+
+                                        <a href="{{ $item->getContent('guide') }}" class="wrapper-md block w-full v-center">
+                                            <img src="/img/icon-sound.png"
+                                                 style="width: 62px;height: 45px;margin-right: 10px">
+                                            <span style="color: #411b20;
+                                font-family: 'William Text Pro';
+                              font-size: 20px;
+                              font-weight: 700;">Послушать аудиогид</span>
+                                        </a>
                                     </div>
                                 @endif
 

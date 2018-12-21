@@ -3,6 +3,18 @@
 
 
 @section('header')
+    @include('partials.header.headerMin',[
+        'image'  => url('/img/tour/background/investor.jpg'),
+        'position' => '0px -220px',
+        'title' => 'Инвестируй в туризм, будь успешным!',
+        'breadcrumb' =>[
+            'breadcrumb' => [],
+            'current' => 'Инвесторам'
+        ]
+    ])
+
+
+{{--
     <section class="container-fluid ">
         <div class="row">
 
@@ -81,20 +93,24 @@
 
         </div>
     </section>
-
+    --}}
 
 @endsection
 
 
 @section('content')
 
-    <div class="video_container hidden-xs hidden-sm" style="
-        position: relative;
-        overflow: hidden;">
+    <section>
+        <div class="container padder-v">
+            <div class="row">
+                <div class="block-header col-xs-12 pt-3">
+                        Инвесторам
+                </div>
+            </div>
 
-
-        <video autoplay loop poster=""
-               id="videobackground" style="
+            <div class="row">
+                <div class="video_container hidden-xs hidden-sm" style="position: relative; overflow: hidden;">
+                    <video autoplay loop poster="" id="videobackground" style="
         min-width: 100%;
         width: 100vw;
         min-height: 500px;
@@ -102,133 +118,324 @@
         height: 10vh;
         z-index: 0;
         object-fit: cover;">
-            <source src="/img/tour/background/investor.mp4"
-                    type="video/mp4">
+                        <source src="/img/tour/background/investor.mp4" type="video/mp4">
+                        Ваш браузер устарел, пожалуйста обновите его.
+                    </video>
 
-            Ваш браузер устарел, пожалуйста обновите его.
-        </video>
+                    <div class="bg-black-opacity pull-up h-full w-full"></div>
 
+                    <div class="pull-up w-full h-full v-h-center">
+                        <div class="container">
 
-        <div class="bg-black-opacity pull-up h-full w-full"></div>
+                            <div class="text-white col-md-offset-2 col-md-4">
 
+                            <div class="row">
 
-        <div class="pull-up w-full h-full v-h-center">
-            <div class="container ">
-                <div class="text-white col-md-6">
+                                <div class="col-xs-3">
+                                    <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
+                                        <i class="fa w-1x icon-pie-chart fa v-h-center text-white"></i>
+                                    </p>
+                                </div>
 
-                    <div class="row">
+                                <div class="col-xs-9">
+                                    <p>
+                                        Липецкая область находится в 10-ке областей по насыщенности
+                                        автомобильных дорог
+                                    </p>
+                                </div>
 
-                        <div class="col-xs-3">
-                            <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
-                                <i class="fa w-1x icon-pie-chart fa v-h-center"></i>
-                            </p>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
+                                        <i class="fa w-1x icon-graph fa v-h-center text-white"></i>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-9">
+                                    <p>
+                                        16531 км автодорог общего пользования
+
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
+                                        <i class="fa w-1x icon-directions v-h-center text-white"></i>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-9">
+                                    <p>
+                                        Важнейшие федеральные трассы:
+                                        М-4 Дон, М6 - Каспии,
+                                        Р-119 - Орёл -Тамбов
+                                    </p>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <div class="col-xs-5">
-                            <p>
-                                Липецкая область находится в 10-ке областей по насыщенности
-                                автомобильных дорог
-                            </p>
+                            <div class="text-white col-md-offset-1 col-md-4">
+
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
+                                        <i class="fa w-1x icon-energy v-h-center text-white"></i>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-7">
+                                    <p>
+                                        3 железнодорожных магистрали
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
+                                        <i class="fa w-1x icon-plane v-h-center text-white"></i>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-7">
+                                    <p>
+                                        Международный аэропорт
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
+                                        <i class="fa w-1x icon-location-pin v-h-center text-white"></i>
+                                    </p>
+                                </div>
+
+                                <div class="col-xs-7">
+                                    <p>
+                                        3200 объектов культурного наследия
+                                    </p>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                    </div>
 
-                    <div class="row">
-
-                        <div class="col-xs-3">
-                            <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
-                                <i class="fa w-1x icon-graph fa v-h-center"></i>
-                            </p>
                         </div>
-
-                        <div class="col-xs-5">
-                            <p>
-                                16531 км автодорог общего пользования
-
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-xs-3">
-                            <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
-                                <i class="fa w-1x icon-directions v-h-center"></i>
-                            </p>
-                        </div>
-
-                        <div class="col-xs-5">
-                            <p>
-                                Важнейшие федеральные трассы:
-
-                                М-4 Дон, М6 - Каспии,
-                                Р-119 - Орёл -Тамбов
-                            </p>
-                        </div>
-
                     </div>
 
                 </div>
+            </div>
 
-                <div class="text-white col-md-6">
+            <div class="row">
+                <div class="col-md-2 text-center">
+                    <div class="text-2x counter">24047</div>
+                    <span class="text-1x font-thin">Територия области</span>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="text-2x counter">314</div>
+                    <span class="text-1x font-thin">Муниципальных образований</span>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="text-2x counter">2</div>
+                    <span class="text-1x font-thin">Городских округа</span>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="text-2x counter">18</div>
+                    <span class="text-1x font-thin">Муниципальных районов</span>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="text-2x counter">288</div>
+                    <span class="text-1x font-thin">Сельских поселений</span>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="text-2x counter">1156055</div>
+                    <span class="text-1x font-thin">Население</span>
+                </div>
+            </div>
 
-                    <div class="row">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="text-justify text-xs">Липецкая область расположена в центре наиболее освоенной европейской части
+                        России, на пересечении транспортных потоков, соединяющих Северо-Запад и центр
+                        страны с Южными регионами, Западной Сибирью и Уралом, на расстоянии 450 км к югу
+                        Москвы и граничит с Воронежской, Курской, Орловской, Тульской, Рязанской, Тамбовской
+                        областями.</p>
 
-                        <div class="col-xs-3">
-                            <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
-                                <i class="fa w-1x icon-energy v-h-center"></i>
-                            </p>
-                        </div>
+                    <p class="text-justify text-xs">Промышленный комплекс области носит многоотраслевой характер.
+                        Производственную деятельность осуществляют около 2000 предприятий.</p>
 
-                        <div class="col-xs-5">
-                            <p>
-                                3 железнодорожных магистрали
-                            </p>
-                        </div>
+                    <p class="text-justify text-xs">Значительный потенциал имеет агропромышленный комплекс области. В сельском
+                        хозяйстве осуществляют деятельность 240 сельскохозяйственных организаций, 1,2 тысячи
+                        крестьянских хозяйств и индивидуальных предпринимателей, 203 тысячи личных подсобных
+                        хозяйств.</p>
 
-                    </div>
+                    <p class="text-justify text-xs"> Строительный комплекс Липецкой области представлен 34 строительными
+                        компаниями,
+                        14 предприятиями промышленности строительных материалов, 357 малыми
+                        предприятиями, занятыми строительством и производством строительных материалов.</p>
 
-                    <div class="row">
-
-                        <div class="col-xs-3">
-                            <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
-                                <i class="fa w-1x icon-plane v-h-center"></i>
-                            </p>
-                        </div>
-
-                        <div class="col-xs-5">
-                            <p>
-                                Международный аэропорт
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-xs-3">
-                            <p class="h3 m-b-xl inline b b-white rounded wrapper-md">
-                                <i class="fa w-1x icon-location-pin v-h-center"></i>
-                            </p>
-                        </div>
-
-                        <div class="col-xs-5">
-                            <p>
-                                3200 объектов культурного наследия
-                            </p>
-                        </div>
-
-                    </div>
+                    <p class="text-justify text-xs">Полезные ископаемые области представлены 308 месторождениями: известняки,
+                        доломиты, песок, глины, цементное сырье. Большой известностью в стране пользуются
+                        Липецкие минеральные источники и лечебные грязи, обнаруженные в 1871 году.</p>
+                    <a href="/other/invest-ploshchadki.pdf"  target="_blank" class="h4"
+                       title="Каталог инвестиционных предложений Липецкой области в сфере туризма">
+                        <i class="fa fa-download"></i>
+                        Каталог инвестиционных предложений Липецкой области в сфере туризма
+                        <span class="text-xs text-grey">(.pdf 874Кб)</span>
+                    </a>
+                    <a href="/other/buclet.pdf"  target="_blank" class="h4"
+                       title="Инвестиционные предложения АТК "Задонщина" и ТРК "Елец"">
+                        <i class="fa fa-download"></i>
+                        Инвестиционные предложения АТК "Задонщина" и ТРК "Елец"
+                        <span class="text-xs text-grey">(.pdf 425Кб)</span>
+                    </a>
 
                 </div>
+                <div class="col-md-4">
+                    <div class="item">
+                        <div class="pos-rlt">
+                            <div class="center text-center m-t-n w-full">
+                                <a href="#" data-toggle="modal" data-target="#investorVideo">
+                                    <i class="fa fa-play-circle-o fa-4x text-lighted"></i>
+                                </a>
+                            </div>
+                            <a href="#" data-toggle="modal" data-target="#investorVideo">
+                                <img src="/img/tour/video.jpg" alt="" class="img-full">
+                            </a>
+                        </div>
+                        <h3 class="font-thin">Инвестируй в туризм. Инвестиционная привлекательность туризма Липецкой
+                            области</h3>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+    </section>
+
+    <section class="bg-gray main-secondary-slider">
+        <div class="container container-owl-carousel m-t-xxl m-b-xxl">
+
+            <div class="row equal">
+
+                <div class="col-md-6">
+                    <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
+    overflow: hidden;
+">
+
+
+                        <img src="/img/investor/elets.jpg" class="img-responsive">
+
+
+                        <div class="wrapper-xl">
+                            <p class="h4 font-thin  m-b-md text-green">ТРК «Елец»</p>
+                            <div class="m-b-md">
+                                <p class="text-justify small">Город Елец – один из красивейших городов России и самый
+                                    древний город Липецкой области, сохранивший самобытную архитектуру конца XVI
+                                    века.</p>
+                                <p class="text-justify small">Проект создания туристско-рекреационного кластера «Елец»
+                                    предусматривает строительство комплексных объектов туристской
+                                    инфраструктуры.</p>
+                            </div>
+
+                            <p class="text-center m-t-md">
+                                <a href="/panoram/elets/index.html" target="_blank" class="btn btn-success">
+                                    Посмотреть виртуальный тур ТРК «Елец»
+                                </a>
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="panel b box-shadow-lg" data-mh="main-info-block" style="
+    overflow: hidden;
+">
+
+
+                        <img src="/img/investor/zadonsk.jpg" class="img-responsive">
+
+
+                        <div class="wrapper-xl">
+                            <p class="h4 font-thin m-b-md text-green">АТК «Задонщина»
+                            </p>
+                            <div class="m-b-md">
+                                <p class="text-justify small">Сочетание уникальных туристских ресурсов местности,
+                                    заслуженно получившей название «Русская Швейцария», историко-культурного потенциала
+                                    центра русского православия с удобной транспортной доступностью по автодороге
+                                    федерального значения М-4 «Дон» обеспечат высокий интерес автотуристов и
+                                    коммерческий успех объектам кластера.</p>
+                            </div>
+
+                            <p class="text-center m-t-md" style="margin-top:14px; display:block;">
+                                <a href="https://liptur.ru/panoram/zadonshchina/index.html" target="_blank"
+                                   class="btn btn-success">
+                                    Посмотреть виртуальный тур АТК «Задонщина»
+                                </a>
+
+                            <p class="text-center m-t-md">
+                                <a href="http://invest.liptur.ru/" target="_blank" style="color:#1b77c1;">
+                                    <strong>Узнать больше на invest.liptur.ru</strong> </a>
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
 
             </div>
+
         </div>
+    </section>
 
 
-    </div>
+    <section>
+        <div class="map-bg  b-b b-t box-shadow b-light vi-hide hidden-xs">
+            <div class="row h-full text-white">
+                <div class="container">
+
+                    <div class="row  m-b-md">
+                        <a href="/other/karta_investitsiy_lipetsk.pdf" target="_blank">
+                            <div class="block-header col-xs-12 pt-3">
+                                Карта инвестиционной привлекательности Липецкой области в сфере туризма
+                            </div>
+                        </a>
+                        <p class="text-xs m-l-xxl pl-1">
+                            Инвестируй в туризм будь успешным.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -283,7 +490,9 @@
 
 
                 </main>
-
+                        <p class="text-justify"><center><small class="text-green">Каталог инвестиционных предложений Липецкой области <br>в сфере туризма</small><br>
+                            <a href="/other/invest-ploshchadki.pdf" target="_blank"><img src="/img/investor/invest-ploshchadki.jpg" width="240" height="240"></a>
+                        </center></p>
 
             </div>
 
@@ -326,10 +535,10 @@
                             добраться за 5 часов, что является одним из несомненных преимуществ региона.
 
 
-                        </p>
-                        <p>
+                        </p><br><br>
+                        <p><center><small class="text-green">Инвестиционные предложения АТК "Задонщина" и<br> ТРК "Елец"</small><br>
                             <a href="/other/buclet.pdf" target="_blank"><img src="/img/banner/lipetz-1.gif"></a>
-                        </p>
+                        </center></p>
                     </div>
                 </div>
             </div>

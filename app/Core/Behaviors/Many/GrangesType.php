@@ -73,6 +73,8 @@ class GrangesType extends Many
             'body'  => 'tag:wysiwyg|name:body|max:255|rows:10|theme:modern',
             'title' => 'tag:input|type:text|name:title|max:255|title:Заголовок статьи|help:Упоменение',
 
+            'guide' => 'tag:input|type:url|name:guide|title:Ссылка на аудиогид',
+
             'region'   => 'tag:region|name:region|title:Регион',
             'distance' => 'tag:input|type:number|name:distance|title:Удалённость от Липецка|help:Отсчёт с центра города (Почтамп)|placeholder:0',
             'place'    => 'tag:place|type:text|name:place|max:255|title:Место положение|help:Адрес на карте',

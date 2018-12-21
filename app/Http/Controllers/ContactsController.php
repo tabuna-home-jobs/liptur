@@ -10,14 +10,6 @@ use Illuminate\Support\Facades\Mail;
 class ContactsController extends Controller
 {
     /**
-     * ContactsController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware('cache');
-    }
-
-    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -47,6 +39,7 @@ class ContactsController extends Controller
                 'type'    => 'error',
             ]);
         }
+
 
         return response()->json([
             'title'   => 'Успешно',
