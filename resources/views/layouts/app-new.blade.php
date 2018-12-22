@@ -110,11 +110,7 @@
                                 <i class="on md b-white bottom"></i>
                                 </span>
                             </a>
-                            <a href="{{ url('/logout') }}" title="Выход" onclick="event.preventDefault();
-                                                     document.getElementById('logout-top-form').submit();" class="navbar-auth">Выход</a>
-                            <form id="logout-top-form" action="{{ route('logout') }}" method="POST">
-                                {{ csrf_field() }}
-                            </form>
+                            <a href="{{ url('/logout') }}" title="Выход" class="navbar-auth">Выход</a>
                         </div>
                     </li>
                 @endif

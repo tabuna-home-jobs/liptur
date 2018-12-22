@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Orchid\Platform\Core\Models\Post;
 use Orchid\Platform\Core\Models\Taxonomy;
+use Illuminate\Support\Facades\App;
 
 class AboutController extends Controller
 {
@@ -76,6 +77,7 @@ class AboutController extends Controller
         return view('pages.investor', [
             'offers' => $offers,
             'page'   => getPage('investor'),
+            'locale' => App::getLocale(),
         ]);
     }
 

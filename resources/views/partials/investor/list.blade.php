@@ -1,18 +1,18 @@
 @if(count($offer->childrenTerm) > 0)
-    <div class="list-group">
+    <div class="list-group" role="tablist">
 
         @foreach($offer->childrenTerm as $post)
-            <a class="list-group-item"
+            <a class="list-group-item list-group-item-action"
 
                href="#{{$post->slug}}"
                role="tab"
                data-toggle="tab"
                aria-controls="{{$post->slug}}"
                id="{{$post->slug}}-tab"
-               style="margin-left: {{$count + 30}}px"
 
-            ><span class="text-sm m-l-md font-thin"><i
-                            class="icon-arrow-right m-r-xs"></i> {{$post->term->getContent('name')}}</span></a>
+            >
+                {{$post->term->getContent('name')}}
+            </a>
 
 
 

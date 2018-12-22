@@ -141,6 +141,7 @@ return [
         \App\Core\Behaviors\Single\ShippingAndPayment::class,
         \App\Core\Behaviors\Single\PersonalData::class,
         \App\Core\Behaviors\Single\CarouselLinks::class,
+        \App\Core\Behaviors\Single\InvestorLinks::class,
         /*
 \App\Core\Behaviors\Single\AboutPage::class,
 \App\Core\Behaviors\Single\InvestorPage::class,
