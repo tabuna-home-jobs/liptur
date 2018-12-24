@@ -2,6 +2,8 @@
 
 namespace App\Http\Screens\Basetojpg;
 
+use Illuminate\Support\Facades\Storage;
+
 class ImageGeneratorFromText
 {
 
@@ -32,17 +34,22 @@ class ImageGeneratorFromText
      */
     public function transformText(string $text): string
     {
-        $doc = new DOMDocument();
+        $doc = new \DOMDocument();
+        //dd($text);
+        $internalErrors = libxml_use_internal_errors(true);
         $doc->loadHTML($text);
-        $xpath = new DOMXPath($doc);
+        libxml_use_internal_errors($internalErrors);
+        //dd($doc);
+        $xpath = new \DOMXPath($doc);
         $nodelist = $xpath->query("//img"); // find your image
 
         foreach ($nodelist as $node) {
             $value = $node->attributes->getNamedItem('src')->nodeValue;
 
             if (strpos($value, 'data:image') !== false) {
-                $name = $this->randomString() . '.jpeg';
-                $image = $this->webPath . $this->randomString() . '.jpeg';
+                $filename=$this->randomString();
+                $name = $filename . '.jpeg';
+                $image = $this->webPath . $filename . '.jpeg';
 
                 $this->base64ToJpeg($value, $this->localPath . '/' . $name);
 
@@ -60,7 +67,7 @@ class ImageGeneratorFromText
      */
     private function randomString()
     {
-        return substr("abcdefghijklmnopqrstuvwxyz", random_int(0, 25), 1) . substr(md5(time()), 1);
+        return str_random(10).substr("abcdefghijklmnopqrstuvwxyz", random_int(0, 25), 1) . substr(md5(time()), 1);
     }
 
     /**

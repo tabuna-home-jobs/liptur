@@ -129,16 +129,5 @@ class MenuComposer
             'divider'    => true,
             'sort'       => 1,
         ]);
-
-        $dashboard->menu->add('Systems', [
-            'slug'       => 'basetojpg',
-            'icon'       => 'icon-trash',
-            'route'      => route('dashboard.systems.basetojpg.list'),
-            'label'      => 'BaseToJpg',
-            'permission' => 'dashboard.systems',
-            'divider'    => true,
-            'sort'       => 1,
-        ]);
-
     }
 }

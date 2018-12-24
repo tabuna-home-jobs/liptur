@@ -37,7 +37,7 @@ $this->domain(config('platform.domain'))->group(function () {
         'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems'),
     ],
         function (\Illuminate\Routing\Router $router, $path = 'dashboard.systems.basetojpg.') {
-            $router->screen('basetojpg/{id}/edit', 'Basetojpg\BasetojpgEdit', $path.'edit');
+            $router->screen('basetojpg/{id}/{typeid?}/edit', 'Basetojpg\BasetojpgEdit', $path.'edit');
             $router->screen('basetojpg', 'Basetojpg\BasetojpgList', $path.'list');
         });
 });

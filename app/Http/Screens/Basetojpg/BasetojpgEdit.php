@@ -2,12 +2,14 @@
 
 namespace App\Http\Screens\Basetojpg;
 
+use App\Core\Models\Term;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Setting;
 use Orchid\Platform\Screen\Layouts;
 use Orchid\Platform\Screen\Link;
 use Orchid\Platform\Screen\Screen;
 use App\Core\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class BasetojpgEdit extends Screen
 {
@@ -31,13 +33,19 @@ class BasetojpgEdit extends Screen
      *
      * @return array
      */
-    public function query($id = null) : array
+    public function query($id = null, $typeid = 1) : array
     {
-        //dump($id );
         //$post = Post::withTrashed()->findOrFail($id);//whereId($id)->firstOrFail();
         //dd($post);
+        //$post = Post::findOrFail($id);
+        if ($typeid==1) {
+            $post = Post::findOrFail($id);
+        } elseif ($typeid==2) {
+            $post = Term::findOrFail($id);
+        }
+
         return [
-            'post'   => Post::findOrFail($id),
+            'post'   => $post,
         ];
     }
 
@@ -62,10 +70,11 @@ class BasetojpgEdit extends Screen
     {
         return [
 
-            RecycleEditLayout::class,
+            BasetojpgEditLayout::class,
 
         ];
     }
+
 
     /**
      * @param Shortvar $shortvar
@@ -74,7 +83,31 @@ class BasetojpgEdit extends Screen
      */
     public function restore($id = null)
     {
-        $generator = new ImageGeneratorFromText(__DIR__, "/storage/images/base64/");
+        //$post = Post::findOrFail($id);
+        $post = Term::findOrFail($id);
+        $disk = (string) config('platform.disks.media', 'public');
+        $filesystem = Storage::disk($disk);
+        //dd($filesystem->url('images/base64/'));
+        //dd($filesystem->getDriver()->getAdapter()->getPathPrefix().'images/base64/');
+
+        $generator = new ImageGeneratorFromText($filesystem->getDriver()->getAdapter()->getPathPrefix().'images/base64', $filesystem->url('')."images/base64/");
+        $string=$post->content['ru']['body'];//$post->getContent('body');
+
+        //dump($string);
+        //dd(phpinfo());
+        $content = $post->content;
+
+        //dd($content['ru']['body']);
+        if (isset($content['ru']['body'])) {
+            $content['ru']['body'] = $generator->transformText($content['ru']['body']);
+        }
+        if (isset($content['en']['body'])) {
+            $content['en']['body'] = $generator->transformText($content['en']['body']);
+        }
+        $post->setAttribute('content',$content);
+        $post->save();
+        //dd($generator->transformText($string));
+
         Alert::info('Запись была отредактирована');
         return redirect()->route('dashboard.systems.basetojpg.list');
     }
