@@ -32,12 +32,4 @@ $this->domain(config('platform.domain'))->group(function () {
             $router->screen('recycle', 'Recycle\RecycleList', $path.'list');
         });
 
-    $this->group([
-        'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems'),
-    ],
-        function (\Illuminate\Routing\Router $router, $path = 'dashboard.systems.basetojpg.') {
-            $router->screen('basetojpg/{id}/{typeid?}/edit', 'Basetojpg\BasetojpgEdit', $path.'edit');
-            $router->screen('basetojpg', 'Basetojpg\BasetojpgList', $path.'list');
-        });
 });
