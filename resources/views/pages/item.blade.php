@@ -33,7 +33,7 @@
                                <span id="stars-existing" class="starrr text-warning-lt"
                                                  data-rating='{{$rating->percent}}' data-post-id='{{$item->id}}'
                                                  style="cursor: pointer;"></span>
-                               <em class="m-l-sm text-sm"> Средний рейтинг {{$rating->percent}} звезд(ы)</em>
+                               <em class="m-l-sm text-sm"> {{__('Average rating')}} {{$rating->percent}} {{__('stars')}}</em>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
 
 
                             @if(!empty($item->getContent('guide')))
-                                <div class="panel v-center hidden-sm hidden-md hidden-lg"
+                                <div class="panel v-center hidden-md hidden-lg"
                                      style="box-shadow: 0 1px 1px #dee5e7; background-color: #d4de75;">
 
                                     <a href="{{ $item->getContent('guide') }}" class="wrapper-md block w-full v-center">
@@ -241,7 +241,7 @@
                                             <time datetime="{{ $item->created_at->toRfc3339String() }}">
                                                 <i class="fa fa-clock-o text-muted"></i>
 
-                                                <em>Опубликовано {{$item->created_at->diffForHumans()}}</em>
+                                                <em>{{__('Posted by')}} {{$item->created_at->diffForHumans()}}</em>
 
                                                 <meta itemprop="dateModified"
                                                       content="{{ $item->updated_at->toRfc3339String() }}"/>

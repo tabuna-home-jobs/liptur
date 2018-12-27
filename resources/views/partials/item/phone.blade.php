@@ -1,6 +1,6 @@
 <div class="panel wrapper-xl b box-shadow-lg padder-lg text-center news-email">
     <p class="h3 font-thin  m-b-lg">
-        Контактный телефон
+        {{__('Contact number')}}
     </p>
     <p class="font-thin">
         <i class="icon-phone text-brand-green icon-title"></i>

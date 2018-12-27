@@ -51,7 +51,6 @@
         @widget('advertising','top')
     @stop
     @yield('top-advertising')
-
     <div class="container padder-t rebrand">
         <div class="navbar-row header-top">
             <div class="navbar-header text-center">
@@ -69,7 +68,7 @@
                 <li class="col-sm-3 col-md-4 no-padder">
                     <div class="input-group nav-search">
                         <form action="{{Request::is('shop/*')?route('shop.newsproducts'):route('catalog.search')}}" class="form-inline">
-                            <input type="text" class="form-control form-control-grey" name="search" placeholder="Введите искомое"
+                            <input type="text" class="form-control form-control-grey" name="search" placeholder="{{__('Enter the search')}}"
                                    maxlength="100" value="@if (isset($request['search'])){{$request['search']}} @endif">
                             <span class="input-group-btn">
                                 <button class="green-button raised" type="submit" >
@@ -97,7 +96,7 @@
                     <li class="no-padder pull-right text-right">
                         <a href="{{ url('/login') }}" class="navbar-auth">
                             <div>
-                                <i class="key-icon m-r-xs"></i>Вход
+                                <i class="key-icon m-r-xs"></i>{{__('Login')}}
                             </div>
                         </a>
                     </li>
@@ -110,7 +109,7 @@
                                 <i class="on md b-white bottom"></i>
                                 </span>
                             </a>
-                            <a href="{{ url('/logout') }}" title="Выход" class="navbar-auth">Выход</a>
+                            <a href="{{ url('/logout') }}" title="{{__('Logout')}}" class="navbar-auth">{{__('Logout')}}</a>
                         </div>
                     </li>
                 @endif
@@ -134,7 +133,7 @@
                     <div class="col-xs-10">
                         <div class="input-group nav-search m-t-md">
                             <form action="{{route('shop.newsproducts')}}" class="form-inline">
-                                <input type="text" class="form-control form-control-grey" name="search" placeholder="Введите искомое"
+                                <input type="text" class="form-control form-control-grey" name="search" placeholder="{{__('Enter the search')}}"
                                        maxlength="100" value="@if (isset($request['search'])){{$request['search']}} @endif">
                                 <span class="input-group-btn">
                                     <button class="green-button raised" type="submit" >
@@ -184,16 +183,16 @@
                     <a  href="{{route('contacts')}}" class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
                      <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
                         <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">ОБЛАСТНОЙ ЦЕНТР СОБЫТИЙНОГО ТУРИЗМА</p>
-                            <p class="text-white text-md">{{setting('shop_adress','Липецк, ул. Фрунзе, 10')}}</p>
+                            <p class="m-b-xs text-muted text-xs text-u-c">{{__('Regional Center of Event Tourism')}}</p>
+                            <p class="text-white text-md">{{__('398024 Lipetsk, Prospekt pobedi, 67a')}}{{-- setting('shop_adress','Липецк, ул. Фрунзе, 10') --}}</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-3 vi-hide phone">
-                    <a href="tel:{{setting('shop_phone','8-800-200-81-20')}}" class="wrapper-sm v-center imgs-hovers" title="Телефон">
+                    <a href="tel:{{setting('shop_phone','8-800-200-81-20')}}" class="wrapper-sm v-center imgs-hovers" title="{{__('Phone number')}}">
                         <img class="img-responsive" data-src="/img/icons/phone-1.png" data-hover-src="/img/icons/phone-2.png" src="/img/icons/phone-1.png">
                         <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">Телефон</p>
+                            <p class="m-b-xs text-muted text-xs text-u-c">{{__('Phone number')}}</p>
                             <p class="text-white text-md">{{setting('shop_phone','8-800-200-81-20')}}</p>
                         </div>
                     </a>
@@ -201,10 +200,10 @@
 
                 <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
                     <a class="wrapper-sm v-center imgs-hovers"  data-toggle="modal" data-target="#support"
-                       title="Почта">
+                       title="{{__('Email')}}">
                         <img class="img-responsive" data-src="/img/icons/mail-1.png" data-hover-src="/img/icons/mail-2.png" src="/img/icons/mail-1.png" style="opacity: 1;">
                         <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">Почта</p>
+                            <p class="m-b-xs text-muted text-xs text-u-c">{{__('Email')}}</p>
                             <p class="text-white text-md">{{setting('shop_email','info@liptur.ru')}}</p>
                         </div>
                     </a>
@@ -269,15 +268,15 @@
         <div class="container">
             <div class="padder-v m-t-md m-b-md v-center">
                 <div class="col-xs-12 col-md-6">
-                    <p class="text-copyright m-b-n">© 2016-2018 ОКУ «Центр кластерного развития туризма Липецкой области»</p>
+                    <p class="text-copyright m-b-n">© 2016-2018 {{__('Center of cluster development of tourism of the Lipetsk region')}}</p>
                 </div>
                 <div class="col-xs-12 col-md-3 col-md-offset-3 text-right no-padder">
                     <div class="pull-right">
                         <div class="v-center">
                             <a class="text-campaing m-n text-left imgs-hovers">
                                 <img src="/img/icons/artp.png" data-src="/img/icons/artp.png" data-hover-src="/img/icons/artp-hover.png"  class="m-r-sm">
-                                <span>Разработка сайта – <br>
-                                    Артполитика
+                                <span>{{__('Site development')}} – <br>
+                                    {{__('Artpolytyka')}}
                                 </span>
                             </a>
                         </div>

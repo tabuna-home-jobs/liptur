@@ -16,10 +16,10 @@ class MainCarouselWidget extends Widget
     public function handler()
     {
         $locale = App::getLocale();
-
         $carousel = Cache::remember('main-carousel-'.$locale, 5, function () use ($locale) {
             return Post::where('type', 'carousel')
                 ->whereNotNull('content->'.$locale)
+                ->where('options->locale->'.$locale,'true')
                 ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
                 ->orderBy('publish_at', 'ASC')
                 ->limit(10)

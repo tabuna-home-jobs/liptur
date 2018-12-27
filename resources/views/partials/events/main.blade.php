@@ -2,11 +2,11 @@
     <div class="container padder-v">
         <div class="row  m-b-md">
             <div class="block-header pt-3">
-                Интересные события Липецкой области
+                {{__('Events Lipetsk region')}}
 
                 <div class="input-group pull-right hidden-xs m-r-md" id="select-news">
                     <a href="{{route('catalog',['catalog' => 'festivals'])}}">
-                        Все актуальные события
+                        {{__('All events')}}
                     </a>
                 </div>
             </div>
@@ -63,7 +63,7 @@
         @endforeach
         <div class="input-group  visible-xs  text-center" id="select-news">
             <a class="h4" href="{{route('catalog',['catalog' => 'festivals'])}}">
-                Все актуальные события
+                {{__('All events')}}
             </a>
         </div>
     </div>

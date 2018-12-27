@@ -125,7 +125,7 @@ class GrangesType extends Many
         return collect([
             'name' => 'Усадьбы',
 
-            'title'       => 'Усадьбы Липецкой области',
+            'title'       => __('Sight Lipetsk region'),
             'description' => 'Справочник усадеб Липецкой области: заметки, фотографии, информация',
 
             'icon'   => 'icon-lip-temple',

@@ -174,7 +174,7 @@ class FestivalsType extends Many
     {
         return collect([
             'name'        => 'Фестивали',
-            'title'       => 'Фестивали Липецкой области',
+            'title'       => __('Events Lipetsk region'),
             'description' => 'Интересные мероприятия области, посещения которых оставят только приятные впечатления',
             'icon'        => 'icon-lip-festival',
             'time'        => true,

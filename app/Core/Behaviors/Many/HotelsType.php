@@ -150,7 +150,7 @@ class HotelsType extends Many
     {
         return collect([
             'name'        => 'Где разместиться',
-            'title'       => 'Где разместиться в Липецкой области',
+            'title'       => __('Hotels Lipetsk region'),
             'description' => 'Места размещения, для жителей и гостей региона',
             'icon'        => 'icon-lip-hotel',
             'svg'         => '/dist/svg/maps/hostels.svg',

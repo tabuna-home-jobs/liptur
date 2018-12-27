@@ -23,6 +23,7 @@
     {{--
         @widget('mainPopular')
     --}}
+    @if (App::isLocale('ru'))
     @widget('mainNews')
 
 
@@ -149,6 +150,7 @@ align-items: center;
 
     @include('partials.marketing.maps')
 
+    @endif
 
 
 

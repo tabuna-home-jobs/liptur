@@ -146,8 +146,7 @@ class RestaurantsType extends Many
     {
         return collect([
             'name' => 'Гастрономия',
-
-            'title'       => 'Гастрономия Липецкой области',
+            'title'       => __('Gastronomy Lipetsk region'),
             'description' => 'Рестораны, кафе, бары Липецкой области',
             'icon'        => 'icon-lip-caffe',
             'svg'         => '/dist/svg/maps/gastronomy.svg',

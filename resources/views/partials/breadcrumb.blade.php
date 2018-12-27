@@ -4,7 +4,7 @@
         itemtype="http://schema.org/ListItem">
         <a href="/" itemprop="item">
             <i class="fa fa-home"></i>
-            <span property="name"> Главная</span>
+            <span property="name">{{__('Main')}} </span>
         </a>
         <meta property="position" content="1">
     </li>

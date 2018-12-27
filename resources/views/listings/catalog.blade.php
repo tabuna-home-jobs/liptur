@@ -30,27 +30,29 @@
 
                 <div class="padder-v">
 
-                    @php
-                        $filters =$type->getFilters();
-                    @endphp
+                    @if (App::isLocale('ru'))
+                        @php
+                            $filters = $type->getFilters();
+                        @endphp
 
-                    @if($filters->count() > 0 )
-                        <div id="filters" class="panel b box-shadow-lg wrapper-md">
-                            <form>
-                                @foreach($filters as $filter)
-                                    @if($filter->display)
-                                        {!! $filter->display() !!}
-                                        <div class="line line-dashed b-b line-lg"></div>
-                                    @endif
-                                @endforeach
+                        @if($filters->count() > 0 )
+                            <div id="filters" class="panel b box-shadow-lg wrapper-md">
+                                <form>
+                                    @foreach($filters as $filter)
+                                        @if($filter->display)
+                                            {!! $filter->display() !!}
+                                            <div class="line line-dashed b-b line-lg"></div>
+                                        @endif
+                                    @endforeach
 
-                                <p class="text-center m-t-sm">
-                                    <a href="{{route(Request::route()->getName(),$type->slug)}}" class="btn btn-link text-xs m-r-sm reset-form">Сбросить
-                                    </a>
-                                    <button type="submit" class="btn btn-success">Подобрать</button>
-                                </p>
-                            </form>
-                        </div>
+                                    <p class="text-center m-t-sm">
+                                        <a href="{{route(Request::route()->getName(),$type->slug)}}" class="btn btn-link text-xs m-r-sm reset-form">Сбросить
+                                        </a>
+                                        <button type="submit" class="btn btn-success">Подобрать</button>
+                                    </p>
+                                </form>
+                            </div>
+                        @endif
                     @endif
 
                     @if($type->slug === 'festivals')
@@ -109,7 +111,7 @@
                 @empty
                     <div class="text-center bg-white  padder-v ">
                         <div class=" wrapper-xl">
-                            Список пуст
+                            {{__('List is empty')}}
                         </div>
                     </div>
                 @endforelse
