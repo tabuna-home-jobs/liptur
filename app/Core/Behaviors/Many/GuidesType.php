@@ -17,7 +17,7 @@ class GuidesType extends Many
     /**
      * @var string
      */
-    public $name = 'Информация для экскурсоводов';
+    public $name = 'Путешествуем сами';
 
     /**
      * @var string

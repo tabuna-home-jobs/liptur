@@ -31,9 +31,9 @@
                             @endif
                             <div class="lead hidden-xs v-center">
                                <span id="stars-existing" class="starrr text-warning-lt"
-                                                 data-rating='{{$rating->percent}}' data-post-id='{{$item->id}}'
-                                                 style="cursor: pointer;"></span>
-                               <em class="m-l-sm text-sm"> {{__('Average rating')}} {{$rating->percent}} {{__('stars')}}</em>
+                                     data-rating='{{$rating->percent}}' data-post-id='{{$item->id}}'
+                                     style="cursor: pointer;"></span>
+                                <em class="m-l-sm text-sm"> {{__('Average rating')}} {{$rating->percent}} {{__('stars')}}</em>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                     @foreach($item->getOption('option',[]) as $key => $value)
                                         <span title="{{config('icon.attributes.'.$key)}}">
                                            <i class="{{$key}}"></i>
-                                           <span class="text-ellipsis">{{config('icon.attributes.'.$key)}}</span>
+                                           <span class="text-ellipsis">{{ __(config('icon.attributes.'.$key)) }}</span>
                                        </span>
                                     @endforeach
                                 </div>

@@ -10,7 +10,7 @@ class GuidesPage extends Single
     /**
      * @var string
      */
-    public $name = 'Информация для экскурсоводов';
+    public $name = 'Путешествуем сами';
 
     /**
      * @var string

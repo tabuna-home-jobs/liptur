@@ -10,6 +10,15 @@ use Orchid\Platform\Platform\Fields\TD;
 
 class InfoType extends Many
 {
+
+    /**
+     * InfoType constructor.
+     */
+    public function __construct()
+    {
+        $this->name = __('Information');
+    }
+
     /**
      * @var string
      */

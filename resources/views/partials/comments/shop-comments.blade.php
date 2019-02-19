@@ -1,6 +1,6 @@
 <div class="container padder-v comments">
     <div class="block-header comment-header padder-v-micro padder-b-v-xs">
-        Комментарии
+        Отзывы
     </div>
     <div class="col-md-8">
         <div class="row">
@@ -37,7 +37,7 @@
                         <textarea rows="5" required
                                   v-model="commentText"
                                   class="form-control no-resize no-border form-control-grey"
-                                  placeholder="Напишите ваш комментарий"
+                                  placeholder="Напишите ваш отзыв"
                         ></textarea>
                       </div>
                       <div>
@@ -72,7 +72,7 @@
                   </div>
                 </div>
               @empty
-                  <div class="alert alert-info text-center" role="alert">Пока нет комментариев</div>
+                  <div class="alert alert-info text-center" role="alert">Пока нет отзывов</div>
               @endforelse
             </div>
         </div>
@@ -96,7 +96,7 @@
             <li>Реклама.</li>
             <li>Разжигание межэтнической и межконфессиональной розни.</li>
             <li>Неоднократный и настойчивый флуд и оффтоп-сообщения.</li>
-            <li>Комментарии пользователей на любых языках, кроме русского.запрещены.</li>
+            <li>Отзывы пользователей на любых языках, кроме русского.запрещены.</li>
         </ol>
       </div>
       <div class="text-center padder-v">

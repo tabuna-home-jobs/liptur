@@ -37,7 +37,6 @@
     <meta name="theme-color" content="#ffffff">
     @stack('stylesheet')
 
-
     <script type="text/javascript" src="{{ elixir('/dist/js/orchid.js') }}"></script>
 
 </head>
@@ -54,9 +53,13 @@
     <div class="container padder-t rebrand">
         <div class="navbar-row header-top">
             <div class="navbar-header text-center">
-              <a href="/{{App::getLocale()}}" class="navbar-brand navbar-brand-left" title="На главную">
-                <img src="/img/new-logo.png" alt="LipTur">
-              </a>
+                <a href="/{{App::getLocale()}}" class="navbar-brand navbar-brand-left" title="На главную">
+                    @if(App::getLocale() == 'ru')
+                        <img src="/img/new-logo.png" alt="LipTur">
+                    @else
+                        <img src="/img/en-logo.png" alt="LipTur">
+                    @endif
+                </a>
             </div>
             <ul class="nav navbar-nav navbar-right hidden-xs row-flex v-center">
                 <li class="no-padder">
@@ -115,7 +118,7 @@
                 @endif
             </ul>
         </div>
-        
+
         <div class="clearfix"></div>
 
         @widget('menuWidget','shop-header')
@@ -172,123 +175,123 @@
 </div>
 
 @section('footer')
-<!-- footer -->
+    <!-- footer -->
 
-<footer id="footer" role="footer" class="bg-dark">
+    <footer id="footer" role="footer" class="bg-dark">
 
-    <div class="contact-block">
-        <div class="container">
-            <div class="row contact-row">
-                <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
-                    <a  href="{{route('contacts')}}" class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
-                     <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
-                        <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">{{__('Regional Center of Event Tourism')}}</p>
-                            <p class="text-white text-md">{{__('398024 Lipetsk, Prospekt pobedi, 67a')}}{{-- setting('shop_adress','Липецк, ул. Фрунзе, 10') --}}</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-md-3 vi-hide phone">
-                    <a href="tel:{{setting('shop_phone','8-800-200-81-20')}}" class="wrapper-sm v-center imgs-hovers" title="{{__('Phone number')}}">
-                        <img class="img-responsive" data-src="/img/icons/phone-1.png" data-hover-src="/img/icons/phone-2.png" src="/img/icons/phone-1.png">
-                        <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">{{__('Phone number')}}</p>
-                            <p class="text-white text-md">{{setting('shop_phone','8-800-200-81-20')}}</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
-                    <a class="wrapper-sm v-center imgs-hovers"  data-toggle="modal" data-target="#support"
-                       title="{{__('Email')}}">
-                        <img class="img-responsive" data-src="/img/icons/mail-1.png" data-hover-src="/img/icons/mail-2.png" src="/img/icons/mail-1.png" style="opacity: 1;">
-                        <div>
-                            <p class="m-b-xs text-muted text-xs text-u-c">{{__('Email')}}</p>
-                            <p class="text-white text-md">{{setting('shop_email','info@liptur.ru')}}</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-sm-6 col-md-3 vi-hide hidden-xs socicons text-right">
-                    <p>
-                        <a href="{{setting('liptur_instagram','https://www.instagram.com/lipsobtur/')}}" target="_blank" class="btn btn-icon soc-vk">
-                            <i class="fa fa-instagram"></i>
+        <div class="contact-block">
+            <div class="container">
+                <div class="row contact-row">
+                    <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
+                        <a  href="{{route('contacts')}}" class="wrapper-sm v-center imgs-hovers" title="Центр кластерного развития туризма">
+                            <img class="img-responsive" data-src="/img/icons/map-1.png" data-hover-src="/img/icons/map-2.png" src="/img/icons/map-1.png" style="opacity: 1;">
+                            <div>
+                                <p class="m-b-xs text-muted text-xs text-u-c">{{__('Regional Center of Event Tourism')}}</p>
+                                <p class="text-white text-md">{{__('398024 Lipetsk, Prospekt pobedi, 67a')}}{{-- setting('shop_adress','Липецк, ул. Фрунзе, 10') --}}</p>
+                            </div>
                         </a>
-
-                        <a href="{{setting('liptur_vk','https://vk.com/liptur48')}}" target="_blank" class="btn btn-icon soc-vk">
-                            <i class="fa fa-vk"></i>
+                    </div>
+                    <div class="col-sm-6 col-md-3 vi-hide phone">
+                        <a href="tel:{{setting('shop_phone','8-800-200-81-20')}}" class="wrapper-sm v-center imgs-hovers" title="{{__('Phone number')}}">
+                            <img class="img-responsive" data-src="/img/icons/phone-1.png" data-hover-src="/img/icons/phone-2.png" src="/img/icons/phone-1.png">
+                            <div>
+                                <p class="m-b-xs text-muted text-xs text-u-c">{{__('Phone number')}}</p>
+                                <p class="text-white text-md">{{setting('shop_phone','8-800-200-81-20')}}</p>
+                            </div>
                         </a>
+                    </div>
 
-                        <a href="{{setting('liptur_ok','https://ok.ru/lipsobtur')}}" target="_blank" class="btn btn-icon soc-od">
-                            <i class="fa fa-odnoklassniki"></i>
+                    <div class="col-sm-6 col-md-3 hidden-xs vi-col-4">
+                        <a class="wrapper-sm v-center imgs-hovers"  data-toggle="modal" data-target="#support"
+                           title="{{__('Email')}}">
+                            <img class="img-responsive" data-src="/img/icons/mail-1.png" data-hover-src="/img/icons/mail-2.png" src="/img/icons/mail-1.png" style="opacity: 1;">
+                            <div>
+                                <p class="m-b-xs text-muted text-xs text-u-c">{{__('Email')}}</p>
+                                <p class="text-white text-md">{{setting('shop_email','info@liptur.ru')}}</p>
+                            </div>
                         </a>
+                    </div>
 
-                        <a href="{{setting('liptur_fb','https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8F-%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC%D0%B0-%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-1784209968567425/')}}"
-                           target="_blank" class="btn btn-icon soc-facebook">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-
-                        <a href="{{setting('liptur_youtube','https://www.youtube.com/channel/UCI4HbPUrzve2L889GRE8D-g')}}" target="_blank"
-                           class="btn btn-icon soc-youtube">
-                            <i class="fa fa-youtube"></i>
-                        </a>
-
-                        <a href="{{setting('liptur_twitter','https://twitter.com/lipsobtur')}}" target="_blank"
-                           class="btn btn-icon soc-twitter">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-
-                        <a href="{{route('rss')}}" target="_blank" class="btn btn-icon soc-rss">
-                            <i class="fa fa-rss" aria-hidden="true"></i>
-                        </a>
-
-                    </p>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="wrapper visible-lg vi-hide">
-        <div class="container">
-            <div class="row">
-                @php 
-                    $menus = ['shop-footer','footer-menu'];
-                @endphp
-                @widget('menuWidget',$menus)
-            </div>
-        </div>
-    </div>
-
-
-    <div class="bg-black-opacity">
-        <div class="container">
-            <div class="padder-v m-t-md m-b-md v-center">
-                <div class="col-xs-12 col-md-6">
-                    <p class="text-copyright m-b-n">© 2016-2018 {{__('Center of cluster development of tourism of the Lipetsk region')}}</p>
-                </div>
-                <div class="col-xs-12 col-md-3 col-md-offset-3 text-right no-padder">
-                    <div class="pull-right">
-                        <div class="v-center">
-                            <a class="text-campaing m-n text-left imgs-hovers">
-                                <img src="/img/icons/artp.png" data-src="/img/icons/artp.png" data-hover-src="/img/icons/artp-hover.png"  class="m-r-sm">
-                                <span>{{__('Site development')}} – <br>
-                                    {{__('Artpolytyka')}}
-                                </span>
+                    <div class="col-sm-6 col-md-3 vi-hide hidden-xs socicons text-right">
+                        <p>
+                            <a href="{{setting('liptur_instagram','https://www.instagram.com/lipsobtur/')}}" target="_blank" class="btn btn-icon soc-vk">
+                                <i class="fa fa-instagram"></i>
                             </a>
+
+                            <a href="{{setting('liptur_vk','https://vk.com/liptur48')}}" target="_blank" class="btn btn-icon soc-vk">
+                                <i class="fa fa-vk"></i>
+                            </a>
+
+                            <a href="{{setting('liptur_ok','https://ok.ru/lipsobtur')}}" target="_blank" class="btn btn-icon soc-od">
+                                <i class="fa fa-odnoklassniki"></i>
+                            </a>
+
+                            <a href="{{setting('liptur_fb','https://www.facebook.com/%D0%A6%D0%B5%D0%BD%D1%82%D1%80-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B0%D0%B7%D0%B2%D0%B8%D1%82%D0%B8%D1%8F-%D1%82%D1%83%D1%80%D0%B8%D0%B7%D0%BC%D0%B0-%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%D0%BE%D0%B9-%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8-1784209968567425/')}}"
+                               target="_blank" class="btn btn-icon soc-facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+
+                            <a href="{{setting('liptur_youtube','https://www.youtube.com/channel/UCI4HbPUrzve2L889GRE8D-g')}}" target="_blank"
+                               class="btn btn-icon soc-youtube">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+
+                            <a href="{{setting('liptur_twitter','https://twitter.com/lipsobtur')}}" target="_blank"
+                               class="btn btn-icon soc-twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+
+                            <a href="{{route('rss')}}" target="_blank" class="btn btn-icon soc-rss">
+                                <i class="fa fa-rss" aria-hidden="true"></i>
+                            </a>
+
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="wrapper visible-lg vi-hide">
+            <div class="container">
+                <div class="row">
+                    @php
+                        $menus = ['shop-footer','footer-menu'];
+                    @endphp
+                    @widget('menuWidget',$menus)
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-black-opacity">
+            <div class="container">
+                <div class="padder-v m-t-md m-b-md v-center">
+                    <div class="col-xs-12 col-md-6">
+                        <p class="text-copyright m-b-n">© 2016-2018 {{__('Center of cluster development of tourism of the Lipetsk region')}}</p>
+                    </div>
+                    <div class="col-xs-12 col-md-3 col-md-offset-3 text-right no-padder">
+                        <div class="pull-right">
+                            <div class="v-center">
+                                <a class="text-campaing m-n text-left imgs-hovers">
+                                    <img src="/img/icons/artp.png" data-src="/img/icons/artp.png" data-hover-src="/img/icons/artp-hover.png"  class="m-r-sm">
+                                    <span>{{__('Site development')}} – <br>
+                                        {{__('Artpolytyka')}}
+                                </span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
-
-</footer>
-<!-- / footer -->
+    </footer>
+    <!-- / footer -->
 @stop
 @yield('footer')
 

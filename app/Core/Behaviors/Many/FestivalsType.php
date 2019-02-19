@@ -23,6 +23,11 @@ class FestivalsType extends Many
      */
     public $name = 'Фестивали';
 
+    public function __construct()
+    {
+        $this->name = __('Events');
+    }
+
     /**
      * @var string
      */
@@ -173,7 +178,7 @@ class FestivalsType extends Many
     public function display()
     {
         return collect([
-            'name'        => 'Фестивали',
+            'name'        => __('Events'),
             'title'       => __('Events Lipetsk region'),
             'description' => 'Интересные мероприятия области, посещения которых оставят только приятные впечатления',
             'icon'        => 'icon-lip-festival',

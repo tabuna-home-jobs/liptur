@@ -17,10 +17,21 @@ use Orchid\Platform\Platform\Fields\TD;
 class RestaurantsType extends Many
 {
     /**
+     * RestaurantsType constructor.
+     */
+    public function __construct()
+    {
+        $this->name = __('Gastronomy');
+    }
+
+    /**
      * @var string
      */
     public $name = 'Гастрономия';
 
+    /**
+     * @var string
+     */
     public $description = 'Рестораны, кафе, бары';
 
     /**
@@ -145,7 +156,7 @@ class RestaurantsType extends Many
     public function display()
     {
         return collect([
-            'name' => 'Гастрономия',
+            'name'        => __('Gastronomy'),
             'title'       => __('Gastronomy Lipetsk region'),
             'description' => 'Рестораны, кафе, бары Липецкой области',
             'icon'        => 'icon-lip-caffe',
