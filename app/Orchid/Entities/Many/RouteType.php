@@ -23,6 +23,7 @@ use Orchid\Screen\Fields\MapField;
 use App\Fields\RegionField;
 use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TagsField;
+
 class RouteType extends Many
 {
     use ManyTypeTrait;
@@ -103,7 +104,46 @@ class RouteType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'), TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'), DateTimerField::make('open')->max(255)->title('Дата открытия')->help('Открытие мероприятия состоиться'), DateTimerField::make('close')->max(255)->title('Дата закрытия'), MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'), RegionField::make('region')->title('Регион'), InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0), InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'), TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'), TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
+            DateTimerField::make('open')
+                ->max(255)
+                ->title('Дата открытия')
+                ->help('Открытие мероприятия состоиться'),
+            DateTimerField::make('close')
+                ->max(255)
+                ->title('Дата закрытия'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }

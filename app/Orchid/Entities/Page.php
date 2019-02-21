@@ -59,7 +59,7 @@ class Page extends Single
     public function rules(): array
     {
         return [
-            'id'             => 'sometimes|integer|unique:posts',
+            'id' => 'sometimes|integer|unique:posts',
             'content.*.name' => 'required|string',
             'content.*.body' => 'required|string',
         ];

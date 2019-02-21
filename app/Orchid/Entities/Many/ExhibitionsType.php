@@ -99,22 +99,62 @@ class ExhibitionsType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-            TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
-            DateTimerField::make('open')->max(255)->title('Дата открытия')->help('Открытие мероприятия состоиться'),
-            DateTimerField::make('close')->max(255)->title('Дата закрытия'),
-            MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
+            DateTimerField::make('open')
+                ->max(255)
+                ->title('Дата открытия')
+                ->help('Открытие мероприятия состоиться'),
+            DateTimerField::make('close')
+                ->max(255)
+                ->title('Дата закрытия'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
 
-            InputField::make('phone')->type('text')->max(255)->title('Номер телефона')->help('Записывается в свободной форме'),
-            InputField::make('price')->type('text')->max(255)->title('Стоимость')->help('Записывается в свободной форме'),
-            InputField::make('site')->type('url')->title('Официальный сайт'),
+            InputField::make('phone')
+                ->type('text')
+                ->max(255)
+                ->title('Номер телефона')
+                ->help('Записывается в свободной форме'),
+            InputField::make('price')
+                ->type('text')
+                ->max(255)
+                ->title('Стоимость')
+                ->help('Записывается в свободной форме'),
+            InputField::make('site')
+                ->type('url')
+                ->title('Официальный сайт'),
 
-            RegionField::make('region')->title('Регион'),
-            InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
 
-            InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-            TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-            TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }

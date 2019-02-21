@@ -110,47 +110,133 @@ class NewYearType extends Many
             ->inRole('cfo')
         ) {
             return [
-                InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-                TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
-                DateTimerField::make('open')->max(255)->title('Дата открытия')->help('Открытие мероприятия состоиться'),
-                DateTimerField::make('close')->max(255)->title('Дата закрытия'),
+                InputField::make('name')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Название')
+                    ->help('Главный заголовок'),
+                TinyMCEField::make('body')
+                    ->max(255)
+                    ->rows(10)
+                    ->theme('modern'),
+                DateTimerField::make('open')
+                    ->max(255)
+                    ->title('Дата открытия')
+                    ->help('Открытие мероприятия состоиться'),
+                DateTimerField::make('close')
+                    ->max(255)
+                    ->title('Дата закрытия'),
 
-                InputField::make('phone')->type('text')->max(255)->title('Номер телефона')->help('Записывается в свободной форме'),
-                InputField::make('price')->type('text')->max(255)->title('Стоимость')->help('Записывается в свободной форме'),
-                InputField::make('site')->type('url')->title('Официальный сайт'),
-                InputField::make('organizer')->type('text')->title('Организатор'),
+                InputField::make('phone')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Номер телефона')
+                    ->help('Записывается в свободной форме'),
+                InputField::make('price')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Стоимость')
+                    ->help('Записывается в свободной форме'),
+                InputField::make('site')
+                    ->type('url')
+                    ->title('Официальный сайт'),
+                InputField::make('organizer')
+                    ->type('text')
+                    ->title('Организатор'),
 
-                InputField::make('type-event')->type('text')->max(255)->title('Тип событийного мероприятия')->help('Я не знаю, зачем это!'),
+                InputField::make('type-event')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Тип событийного мероприятия')
+                    ->help('Я не знаю, зачем это!'),
 
-                RegionField::make('region')->title('Регион'),
-                InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+                RegionField::make('region')
+                    ->title('Регион'),
+                InputField::make('distance')
+                    ->type('number')
+                    ->title('Удалённость от Липецка')
+                    ->help('Отсчёт с центра города (Почтамп)')
+                    ->placeholder(0),
 
-                InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-                TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-                TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+                InputField::make('title')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Заголовок статьи')
+                    ->help('Упоменение'),
+                TextAreaField::make('description')
+                    ->max(255)
+                    ->rows(5)
+                    ->title('Краткое описание'),
+                TagsField::make('keywords')
+                    ->max(255)
+                    ->title('Ключевые слова')
+                    ->help('Упоменение'),
 
             ];
         }
 
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
             'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
-            DateTimerField::make('open')->max(255)->title('Дата открытия')->help('Открытие мероприятия состоиться'),
-            DateTimerField::make('close')->max(255)->title('Дата закрытия'),
-            MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'),
-            InputField::make('phone')->type('text')->max(255)->title('Номер телефона')->help('Записывается в свободной форме'),
-            InputField::make('price')->type('text')->max(255)->title('Стоимость')->help('Записывается в свободной форме'),
-            InputField::make('site')->type('url')->title('Официальный сайт'),
-            InputField::make('organizer')->type('text')->title('Организатор'),
+            DateTimerField::make('open')
+                ->max(255)
+                ->title('Дата открытия')
+                ->help('Открытие мероприятия состоиться'),
+            DateTimerField::make('close')
+                ->max(255)
+                ->title('Дата закрытия'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
+            InputField::make('phone')
+                ->type('text')
+                ->max(255)
+                ->title('Номер телефона')
+                ->help('Записывается в свободной форме'),
+            InputField::make('price')
+                ->type('text')
+                ->max(255)
+                ->title('Стоимость')
+                ->help('Записывается в свободной форме'),
+            InputField::make('site')
+                ->type('url')
+                ->title('Официальный сайт'),
+            InputField::make('organizer')
+                ->type('text')
+                ->title('Организатор'),
 
-            InputField::make('type-event')->type('text')->max(255)->title('Тип событийного мероприятия')->help('Я не знаю, зачем это!'),
+            InputField::make('type-event')
+                ->type('text')
+                ->max(255)
+                ->title('Тип событийного мероприятия')
+                ->help('Я не знаю, зачем это!'),
 
-            RegionField::make('region')->title('Регион'),
-            InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
 
-            InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-            TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-            TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }

@@ -67,8 +67,15 @@ class InvestorType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-            TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
         ];
     }
 

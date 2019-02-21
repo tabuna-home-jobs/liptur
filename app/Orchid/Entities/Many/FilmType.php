@@ -95,9 +95,25 @@ class FilmType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('Name')->type('text')->max(255)->title('Название')->help('Название фильма'),
-            TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
-            InputField::make('Director')->type('text')->max(255)->title('Режиссер')->help('Режиссер фильма'), InputField::make('Country')->type('text')->max(255)->title('Страна')->help('Страна производства'),
+            InputField::make('Name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Название фильма'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
+            InputField::make('Director')
+                ->type('text')
+                ->max(255)
+                ->title('Режиссер')
+                ->help('Режиссер фильма'),
+            InputField::make('Country')
+                ->type('text')
+                ->max(255)
+                ->title('Страна')
+                ->help('Страна производства'),
         ];
     }
 

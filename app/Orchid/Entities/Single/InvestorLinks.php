@@ -28,7 +28,7 @@ class InvestorLinks extends Single
     public function fields(): array
     {
         return [
-            'title'       => 'tag:input|type:text|name:title|max:255|title:Article Title',
+            'title' => 'tag:input|type:text|name:title|max:255|title:Article Title',
         ];
     }
 

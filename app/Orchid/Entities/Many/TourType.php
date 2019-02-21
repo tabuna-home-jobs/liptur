@@ -23,6 +23,7 @@ use Orchid\Screen\Fields\MapField;
 use App\Fields\RegionField;
 use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TagsField;
+
 class TourType extends Many
 {
     use ManyTypeTrait;
@@ -92,19 +93,51 @@ class TourType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-            TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
-            DateTimerField::make('open')->max(255)->title('Дата открытия')->help('Открытие мероприятия состоиться'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
+            DateTimerField::make('open')
+                ->max(255)
+                ->title('Дата открытия')
+                ->help('Открытие мероприятия состоиться'),
 
-            RegionField::make('region')->title('Регион'),
-            InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
 
-            DateTimerField::make('close')->max(255)->title('Дата закрытия'),
-            InputField::make('organizer')->type('text')->title('Организатор'),
-            InputField::make('price')->type('number')->title('Стоимость')->help('В свободной форме'),
-            InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-            TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-            TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            DateTimerField::make('close')
+                ->max(255)
+                ->title('Дата закрытия'),
+            InputField::make('organizer')
+                ->type('text')
+                ->title('Организатор'),
+            InputField::make('price')
+                ->type('number')
+                ->title('Стоимость')
+                ->help('В свободной форме'),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }

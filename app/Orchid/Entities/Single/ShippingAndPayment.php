@@ -24,7 +24,7 @@ class ShippingAndPayment extends Single
     public function rules(): array
     {
         return [
-            'id'             => 'sometimes|integer|unique:posts',
+            'id' => 'sometimes|integer|unique:posts',
             'content.*.name' => 'required|string',
             'content.*.body' => 'required|string',
         ];
@@ -36,8 +36,8 @@ class ShippingAndPayment extends Single
     public function fields(): array
     {
         return [
-            'name'  => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Заголовок',
-            'body'  => 'tag:wysiwyg|name:body|required|rows:30',
+            'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Заголовок',
+            'body' => 'tag:wysiwyg|name:body|required|rows:30',
         ];
     }
 

@@ -87,7 +87,11 @@ class GalleryType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Название альбома'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Название альбома'),
         ];
     }
 

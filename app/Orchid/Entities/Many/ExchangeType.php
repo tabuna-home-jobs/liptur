@@ -71,12 +71,24 @@ class ExchangeType extends Many
     public function fields(): array
     {
         return [
-             InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
 
-            RegionField::make('region')->title('Регион'),
-            InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
 
-            MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
         ];
     }
 

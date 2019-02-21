@@ -17,7 +17,6 @@ use Orchid\Screen\Fields\MapField;
 use Orchid\Screen\Fields\SelectField;
 
 
-
 class ATMType extends Many
 {
     use ManyTypeTrait;

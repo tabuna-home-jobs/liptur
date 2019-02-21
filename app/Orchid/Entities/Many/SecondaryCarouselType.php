@@ -60,8 +60,14 @@ class SecondaryCarouselType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-            InputField::make('url')->type('url')->title('Ссылка на страницу'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            InputField::make('url')
+                ->type('url')
+                ->title('Ссылка на страницу'),
         ];
     }
 

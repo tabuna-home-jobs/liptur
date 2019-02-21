@@ -9,7 +9,9 @@ use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Screen\TD;
 
-use Orchid\Screen\Fields\InputField; use Orchid\Screen\Fields\TinyMCEField; use Orchid\Screen\Fields\MapField;
+use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\Fields\MapField;
 
 class ContactType extends Many
 {
@@ -73,7 +75,19 @@ class ContactType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'), TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'), MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
 
         ];
     }

@@ -63,12 +63,15 @@ class Post extends Many
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function create(Model $model) : Model
+    public function create(Model $model): Model
     {
-        return $model->load(['attachment', 'tags', 'taxonomies'])
+        return $model->load(['attachment',
+            'tags',
+            'taxonomies'])
             ->setAttribute('category', $model->taxonomies->map(function ($item) {
                 return $item->id;
-            })->toArray());
+            })
+                ->toArray());
     }
 
     /**
@@ -78,9 +81,11 @@ class Post extends Many
     {
         $model->save();
 
-        $model->taxonomies()->sync(array_flatten(request(['category'])));
+        $model->taxonomies()
+            ->sync(array_flatten(request(['category'])));
         $model->setTags(request('tags', []));
-        $model->attachment()->syncWithoutDetaching(request('attachment', []));
+        $model->attachment()
+            ->syncWithoutDetaching(request('attachment', []));
     }
 
     /**
@@ -91,7 +96,7 @@ class Post extends Many
     public function rules(): array
     {
         return [
-            'id'             => 'sometimes|integer|unique:posts',
+            'id' => 'sometimes|integer|unique:posts',
             'content.*.name' => 'required|string',
             'content.*.body' => 'required|string',
         ];
@@ -201,7 +206,7 @@ class Post extends Many
                 ->options(function () {
                     $options = (new Category())->getAllCategories();
 
-                    return array_replace([0=> __('Without category')], $options);
+                    return array_replace([0 => __('Without category')], $options);
                 })
                 ->multiple()
                 ->title('Category')

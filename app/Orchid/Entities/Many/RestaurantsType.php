@@ -116,22 +116,64 @@ class RestaurantsType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-            TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
 
-            InputField::make('phone')->type('text')->max(255)->title('Номер телефона')->help('Записывается в свободной форме'),
-            InputField::make('price')->type('text')->max(255)->title('Средний чек')->help('Записывается в свободной форме'),
-            InputField::make('site')->type('url')->title('Официальный сайт'),
+            InputField::make('phone')
+                ->type('text')
+                ->max(255)
+                ->title('Номер телефона')
+                ->help('Записывается в свободной форме'),
+            InputField::make('price')
+                ->type('text')
+                ->max(255)
+                ->title('Средний чек')
+                ->help('Записывается в свободной форме'),
+            InputField::make('site')
+                ->type('url')
+                ->title('Официальный сайт'),
 
-            RegionField::make('region')->title('Регион'),
-            InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
 
-            DateTimerField::make('open')->max(255)->title('Дата открытия')->help('Будет учитываться только время'), DateTimerField::make('close')->max(255)->title('Дата закрытия')->help('Будет учитываться только время'),
-            MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'),
+            DateTimerField::make('open')
+                ->max(255)
+                ->title('Дата открытия')
+                ->help('Будет учитываться только время'),
+            DateTimerField::make('close')
+                ->max(255)
+                ->title('Дата закрытия')
+                ->help('Будет учитываться только время'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
 
-            InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-            TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-            TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }

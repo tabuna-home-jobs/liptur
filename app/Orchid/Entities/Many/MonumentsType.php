@@ -108,30 +108,74 @@ class MonumentsType extends Many
             ->inRole('cfo')
         ) {
             return [
-                InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-                TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
+                InputField::make('name')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Название')
+                    ->help('Главный заголовок'),
+                TinyMCEField::make('body')
+                    ->max(255)
+                    ->rows(10)
+                    ->theme('modern'),
 
-                RegionField::make('region')->title('Регион'),
-                InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+                RegionField::make('region')
+                    ->title('Регион'),
+                InputField::make('distance')
+                    ->type('number')
+                    ->title('Удалённость от Липецка')
+                    ->help('Отсчёт с центра города (Почтамп)')
+                    ->placeholder(0),
 
-                InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-                TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-                TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+                InputField::make('title')
+                    ->type('text')
+                    ->max(255)
+                    ->title('Заголовок статьи')
+                    ->help('Упоменение'),
+                TextAreaField::make('description')
+                    ->max(255)
+                    ->rows(5)
+                    ->title('Краткое описание'),
+                TagsField::make('keywords')
+                    ->max(255)
+                    ->title('Ключевые слова')
+                    ->help('Упоменение'),
 
             ];
         }
 
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
             'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
-            MapField::make('place')->max(255)->title('Место положение')->help('Адрес на карте'),
+            MapField::make('place')
+                ->max(255)
+                ->title('Место положение')
+                ->help('Адрес на карте'),
 
-            RegionField::make('region')->title('Регион'),
-            InputField::make('distance')->type('number')->title('Удалённость от Липецка')->help('Отсчёт с центра города (Почтамп)')->placeholder(0),
+            RegionField::make('region')
+                ->title('Регион'),
+            InputField::make('distance')
+                ->type('number')
+                ->title('Удалённость от Липецка')
+                ->help('Отсчёт с центра города (Почтамп)')
+                ->placeholder(0),
 
-            InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-            TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-            TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }

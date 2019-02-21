@@ -73,13 +73,35 @@ class PeopleType extends Many
     public function fields(): array
     {
         return [
-            InputField::make('name')->type('text')->max(255)->title('Название')->help('Главный заголовок'),
-            TinyMCEField::make('body')->max(255)->rows(10)->theme('modern'),
-            DateTimerField::make('open')->max(255)->title('Дата рождения')->help('Время не учитывается'),
-            DateTimerField::make('close')->max(255)->title('Дата смерти'),
-            InputField::make('title')->type('text')->max(255)->title('Заголовок статьи')->help('Упоменение'),
-            TextAreaField::make('description')->max(255)->rows(5)->title('Краткое описание'),
-            TagsField::make('keywords')->max(255)->title('Ключевые слова')->help('Упоменение'),
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->title('Название')
+                ->help('Главный заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
+            DateTimerField::make('open')
+                ->max(255)
+                ->title('Дата рождения')
+                ->help('Время не учитывается'),
+            DateTimerField::make('close')
+                ->max(255)
+                ->title('Дата смерти'),
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Заголовок статьи')
+                ->help('Упоменение'),
+            TextAreaField::make('description')
+                ->max(255)
+                ->rows(5)
+                ->title('Краткое описание'),
+            TagsField::make('keywords')
+                ->max(255)
+                ->title('Ключевые слова')
+                ->help('Упоменение'),
 
         ];
     }
