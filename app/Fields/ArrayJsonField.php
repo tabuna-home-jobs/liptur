@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Fields;
 
-use Orchid\Platform\Fields\Field;
+use Orchid\Screen\Field;
 
 /**
  * Class TextAreaField.
@@ -83,4 +83,15 @@ class ArrayJsonField extends Field
         'type',
         'value',
     ];
+
+
+    /**
+     * @param string|null $name
+     *
+     * @return MapField
+     */
+    public static function make(string $name = null): self
+    {
+        return (new static)->name($name);
+    }
 }

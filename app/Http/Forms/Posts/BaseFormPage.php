@@ -4,7 +4,7 @@ namespace App\Http\Forms\Posts;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
-use Orchid\Platform\Core\Models\Page;
+use Orchid\Press\Models\Page;
 use Orchid\PLatform\Core\Models\Taxonomy;
 use Orchid\Platform\Forms\Form;
 

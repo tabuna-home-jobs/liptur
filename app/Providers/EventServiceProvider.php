@@ -11,7 +11,7 @@ use App\Listeners\AdvertisingBaseListener;
 use App\Listeners\AdvertisingCodeListener;
 use App\Listeners\Shop\ShopCategoryBaseListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 
 class EventServiceProvider extends ServiceProvider
 {

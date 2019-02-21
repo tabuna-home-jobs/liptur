@@ -10,18 +10,22 @@
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
-  'cartalyst/tags' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Cartalyst\\Tags\\TagsServiceProvider',
-    ),
-  ),
   'cviebrock/eloquent-sluggable' => 
   array (
     'providers' => 
     array (
       0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
+    ),
+  ),
+  'davejamesmiller/laravel-breadcrumbs' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'DaveJamesMiller\\Breadcrumbs\\BreadcrumbsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Breadcrumbs' => 'DaveJamesMiller\\Breadcrumbs\\Facades\\Breadcrumbs',
     ),
   ),
   'fideloper/proxy' => 
@@ -42,17 +46,6 @@
       'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
     ),
   ),
-  'intervention/image' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Intervention\\Image\\ImageServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Image' => 'Intervention\\Image\\Facades\\Image',
-    ),
-  ),
   'jenssegers/date' => 
   array (
     'providers' => 
@@ -64,11 +57,25 @@
       'Date' => 'Jenssegers\\Date\\Date',
     ),
   ),
+  'laravel/nexmo-notification-channel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Illuminate\\Notifications\\NexmoChannelServiceProvider',
+    ),
+  ),
   'laravel/scout' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Scout\\ScoutServiceProvider',
+    ),
+  ),
+  'laravel/slack-notification-channel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Illuminate\\Notifications\\SlackChannelServiceProvider',
     ),
   ),
   'laravel/socialite' => 
@@ -100,6 +107,13 @@
       'LaravelLocalization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
     ),
   ),
+  'nesbot/carbon' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Carbon\\Laravel\\ServiceProvider',
+    ),
+  ),
   'nunomaduro/collision' => 
   array (
     'providers' => 
@@ -112,21 +126,20 @@
     'providers' => 
     array (
       0 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
+      1 => 'Orchid\\Press\\Providers\\PressServiceProvider',
     ),
     'aliases' => 
     array (
-      'Dashboard' => 'Orchid\\Platform\\Facades\\Dashboard',
+      'Alert' => 'Orchid\\Support\\Facades\\Alert',
+      'Dashboard' => 'Orchid\\Support\\Facades\\Dashboard',
+      'Setting' => 'Orchid\\Support\\Facades\\Setting',
     ),
   ),
-  'roumen/feed' => 
+  'orchid/widget' => 
   array (
     'providers' => 
     array (
-      0 => 'Roumen\\Feed\\FeedServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Feed' => 'Roumen\\Feed\\Feed',
+      0 => 'Orchid\\Widget\\WidgetServiceProvider',
     ),
   ),
   'watson/active' => 

@@ -1,5 +1,5 @@
 @php
-    $images = Orchid\Platform\Core\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
+    $images = Orchid\Press\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
     //dd ($images->alt);
 @endphp
 

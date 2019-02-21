@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 
 class MapsController extends Controller
 {

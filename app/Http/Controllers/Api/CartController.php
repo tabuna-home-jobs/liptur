@@ -9,7 +9,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 
 class CartController
 {

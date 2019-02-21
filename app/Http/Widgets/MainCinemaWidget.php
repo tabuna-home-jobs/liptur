@@ -5,8 +5,8 @@ namespace App\Http\Widgets;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Core\Models\Post;
-use Orchid\Platform\Widget\Widget;
+use Orchid\Press\Models\Post;
+use Orchid\Widget\Widget;
 
 class MainCinemaWidget extends Widget
 {

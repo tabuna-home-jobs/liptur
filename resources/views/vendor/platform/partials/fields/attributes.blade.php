@@ -1,0 +1,9 @@
+@foreach ($attributes as $name => $value)
+    @if(is_bool($value))
+        {{$name}}
+    @elseif(is_array($value))
+        @json($value)
+    @else
+        {{$name}}="{{$value}}"
+    @endif
+@endforeach

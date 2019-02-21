@@ -2,7 +2,7 @@
 
 namespace App\Fields;
 
-use Orchid\Platform\Fields\Field;
+use Orchid\Screen\Field;
 
 class RegionField extends Field
 {
@@ -60,5 +60,15 @@ class RegionField extends Field
         $attributes->put('data', $data);
 
         return view($this->view, $attributes);
+    }
+
+    /**
+     * @param string|null $name
+     *
+     * @return MapField
+     */
+    public static function make(string $name = null): self
+    {
+        return (new static)->name($name);
     }
 }

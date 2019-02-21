@@ -3,7 +3,7 @@
 namespace App\Http\Widgets;
 
 use Auth;
-use Orchid\Platform\Widget\Widget;
+use Orchid\Widget\Widget;
 
 class ReservationWidget extends Widget
 {

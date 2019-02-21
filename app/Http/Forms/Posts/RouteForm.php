@@ -2,7 +2,7 @@
 
 namespace App\Http\Forms\Posts;
 
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 use Orchid\Platform\Forms\Form;
 
 class RouteForm extends Form

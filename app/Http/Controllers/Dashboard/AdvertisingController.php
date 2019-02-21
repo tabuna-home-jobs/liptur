@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Forms\Advertising\AdvertisingFormGroup;
 use Illuminate\Http\Request;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Http\Controllers\Controller;
 

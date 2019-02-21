@@ -3,7 +3,7 @@
 namespace App\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Core\Traits\MultiLanguage;
+use Orchid\Platform\Traits\MultiLanguageTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**

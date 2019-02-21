@@ -1,5 +1,5 @@
 @php
-    $page = Orchid\Platform\Core\Models\Page::where('slug',$slugpage)->first();
+    $page = Orchid\Press\Models\Page::where('slug',$slugpage)->first();
 @endphp
 
 @if(!is_null($page))

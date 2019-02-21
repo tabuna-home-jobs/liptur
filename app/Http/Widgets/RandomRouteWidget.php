@@ -4,7 +4,7 @@ namespace App\Http\Widgets;
 
 use App\Core\Models\Post;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Widget\Widget;
+use Orchid\Widget\Widget;
 
 class RandomRouteWidget extends Widget
 {

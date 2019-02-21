@@ -4,7 +4,7 @@ namespace App\Core\Models;
 
 use Conner\Likeable\LikeableTrait;
 use Jenssegers\Date\Date;
-use Orchid\Platform\Core\Models\Post as BasePost;
+use Orchid\Press\Models\Post as BasePost;
 use willvincent\Rateable\Rateable;
 
 class Post extends BasePost
@@ -51,6 +51,6 @@ class Post extends BasePost
      */
     public function getMorphClass()
     {
-        return \Orchid\Platform\Core\Models\Post::class;
+        return \Orchid\Press\Models\Post::class;
     }
 }

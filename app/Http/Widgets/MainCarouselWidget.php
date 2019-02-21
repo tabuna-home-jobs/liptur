@@ -6,7 +6,7 @@ use App\Core\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Widget\Widget;
+use Orchid\Widget\Widget;
 
 class MainCarouselWidget extends Widget
 {

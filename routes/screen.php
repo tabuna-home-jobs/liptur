@@ -4,7 +4,7 @@ $this->domain(config('platform.domain'))->group(function () {
 
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/shop'),
+        'prefix'     => \Orchid\Platform\Dashboard::prefix('/shop'),
     ],
     function (\Illuminate\Routing\Router $router, $path = 'dashboard.liptur.shop.') {
         $router->screen('order/{order}/edit', 'Orders\OrderEdit', $path.'order.edit');
@@ -13,7 +13,7 @@ $this->domain(config('platform.domain'))->group(function () {
 
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/shop'),
+        'prefix'     => \Orchid\Platform\Dashboard::prefix('/shop'),
 
     ],
     function (\Illuminate\Routing\Router $router, $path = 'dashboard.liptur.shop.') {
@@ -25,7 +25,7 @@ $this->domain(config('platform.domain'))->group(function () {
 
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems'),
+        'prefix'     => \Orchid\Platform\Dashboard::prefix('/systems'),
     ],
         function (\Illuminate\Routing\Router $router, $path = 'dashboard.systems.recycle.') {
             $router->screen('recycle/{id}/edit', 'Recycle\RecycleEdit', $path.'edit');
