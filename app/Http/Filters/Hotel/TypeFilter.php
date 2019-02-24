@@ -16,7 +16,7 @@ class TypeFilter extends Filter
     {
     }
 
-    public function display()
+    public function html()
     {
     }
 }

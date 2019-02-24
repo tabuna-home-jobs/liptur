@@ -39,8 +39,8 @@
                             <div id="filters" class="panel b box-shadow-lg wrapper-md">
                                 <form>
                                     @foreach($filters as $filter)
-                                        @if($filter->display)
-                                            {!! $filter->display() !!}
+                                        @if($filter->display && method_exists($filter,'html'))
+                                            {!! $filter->html() !!}
                                             <div class="line line-dashed b-b line-lg"></div>
                                         @endif
                                     @endforeach

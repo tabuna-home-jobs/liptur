@@ -29,7 +29,7 @@ class DistanceFilters extends Filter
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function display()
+    public function html()
     {
         return view('partials.filters.common.distance', [
             'request' => $this->request,

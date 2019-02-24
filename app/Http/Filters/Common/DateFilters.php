@@ -28,7 +28,7 @@ class DateFilters extends Filter
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function display()
+    public function html()
     {
         return view('partials.filters.common.archive', [
             'request' => $this->request,

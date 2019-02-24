@@ -25,7 +25,7 @@ class RegionFilters extends Filter
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function display()
+    public function html()
     {
         return view('partials.filters.common.region', [
             'region'  => collect(config('region'))->sortBy('sort'),
