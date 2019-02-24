@@ -24,7 +24,7 @@ $this->domain(config('platform.domain'))->group(function () {
 
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/shop'),
+        'prefix'     =>\Orchid\Platform\Dashboard::prefix('/shop'),
     ],
     function (\Illuminate\Routing\Router $router, $path = 'dashboard.liptur.shop.') {
         $router->screen('product-arrival/{productArrival}/edit', 'ProductArrivals\ProductArrivalEdit', $path.'product-arrival.edit');
