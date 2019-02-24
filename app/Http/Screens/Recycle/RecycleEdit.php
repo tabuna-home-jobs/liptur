@@ -2,8 +2,8 @@
 
 namespace App\Http\Screens\Recycle;
 
-use Orchid\Support\Facades\Alert;
-use Orchid\Support\Facades\Setting;
+use Orchid\Platform\Facades\Alert;
+use Orchid\Platform\Facades\Setting;
 use Orchid\Screen\Layouts;
 use Orchid\Screen\Link;
 use Orchid\Screen\Screen;

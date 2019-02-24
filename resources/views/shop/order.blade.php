@@ -20,7 +20,7 @@
 
 @section('shop')
 @php 
-    $order=(new App\Core\Models\Order)->ordervar;
+    $order=(new App\Models\Order)->ordervar;
 @endphp
 
 <section>

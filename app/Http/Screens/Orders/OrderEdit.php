@@ -4,7 +4,7 @@ namespace App\Http\Screens\Orders;
 
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
-use Orchid\Support\Facades\Alert;
+use Orchid\Facades\Alert;
 use Orchid\Screen\Layouts;
 use Orchid\Screen\Link;
 use Orchid\Screen\Screen;
