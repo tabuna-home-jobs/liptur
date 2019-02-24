@@ -39,18 +39,19 @@
     35 => 'Roumen\\Feed\\FeedServiceProvider',
     36 => 'Watson\\Active\\ActiveServiceProvider',
     37 => 'willvincent\\Rateable\\RateableServiceProvider',
-    38 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
-    39 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
-    40 => 'App\\Providers\\AppServiceProvider',
-    41 => 'App\\Providers\\AuthServiceProvider',
-    42 => 'App\\Providers\\EventServiceProvider',
-    43 => 'App\\Providers\\RouteServiceProvider',
-    44 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
-    45 => 'Roumen\\Feed\\FeedServiceProvider',
-    46 => 'Conner\\Likeable\\LikeableServiceProvider',
-    47 => 'willvincent\\Rateable\\RateableServiceProvider',
-    48 => 'Jenssegers\\Date\\DateServiceProvider',
-    49 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+    38 => 'CdekSDK\\LaravelCdekServiceProvider',
+    39 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+    40 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
+    41 => 'App\\Providers\\AppServiceProvider',
+    42 => 'App\\Providers\\AuthServiceProvider',
+    43 => 'App\\Providers\\EventServiceProvider',
+    44 => 'App\\Providers\\RouteServiceProvider',
+    45 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
+    46 => 'Roumen\\Feed\\FeedServiceProvider',
+    47 => 'Conner\\Likeable\\LikeableServiceProvider',
+    48 => 'willvincent\\Rateable\\RateableServiceProvider',
+    49 => 'Jenssegers\\Date\\DateServiceProvider',
+    50 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
   ),
   'eager' => 
   array (
@@ -194,6 +195,7 @@
     'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'NunoMaduro\\Collision\\Contracts\\Provider' => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    'CdekSDK\\CdekClient' => 'CdekSDK\\LaravelCdekServiceProvider',
   ),
   'when' => 
   array (
@@ -240,6 +242,9 @@
     array (
     ),
     'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => 
+    array (
+    ),
+    'CdekSDK\\LaravelCdekServiceProvider' => 
     array (
     ),
   ),

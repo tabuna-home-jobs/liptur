@@ -172,6 +172,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \CdekSDK\LaravelCdekServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Orchid\Platform\Providers\FoundationServiceProvider::class,
         //

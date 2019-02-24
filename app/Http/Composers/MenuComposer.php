@@ -100,6 +100,15 @@ class MenuComposer
             'sort'       => 20,
         ]);
 
+        $dashboard->menu->add('Shop', [
+            'slug'       => 'product-arrival',
+            'icon'       => 'icon-wallet',
+            'route'      => route('dashboard.liptur.shop.product-arrival.list'),
+            'label'      => 'Приход товара',
+            'permission' => 'dashboard.liptur.shop',
+            'sort'       => 21,
+        ]);
+
         $dashboard->menu->add('Liptur', [
             'slug'       => 'advertising',
             'icon'       => 'fa fa-id-card-o',

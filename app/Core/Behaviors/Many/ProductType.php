@@ -235,6 +235,8 @@ class ProductType extends Many
                 ->title('Date of publication'),
             TD::name('created_at')
                 ->title('Date of creation'),
+            TD::name('count')
+                ->title('Остаток'),
         ];
     }
 }

@@ -63,4 +63,17 @@ return [
         'city_name'      => env('RAMBLER_CITY_NAME', 'липецк'),
     ],
 
+    'cdek' => [
+        'account'  => env('CDEK_ACCOUNT', ''),
+        'password' => env('CDEK_PASSWORD', ''),
+    ],
+
+    'pochta' => [
+        'auth' => [
+            'otpravka' => [
+                'key'           => env('OTPRAVKA_API_POCHTA_KEY', null),
+                'token'         => env('OTPRAVKA_API_POCHTA_TOKEN', null)
+            ]
+        ]
+    ]
 ];
