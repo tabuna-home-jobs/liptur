@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Other\NewsletterRequest;
-use Orchid\Core\Models\Newsletter;
+use Orchid\Models\Newsletter;
 
 class NewsletterController extends Controller
 {

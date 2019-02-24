@@ -2,7 +2,7 @@
 
 namespace App\Orchid\Entities\Many;
 
-use App\Core\Traits\ManyTypeTrait;
+use App\Traits\ManyTypeTrait;
 
 use Orchid\Press\Entities\Many;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;

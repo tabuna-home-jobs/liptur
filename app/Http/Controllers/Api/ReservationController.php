@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Core\Models\Post;
-use App\Core\Models\Reservation;
-use App\Core\Models\User;
+use App\Models\Post;
+use App\Models\Reservation;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Other\ReservationRequest;
 use App\Mail\MailReservationObject;

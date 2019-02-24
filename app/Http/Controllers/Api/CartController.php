@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Core\Models\Order;
-use App\Core\Models\User;
+use App\Models\Order;
+use App\Models\User;
 use App\Http\Requests\OrderRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +30,7 @@ class CartController
     }
 
     /**
-     * @param \App\Core\Models\Post $post
+     * @param \App\Models\Post $post
      * @param int                   $qty
      *
      * @return \Illuminate\Http\JsonResponse

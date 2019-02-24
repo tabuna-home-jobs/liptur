@@ -2,7 +2,7 @@
 
 namespace App\Http\Screens\ProductArrivals;
 
-use App\Core\Models\ProductArrival;
+use App\Models\ProductArrival;
 use Orchid\Platform\Screen\Screen;
 use Orchid\Platform\Screen\Link;
 

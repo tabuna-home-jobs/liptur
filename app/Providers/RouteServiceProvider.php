@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Core\Models\Post;
-use App\Core\Models\ShopCategory;
+use App\Models\Post;
+use App\Models\ShopCategory;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -146,20 +146,6 @@ class RouteServiceProvider extends ServiceProvider
             'namespace'  => $this->namespace,
         ], function ($router) {
             require base_path('routes/web.php');
-        });
-
-        Route::group([
-            'middleware' => ['web', 'dashboard'],
-            'namespace'  => $this->namespace,
-        ], function ($router) {
-            require base_path('routes/dashboard.php');
-        });
-
-        Route::group([
-            'middleware' => ['web', 'dashboard'],
-            'namespace'  => 'App\Http\Screens',
-        ], function ($router) {
-            require base_path('routes/screen.php');
         });
     }
 }

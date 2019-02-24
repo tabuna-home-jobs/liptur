@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Other;
 
-use App\Core\Models\Post;
+use App\Models\Post;
 use App\Http\Controllers\Controller;
 
 class LikeController extends Controller

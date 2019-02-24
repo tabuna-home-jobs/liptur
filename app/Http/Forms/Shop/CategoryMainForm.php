@@ -2,13 +2,13 @@
 
 namespace App\Http\Forms\Shop;
 
-use App\Core\Models\ShopCategory;
-use App\Core\Models\Term as AppTerm;
+use App\Models\ShopCategory;
+use App\Models\Term as AppTerm;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Orchid\Platform\Core\Models\Taxonomy;
-use Orchid\Platform\Core\Models\Term;
+use Orchid\Platform\Models\Taxonomy;
+use Orchid\Platform\Models\Term;
 use Orchid\Platform\Forms\Form;
 
 class CategoryMainForm extends Form

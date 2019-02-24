@@ -2,7 +2,7 @@
 
 namespace App\Http\Screens\Shortvars;
 
-use App\Core\Models\Shortvar;
+use App\Models\Shortvar;
 use Illuminate\Http\Request;
 use Orchid\Platform\Screen\Link;
 use Orchid\Platform\Screen\Screen;

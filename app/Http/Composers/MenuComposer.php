@@ -2,7 +2,7 @@
 
 namespace App\Http\Composers;
 
-use App\Core\Models\Order;
+use App\Models\Order;
 use Orchid\Platform\Kernel\Dashboard;
 
 class MenuComposer

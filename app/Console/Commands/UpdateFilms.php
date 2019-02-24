@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
 use Orchid\Press\Models\Post;
-use Orchid\Platform\Core\Models\Setting;
+use Orchid\Platform\Models\Setting;
 
 class UpdateFilms extends Command
 {

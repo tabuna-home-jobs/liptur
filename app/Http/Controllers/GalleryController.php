@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Models\Attachment;
-use App\Core\Models\Comment;
-use App\Core\Models\Post;
+use App\Models\Attachment;
+use App\Models\Comment;
+use App\Models\Post;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;

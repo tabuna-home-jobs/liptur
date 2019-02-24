@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Models\Post;
+use App\Models\Post;
 use App\Http\Requests\AccountPasswordRequest;
 use App\Http\Requests\AccountRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Core\Models\Comment;
+use Orchid\Platform\Models\Comment;
 use Orchid\Platform\Facades\Alert;
 
 class ProfileController extends Controller

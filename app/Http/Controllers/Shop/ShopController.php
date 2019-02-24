@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Core\Models\ShopCategory;
-use App\Core\Models\Term;
+use App\Models\ShopCategory;
+use App\Models\Term;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;

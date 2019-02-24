@@ -2,7 +2,7 @@
 
 namespace App\Http\Widgets;
 
-use App\Core\Models\Post;
+use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;

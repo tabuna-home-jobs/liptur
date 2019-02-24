@@ -2,7 +2,7 @@
 
 namespace App\Http\Forms\Shop;
 
-use App\Core\Models\ShopCategory;
+use App\Models\ShopCategory;
 use App\Events\Shop\ShopCategoryEvent;
 use Orchid\Platform\Forms\FormGroup;
 

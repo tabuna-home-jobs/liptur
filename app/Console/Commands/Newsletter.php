@@ -2,13 +2,13 @@
 
 namespace App\Console\Commands;
 
-use App\Core\Models\Post;
+use App\Models\Post;
 use App\Mail\MailNewsletter;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
-use Orchid\Core\Models\Newsletter as NewsletterModel;
+use Orchid\Models\Newsletter as NewsletterModel;
 
 class Newsletter extends Command
 {

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\CRM;
 
-use App\Core\Models\Post;
-use App\Core\Models\User;
+use App\Models\Post;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CRM\BidRequest;
 use App\Mail\Info;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Orchid\Platform\Core\Models\Role;
+use Orchid\Platform\Models\Role;
 use Orchid\Platform\Facades\Alert;
 
 class BidController extends Controller

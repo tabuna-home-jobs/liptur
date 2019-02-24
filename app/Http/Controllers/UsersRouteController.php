@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Core\Models\Post;
-use App\Core\Models\Route;
+use App\Models\Post;
+use App\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

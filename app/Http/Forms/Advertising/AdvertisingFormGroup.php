@@ -2,7 +2,7 @@
 
 namespace App\Http\Forms\Advertising;
 
-use App\Core\Models\Post;
+use App\Models\Post;
 use App\Events\AdvertisingEvent;
 use Illuminate\Contracts\View\View;
 use Orchid\Platform\Forms\FormGroup;

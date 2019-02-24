@@ -2,7 +2,7 @@
 
 namespace App\Http\Screens\Orders;
 
-use App\Core\Models\Order;
+use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Screen\Layouts;

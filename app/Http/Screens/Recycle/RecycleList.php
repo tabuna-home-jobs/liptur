@@ -2,7 +2,7 @@
 
 namespace App\Http\Screens\Recycle;
 
-use App\Core\Models\Post;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Orchid\Platform\Screen\Link;
 use Orchid\Platform\Screen\Screen;

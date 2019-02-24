@@ -2,7 +2,7 @@
 
 namespace App\Http\Screens\Shortvars;
 
-use App\Core\Models\Shortvar;
+use App\Models\Shortvar;
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Setting;
 use Orchid\Platform\Screen\Layouts;

@@ -5,7 +5,7 @@ namespace App\Http\Forms\Posts;
 use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
 use Orchid\Press\Models\Page;
-use Orchid\PLatform\Core\Models\Taxonomy;
+use Orchid\PLatform\Models\Taxonomy;
 use Orchid\Platform\Forms\Form;
 
 class BaseFormPage extends Form

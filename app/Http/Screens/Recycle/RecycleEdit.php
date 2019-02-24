@@ -7,7 +7,7 @@ use Orchid\Platform\Facades\Setting;
 use Orchid\Platform\Screen\Layouts;
 use Orchid\Platform\Screen\Link;
 use Orchid\Platform\Screen\Screen;
-use App\Core\Models\Post;
+use App\Models\Post;
 
 class RecycleEdit extends Screen
 {

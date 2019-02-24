@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Core\Models\User;
-use App\Core\Observers\ProductObserver;
-use App\Core\Observers\TitzObserver;
-use App\Core\Observers\UserObserver;
+use App\Models\User;
+use App\Observers\ProductObserver;
+use App\Observers\TitzObserver;
+use App\Observers\UserObserver;
 use App\Events\Shop\ShopCategoryEvent;
 use App\Listeners\AdvertisingBaseListener;
 use App\Listeners\AdvertisingCodeListener;

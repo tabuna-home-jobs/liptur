@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Titz;
 
-use App\Core\Models\Post;
-use App\Core\Models\User;
+use App\Models\Post;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Core\Models\Role;
+use Orchid\Platform\Models\Role;
 use Orchid\Platform\Facades\Alert;
 
 class TitzController extends Controller
