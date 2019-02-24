@@ -3,7 +3,6 @@
 namespace App\Console;
 
 use App\Console\Commands\RussianTravelApi;
-use App\Console\Commands\UpdateFilms;
 use App\Console\Commands\UpdatePost;
 use App\Console\Commands\Weather;
 use Illuminate\Console\Scheduling\Schedule;
@@ -20,7 +19,6 @@ class Kernel extends ConsoleKernel
         RussianTravelApi::class,
         UpdatePost::class,
         //Newsletter::class, // TODO: Обновить
-        UpdateFilms::class,
         Weather::class,
     ];
 

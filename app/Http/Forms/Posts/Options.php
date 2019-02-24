@@ -2,7 +2,7 @@
 
 namespace App\Http\Forms\Posts;
 
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 use Orchid\Platform\Forms\Form;
 
 class Options extends Form

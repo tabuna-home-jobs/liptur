@@ -7,7 +7,7 @@ use App\Models\ShopCategory;
 use App\Models\Term;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 
 class ShopController extends Controller
 {
@@ -73,7 +73,7 @@ class ShopController extends Controller
     }
 
     /**
-     * @param \Orchid\Press\Models\Post $product
+     * @param \App\Models\Post $product
      *
      * @return \Illuminate\Contracts\View\View
      */

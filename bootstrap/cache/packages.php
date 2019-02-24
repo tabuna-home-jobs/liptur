@@ -1,5 +1,5 @@
 <?php return array (
-    'anhskohbo/no-captcha' =>
+    'anhskohbo/no-captcha'                =>
   array (
     'providers' => 
     array (
@@ -10,7 +10,7 @@
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
-    'cviebrock/eloquent-sluggable' =>
+    'cviebrock/eloquent-sluggable'        =>
   array (
     'providers' => 
     array (
@@ -82,14 +82,14 @@
       0 => 'Laravel\\Scout\\ScoutServiceProvider',
     ),
   ),
-    'laravel/slack-notification-channel' =>
+    'laravel/slack-notification-channel'  =>
   array (
     'providers' => 
     array (
       0 => 'Illuminate\\Notifications\\SlackChannelServiceProvider',
     ),
   ),
-    'laravel/socialite' =>
+    'laravel/socialite'                   =>
   array (
     'providers' => 
     array (
@@ -100,14 +100,14 @@
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
     ),
   ),
-    'laravel/tinker' =>
+    'laravel/tinker'                      =>
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
-    'mcamara/laravel-localization' =>
+    'mcamara/laravel-localization'        =>
   array (
     'providers' => 
     array (
@@ -118,21 +118,21 @@
       'LaravelLocalization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
     ),
   ),
-    'nesbot/carbon' =>
+    'nesbot/carbon'                       =>
   array (
     'providers' => 
     array (
       0 => 'Carbon\\Laravel\\ServiceProvider',
     ),
   ),
-    'nunomaduro/collision' =>
+    'nunomaduro/collision'                =>
   array (
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
-    'orchid/platform' =>
+    'orchid/platform'                     =>
   array (
     'providers' => 
     array (
@@ -146,14 +146,14 @@
       'Setting' => 'Orchid\\Support\\Facades\\Setting',
     ),
   ),
-    'orchid/widget' =>
+    'orchid/widget'                       =>
   array (
     'providers' => 
     array (
       0 => 'Orchid\\Widget\\WidgetServiceProvider',
     ),
   ),
-    'watson/active' =>
+    'watson/active'                       =>
   array (
     'providers' => 
     array (
@@ -164,7 +164,7 @@
       'Active' => 'Watson\\Watson\\Facades\\Active',
     ),
   ),
-    'willvincent/laravel-rateable' =>
+    'willvincent/laravel-rateable'        =>
   array (
     'providers' => 
     array (

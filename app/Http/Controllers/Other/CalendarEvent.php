@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Other;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 
 class CalendarEvent extends Controller
 {

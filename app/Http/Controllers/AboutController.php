@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 use Orchid\Press\Models\Taxonomy;
 use Illuminate\Support\Facades\App;
 

@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 use Orchid\Platform\Models\Setting;
 
 class RussianTravelApi extends Command

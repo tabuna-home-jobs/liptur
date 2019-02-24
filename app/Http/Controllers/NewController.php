@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 
 class NewController extends Controller
 {

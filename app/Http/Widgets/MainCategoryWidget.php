@@ -4,7 +4,7 @@ namespace App\Http\Widgets;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 use Orchid\Widget\Widget;
 
 class MainCategoryWidget extends Widget

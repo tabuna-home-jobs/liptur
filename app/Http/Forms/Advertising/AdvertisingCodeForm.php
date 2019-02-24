@@ -4,7 +4,7 @@ namespace App\Http\Forms\Advertising;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\App;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 use Orchid\Platform\Forms\Form;
 
 class AdvertisingCodeForm extends Form

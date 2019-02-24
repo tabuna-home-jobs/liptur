@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Press\Models\Comment;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 
 class CommentController extends Controller
 {
@@ -29,7 +29,7 @@ class CommentController extends Controller
     }
 
     /**
-     * @param \Orchid\Press\Models\Post $post
+     * @param \App\Models\Post $post
      *
      * @return \Illuminate\Http\JsonResponse
      */

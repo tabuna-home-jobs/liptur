@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 
 class SearchController extends Controller
 {

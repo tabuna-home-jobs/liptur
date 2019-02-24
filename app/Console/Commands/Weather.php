@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Orchid\Platform\Facades\Setting;
+use Orchid\Support\Facades\Setting;
 
 class Weather extends Command
 {

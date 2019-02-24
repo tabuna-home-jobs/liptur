@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
 use Orchid\Platform\Behaviors\Many as PostBehaviors;
 use Orchid\Press\Models\Category;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 use Orchid\Platform\Models\Taxonomy;
 use Orchid\Platform\Forms\Form;
 

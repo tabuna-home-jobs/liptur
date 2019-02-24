@@ -4,7 +4,7 @@ namespace App\Http\Screens\Shortvars;
 
 use App\Models\Shortvar;
 use Orchid\Platform\Facades\Alert;
-use Orchid\Platform\Facades\Setting;
+use Orchid\Support\Facades\Setting;
 use Orchid\Screen\Layouts;
 use Orchid\Screen\Link;
 use Orchid\Screen\Screen;

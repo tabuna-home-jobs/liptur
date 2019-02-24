@@ -58,6 +58,15 @@ class Post extends BasePost
      */
     public function getMorphClass()
     {
-        return \Orchid\Press\Models\Post::class;
+        return \App\Models\Post::class;
     }
+
+    /**
+     * @return string
+     */
+    public function hero()
+    {
+        return optional($this->attachment->first)->url ?? '';
+    }
+
 }

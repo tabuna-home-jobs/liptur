@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Orchid\Press\Models\Post;
+use App\Models\Post;
 
 class UpdatePost extends Command
 {
@@ -43,7 +43,7 @@ class UpdatePost extends Command
                 continue;
             }
             DB::table('attachmentable')->insert([
-                'attachmentable_type' => \Orchid\Press\Models\Post::class,
+                'attachmentable_type' => \App\Models\Post::class,
                 'attachmentable_id'   => $attachment->post_id2,
                 'attachment_id'       => $attachment->id,
             ]);

@@ -2,7 +2,7 @@
     @foreach ($slides as $slide)
         <div class="item">
             <a href="{{$slide->getContent('link')}}">
-            <img class="img-responsive" src="{{$slide->attachment->first()->url()}}"/>
+                <img class="img-responsive" src="{{$slide->hero()}}"/>
             <div class="owl-shop-block container">
                 <div class="row row-flex">
                     <div class="container no-padder">
