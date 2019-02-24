@@ -15,6 +15,16 @@ class MainMenuComposer
     private $dashboard;
 
     /**
+     *
+     */
+    const PAGE = 'platform.entities.type.page';
+
+    /**
+     *
+     */
+    const MANY = 'platform.entities.type';
+
+    /**
      * MenuComposer constructor.
      *
      * @param Dashboard $dashboard
@@ -29,64 +39,29 @@ class MainMenuComposer
      */
     public function compose()
     {
-        // Profile
-        $this->dashboard->menu
-            ->add('Profile',
-                ItemMenu::setLabel('Example 1')
-                    ->setIcon('icon-compass')
-            )
-            ->add('Profile',
-                ItemMenu::setLabel('Example 2')
-                    ->setIcon('icon-heart')
-                    ->setBadge(function () {
-                        return 6;
-                    })
-            )
-            ->add('Profile',
-                ItemMenu::setLabel('Example 3')
-                    ->setIcon('icon-microphone')
-            );
+        //dd();
 
         // Main
         $this->dashboard->menu
             ->add('Main',
-                ItemMenu::setLabel('Example 4')
-                    ->setIcon('icon-folder')
-                    ->setRoute(route('platform.example'))
-                    ->setGroupName('Example boilerplate')
-            )
-            ->add('Main',
-                ItemMenu::setLabel('Example 5 menu')
-                    ->setSlug('example-menu')
+                ItemMenu::setLabel('Липецкая Земля')
+                    ->setSlug('about')
                     ->setIcon('icon-heart')
-                    ->setRoute('#')
                     ->setChilds(true)
+                    ->setActive(
+                        route(self::MANY, 'people') . ',' .
+                        route(self::MANY, 'news')
+                    )
             )
-            ->add('example-menu',
-                ItemMenu::setLabel('Example sub 1')
-                    ->setIcon('icon-bag')
-                    ->setRoute(route('platform.example'))
+            ->add('about',
+                ItemMenu::setLabel('Новости')
+                    ->setIcon('icon-paste')
+                    ->setRoute(route(self::MANY, 'news'))
             )
-            ->add('example-menu',
-                ItemMenu::setLabel('Example sub 2')
-                    ->setIcon('icon-heart')
-                    ->setRoute(route('platform.example'))
-                    ->setGroupName('Separate')
-            )
-            ->add('Main',
-                ItemMenu::setLabel('Example 6')
-                    ->setIcon('icon-code')
-                    ->setRoute(route('platform.example'))
-            )
-            ->add('Main',
-                ItemMenu::setLabel('Example 7')
-                    ->setIcon('icon-bag')
-                    ->setRoute(route('platform.example'))
-            )
-            ->add('Main',
-                ItemMenu::setLabel('Example 8')
-                    ->setIcon('icon-folder')
-                    ->setRoute(route('platform.example'))
+            ->add('about',
+                ItemMenu::setLabel('Известные люди')
+                    ->setIcon('icon-people')
+                    ->setRoute(route(self::MANY, 'people'))
             );
     }
 }

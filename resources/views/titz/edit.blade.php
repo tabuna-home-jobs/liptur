@@ -26,7 +26,7 @@
             @endif
 
 
-            @include('dashboard::partials.alert')
+            @include('platform::partials.alert')
 
 
             <h4>Общие данные</h4>

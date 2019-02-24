@@ -2,31 +2,67 @@
 
 namespace App\Orchid\Entities\Many;
 
-use App\Traits\ManyTypeTrait;
-
+use App\Fields\RegionField;
 use App\Http\Filters\Common\RegionFilters;
 use App\Http\Filters\Gastronomy\CategoryFilters;
 use App\Http\Forms\Posts\Category;
 use App\Http\Forms\Posts\Options;
+use App\Traits\ManyTypeTrait;
+use Illuminate\Support\Facades\App;
+use Orchid\Platform\Http\Forms\Posts\BasePostForm;
+use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Http\Filters\CreatedFilter;
 use Orchid\Press\Http\Filters\SearchFilter;
 use Orchid\Press\Http\Filters\StatusFilter;
-use Orchid\Platform\Http\Forms\Posts\BasePostForm;
-use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
-use Orchid\Screen\TD;
-
-use Orchid\Screen\Fields\InputField;
-use Orchid\Screen\Fields\TinyMCEField;
 use Orchid\Screen\Fields\DateTimerField;
+use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\MapField;
-use App\Fields\RegionField;
-use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TagsField;
+use Orchid\Screen\Fields\TextAreaField;
+use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\TD;
 
 class RestaurantsType extends Many
 {
     use ManyTypeTrait;
+
+    /**
+     * @var string
+     */
+    public $name = 'Гастрономия';
+    /**
+     * @var string
+     */
+    public $description = 'Рестораны, кафе, бары';
+    /**
+     * @var string
+     */
+    public $slug = 'gastronomy';
+    /**
+     * @var string
+     */
+    public $icon = 'fa fa-cutlery';
+    /**
+     * @var string
+     */
+    public $image = '/img/category/gastronomy.jpg';
+    /**
+     * Slug url /news/{name}.
+     *
+     * @var string
+     */
+    public $slugFields = 'name';
+    /**
+     * @var bool
+     */
+    public $category = true;
+    /**
+     * Display global maps.
+     *
+     * @var bool
+     */
+    public $maps = true;
 
     /**
      * RestaurantsType constructor.
@@ -35,50 +71,6 @@ class RestaurantsType extends Many
     {
         $this->name = __('Gastronomy');
     }
-
-    /**
-     * @var string
-     */
-    public $name = 'Гастрономия';
-
-    /**
-     * @var string
-     */
-    public $description = 'Рестораны, кафе, бары';
-
-    /**
-     * @var string
-     */
-    public $slug = 'gastronomy';
-
-    /**
-     * @var string
-     */
-    public $icon = 'fa fa-cutlery';
-
-    /**
-     * @var string
-     */
-    public $image = '/img/category/gastronomy.jpg';
-
-    /**
-     * Slug url /news/{name}.
-     *
-     * @var string
-     */
-    public $slugFields = 'name';
-
-    /**
-     * @var bool
-     */
-    public $category = true;
-
-    /**
-     * Display global maps.
-     *
-     * @var bool
-     */
-    public $maps = true;
 
     /**
      * @var array
@@ -104,7 +96,7 @@ class RestaurantsType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
             'content.ru.body' => 'required|string',
         ];
@@ -184,7 +176,11 @@ class RestaurantsType extends Many
     public function grid(): array
     {
         return [
+
             TD::set('name', 'Название')
+                ->column('content.' . App::getLocale() . '.name')
+                ->filter('text')
+                ->sort()
                 ->linkPost('name'),
             TD::set('publish_at', 'Дата публикации'),
             TD::set('created_at', 'Дата создания'),
@@ -210,13 +206,13 @@ class RestaurantsType extends Many
     public function display()
     {
         return collect([
-            'name' => __('Gastronomy'),
-            'title' => __('Gastronomy Lipetsk region'),
+            'name'        => __('Gastronomy'),
+            'title'       => __('Gastronomy Lipetsk region'),
             'description' => 'Рестораны, кафе, бары Липецкой области',
-            'icon' => 'icon-lip-caffe',
-            'svg' => '/dist/svg/maps/gastronomy.svg',
-            'mapUrl' => true,
-            'time' => false,
+            'icon'        => 'icon-lip-caffe',
+            'svg'         => '/dist/svg/maps/gastronomy.svg',
+            'mapUrl'      => true,
+            'time'        => false,
         ]);
     }
 
@@ -237,8 +233,8 @@ class RestaurantsType extends Many
     {
         return [
             'publish' => 'Опубликовано',
-            'draft' => 'Черновик',
-            'titz' => 'Тиц',
+            'draft'   => 'Черновик',
+            'titz'    => 'Тиц',
         ];
     }
 

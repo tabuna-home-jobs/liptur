@@ -6,12 +6,12 @@
         <label for="{{$id}}">{{$title}}</label>
     @endif
     <div id="ace-code-block-{{$id}}" style="width: 100%; min-height: 500px;"></div>
-    <input value="{{json_encode($value)}}" @include('dashboard::partials.fields.attributes', ['attributes' => $attributes])>
+    <input value="{{json_encode($value)}}" @include('platform::partials.fields.attributes', ['attributes' => $attributes])>
     @if(isset($help))
         <p class="form-text text-muted">{{$help}}</p>
     @endif
 </div>
-@include('dashboard::partials.fields.hr', ['show' => $hr ?? true])
+@include('platform::partials.fields.hr', ['show' => $hr ?? true])
 @push('scripts')
     <script>
     document.addEventListener('turbolinks:load', function() {

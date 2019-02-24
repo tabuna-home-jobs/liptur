@@ -24,7 +24,7 @@
 
             @if($category->count() > 0)
 
-                @include('dashboard::container.posts.filter')
+                @include('platform::container.posts.filter')
 
                 <div class="table-responsive">
                         <table class="table table-striped">
@@ -61,7 +61,7 @@
                                 </tr>
 
 
-                                @include('dashboard::partials.systems.categoryItem',[
+                                @include('platform::partials.systems.categoryItem',[
                                     'item' => $item->allChildrenTerm,
                                     'delimiter' => '- '
                                 ])

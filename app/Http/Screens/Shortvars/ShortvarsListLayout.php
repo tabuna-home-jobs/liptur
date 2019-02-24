@@ -19,17 +19,16 @@ class ShortvarsListLayout extends Table
     {
         return  [
 
-            TD::name('key')
-                ->title('Ключ')
+            TD::set('key', 'Ключ')
                 ->setRender(function ($shortvar) {
                     return '<a href="'.route('dashboard.liptur.shop.shortvar.edit',
                         $shortvar->key).'">'.$shortvar->key.'</a>';
                 }),
-            TD::name('options.title')->title('Имя переменной')
+            TD::set('options.title', 'Имя переменной')
                 ->setRender(function ($shortvar) {
                     return $shortvar->options['title'];
                 }),
-            TD::name('value')->title('Значение')
+            TD::set('value', 'Значение')
                 ->setRender(function ($shortvar) {
                     if (is_array($shortvar->value)) {
                         return substr(htmlspecialchars(json_encode($shortvar->value)), 0, 50);

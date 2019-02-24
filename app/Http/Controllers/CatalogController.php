@@ -71,6 +71,7 @@ class CatalogController extends Controller
             'rating' => $rating,
         ];
 
+
         if (method_exists($typeObject, 'getAdditionalData')) {
             $data = $typeObject->getAdditionalData([
                 'movieId' => $item->getContent('ObjectID'),

@@ -25,7 +25,7 @@
 
 
 
-            @include('dashboard::partials.alert')
+            @include('platform::partials.alert')
 
 
             <h4>Личные данные</h4>

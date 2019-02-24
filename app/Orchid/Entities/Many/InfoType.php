@@ -2,25 +2,48 @@
 
 namespace App\Orchid\Entities\Many;
 
-use App\Traits\ManyTypeTrait;
-
 use App\Http\Forms\Posts\Options;
-use Orchid\Press\Entities\Many;
+use App\Traits\ManyTypeTrait;
+use Illuminate\Support\Facades\App;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
-use Orchid\Screen\TD;
-
+use Orchid\Press\Entities\Many;
 use Orchid\Screen\Fields\InputField;
-use Orchid\Screen\Fields\TinyMCEField;
-use Orchid\Screen\Fields\DateTimerField;
-use Orchid\Screen\Fields\MapField;
-use App\Fields\RegionField;
-use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TagsField;
+use Orchid\Screen\Fields\TextAreaField;
+use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\TD;
 
 class InfoType extends Many
 {
     use ManyTypeTrait;
+
+    /**
+     * @var string
+     */
+    public $name = 'Информация';
+    /**
+     * @var string
+     */
+    public $description = 'Полезная информация';
+    /**
+     * @var string
+     */
+    public $slug = 'info';
+    /**
+     * Slug url /news/{name}.
+     *
+     * @var string
+     */
+    public $slugFields = 'name';
+    /**
+     * @var string
+     */
+    public $icon = 'fa fa-info-circle';
+    /**
+     * @var string
+     */
+    public $image = '/img/category/info.jpg';
 
     /**
      * InfoType constructor.
@@ -31,38 +54,6 @@ class InfoType extends Many
     }
 
     /**
-     * @var string
-     */
-    public $name = 'Информация';
-
-    /**
-     * @var string
-     */
-    public $description = 'Полезная информация';
-
-    /**
-     * @var string
-     */
-    public $slug = 'info';
-
-    /**
-     * Slug url /news/{name}.
-     *
-     * @var string
-     */
-    public $slugFields = 'name';
-
-    /**
-     * @var string
-     */
-    public $icon = 'fa fa-info-circle';
-
-    /**
-     * @var string
-     */
-    public $image = '/img/category/info.jpg';
-
-    /**
      * Rules Validation.
      *
      * @return array
@@ -70,10 +61,10 @@ class InfoType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
-            'content.ru.name' => 'required|string',
-            'content.ru.body' => 'required|string',
-            'content.ru.title' => 'required|string|max:255',
+            'id'                     => 'sometimes|integer|unique:posts',
+            'content.ru.name'        => 'required|string',
+            'content.ru.body'        => 'required|string',
+            'content.ru.title'       => 'required|string|max:255',
             'content.ru.description' => 'required|string|max:255',
         ];
     }
@@ -120,7 +111,11 @@ class InfoType extends Many
     public function grid(): array
     {
         return [
+
             TD::set('name', 'Название')
+                ->column('content.' . App::getLocale() . '.name')
+                ->filter('text')
+                ->sort()
                 ->linkPost('name'),
             TD::set('publish_at', 'Дата публикации'),
             TD::set('created_at', 'Дата создания'),
@@ -153,10 +148,10 @@ class InfoType extends Many
     public function display()
     {
         return collect([
-            'name' => 'Полезная информация',
-            'icon' => 'icon-lip-passport',
+            'name'   => 'Полезная информация',
+            'icon'   => 'icon-lip-passport',
             'mapUrl' => false,
-            'time' => false,
+            'time'   => false,
         ]);
     }
 
@@ -169,8 +164,8 @@ class InfoType extends Many
     {
         return [
             'publish' => 'Опубликовано',
-            'draft' => 'Черновик',
-            'titz' => 'Тиц',
+            'draft'   => 'Черновик',
+            'titz'    => 'Тиц',
         ];
     }
 

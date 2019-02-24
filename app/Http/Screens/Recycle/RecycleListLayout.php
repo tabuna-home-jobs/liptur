@@ -19,26 +19,22 @@ class RecycleListLayout extends Table
     {
         return  [
 
-            TD::name('id')
-                ->title('Id')
+            TD::set('id', 'Id')
                 ->setRender(function ($post) {
                     return '<a href="'.route('dashboard.systems.recycle.edit',
                             $post->id).'">'.$post->id.'</a>';
                 }),
-            TD::name('type')
-                ->title('Тип поста')
+            TD::set('type', 'Тип поста')
                 ->setRender(function ($post) {
                     return '<a href="'.route('dashboard.systems.recycle.edit',
                             $post->id).'">'.$post->type.'</a>';
                 }),
-            TD::name('slug')
-                ->title('Slug поста')
+            TD::set('slug', 'Slug поста')
                 ->setRender(function ($post) {
                     return '<a href="'.route('dashboard.systems.recycle.edit',
                             $post->id).'" title="'.$post->slug.'">'.str_limit($post->slug, 50).'</a>';
                 }),
-            TD::name('deleted_at')
-                ->title('Дата удаления'),
+            TD::set('deleted_at', 'Дата удаления'),
         ];
     }
 }

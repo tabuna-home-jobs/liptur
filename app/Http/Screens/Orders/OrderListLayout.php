@@ -19,28 +19,26 @@ class OrderListLayout extends Table
     {
         return [
 
-            TD::name('name')
-                ->title('№ Заказа')
+            TD::set('name', '№ Заказа')
                 ->setRender(function ($order) {
                     return '<a href="'.route('dashboard.liptur.shop.order.edit',
                         $order->id).'">'.$order->slug.'</a>';
                 }),
-            TD::name('name')
-                ->title('Заказчик')
+            TD::set('name', 'Заказчик')
                 ->setRender(function ($order) {
                     //dd($order);
                     return '<a href="'.route('dashboard.liptur.shop.order.edit',
                         $order->id).'">'.optional($order->user()->first())->name.'</a>';
                 }),
-            TD::name('created_at')->title('Дата заказа')
+            TD::set('created_at', 'Дата заказа')
                 ->setRender(function ($order) {
                     return $order->created_at;
                 }),
-            TD::name('options.total')->title('Сумма заказа')
+            TD::set('options.total', 'Сумма заказа')
                 ->setRender(function ($order) {
                     return $order->options['total'].' руб.';
                 }),
-            TD::name('options.status')->title('Статус заказа')
+            TD::set('options.status', 'Статус заказа')
                 ->setRender(function ($order) {
                     return $order->ordervar['status'][$order->options['status']];
                 }),

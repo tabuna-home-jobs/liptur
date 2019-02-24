@@ -2,21 +2,20 @@
 
 namespace App\Orchid\Entities\Many;
 
-use App\Traits\ManyTypeTrait;
-
+use App\Fields\RegionField;
 use App\Http\Forms\Posts\Options;
-use Orchid\Press\Entities\Many;
+use App\Traits\ManyTypeTrait;
+use Illuminate\Support\Facades\App;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
-use Orchid\Screen\TD;
-
-use Orchid\Screen\Fields\InputField;
-use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Press\Entities\Many;
 use Orchid\Screen\Fields\DateTimerField;
+use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\MapField;
-use App\Fields\RegionField;
-use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TagsField;
+use Orchid\Screen\Fields\TextAreaField;
+use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\TD;
 
 class EventCalendarType extends Many
 {
@@ -66,10 +65,10 @@ class EventCalendarType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
-            'content.ru.name' => 'required|string',
-            'content.ru.body' => 'required|string',
-            'content.ru.title' => 'required|string|max:255',
+            'id'                     => 'sometimes|integer|unique:posts',
+            'content.ru.name'        => 'required|string',
+            'content.ru.body'        => 'required|string',
+            'content.ru.title'       => 'required|string|max:255',
             'content.ru.description' => 'required|string|max:255',
         ];
     }
@@ -145,7 +144,11 @@ class EventCalendarType extends Many
     public function grid(): array
     {
         return [
+
             TD::set('name', 'Название')
+                ->column('content.' . App::getLocale() . '.name')
+                ->filter('text')
+                ->sort()
                 ->linkPost('name'),
             TD::set('publish_at', 'Дата публикации'),
             TD::set('created_at', 'Дата создания'),
@@ -178,9 +181,9 @@ class EventCalendarType extends Many
     public function display()
     {
         return collect([
-            'name' => 'События',
-            'icon' => 'icon-lip-exibition',
-            'time' => true,
+            'name'   => 'События',
+            'icon'   => 'icon-lip-exibition',
+            'time'   => true,
             'mapUrl' => false,
         ]);
     }

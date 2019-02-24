@@ -8,7 +8,7 @@
     <div class="wrapper-md">
 
 
-        @include('dashboard::partials.alert')
+        @include('platform::partials.alert')
 
         <form class="form-horizontal" action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
 

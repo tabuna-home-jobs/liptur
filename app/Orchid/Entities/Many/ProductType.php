@@ -2,23 +2,18 @@
 
 namespace App\Orchid\Entities\Many;
 
-use App\Traits\ManyTypeTrait;
-
 use App\Http\Forms\Shop\ProductBaseForm;
-use Orchid\Press\Entities\Many;
+use App\Traits\ManyTypeTrait;
 use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
-use Orchid\Screen\TD;
-
-use Orchid\Screen\Fields\InputField;
-use Orchid\Screen\Fields\TinyMCEField;
-use Orchid\Screen\Fields\DateTimerField;
-use Orchid\Screen\Fields\MapField;
-use App\Fields\RegionField;
-use Orchid\Screen\Fields\TextAreaField;
-use Orchid\Screen\Fields\TagsField;
-use Orchid\Screen\Fields\SelectField;
+use Orchid\Press\Entities\Many;
 use Orchid\Screen\Fields\CheckBoxField;
+use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Fields\SelectField;
+use Orchid\Screen\Fields\TagsField;
+use Orchid\Screen\Fields\TextAreaField;
+use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\TD;
 
 
 /**
@@ -64,7 +59,7 @@ class ProductType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
             'content.ru.body' => 'required|string',
         ];
@@ -76,10 +71,10 @@ class ProductType extends Many
     public function status(): array
     {
         return [
-            'stock' => 'В наличии',
-            'order' => 'Под заказ',
+            'stock'   => 'В наличии',
+            'order'   => 'Под заказ',
             'missing' => 'Отсутствует',
-            'hidden' => 'Скрытый',
+            'hidden'  => 'Скрытый',
         ];
     }
 
@@ -214,10 +209,10 @@ class ProductType extends Many
     {
         return [
             'ru' => [
-                'name' => 'Russian',
-                'script' => 'Cyrl',
-                'dir' => 'ltr',
-                'native' => 'Русский',
+                'name'     => 'Russian',
+                'script'   => 'Cyrl',
+                'dir'      => 'ltr',
+                'native'   => 'Русский',
                 'regional' => 'ru_RU',
                 'required' => true,
             ],
@@ -230,12 +225,11 @@ class ProductType extends Many
     public function grid(): array
     {
         return [
-            TD::name('name')
-                ->title('Название'),
-            TD::name('publish_at')
-                ->title('Date of publication'),
-            TD::name('created_at')
-                ->title('Date of creation'),
+
+
+            TD::set('name', 'Название'),
+            TD::set('publish_at', 'Date of publication'),
+            TD::set('created_at', 'Date of creation'),
         ];
     }
 

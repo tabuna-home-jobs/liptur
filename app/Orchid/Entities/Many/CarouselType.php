@@ -3,14 +3,13 @@
 namespace App\Orchid\Entities\Many;
 
 use App\Traits\ManyTypeTrait;
-
-use Orchid\Press\Entities\Many;
+use Illuminate\Support\Facades\App;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
-use Orchid\Screen\TD;
-
+use Orchid\Press\Entities\Many;
 use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\TextAreaField;
+use Orchid\Screen\TD;
 
 class CarouselType extends Many
 {
@@ -50,9 +49,9 @@ class CarouselType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
-            'content.ru.url' => 'required|string',
+            'content.ru.url'  => 'required|string',
         ];
     }
 
@@ -85,7 +84,11 @@ class CarouselType extends Many
     public function grid(): array
     {
         return [
+
             TD::set('name', 'Название')
+                ->column('content.' . App::getLocale() . '.name')
+                ->filter('text')
+                ->sort()
                 ->linkPost('name'),
             TD::set('publish_at', 'Дата публикации'),
             TD::set('created_at', 'Дата создания'),

@@ -2,26 +2,25 @@
 
 namespace App\Orchid\Entities\Many;
 
-use App\Traits\ManyTypeTrait;
-
+use App\Fields\RegionField;
 use App\Http\Filters\Common\DateFilters;
 use App\Http\Filters\Common\RegionFilters;
 use App\Http\Forms\Posts\Options;
+use App\Traits\ManyTypeTrait;
+use Illuminate\Support\Facades\App;
+use Orchid\Platform\Http\Forms\Posts\BasePostForm;
+use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Http\Filters\CreatedFilter;
 use Orchid\Press\Http\Filters\SearchFilter;
 use Orchid\Press\Http\Filters\StatusFilter;
-use Orchid\Platform\Http\Forms\Posts\BasePostForm;
-use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
-use Orchid\Screen\TD;
-
-use Orchid\Screen\Fields\InputField;
-use Orchid\Screen\Fields\TinyMCEField;
 use Orchid\Screen\Fields\DateTimerField;
+use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\MapField;
-use App\Fields\RegionField;
-use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TagsField;
+use Orchid\Screen\Fields\TextAreaField;
+use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\TD;
 
 class CompetitionType extends Many
 {
@@ -87,7 +86,7 @@ class CompetitionType extends Many
     public function rules(): array
     {
         return [
-            'id' => 'sometimes|integer|unique:posts',
+            'id'              => 'sometimes|integer|unique:posts',
             'content.ru.name' => 'required|string',
             'content.ru.body' => 'required|string',
         ];
@@ -149,7 +148,11 @@ class CompetitionType extends Many
     public function grid(): array
     {
         return [
+
             TD::set('name', 'Название')
+                ->column('content.' . App::getLocale() . '.name')
+                ->filter('text')
+                ->sort()
                 ->linkPost('name'),
             TD::set('publish_at', 'Дата публикации'),
             TD::set('created_at', 'Дата создания'),
@@ -197,8 +200,8 @@ class CompetitionType extends Many
     {
         return [
             'publish' => 'Опубликовано',
-            'draft' => 'Черновик',
-            'titz' => 'Тиц',
+            'draft'   => 'Черновик',
+            'titz'    => 'Тиц',
         ];
     }
 
