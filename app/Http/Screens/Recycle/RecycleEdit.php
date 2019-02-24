@@ -4,9 +4,9 @@ namespace App\Http\Screens\Recycle;
 
 use Orchid\Platform\Facades\Alert;
 use Orchid\Platform\Facades\Setting;
-use Orchid\Platform\Screen\Layouts;
-use Orchid\Platform\Screen\Link;
-use Orchid\Platform\Screen\Screen;
+use Orchid\Screen\Layouts;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
 use App\Models\Post;
 
 class RecycleEdit extends Screen

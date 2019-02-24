@@ -4,10 +4,10 @@ namespace App\Http\Screens\Orders;
 
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
-use Orchid\Platform\Facades\Alert;
-use Orchid\Platform\Screen\Layouts;
-use Orchid\Platform\Screen\Link;
-use Orchid\Platform\Screen\Screen;
+use Orchid\Facades\Alert;
+use Orchid\Screen\Layouts;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
 
 class OrderEdit extends Screen
 {
