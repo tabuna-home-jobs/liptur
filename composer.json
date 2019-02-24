@@ -13,6 +13,7 @@
     "fideloper/proxy": "^4.0",
     "gloudemans/shoppingcart": "^2.5",
     "guzzlehttp/guzzle": "^6.2",
+    "intervention/image": "^2.4",
     "jenssegers/date": "^3.2",
     "lapaygroup/russianpost": "^0.4.9",
     "laravel/framework": "5.7.*",

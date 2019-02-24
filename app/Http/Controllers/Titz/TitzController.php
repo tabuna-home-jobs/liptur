@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Orchid\Platform\Models\Role;
-use Orchid\Platform\Facades\Alert;
+use Orchid\Support\Facades\Alert;
 
 class TitzController extends Controller
 {

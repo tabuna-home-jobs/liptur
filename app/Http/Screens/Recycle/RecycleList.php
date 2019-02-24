@@ -4,8 +4,8 @@ namespace App\Http\Screens\Recycle;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Orchid\Platform\Screen\Link;
-use Orchid\Platform\Screen\Screen;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
 
 class RecycleList extends Screen
 {

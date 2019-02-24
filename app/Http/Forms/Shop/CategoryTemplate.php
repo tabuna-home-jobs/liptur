@@ -3,7 +3,7 @@
 namespace App\Http\Forms\Shop;
 
 use Orchid\Platform\Fields\Field;
-use Orchid\Platform\Platform\Fields\TD;
+use Orchid\Screen\TD;
 
 class CategoryTemplate
 {

@@ -2,8 +2,8 @@
 
 namespace App\Http\Screens\Recycle;
 
-use Orchid\Platform\Layouts\Table;
-use Orchid\Platform\Platform\Fields\TD;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
 class RecycleListLayout extends Table
 {

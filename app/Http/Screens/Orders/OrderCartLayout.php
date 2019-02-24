@@ -2,7 +2,7 @@
 
 namespace App\Http\Screens\Orders;
 
-use Orchid\Platform\Layouts\Rows;
+use Orchid\Screen\Layouts\Rows;
 
 class OrderCartLayout extends Rows
 {

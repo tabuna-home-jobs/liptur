@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard\Shop;
 
-use Orchid\Platform\Screen\Screen;
+use Orchid\Screen\Screen;
 
 class OrderScreen extends Screen
 {

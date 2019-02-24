@@ -27,8 +27,9 @@ class CatalogController extends Controller
             $query->orderBy('publish_at', 'DESC');
         }
         $elements = $query->simplePaginate(10);
+
         $view = property_exists($typeObject, 'listing') ? $typeObject->listing : 'listings.catalog';
-        //dd($view);
+
         return view($view, [
             'elements' => $elements,
             'type'     => $typeObject,
@@ -77,7 +78,7 @@ class CatalogController extends Controller
 
             $parametersMap['addition'] = $data;
         }
-        //dd($viewTemplate);
+
         return view($viewTemplate, $parametersMap);
     }
 
@@ -108,12 +109,9 @@ class CatalogController extends Controller
      */
     public function search(Request $request)
     {
-        //dd($request);
-
         $typeObject = dashboard_posts()->where('slug', 'news')->first() ?? abort(404);
-        //$posts = Post::published()->where('content', 'like', '%' . $request->query('query') . '%')->paginate()->items();
+
         $posts = Post::published()->whereRaw('LOWER(content) LIKE ?', '%'.mb_strtolower($request->get('search')).'%')->simplePaginate();
-        //dd($posts);
 
         return view('listings.catalog', [
             'elements' => $posts,

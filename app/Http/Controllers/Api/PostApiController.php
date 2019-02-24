@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Orchid\Press\Models\Post;
-use Orchid\Platform\Facades\Dashboard;
-use Orchid\Platform\Http\Controllers\ApiController;
+use Orchid\Support\Facades\Dashboard;
+use App\Http\Controllers\Controller;
 
-class PostApiController extends ApiController
+class PostApiController extends Controller
 {
     /**
      * @param Post    $post

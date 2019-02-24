@@ -3,7 +3,7 @@
 namespace App\Http\Screens\Orders;
 
 use App\Models\Order;
-use Orchid\Platform\Screen\Screen;
+use Orchid\Screen\Screen;
 
 class OrderList extends Screen
 {

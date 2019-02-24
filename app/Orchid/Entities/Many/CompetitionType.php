@@ -64,7 +64,7 @@ class CompetitionType extends Many
     public $category = false;
 
     /**
-     * @var array
+     * @return array
      */
     public function filters(): array
     {

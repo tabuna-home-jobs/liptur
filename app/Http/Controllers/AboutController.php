@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Orchid\Press\Models\Post;
-use Orchid\Platform\Models\Taxonomy;
+use Orchid\Press\Models\Taxonomy;
 use Illuminate\Support\Facades\App;
 
 class AboutController extends Controller

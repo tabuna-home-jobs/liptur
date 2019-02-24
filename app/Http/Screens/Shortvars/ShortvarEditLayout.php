@@ -2,9 +2,10 @@
 
 namespace App\Http\Screens\Shortvars;
 
-use Orchid\Platform\Fields\Builder;
-use Orchid\Platform\Fields\Field;
-use Orchid\Platform\Layouts\Rows;
+use Orchid\Screen\Builder;
+use Orchid\Screen\Field;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Repository;
 
 class ShortvarEditLayout extends Rows
 {
@@ -15,11 +16,8 @@ class ShortvarEditLayout extends Rows
      *
      * @return array
      */
-    public function dfields(): array
+    public function fields(): array
     {
-        //$this->query->getContent('shortvar')->set('value','111');
-        //dd($this->query++);
-
         $fields = [
             'key'		=> Field::tag('input')
                 ->name('shortvar.key')
@@ -49,8 +47,6 @@ class ShortvarEditLayout extends Rows
                 ->name('shortvar.options.type')
                 ->title('Type'),
         ];
-
-        //dd(json_encode($this->query->getContent('shortvar.value.value')));
 
         $type = $this->query->getContent('shortvar.options.type') ?? 'input';
 
@@ -109,7 +105,7 @@ class ShortvarEditLayout extends Rows
      *
      * @return array
      */
-    public function build($post)
+    public function build(Repository $post)
     {
         $this->query = $post;
         $form = new Builder($this->dfields($post), $post);

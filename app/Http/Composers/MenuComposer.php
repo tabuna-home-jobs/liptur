@@ -3,7 +3,7 @@
 namespace App\Http\Composers;
 
 use App\Models\Order;
-use Orchid\Platform\Kernel\Dashboard;
+use Orchid\Platform\Dashboard;
 
 class MenuComposer
 {

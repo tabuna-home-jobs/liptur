@@ -2,9 +2,11 @@
 
 namespace App\Http\Screens\Recycle;
 
-use Orchid\Platform\Fields\Builder;
-use Orchid\Platform\Fields\Field;
-use Orchid\Platform\Layouts\Rows;
+use Orchid\Screen\Builder;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Repository;
 
 class RecycleEditLayout extends Rows
 {
@@ -15,31 +17,23 @@ class RecycleEditLayout extends Rows
      *
      * @return array
      */
-    public function dfields(): array
+    public function fields(): array
     {
-        //$this->query->getContent('shortvar')->set('value','111');
-        //dd($this->query++);
-
-        $fields = [
-            'id'	=> Field::tag('input')
-                ->name('post.id')
+        return [
+            InputField::name('post.id')
                 ->disabled()
                 ->title('Id'),
 
-            'type'	=> Field::tag('input')
-                ->name('post.type')
+            InputField::name('post.type')
                 ->disabled()
                 ->max(255)
                 ->title('Type'),
 
-            'slug'	=> Field::tag('input')
-                ->name('post.slug')
+            InputField::name('post.slug')
                 ->disabled()
                 ->max(255)
                 ->title('Slug'),
         ];
-
-        return $fields;
     }
 
     /**
@@ -49,10 +43,10 @@ class RecycleEditLayout extends Rows
      *
      * @return array
      */
-    public function build($post)
+    public function build(Repository $post)
     {
         $this->query = $post;
-        $form = new Builder($this->dfields($post), $post);
+        $form        = new Builder($this->dfields($post), $post);
 
         return view($this->template, [
             'form' => $form->generateForm(),

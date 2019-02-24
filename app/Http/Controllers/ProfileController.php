@@ -8,8 +8,8 @@ use App\Http\Requests\AccountRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Models\Comment;
-use Orchid\Platform\Facades\Alert;
+use Orchid\Press\Models\Comment;
+use Orchid\Support\Facades\Alert;
 
 class ProfileController extends Controller
 {

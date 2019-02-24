@@ -23,7 +23,6 @@ class GalleryController extends Controller
                 'png',
                 'JPG',
             ])
-            //->has('post')
             ->join('likeable_like_counters', function ($join) {
                 $join->on('attachments.id', '=', 'likeable_like_counters.likable_id')
                     ->where('likeable_like_counters.likable_type', '=', Attachment::class);

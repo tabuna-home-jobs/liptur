@@ -3,8 +3,8 @@
 namespace App\Http\Screens\ProductArrivals;
 
 use App\Models\ProductArrival;
-use Orchid\Platform\Screen\Screen;
-use Orchid\Platform\Screen\Link;
+use Orchid\Screen\Screen;
+use Orchid\Screen\Link;
 
 class ProductArrivalList extends Screen
 {

@@ -11,7 +11,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Orchid\Platform\Models\Role;
-use Orchid\Platform\Facades\Alert;
+use Orchid\Support\Facades\Alert;
 
 class BidController extends Controller
 {

@@ -2,8 +2,8 @@
 
 namespace App\Http\Screens\Shortvars;
 
-use Orchid\Platform\Layouts\Table;
-use Orchid\Platform\Platform\Fields\TD;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
 class ShortvarsListLayout extends Table
 {
