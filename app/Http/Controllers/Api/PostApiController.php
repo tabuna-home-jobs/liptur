@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 use Orchid\Platform\Facades\Dashboard;
 use Orchid\Platform\Http\Controllers\ApiController;
 

@@ -4,7 +4,7 @@ namespace App\Core\Models;
 
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
-use Orchid\Platform\Core\Models\User as BaseUser;
+use Orchid\Platform\Models\User as BaseUser;
 
 class User extends BaseUser
 {

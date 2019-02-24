@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Platform\Core\Models\Attachment;
+use Orchid\Attachment\Models\Attachment;
 
 trait ImageDownloadTrait
 {

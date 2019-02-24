@@ -6,10 +6,11 @@ use App\Http\Composers\MenuComposer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Kernel\Dashboard;
+use Orchid\Platform\Dashboard;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap any application services.
      *
@@ -19,8 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('dashboard::layouts.dashboard', MenuComposer::class);
         Paginator::useBootstrapThree();
-        $permission = $this->registerPermissions();
-        $dashboard->permission->registerPermissions($permission);
+        $dashboard->registerPermissions($this->registerPermissions());
     }
 
     /**

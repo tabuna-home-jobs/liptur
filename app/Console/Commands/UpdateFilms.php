@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 use Orchid\Platform\Core\Models\Setting;
 
 class UpdateFilms extends Command

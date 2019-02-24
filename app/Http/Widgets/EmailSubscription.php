@@ -2,7 +2,7 @@
 
 namespace App\Http\Widgets;
 
-use Orchid\Platform\Widget\Widget;
+use Orchid\Widget\Widget;
 
 class EmailSubscription extends Widget
 {

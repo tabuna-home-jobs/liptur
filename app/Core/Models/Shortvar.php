@@ -4,7 +4,7 @@ namespace App\Core\Models;
 
 //use Illuminate\Database\Eloquent\Model;
 use Orchid\Platform\Core\Models\Setting;
-use Orchid\Platform\Core\Traits\MultiLanguage;
+use Orchid\Platform\Traits\MultiLanguageTrait;
 
 class Shortvar extends Setting
 {

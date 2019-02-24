@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\App;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 
 class RouteController extends Controller
 {

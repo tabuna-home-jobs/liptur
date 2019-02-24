@@ -4,8 +4,8 @@ namespace App\Http\Widgets;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
-use Orchid\Platform\Core\Models\Post;
-use Orchid\Platform\Widget\Widget;
+use Orchid\Press\Models\Post;
+use Orchid\Widget\Widget;
 
 class AdvertisingWidget extends Widget
 {

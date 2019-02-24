@@ -5,8 +5,8 @@ namespace App\Http\Widgets;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Core\Models\Menu;
-use Orchid\Platform\Widget\Widget;
+use Orchid\Press\Models\Menu;
+use Orchid\Widget\Widget;
 
 class MenuFooterWidget extends Widget
 {

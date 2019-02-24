@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Orchid\Platform\Core\Models\Taxonomy;
-use Orchid\Platform\Core\Traits\MultiLanguage;
+use Orchid\Platform\Traits\MultiLanguageTrait;
 
 class Term extends Model
 {

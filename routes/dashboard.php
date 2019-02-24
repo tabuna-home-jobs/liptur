@@ -14,7 +14,7 @@
 $this->domain(config('platform.domain'))->group(function () {
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/bids'),
+        'prefix'     => \Orchid\Platform\Dashboard::prefix('/bids'),
     ], function (\Illuminate\Routing\Router $router) {
         $router->get('/', 'CRM\BidController@index')->name('dashboard.liptur.bids');
         $router->post('/deny/{post}', 'CRM\BidController@deny')->name('dashboard.liptur.bids.deny');
@@ -23,7 +23,7 @@ $this->domain(config('platform.domain'))->group(function () {
 
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems/shop'),
+        'prefix'     => \Orchid\Platform\Dashboard::prefix('/systems/shop'),
     ], function (\Illuminate\Routing\Router $router) {
         $router->resource('shop-category', 'Dashboard\Shop\CategoryController', [
             'only'  => [
@@ -42,7 +42,7 @@ $this->domain(config('platform.domain'))->group(function () {
 
     $this->group([
         'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Kernel\Dashboard::prefix('/systems/advertising'),
+        'prefix'     => \Orchid\Platform\Dashboard::prefix('/systems/advertising'),
     ], function (\Illuminate\Routing\Router $router) {
         $router->resource('advertising', 'Dashboard\AdvertisingController', [
             'names' => [

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Platform\Core\Models\Comment;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Post;
 
 class CommentController
 {

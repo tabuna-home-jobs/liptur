@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\Platform\Core\Models\Page;
+use Orchid\Press\Models\Page;
 
 /*
  * Get page by slug

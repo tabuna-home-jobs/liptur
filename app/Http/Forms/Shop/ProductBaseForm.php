@@ -8,8 +8,8 @@ use App\Core\Models\ShopCategory;
 use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
 use Orchid\Platform\Behaviors\Many as PostBehaviors;
-use Orchid\Platform\Core\Models\Category;
-use Orchid\Platform\Core\Models\Post;
+use Orchid\Press\Models\Category;
+use Orchid\Press\Models\Post;
 use Orchid\Platform\Core\Models\Taxonomy;
 use Orchid\Platform\Forms\Form;
 
