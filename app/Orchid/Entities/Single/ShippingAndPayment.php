@@ -3,9 +3,13 @@
 namespace App\Orchid\Entities\Single;
 
 use Orchid\Press\Entities\Single;
+use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Fields\TinyMCEField;
+use App\Traits\ManyTypeTrait;
 
 class ShippingAndPayment extends Single
 {
+    use ManyTypeTrait;
     /**
      * @var string
      */
@@ -15,6 +19,11 @@ class ShippingAndPayment extends Single
      * @var string
      */
     public $slug = 'shipping-and-payment';
+
+    /**
+     * @var bool
+     */
+    public $display = false;
 
     /**
      * Rules Validation.
@@ -36,8 +45,17 @@ class ShippingAndPayment extends Single
     public function fields(): array
     {
         return [
-            'name' => 'tag:input|type:text|name:name|max:255|required|title:Название|help:Заголовок',
-            'body' => 'tag:wysiwyg|name:body|required|rows:30',
+            InputField::make('name')
+                ->type('text')
+                ->max(255)
+                ->required()
+                ->title('Название')
+                ->help('Заголовок'),
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->required()
+                ->theme('modern'),
         ];
     }
 

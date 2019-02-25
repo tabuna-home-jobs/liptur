@@ -34,6 +34,11 @@ class TourOperatorsType extends Many
     public $slug = 'tour_operation';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * Slug url /news/{name}.
      *
      * @var string
@@ -66,7 +71,7 @@ class TourOperatorsType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
+            //TitzFilter::class,
         ];
     }
 

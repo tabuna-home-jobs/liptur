@@ -35,6 +35,11 @@ class FishingType extends Many
     public $slug = 'fishing';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bell-o';
@@ -73,7 +78,7 @@ class FishingType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

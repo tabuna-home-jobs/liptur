@@ -34,6 +34,11 @@ class AirportType extends Many
     public $slug = 'airport';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-plane';

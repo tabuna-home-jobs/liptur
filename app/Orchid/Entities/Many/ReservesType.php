@@ -35,6 +35,11 @@ class ReservesType extends Many
     public $slug = 'reserves';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-envira';
@@ -73,7 +78,7 @@ class ReservesType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //  RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

@@ -27,6 +27,12 @@ class ExchangeType extends Many
     public $slug = 'exchange';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-money';

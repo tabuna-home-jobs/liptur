@@ -35,6 +35,11 @@ class BeachType extends Many
     public $slug = 'beach';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * Slug url /news/{name}.
      *
      * @var string
@@ -66,7 +71,7 @@ class BeachType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

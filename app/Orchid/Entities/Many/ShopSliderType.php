@@ -29,6 +29,12 @@ class ShopSliderType extends Many
      * @var string
      */
     public $slug = 'shopslider';
+
+    /**
+     * @var bool
+     */
+    public $display = false;
+
     /**
      * Slug url.
      *
@@ -41,10 +47,6 @@ class ShopSliderType extends Many
      */
     public $groupname = 'Интернет-магазин';
 
-    /**
-     * @var bool
-     */
-    public $display = true;
 
     /**
      * Rules Validation.
@@ -135,7 +137,10 @@ class ShopSliderType extends Many
     {
         return [
 
-            TD::set('name', 'Название'),
+            TD::set('name', 'Название')
+                ->filter('text')
+                ->sort()
+                ->linkPost('name'),
             TD::set('publish_at', 'Date of publication'),
             TD::set('created_at', 'Date of creation'),
         ];

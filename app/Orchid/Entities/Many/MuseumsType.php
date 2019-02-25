@@ -37,6 +37,11 @@ class MuseumsType extends Many
     public $slug = 'museums';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-history';
@@ -74,9 +79,9 @@ class MuseumsType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
+            //TitzFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

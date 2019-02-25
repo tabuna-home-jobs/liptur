@@ -35,6 +35,11 @@ class CenterType extends Many
     public $slug = 'center';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-building-o';
@@ -73,7 +78,7 @@ class CenterType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

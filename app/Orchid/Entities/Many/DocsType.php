@@ -32,6 +32,11 @@ class DocsType extends Many
     public $slug = 'docs';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-download';

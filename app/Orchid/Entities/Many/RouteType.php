@@ -38,6 +38,11 @@ class RouteType extends Many
     public $slug = 'route';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bus';
@@ -75,12 +80,12 @@ class RouteType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
+            //TitzFilter::class,
 
-            CategoryFilters::class,
-            RegionFilters::class,
+           //CategoryFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
-            TitzFilter::class,
+            //TitzFilter::class,
         ];
     }
 

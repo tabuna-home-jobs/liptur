@@ -1,5 +1,5 @@
 <?php return array (
-    'anhskohbo/no-captcha'                =>
+  'anhskohbo/no-captcha' => 
   array (
     'providers' => 
     array (
@@ -10,14 +10,14 @@
       'NoCaptcha' => 'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha',
     ),
   ),
-    'cviebrock/eloquent-sluggable'        =>
+  'cviebrock/eloquent-sluggable' => 
   array (
     'providers' => 
     array (
       0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
     ),
   ),
-    'davejamesmiller/laravel-breadcrumbs' =>
+  'davejamesmiller/laravel-breadcrumbs' => 
   array (
     'providers' => 
     array (
@@ -28,14 +28,14 @@
       'Breadcrumbs' => 'DaveJamesMiller\\Breadcrumbs\\Facades\\Breadcrumbs',
     ),
   ),
-    'fideloper/proxy'                     =>
+  'fideloper/proxy' => 
   array (
     'providers' => 
     array (
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
-    'gloudemans/shoppingcart'             =>
+  'gloudemans/shoppingcart' => 
   array (
     'providers' => 
     array (
@@ -46,18 +46,18 @@
       'Cart' => 'Gloudemans\\Shoppingcart\\Facades\\Cart',
     ),
   ),
-    'intervention/image'                  =>
-        array(
-            'providers' =>
-                array(
-                    0 => 'Intervention\\Image\\ImageServiceProvider',
-                ),
-            'aliases'   =>
-                array(
-                    'Image' => 'Intervention\\Image\\Facades\\Image',
-                ),
-        ),
-    'jenssegers/date'                     =>
+  'intervention/image' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Intervention\\Image\\ImageServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Image' => 'Intervention\\Image\\Facades\\Image',
+    ),
+  ),
+  'jenssegers/date' => 
   array (
     'providers' => 
     array (
@@ -68,28 +68,28 @@
       'Date' => 'Jenssegers\\Date\\Date',
     ),
   ),
-    'laravel/nexmo-notification-channel'  =>
+  'laravel/nexmo-notification-channel' => 
   array (
     'providers' => 
     array (
       0 => 'Illuminate\\Notifications\\NexmoChannelServiceProvider',
     ),
   ),
-    'laravel/scout'                       =>
+  'laravel/scout' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Scout\\ScoutServiceProvider',
     ),
   ),
-    'laravel/slack-notification-channel'  =>
+  'laravel/slack-notification-channel' => 
   array (
     'providers' => 
     array (
       0 => 'Illuminate\\Notifications\\SlackChannelServiceProvider',
     ),
   ),
-    'laravel/socialite'                   =>
+  'laravel/socialite' => 
   array (
     'providers' => 
     array (
@@ -100,14 +100,14 @@
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
     ),
   ),
-    'laravel/tinker'                      =>
+  'laravel/tinker' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
-    'mcamara/laravel-localization'        =>
+  'mcamara/laravel-localization' => 
   array (
     'providers' => 
     array (
@@ -118,21 +118,21 @@
       'LaravelLocalization' => 'Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization',
     ),
   ),
-    'nesbot/carbon'                       =>
+  'nesbot/carbon' => 
   array (
     'providers' => 
     array (
       0 => 'Carbon\\Laravel\\ServiceProvider',
     ),
   ),
-    'nunomaduro/collision'                =>
+  'nunomaduro/collision' => 
   array (
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
-    'orchid/platform'                     =>
+  'orchid/platform' => 
   array (
     'providers' => 
     array (
@@ -146,14 +146,14 @@
       'Setting' => 'Orchid\\Support\\Facades\\Setting',
     ),
   ),
-    'orchid/widget'                       =>
+  'orchid/widget' => 
   array (
     'providers' => 
     array (
       0 => 'Orchid\\Widget\\WidgetServiceProvider',
     ),
   ),
-    'watson/active'                       =>
+  'watson/active' => 
   array (
     'providers' => 
     array (
@@ -164,7 +164,7 @@
       'Active' => 'Watson\\Watson\\Facades\\Active',
     ),
   ),
-    'willvincent/laravel-rateable'        =>
+  'willvincent/laravel-rateable' => 
   array (
     'providers' => 
     array (

@@ -28,6 +28,11 @@ class BankType extends Many
     public $slug = 'bank';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-university';

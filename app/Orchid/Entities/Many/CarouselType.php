@@ -25,6 +25,11 @@ class CarouselType extends Many
     public $slug = 'carousel';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-object-group';

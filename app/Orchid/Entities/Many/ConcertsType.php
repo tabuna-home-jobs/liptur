@@ -36,6 +36,12 @@ class ConcertsType extends Many
      */
     public $slug = 'concerts';
 
+
+    /**
+     * @var bool
+     */
+    public $display = false;
+
     /**
      * Slug url /news/{name}.
      *
@@ -75,10 +81,10 @@ class ConcertsType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
-            DateFilters::class,
-            TitzFilter::class,
+            //DateFilters::class,
+            //TitzFilter::class,
         ];
     }
 

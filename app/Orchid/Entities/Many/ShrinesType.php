@@ -35,6 +35,11 @@ class ShrinesType extends Many
     public $slug = 'shrines';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bell-o';
@@ -73,7 +78,7 @@ class ShrinesType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

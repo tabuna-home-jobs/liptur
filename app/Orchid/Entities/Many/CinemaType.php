@@ -31,6 +31,11 @@ class CinemaType extends Many
     public $slug = 'сinema';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * Slug url /news/{name}.
      *
      * @var string

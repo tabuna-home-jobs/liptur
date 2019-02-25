@@ -35,6 +35,11 @@ class ParksType extends Many
     public $slug = 'park';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-moon-o';
@@ -73,7 +78,7 @@ class ParksType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }
