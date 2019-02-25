@@ -90,4 +90,14 @@ class AboutController extends Controller
             'page' => getPage('shipping-and-payment'),
         ]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function ShopContacts()
+    {
+        return view('pages.default', [
+            'page' => getPage('shop-contacts'),
+        ]);
+    }
 }

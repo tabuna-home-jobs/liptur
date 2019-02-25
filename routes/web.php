@@ -107,6 +107,7 @@ $router->group([
     $this->get('/regions', 'AboutController@contact')->name('regions');
 
     $this->get('/shop/shipping-and-payment', 'AboutController@ShippingAndPayment')->name('shipping-and-payment');
+    $this->get('/shop/contacts', 'AboutController@ShopContacts')->name('shop-contacts');
 
     /*
     |--------------------------------------------------------------------------

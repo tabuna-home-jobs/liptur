@@ -14,11 +14,15 @@ class UpdateNewOrchid extends Migration
      */
     public function up()
     {
-        DB::statement('UPDATE `attachmentable` SET `attachmentable_type` = REPLACE( `attachmentable_type`, \'Orchid\\Platform\\Core\\Models\\Post\', \'Orchid\\Press\\Models\\Post\' )');
-        DB::statement('UPDATE `tagged` SET `taggable_type` = REPLACE( `taggable_type`, \'Orchid\\Foundation\\Core\\Models\\Post\', \'Orchid\\Press\\Models\\Post\' );');
-        DB::statement('UPDATE `tagged` SET `taggable_type` = REPLACE( `taggable_type`, \'Orchid\\Platform\\Core\\Models\\Post\', \'Orchid\\Press\\Models\\Post\' );');
-        DB::statement('UPDATE `tags` SET `namespace` = REPLACE( `namespace`, \'Orchid\\Foundation\\Core\\Models\\Post\', \'Orchid\\Press\\Models\\Post\' );');
-        DB::statement('UPDATE `tags` SET `namespace` = REPLACE( `namespace`, \'Orchid\\Platform\\Core\\Models\\Post\', \'Orchid\\Press\\Models\\Post\' )');
+
+        DB::statement('UPDATE `attachmentable` SET `attachmentable_type` = \'Orchid\\Press\\Models\\Post\'  WHERE `attachmentable_type` LIKE \'Orchid\\Platform\\Core\\Models\\Post\' ');
+        DB::statement('UPDATE `tagged` SET `taggable_type` = \'Orchid\\Press\\Models\\Post\'  WHERE `taggable_type` LIKE \'Orchid\\Foundation\\Core\\Models\\Post\' ');
+        DB::statement('UPDATE `tagged` SET `taggable_type` = \'Orchid\\Press\\Models\\Post\'  WHERE `taggable_type` LIKE \'Orchid\\Platform\\Core\\Models\\Post\' ');
+        DB::statement('UPDATE `tags` SET `namespace` = \'Orchid\\Press\\Models\\Post\'  WHERE `namespace` LIKE \'Orchid\\Foundation\\Core\\Models\\Post\' ');
+        DB::statement('UPDATE `tags` SET `namespace` = \'Orchid\\Press\\Models\\Post\'  WHERE `namespace` LIKE \'Orchid\\Platform\\Core\\Models\\Post\' ');
+
+
+
 
         Schema::table('attachments', function (Blueprint $table) {
            $table->string('disk')->default('public');

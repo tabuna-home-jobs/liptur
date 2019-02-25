@@ -320,7 +320,13 @@ class MainMenuComposer
                 ItemMenu::setLabel('Продукты')
                     ->setIcon('icon-basket-loaded')
                     ->setRoute(route(self::MANY, 'product'))
-            )->add('shop',
+            )
+            ->add('shop',
+                ItemMenu::setLabel('Категории')
+                    ->setIcon('icon-basket-loaded')
+                    ->setRoute('platform.shop.category')
+            )
+            ->add('shop',
                 ItemMenu::setLabel('Слайдер магазина')
                     ->setIcon('icon-basket')
                     ->setRoute(route(self::MANY, 'shopslider'))
@@ -329,6 +335,11 @@ class MainMenuComposer
                 ItemMenu::setLabel('Доставка и оплата')
                     ->setIcon('icon-docs')
                     ->setRoute(route(self::PAGE, ['shipping-and-payment','shipping-and-payment']))
+            )
+            ->add('shop',
+                ItemMenu::setLabel('Контакты')
+                    ->setIcon('icon-docs')
+                    ->setRoute(route(self::PAGE, ['shop-contacts','shop-contacts']))
             )
             ->add('Main',
                 ItemMenu::setLabel('Инвесторам')
