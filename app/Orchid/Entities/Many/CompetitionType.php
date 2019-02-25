@@ -41,6 +41,11 @@ class CompetitionType extends Many
     public $slug = 'competition';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-futbol-o';
@@ -72,9 +77,9 @@ class CompetitionType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
-            DateFilters::class,
+            //DateFilters::class,
         ];
     }
 

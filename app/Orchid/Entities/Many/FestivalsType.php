@@ -36,6 +36,11 @@ class FestivalsType extends Many
      * @var string
      */
     public $slug = 'festivals';
+
+    /**
+     * @var bool
+     */
+    public $display = false;
     /**
      * Slug url /news/{name}.
      *
@@ -76,12 +81,12 @@ class FestivalsType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
-            CfoFilter::class,
+           // TitzFilter::class,
+            //CfoFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
-            DateFilters::class,
+            //DateFilters::class,
 
         ];
     }
@@ -180,7 +185,10 @@ class FestivalsType extends Many
                 ->max(255)
                 ->title('Название')
                 ->help('Главный заголовок'),
-            'body' => 'tag:wysiwyg|name:body|max:255|rows:10',
+            TinyMCEField::make('body')
+                ->max(255)
+                ->rows(10)
+                ->theme('modern'),
             DateTimerField::make('open')
                 ->max(255)
                 ->title('Дата открытия')

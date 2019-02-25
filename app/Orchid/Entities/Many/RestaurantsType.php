@@ -39,6 +39,11 @@ class RestaurantsType extends Many
      * @var string
      */
     public $slug = 'gastronomy';
+
+    /**
+     * @var bool
+     */
+    public $display = false;
     /**
      * @var string
      */
@@ -82,8 +87,8 @@ class RestaurantsType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
-            CategoryFilters::class,
+            //RegionFilters::class,
+            //CategoryFilters::class,
             //DistanceFilters::class,
         ];
     }

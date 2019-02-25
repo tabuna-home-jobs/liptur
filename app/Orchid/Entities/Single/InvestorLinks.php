@@ -4,9 +4,12 @@ namespace App\Orchid\Entities\Single;
 
 use Orchid\Press\Entities\Single;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
+use Orchid\Screen\Fields\InputField;
+use App\Traits\ManyTypeTrait;
 
 class InvestorLinks extends Single
 {
+    use ManyTypeTrait;
     /**
      * @var string
      */
@@ -16,6 +19,12 @@ class InvestorLinks extends Single
      * @var string
      */
     public $slug = 'investor-links';
+
+
+    /**
+     * @var bool
+     */
+    public $display = false;
 
     /**
      * @var string
@@ -28,7 +37,10 @@ class InvestorLinks extends Single
     public function fields(): array
     {
         return [
-            'title' => 'tag:input|type:text|name:title|max:255|title:Article Title',
+            InputField::make('title')
+                ->type('text')
+                ->max(255)
+                ->title('Article Title'),
         ];
     }
 

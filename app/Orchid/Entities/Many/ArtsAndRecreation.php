@@ -33,6 +33,11 @@ class ArtsAndRecreation extends Many
     public $slug = 'arts_and_recreation';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-american-sign-language-interpreting';

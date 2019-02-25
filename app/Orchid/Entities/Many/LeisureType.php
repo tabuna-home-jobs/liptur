@@ -32,6 +32,12 @@ class LeisureType extends Many
      * @var string
      */
     public $slug = 'leisure';
+
+    /**
+     * @var bool
+     */
+    public $display = false;
+
     /**
      * @var string
      */

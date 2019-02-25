@@ -27,6 +27,11 @@ class RefillType extends Many
     public $slug = 'refill';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-car';

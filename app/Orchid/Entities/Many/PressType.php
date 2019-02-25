@@ -29,6 +29,11 @@ class PressType extends Many
     public $slug = 'press';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-newspaper-o';

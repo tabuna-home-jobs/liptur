@@ -30,6 +30,12 @@ class InfoType extends Many
      * @var string
      */
     public $slug = 'info';
+
+    /**
+     * @var bool
+     */
+    public $display = false;
+
     /**
      * Slug url /news/{name}.
      *

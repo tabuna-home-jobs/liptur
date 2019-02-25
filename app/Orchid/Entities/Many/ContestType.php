@@ -34,6 +34,11 @@ class ContestType extends Many
     public $slug = 'contest';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-folder-o';
@@ -64,9 +69,9 @@ class ContestType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
+            //TitzFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
             // DateFilters::class,
         ];

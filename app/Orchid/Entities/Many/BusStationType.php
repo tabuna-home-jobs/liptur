@@ -30,6 +30,11 @@ class BusStationType extends Many
     public $slug = 'bus-station';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bus';

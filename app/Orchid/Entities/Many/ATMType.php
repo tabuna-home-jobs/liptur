@@ -30,6 +30,11 @@ class ATMType extends Many
     public $slug = 'atm';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-credit-card';

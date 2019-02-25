@@ -35,6 +35,12 @@ class GuidesType extends Many
     public $slug = 'guides';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bell-o';
@@ -73,7 +79,7 @@ class GuidesType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
         ];
     }
 

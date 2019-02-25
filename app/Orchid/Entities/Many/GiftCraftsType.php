@@ -31,6 +31,11 @@ class GiftCraftsType extends Many
     public $slug = 'gift_crafts';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-key';
@@ -58,7 +63,7 @@ class GiftCraftsType extends Many
     public function filters(): array
     {
         return [
-            TitzFilter::class,
+            //TitzFilter::class,
         ];
     }
 

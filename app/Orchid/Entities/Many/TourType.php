@@ -36,6 +36,11 @@ class TourType extends Many
     public $slug = 'tour';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-map-o';
@@ -67,7 +72,7 @@ class TourType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

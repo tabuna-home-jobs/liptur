@@ -37,6 +37,11 @@ class RecreationCenterType extends Many
     public $slug = 'recration-center';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bell-o';
@@ -75,8 +80,8 @@ class RecreationCenterType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
-            CategoryFilters::class,
+            //RegionFilters::class,
+            //CategoryFilters::class,
             //DistanceFilters::class,
         ];
     }

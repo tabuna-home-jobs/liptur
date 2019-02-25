@@ -39,6 +39,11 @@ class ExhibitionsType extends Many
     public $slug = 'exhibitions';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * Slug url /news/{name}.
      *
      * @var string
@@ -70,11 +75,11 @@ class ExhibitionsType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
-            CategoryFilters::class,
+            //RegionFilters::class,
+            //CategoryFilters::class,
             //DistanceFilters::class,
-            DateFilters::class,
-            TitzFilter::class,
+            //DateFilters::class,
+            //TitzFilter::class,
         ];
     }
 

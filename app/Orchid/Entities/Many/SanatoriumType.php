@@ -34,6 +34,11 @@ class SanatoriumType extends Many
     public $slug = 'sanatorium';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-bell-o';

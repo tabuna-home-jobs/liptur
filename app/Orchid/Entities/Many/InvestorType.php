@@ -24,6 +24,12 @@ class InvestorType extends Many
      */
     public $slug = 'investor';
 
+
+    /**
+     * @var bool
+     */
+    public $display = false;
+
     /**
      * @var string
      */

@@ -36,6 +36,11 @@ class EventCalendarType extends Many
     public $slug = 'event_calendar';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * Slug url /news/{name}.
      *
      * @var string

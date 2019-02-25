@@ -33,6 +33,12 @@ class RailwayType extends Many
      */
     public $slug = 'railway';
 
+
+    /**
+     * @var bool
+     */
+    public $display = false;
+
     /**
      * @var string
      */
@@ -72,7 +78,7 @@ class RailwayType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

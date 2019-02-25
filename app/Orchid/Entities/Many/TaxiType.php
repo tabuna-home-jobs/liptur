@@ -34,6 +34,11 @@ class TaxiType extends Many
     public $slug = 'taxi';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $icon = 'fa fa-car';
@@ -72,7 +77,7 @@ class TaxiType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            RegionFilters::class,
+            //RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

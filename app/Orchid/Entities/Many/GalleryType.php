@@ -31,6 +31,11 @@ class GalleryType extends Many
     public $slug = 'gallery';
 
     /**
+     * @var bool
+     */
+    public $display = false;
+
+    /**
      * @var string
      */
     public $description = 'Альбомы Региона';
@@ -63,8 +68,8 @@ class GalleryType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            TitzFilter::class,
-            CfoFilter::class,
+            //TitzFilter::class,
+            //CfoFilter::class,
         ];
     }
 
