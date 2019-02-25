@@ -21,13 +21,13 @@ class OrderListLayout extends Table
 
             TD::set('name', '№ Заказа')
                 ->setRender(function ($order) {
-                    return '<a href="'.route('dashboard.liptur.shop.order.edit',
+                    return '<a href="'.route('platform.shop.order.edit',
                         $order->id).'">'.$order->slug.'</a>';
                 }),
             TD::set('name', 'Заказчик')
                 ->setRender(function ($order) {
                     //dd($order);
-                    return '<a href="'.route('dashboard.liptur.shop.order.edit',
+                    return '<a href="'.route('platform.shop.order.edit',
                         $order->id).'">'.optional($order->user()->first())->name.'</a>';
                 }),
             TD::set('created_at', 'Дата заказа')

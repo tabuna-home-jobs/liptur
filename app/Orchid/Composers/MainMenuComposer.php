@@ -327,6 +327,11 @@ class MainMenuComposer
                     ->setRoute('platform.shop.category')
             )
             ->add('shop',
+                ItemMenu::setLabel('Заказы')
+                    ->setIcon('icon-basket-loaded')
+                    ->setRoute('platform.shop.order.list')
+            )
+            ->add('shop',
                 ItemMenu::setLabel('Слайдер магазина')
                     ->setIcon('icon-basket')
                     ->setRoute(route(self::MANY, 'shopslider'))

@@ -5,6 +5,8 @@ namespace App\Http\Screens\Orders;
 use Orchid\Platform\Fields\Builder;
 use Orchid\Platform\Fields\Field;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\SelectField;
+use Orchid\Screen\Fields\TextAreaField;
 
 class OrderStatusLayout extends Rows
 {
@@ -13,17 +15,15 @@ class OrderStatusLayout extends Rows
     /**
      * @return array
      */
-    public function dfields() : array
+    public function fields() : array
     {
         return [
 
-            Field::tag('select')
+            SelectField::make('order.options.status')
                 ->options($this->query->getContent('order')->ordervar['status'])
-                ->name('order.options.status')
                 ->title('Тип заказа'),
 
-            Field::tag('textarea')
-                ->name('order.options.comments')
+            TextAreaField::make('order.options.comments')
                 ->title('Комментарий продавца к заказу'),
 
         ];
@@ -36,6 +36,7 @@ class OrderStatusLayout extends Rows
      *
      * @return array
      */
+    /*
     public function build($post)
     {
         $this->query = $post;
@@ -45,4 +46,5 @@ class OrderStatusLayout extends Rows
             'form' => $form->generateForm(),
         ])->render();
     }
+    */
 }

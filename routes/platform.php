@@ -60,8 +60,8 @@ $this->screen('category', CategoryListScreen::class)->name('platform.systems.cat
 
 
 // Shop
-$this->screen('shop/order/{order}/edit', OrderEdit::class)->name('dashboard.liptur.shop.order.edit');
-$this->screen('shop/order', OrderList::class)->name('dashboard.liptur.shop.order.list');
+$this->screen('shop/order/{order}/edit', OrderEdit::class)->name('platform.shop.order.edit');
+$this->screen('shop/order', OrderList::class)->name('platform.shop.order.list');
 
 $this->screen('shop/shortvar/{shortvar}/edit', ShortvarEdit::class)->name('dashboard.liptur.shop.shortvar.edit');
 $this->screen('shop/shortvar/create', ShortvarEdit::class)->name('dashboard.liptur.shop.shortvar.create');
