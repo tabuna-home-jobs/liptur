@@ -155,38 +155,44 @@ class ProductType extends Many
     {
         return [
 
-            InputField::make('options.width')
+            InputField::make('width')
                 ->type('number')
                 ->required()
                 ->title('Ширина'),
 
-            InputField::make('options.height')
+            InputField::make('height')
                 ->type('number')
                 ->required()
                 ->title('Высота'),
 
-            InputField::make('options.gravity')
+            InputField::make('gravity')
                 ->type('number')
                 ->required()
                 ->title('Вес'),
 
-            InputField::make('options.price')
+            InputField::make('price')
                 ->type('number')
                 ->required()
                 ->title('Стоимость'),
 
-            CheckBoxField::make('options.new')
-                ->name('options.new')
+            InputField::make('count')
+                ->name('count')
+                ->type('number')
+                ->hidden()
+                ->title('Количество'),
+
+            CheckBoxField::make('new')
+                ->name('new')
                 ->title('Новинка')
                 ->default(1),
 
-            CheckBoxField::make('options.special')
-                ->name('options.special')
+            CheckBoxField::make('special')
+                ->name('special')
                 ->title('Cпецпредложение')
                 ->default(1),
 
-            CheckBoxField::make('options.warning')
-                ->name('options.warning')
+            CheckBoxField::make('warning')
+                ->name('warning')
                 ->title('Обратите внимание')
                 ->default(1),
         ];
@@ -234,6 +240,9 @@ class ProductType extends Many
                 ->linkPost('name'),
             TD::set('publish_at', 'Date of publication'),
             TD::set('created_at', 'Date of creation'),
+            TD::set('options.count', 'Остаток')->setRender(function($item) {
+                return $item->getOption('count');
+            }),
         ];
     }
 

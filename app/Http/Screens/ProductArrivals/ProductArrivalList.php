@@ -2,9 +2,16 @@
 
 namespace App\Http\Screens\ProductArrivals;
 
+use App\Http\Widgets\ProductsWidget;
+use Illuminate\Support\Facades\App;
 use App\Models\ProductArrival;
+use Illuminate\Http\Request;
 use Orchid\Screen\Screen;
 use Orchid\Screen\Link;
+use Orchid\Screen\Layouts;
+use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Fields\RelationshipField;
+use App\Orchid\Layouts\ProductArrivalTable;
 
 class ProductArrivalList extends Screen
 {
@@ -28,7 +35,9 @@ class ProductArrivalList extends Screen
      */
     public function query() : array
     {
-        $productArrivals = ProductArrival::orderBy('updated_at','desc')->paginate();
+        $productArrivals = ProductArrival::orderBy('product_arrival.updated_at','desc')
+            ->join('posts', 'posts.id', '=', 'product_arrival.product_id')
+            ->select('product_arrival.slug', 'count', 'posts.content->'.App::getLocale().'->title as title')->paginate();
         return [
             'productArrivals' => $productArrivals,
         ];
@@ -61,23 +70,39 @@ class ProductArrivalList extends Screen
     public function layout() : array
     {
         return [
-
-            //тут работа с моделью Product
-
             Layouts::modals([
                 'transaction' => Layouts::rows([
-                    InputField::make('transaction.count'),
+                    RelationshipField::make()
+                        ->name('product_id')
+                        ->required()
+                        ->title('Товар')
+                        ->handler(ProductsWidget::class),
+                    InputField::make('count')
+                        ->title("Количество")
+                        ->required()
+                        ->type("number")
                 ]),
             ]),
-
+            ProductArrivalTable::class
         ];
     }
 
     /**
-     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
-    public function transaction()
+    public function transaction(Request $request)
     {
-        //РаботаеМ с МОДЕЛЬЮ ТРАНЗАКЦИИ
+        $product_id =  $request->get('product_id');
+        $count =  $request->get('count');
+
+        if(!$product_id || !$count) {
+            return abort(400);
+        }
+
+        ProductArrival::create($request->all());
+
+        return back();
     }
 }

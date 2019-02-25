@@ -322,6 +322,11 @@ class MainMenuComposer
                     ->setRoute(route(self::MANY, 'product'))
             )
             ->add('shop',
+                ItemMenu::setLabel('Приход товара')
+                    ->setIcon('icon-basket')
+                    ->setRoute('dashboard.liptur.shop.product-arrival.list')
+            )
+            ->add('shop',
                 ItemMenu::setLabel('Категории')
                     ->setIcon('icon-basket-loaded')
                     ->setRoute('platform.shop.category')

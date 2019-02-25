@@ -103,7 +103,7 @@ class MenuComposer
         $dashboard->menu->add('Shop', [
             'slug'       => 'product-arrival',
             'icon'       => 'icon-wallet',
-            'route'      => route('dashboard.liptur.shop.product-arrival.list'),
+            'route'      => route('c'),
             'label'      => 'Приход товара',
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 21,
