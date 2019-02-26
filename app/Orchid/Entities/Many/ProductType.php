@@ -178,7 +178,7 @@ class ProductType extends Many
             InputField::make('count')
                 ->name('count')
                 ->type('number')
-                ->hidden()
+                ->readonly()
                 ->title('Количество'),
 
             CheckBoxField::make('new')

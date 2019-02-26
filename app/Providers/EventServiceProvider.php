@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Order;
 use App\Models\ProductArrival;
 use App\Models\User;
 use App\Observers\ProductObserver;
 use App\Observers\TitzObserver;
 use App\Observers\UserObserver;
+use App\Observers\OrderObserver;
 use App\Observers\ProductArrivalObserver;
 use App\Events\Shop\ShopCategoryEvent;
 use App\Listeners\AdvertisingBaseListener;
@@ -44,6 +46,7 @@ class EventServiceProvider extends ServiceProvider
 
         User::observe(UserObserver::class);
         ProductArrival::observe(ProductArrivalObserver::class);
+        Order::observe(OrderObserver::class);
         Post::observe(TitzObserver::class);
         Post::observe(ProductObserver::class);
     }

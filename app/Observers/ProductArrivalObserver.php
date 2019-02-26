@@ -31,10 +31,10 @@ class ProductArrivalObserver
     {
         $product = Post::type('product')->find($model->product_id);
 
-        $oldCount = $product->getOption('count') || 0;
-        $newCount = $oldCount + $model->count;
+        $old_count = $product->getOption('count') || 0;
+        $new_count = $old_count + $model->count;
 
-        $product->setAttribute('options->count', $newCount);
+        $product->setAttribute('options->count', $new_count);
         $product->save();
 
         return $model;
