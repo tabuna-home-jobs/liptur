@@ -22,7 +22,9 @@ class ProductsWidget extends Widget
     {
         $query = Post::type('product')
             ->select('id', 'content->ru->title as text')
-            ->where('status', '<>', 'hidden');
+            ->where('status', '<>', 'hidden')
+            ->where('options->count', '>', 0)
+        ;
 
         if(!empty($this->query)) {
             $query->where('content->'.App::getLocale().'->name', 'like',  "%$this->query%");

@@ -18,15 +18,21 @@ class ShopController extends Controller
     {
         $newsAndSpecial = Post::type('product')
             ->with('attachment')
-            ->whereNotNull('options->new')
-            ->orWhereNotNull('options->special')
+            ->where(function ($q) {
+                $q->whereNotNull('options->new')
+                    ->orWhereNotNull('options->special');
+            })
             ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->where('options->count', '>', 0)
             ->get()->take(4);
 
         $warnings = Post::type('product')
             ->with('attachment')
             ->whereNotNull('options->warning')
             ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->where('options->count', '>', 0)
             ->get()->take(8);
 
         $categories = ShopCategory::all();
@@ -50,9 +56,13 @@ class ShopController extends Controller
     {
         $newsAndSpecial = Post::type('product')
             ->with('attachment')
-            ->whereNotNull('options->new')
-            ->orWhereNotNull('options->special')
+            ->where(function ($q) {
+                $q->whereNotNull('options->new')
+                    ->orWhereNotNull('options->special');
+            })
             ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->where('options->count', '>', 0)
             ->get();
 
         return view('shop.index', [
@@ -83,6 +93,8 @@ class ShopController extends Controller
             ->with('attachment')
             ->whereNotNull('options->warning')
             ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->where('options->count', '>', 0)
             ->get();
 
         $category = optional($product->taxonomies()->first())->term ?? new Term();
@@ -108,7 +120,9 @@ class ShopController extends Controller
         $category   = ShopCategory::slug($slug)->first();
 
         $products = $category->posts()
-            ->where('status', '<>', 'hidden');
+            ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->where('options->count', '>', 0);
 
         if (!is_null($request->get('sort'))) {
             $sort    = $request->get('sort');
@@ -149,12 +163,18 @@ class ShopController extends Controller
         if (!is_null($request->get('search'))) {
             $products = Post::type('product')
                 ->whereRaw('LOWER(`content`) LIKE \'%' . mb_strtolower($request->get('search')) . '%\' ')
+                ->whereNotNull('options->count')
+                ->where('options->count', '>', 0)
                 ->with('attachment');
         } else {
             $products = Post::type('product')
                 ->with('attachment')
-                ->whereNotNull('options->new')
-                ->orWhereNotNull('options->special')
+                ->where(function ($q) {
+                    $q->whereNotNull('options->new')
+                        ->orWhereNotNull('options->special');
+                })
+                ->whereNotNull('options->count')
+                ->where('options->count', '>', 0)
                 ->where('status', '<>', 'hidden');
         }
 
