@@ -4,7 +4,7 @@ use App\Http\Screens\Orders\OrderEdit;
 use App\Http\Screens\Orders\OrderList;
 use App\Http\Screens\Shortvars\ShortvarEdit;
 use App\Http\Screens\Shortvars\ShortvarsList;
-use App\Orchid\Screens\ExampleScreen;
+use App\Http\Screens\ProductArrivals\ProductArrivalList;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -70,14 +70,7 @@ $this->screen('shop/category', ShopCategoryListScreen::class)->name('platform.sh
 
 
 
-$this->group([
-    'middleware' => config('platform.middleware.private'),
-    'prefix'     => \Orchid\Platform\Dashboard::prefix('/shop'),
-],
-    function (\Illuminate\Routing\Router $router, $path = 'dashboard.liptur.shop.') {
-        $router->screen('product-arrival/{productArrival}/edit', 'ProductArrivals\ProductArrivalEdit', $path . 'product-arrival.edit');
-        $router->screen('product-arrival', 'ProductArrivals\ProductArrivalList', $path . 'product-arrival.list');
-    });
+$this->screen('shop/product-arrival', ProductArrivalList::class)->name('dashboard.liptur.shop.product-arrival.list');
 
 
 $this->group([
