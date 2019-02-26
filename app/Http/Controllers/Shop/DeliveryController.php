@@ -12,6 +12,7 @@ class DeliveryController extends Controller
 {
     public function calc($orderId, $deliveryType, Request $request)
     {
+        $price = 0;
         $toIndex = $request->get('to');
 
         if (!$orderId || !$toIndex || !$deliveryType) {
@@ -21,17 +22,17 @@ class DeliveryController extends Controller
         $fromIndex = "398024";
         $weight    = 100;
 
-        if ($deliveryType == "cdek") {
-            $data = $this->calcCdek($fromIndex, $toIndex, $weight);
-            return response()->json($data);
+        if ($deliveryType == "courier") {
+            $price = $this->calcCdek($fromIndex, $toIndex, $weight);
+        } else if ($deliveryType == "mail") {
+            $price = $this->calcRussianPost($fromIndex, $toIndex, $weight);
+        } else {
+            return abort(400);
         }
 
-        if ($deliveryType == "russian-post") {
-            $data = $this->calcRussianPost($fromIndex, $toIndex, $weight);
-            return response()->json($data);
-        }
-
-        return abort(400);
+        return response()->json([
+            'price' => $price
+        ]);
     }
 
     private function calcCdek($fromIndex, $toIndex, $weight)

@@ -7,6 +7,7 @@ $(function () {
           payment: 'cash',
           delivery: 'courier'
         },
+        deliveryPrice: '***',
         errors: {},
         aggree: false
       },
@@ -17,6 +18,19 @@ $(function () {
         this.$set(this.formData, 'last_name', this.$refs.last_name.dataset.value || '');
       },
       methods: {
+        async tryCalcDelivery() {
+          const {zip, delivery} = this.formData;
+
+          if(!delivery || delivery === 'pickup' || !zip || zip.length != 6) {
+            return;
+          }
+
+          const req = await this.$http.get(`/shop/order/32423/delivery/${delivery}?to=${zip}`);
+          console.log(req);
+          const price = req.body.price || '***';
+
+          this.$set(this, 'deliveryPrice', price);
+        },
         async sendOrder() {
           const formData = this.formData;
           

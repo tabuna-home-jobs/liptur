@@ -38,7 +38,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group select-group">
-                  <select name="delivery" class="select2 form-control text-darkred" v-model="formData.delivery">
+                  <select name="delivery" class="select2 form-control text-darkred" v-model="formData.delivery" v-on:change="tryCalcDelivery()">
                     @foreach ($order['delivery'] as $key=>$delivery)
                       <option value="{{$key}}">{{$delivery}}</option>
                     @endforeach 
@@ -64,14 +64,14 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12 m-b">
+              <div class="col-md-6 m-b">
                 <div class="bg-darkred text-white inline wrapper-sm padder-md m-r-sm">Шаг 3 </div>
                 Ввведите ваши персональные данные к заказу:
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <em class="text-md">Стоимость доставки от ****</em><br/>
+            <em class="text-md">Стоимость доставки от <span v-html="deliveryPrice"></span> руб.</em><br/>
             <em class="text-sm">Точную стоимость доставки вам сообщит менеджер в момент подтверждения заказа.
             При выборе способа доставки - «Доставка курьером» - заполните
             в комментарии заказа - ваш адрес (населенный пункт, улицу, дом, квартиру)
@@ -164,6 +164,17 @@
               </span>
             </div>
 
+              <div class="form-group m-t-sm">
+                  <label class="text-sm text-left">Индекс:</label>
+                  <input type="text" name="zip" autofocus class="form-control"
+                         maxlength="6"
+                         v-model="formData.zip"
+                         v-on:change="tryCalcDelivery()"
+                         ref="zip"
+                  />
+                  <span class="help-block" v-if="errors.name"><strong>@{{ errors.zip[0]}}</strong></span>
+              </div>
+
              <div class="form-group m-t-sm m-b-none flex-item-bootom">
                   <div class="checkbox">
                       <label class="i-checks">
@@ -175,7 +186,7 @@
           <div class="col-md-4 flex-column">
             <div class="form-group">
                 <label class="control-label">Напишите комментарий к заказу:</label>
-                <textarea class="form-control form-control-grey no-resize summernote" rows="14"
+                <textarea class="form-control form-control-grey no-resize summernote" rows="20"
                           name="message" required  v-model="formData.message"></textarea>
             </div>
             <div class="form-group flex-item-bootom">
