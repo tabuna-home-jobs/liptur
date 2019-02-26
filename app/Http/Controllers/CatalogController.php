@@ -112,9 +112,27 @@ class CatalogController extends Controller
     {
         $typeObject = dashboard_posts()->where('slug', 'news')->first() ?? abort(404);
 
+
         $posts = Post::published()->whereRaw('LOWER(content) LIKE ?', '%'.mb_strtolower($request->get('search')).'%')->simplePaginate();
 
-        return view('listings.catalog', [
+        $posts->transform(function ($post, $key) {
+            $type = dashboard_posts()->where('slug', $post->type)->first() ?? abort(404);
+            switch ($post->type) {
+                case 'carousel':
+                case 'advertising':
+                    return null;
+                    break;
+                case 'news':
+                    $route =  route($type->route(),[$post->slug]);
+                    break;
+                default:
+                    $route =  route($type->route(),[$post->type,$post->slug]);
+            }
+            $post->route = $route;
+            return $post;
+        });
+
+        return view('listings.search', [
             'elements' => $posts,
             'type'     => $typeObject,
             'name'     => 'Поиск',

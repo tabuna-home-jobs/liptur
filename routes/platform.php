@@ -4,7 +4,6 @@ use App\Http\Screens\Orders\OrderEdit;
 use App\Http\Screens\Orders\OrderList;
 use App\Http\Screens\Shortvars\ShortvarEdit;
 use App\Http\Screens\Shortvars\ShortvarsList;
-use App\Http\Screens\ProductArrivals\ProductArrivalList;
 use App\Orchid\Screens\ExampleScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
@@ -55,11 +54,6 @@ $this->screen('category/{category}/edit', CategoryEditScreen::class)->name('plat
 $this->screen('category/create', CategoryEditScreen::class)->name('platform.systems.category.create');
 $this->screen('category', CategoryListScreen::class)->name('platform.systems.category');
 
-// Example...
-//$this->screen('example', ExampleScreen::class)->name('platform.example');
-//Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');
-
-
 // Shop
 $this->screen('shop/order/{order}/edit', OrderEdit::class)->name('platform.shop.order.edit');
 $this->screen('shop/order', OrderList::class)->name('platform.shop.order.list');
@@ -76,7 +70,14 @@ $this->screen('shop/category', ShopCategoryListScreen::class)->name('platform.sh
 
 
 
-$this->screen('shop/product-arrival', ProductArrivalList::class)->name('dashboard.liptur.shop.product-arrival.list');
+$this->group([
+    'middleware' => config('platform.middleware.private'),
+    'prefix'     => \Orchid\Platform\Dashboard::prefix('/shop'),
+],
+    function (\Illuminate\Routing\Router $router, $path = 'dashboard.liptur.shop.') {
+        $router->screen('product-arrival/{productArrival}/edit', 'ProductArrivals\ProductArrivalEdit', $path . 'product-arrival.edit');
+        $router->screen('product-arrival', 'ProductArrivals\ProductArrivalList', $path . 'product-arrival.list');
+    });
 
 
 $this->group([
@@ -97,20 +98,3 @@ $this->group([
     $router->post('/deny/{post}', [BidController::class, 'deny'])->name('dashboard.liptur.bids.deny');
     $router->post('/success/{post}', [BidController::class, 'success'])->name('dashboard.liptur.bids.success');
 });
-
-
-/*
-$this->group([
-    'prefix' => \Orchid\Platform\Dashboard::prefix('/systems/advertising'),
-], function (\Illuminate\Routing\Router $router) {
-    $router->resource('advertising', AdvertisingController::class, [
-        'names' => [
-            'index'  => 'dashboard.marketing.advertising.index',
-            'create' => 'dashboard.marketing.advertising.create',
-            'edit'   => 'dashboard.marketing.advertising.edit',
-            'update' => 'dashboard.marketing.advertising.update',
-            'store'  => 'dashboard.marketing.advertising.store',
-        ],
-    ]);
-});
-*/

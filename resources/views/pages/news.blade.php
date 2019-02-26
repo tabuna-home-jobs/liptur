@@ -166,12 +166,14 @@
                 <aside class="col-md-4 hidden-xs hidden-sm">
 
                     <div class="aside-affix">
+                        {{--
                         @if($new->attachment('docs')->count() > 0)
                             @include('partials.item.attachment',[
                                 'title' => 'Файлы к новости',
                                 'attachments' => $new->attachment('docs')->orderBy('sort','desc')->get(),
                             ])
                         @endif
+                        --}}
 
                         <div class="panel b box-shadow-lg" data-mh="main-info-block"
                              style="width: 100%; display: flex; align-items: center; justify-content: center; max-height: 500px; background: rgb(198, 198, 198);">

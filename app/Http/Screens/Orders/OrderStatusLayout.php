@@ -29,22 +29,4 @@ class OrderStatusLayout extends Rows
         ];
     }
 
-    /**
-     * @param $post
-     *
-     * @throws \Throwable
-     *
-     * @return array
-     */
-    /*
-    public function build($post)
-    {
-        $this->query = $post;
-        $form = new Builder($this->dfields($post), $post);
-
-        return view($this->template, [
-            'form' => $form->generateForm(),
-        ])->render();
-    }
-    */
 }

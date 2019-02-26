@@ -424,6 +424,11 @@ class MainMenuComposer
                     ->setRoute(route(self::MANY, 'docs'))
             )
             ->add('another',
+                ItemMenu::setLabel('Рекламные блоки')
+                    ->setIcon('icon-docs')
+                    ->setRoute(route(self::MANY, 'advertising'))
+            )
+            ->add('another',
                 ItemMenu::setLabel('Персональные данные')
                     ->setIcon('icon-docs')
                     ->setRoute(route(self::PAGE, ['personal-data','personal-data']))
