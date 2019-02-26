@@ -351,6 +351,11 @@ class MainMenuComposer
                     ->setIcon('icon-docs')
                     ->setRoute(route(self::PAGE, ['shop-contacts','shop-contacts']))
             )
+            ->add('shop',
+                ItemMenu::setLabel('Переменные')
+                    ->setIcon('icon-docs')
+                    ->setRoute('platform.xsetting.list')
+            )
             ->add('Main',
                 ItemMenu::setLabel('Инвесторам')
                     ->setSlug('investors')

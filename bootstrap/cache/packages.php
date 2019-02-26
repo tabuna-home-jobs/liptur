@@ -153,6 +153,13 @@
       0 => 'Orchid\\Widget\\WidgetServiceProvider',
     ),
   ),
+  'orchids/xsetting' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Orchids\\XSetting\\Providers\\XSettingProvider',
+    ),
+  ),
   'watson/active' => 
   array (
     'providers' => 
