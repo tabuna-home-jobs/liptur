@@ -12,7 +12,6 @@ class DeliveryController extends Controller
 {
     public function calc($orderId, $deliveryType, Request $request)
     {
-        $price = 0;
         $toIndex = $request->get('to');
 
         if (!$orderId || !$toIndex || !$deliveryType) {
@@ -50,7 +49,6 @@ class DeliveryController extends Controller
 
         $client   = $this->getCdekClient();
         $response = $client->sendCalculationRequest($cdek_request);
-        dd($response);
         return $response->getPrice();
     }
 
