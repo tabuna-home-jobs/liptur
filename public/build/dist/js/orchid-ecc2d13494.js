@@ -24525,7 +24525,10 @@ $(function () {
             return;
           }
 
-          const req = await this.$http.get(`/shop/order/32423/delivery/${delivery}?to=${zip}`);
+          const req = await this.$http.post(`/shop/delivery/cart`, {
+            zip,
+            delivery
+          });
           const price = req.body.price || '***';
 
           this.$set(this.deliveryPrices, delivery, price);

@@ -3,30 +3,54 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use CdekSDK\Requests\CalculationRequest;
 use Illuminate\Http\Request;
 use LapayGroup\RussianPost\ParcelInfo;
 use LapayGroup\RussianPost\Providers\OtpravkaApi;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class DeliveryController extends Controller
 {
-    public function calc($orderId, $deliveryType, Request $request)
-    {
-        $toIndex = $request->get('to');
+    private $boxWeight = 300;
+    private $fromIndex = "398024";
 
-        if (!$orderId || !$toIndex || !$deliveryType) {
+    public function calcCart(Request $request)
+    {
+        $fromIndex = $this->fromIndex;
+        $toIndex = $request->input('zip');
+        $deliveryType = $request->input('delivery');
+
+        if (!$toIndex || !$deliveryType) {
             return abort(400);
         }
 
-        $fromIndex = "398024";
-        $weight    = 100;
+        Cart::restore(Auth::id());
+        $content = Cart::content();
 
-        if ($deliveryType == "courier") {
-            $price = $this->calcCdek($fromIndex, $toIndex, $weight);
-        } else if ($deliveryType == "mail") {
-            $price = $this->calcRussianPost($fromIndex, $toIndex, $weight);
-        } else {
-            return abort(400);
+        $price = 0;
+        foreach ($content as $item) {
+            $product_id = $item->id;
+
+            $product = Post::type('product')->whereId($product_id)->firstOrFail();
+
+            $weight = ($product->getOption('gravity')|| 0) + $this->boxWeight;
+            $width = ($product->getOption('width')|| 0 );
+            $height = ($product->getOption('height')|| 0 );
+            $length = ($product->getOption('length')|| 0 );
+
+            if ($deliveryType == "courier") {
+                $_price = $this->calcCdek($fromIndex, $toIndex, $weight, $width, $height, $length);
+            } else if ($deliveryType == "mail") {
+                $_price = $this->calcRussianPost($fromIndex, $toIndex, $weight);
+            } else {
+                return abort(400);
+            }
+
+            if($_price) {
+                $price += $_price;
+            }
         }
 
         return response()->json([

@@ -160,6 +160,11 @@ class ProductType extends Many
                 ->required()
                 ->title('Ширина'),
 
+            InputField::make('length')
+                ->type('number')
+                ->required()
+                ->title('Длинна'),
+
             InputField::make('height')
                 ->type('number')
                 ->required()

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Order;
 use App\Models\Post;
 use App\Models\ShopCategory;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -61,6 +62,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->where('type', 'product')
                 ->with(['attachment', 'comments.author', 'likeCounter'])
                 ->firstOrFail();
+        });
+
+        Route::bind('order', function ($value) {
+           return Order::whereId($value)->firstOrFail();
         });
 
         Route::bind('news', function ($value) {
