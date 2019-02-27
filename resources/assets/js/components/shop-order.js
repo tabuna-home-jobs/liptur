@@ -7,7 +7,10 @@ $(function () {
           payment: 'cash',
           delivery: 'courier'
         },
-        deliveryPrice: '***',
+        deliveryPrices: {
+          courier: null,
+          mail: null
+        },
         errors: {},
         aggree: false
       },
@@ -25,11 +28,14 @@ $(function () {
             return;
           }
 
+          if(this.deliveryPrices[delivery]) {
+            return;
+          }
+
           const req = await this.$http.get(`/shop/order/32423/delivery/${delivery}?to=${zip}`);
-          console.log(req);
           const price = req.body.price || '***';
 
-          this.$set(this, 'deliveryPrice', price);
+          this.$set(this.deliveryPrices, delivery, price);
         },
         async sendOrder() {
           const formData = this.formData;
