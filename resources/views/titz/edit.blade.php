@@ -78,7 +78,7 @@
             </div>
 
 
-            @foreach(config('content.locales') as $key => $value)
+            @foreach(config('press.locales') as $key => $value)
                 <h4> Сведения для туриста
                     <small class="text-danger font-thin pull-right">"{{$value['name']}}"</small>
                 </h4>

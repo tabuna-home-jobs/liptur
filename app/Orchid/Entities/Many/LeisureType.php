@@ -78,8 +78,8 @@ class LeisureType extends Many
             CreatedFilter::class,
             TitzFilter::class,
 
-            RegionFilters::class,
-            CategoryFilters::class,
+            //RegionFilters::class,
+            //CategoryFilters::class,
             //DistanceFilters::class,
         ];
     }

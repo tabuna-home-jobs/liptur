@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use App\Models\Post;
+//use Orchid\Press\Models\Post;
 
 class NewController extends Controller
 {
@@ -57,7 +58,6 @@ class NewController extends Controller
             ->orderBy('id', 'Desc')
             ->limit(2)
             ->get();
-
         return view('pages.news', [
             'new'      => $new,
             'similars' => $similars,

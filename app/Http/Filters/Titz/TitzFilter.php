@@ -5,6 +5,8 @@ namespace App\Http\Filters\Titz;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\InputField;
 
 class TitzFilter extends Filter
 {
@@ -27,5 +29,12 @@ class TitzFilter extends Filter
         }
 
         return $builder;
+    }
+
+    public function display(): Field
+    {
+        return InputField::make('titz')
+            ->type('hidden')
+            ->value('1');
     }
 }

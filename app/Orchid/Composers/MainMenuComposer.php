@@ -6,6 +6,7 @@ namespace App\Orchid\Composers;
 
 use Orchid\Platform\ItemMenu;
 use Orchid\Platform\Dashboard;
+use Illuminate\Support\Facades\Auth;
 
 class MainMenuComposer
 {
@@ -47,45 +48,46 @@ class MainMenuComposer
                 ItemMenu::setLabel('Липецкая Земля')
                     ->setSlug('about')
                     ->setIcon('icon-heart')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.news') || Auth::user()->hasAccess('platform.entities.type.people'))
                     ->setChilds(true)
-                    ->setActive(
-                        route(self::MANY, 'people') . ',' .
-                        route(self::MANY, 'news')
-                    )
             )
             ->add('about',
                 ItemMenu::setLabel('Новости')
                     ->setIcon('icon-paste')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.news'))
                     ->setRoute(route(self::MANY, 'news'))
             )
             ->add('about',
                 ItemMenu::setLabel('Известные люди')
                     ->setIcon('icon-people')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.people'))
                     ->setRoute(route(self::MANY, 'people'))
             )->add('Main',
                 ItemMenu::setLabel('Где разместиться')
                     ->setSlug('rest')
                     ->setIcon('icon-umbrella')
                     ->setChilds(true)
-                    ->setActive(
-                        route(self::MANY, 'hostel') . ',' .
-                        route(self::MANY, 'recration-center') . ',' .
-                        route(self::MANY, 'sanatorium')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.hostel')
+                        || Auth::user()->hasAccess('platform.entities.type.recration-center')
+                        || Auth::user()->hasAccess('platform.entities.type.sanatorium')
                     )
             )
             ->add('rest',
                 ItemMenu::setLabel('Гостиницы, Хостелы и т.д.')
                     ->setIcon('icon-umbrella')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.hostel'))
                     ->setRoute(route(self::MANY, 'hostel'))
             )
             ->add('rest',
                 ItemMenu::setLabel('Базы отдыха')
                     ->setIcon('icon-umbrella')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.recration-center'))
                     ->setRoute(route(self::MANY, 'recration-center'))
             )
             ->add('rest',
                 ItemMenu::setLabel('Санатории')
                     ->setIcon('icon-umbrella')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.sanatorium'))
                     ->setRoute(route(self::MANY, 'sanatorium'))
             )->add('Main',
                 ItemMenu::setLabel('Что посетить')
@@ -101,86 +103,103 @@ class MainMenuComposer
             ->add('sights',
                 ItemMenu::setLabel('Фестивали')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.festivals'))
                     ->setRoute(route(self::MANY, 'festivals'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Достопримечательности')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.monument'))
                     ->setRoute(route(self::MANY, 'monument'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Гастрономия')
                     ->setIcon('icon-cup')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.gastronomy'))
                     ->setRoute(route(self::MANY, 'gastronomy'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Православные святыни')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.shrines'))
                     ->setRoute(route(self::MANY, 'shrines'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Усадьбы')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.granges'))
                     ->setRoute(route(self::MANY, 'granges'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Музеи')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.museums'))
                     ->setRoute(route(self::MANY, 'museums'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Активный отдых')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.leisure'))
                     ->setRoute(route(self::MANY, 'leisure'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Детский отдых')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.childrest'))
                     ->setRoute(route(self::MANY, 'childrest'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Заповедные места')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.reserves'))
                     ->setRoute(route(self::MANY, 'reserves'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Парки')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.park'))
                     ->setRoute(route(self::MANY, 'park'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Выставки')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.exhibitions'))
                     ->setRoute(route(self::MANY, 'exhibitions'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Театры и дома культуры')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.arts_and_recreation'))
                     ->setRoute(route(self::MANY, 'arts_and_recreation'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Кинотеатры')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.сinema'))
                     ->setRoute(route(self::MANY, 'сinema'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Развлекальные центры')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.center'))
                     ->setRoute(route(self::MANY, 'center'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Охота')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.hunting'))
                     ->setRoute(route(self::MANY, 'hunting'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Рыбалка')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.fishing'))
                     ->setRoute(route(self::MANY, 'fishing'))
             )
             ->add('sights',
                 ItemMenu::setLabel('Пляжи')
                     ->setIcon('icon-building')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.beach'))
                     ->setRoute(route(self::MANY, 'beach'))
             )
             ->add('Main',
@@ -188,35 +207,35 @@ class MainMenuComposer
                     ->setSlug('tours')
                     ->setIcon('icon-globe-alt')
                     ->setChilds(true)
-                    ->setActive(
-                        route(self::MANY, 'tour') . ',' .
-                        route(self::MANY, 'agencie') . ',' .
-                        route(self::MANY, 'guides')
-                    )
             )
             ->add('tours',
                 ItemMenu::setLabel('Туры')
                     ->setIcon('icon-cup')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.tour'))
                     ->setRoute(route(self::MANY, 'tour'))
             )
             ->add('tours',
                 ItemMenu::setLabel('Туркомпании предлагают')
                     ->setIcon('icon-cup')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.agencie'))
                     ->setRoute(route(self::MANY, 'agencie'))
             )
             ->add('tours',
                 ItemMenu::setLabel('Путешествуем сами')
                     ->setIcon('icon-cup')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.guides'))
                     ->setRoute(route(self::MANY, 'guides'))
             )
             ->add('tours',
                 ItemMenu::setLabel('Предложения тур операторов')
                     ->setIcon('icon-cup')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.tour_operation'))
                     ->setRoute(route(self::MANY, 'tour_operation'))
             )
             ->add('tours',
                 ItemMenu::setLabel('Маршруты')
                     ->setIcon('icon-cup')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.route'))
                     ->setRoute(route(self::MANY, 'route'))
             )
             ->add('Main',
@@ -224,35 +243,41 @@ class MainMenuComposer
                     ->setSlug('events')
                     ->setIcon('icon-calendar')
                     ->setChilds(true)
-                    ->setActive(
-                        route(self::MANY, 'event_calendar') . ',' .
-                        route(self::MANY, 'competition') . ',' .
-                        route(self::MANY, 'concerts')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.event_calendar')
+                        || Auth::user()->hasAccess('platform.entities.type.competition')
+                        || Auth::user()->hasAccess('platform.entities.type.concerts')
+                        || Auth::user()->hasAccess('platform.entities.type.new_year')
+                        || Auth::user()->hasAccess('platform.entities.type.contest')
                     )
             )
             ->add('events',
                 ItemMenu::setLabel('Календарь событий')
                     ->setIcon('icon-calendar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.event_calendar'))
                     ->setRoute(route(self::MANY, 'event_calendar'))
             )
             ->add('events',
                 ItemMenu::setLabel('Соревнования')
                     ->setIcon('icon-calendar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.competition'))
                     ->setRoute(route(self::MANY, 'competition'))
             )
             ->add('events',
                 ItemMenu::setLabel('Концерты')
                     ->setIcon('icon-calendar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.concerts'))
                     ->setRoute(route(self::MANY, 'concerts'))
             )
             ->add('events',
                 ItemMenu::setLabel('Новый Год')
                     ->setIcon('icon-calendar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.new_year'))
                     ->setRoute(route(self::MANY, 'new_year'))
             )
             ->add('events',
                 ItemMenu::setLabel('Конкурсы')
                     ->setIcon('icon-calendar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.contest'))
                     ->setRoute(route(self::MANY, 'contest'))
             )
             ->add('Main',
@@ -260,50 +285,62 @@ class MainMenuComposer
                     ->setSlug('maps')
                     ->setIcon('icon-location-pin')
                     ->setChilds(true)
-                    ->setActive(
-                        route(self::MANY, 'bus-station') . ',' .
-                        route(self::MANY, 'airport') . ',' .
-                        route(self::MANY, 'bank')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.bus-station')
+                        || Auth::user()->hasAccess('platform.entities.type.airport')
+                        || Auth::user()->hasAccess('platform.entities.type.bank')
+                        || Auth::user()->hasAccess('platform.entities.type.atm')
+                        || Auth::user()->hasAccess('platform.entities.type.railway')
+                        || Auth::user()->hasAccess('platform.entities.type.refill')
+                        || Auth::user()->hasAccess('platform.entities.type.exchange')
+                        || Auth::user()->hasAccess('platform.entities.type.taxi')
                     )
             )
             ->add('maps',
                 ItemMenu::setLabel('Автовокзал')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.bus-station'))
                     ->setRoute(route(self::MANY, 'bus-station'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Аэропорт')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.airport'))
                     ->setRoute(route(self::MANY, 'airport'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Банки')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.bank'))
                     ->setRoute(route(self::MANY, 'bank'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Банкомат')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.atm'))
                     ->setRoute(route(self::MANY, 'atm'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Ж/Д вокзалы')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.railway'))
                     ->setRoute(route(self::MANY, 'railway'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Заправки')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.refill'))
                     ->setRoute(route(self::MANY, 'refill'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Обмен валюты')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.exchange'))
                     ->setRoute(route(self::MANY, 'exchange'))
             )
             ->add('maps',
                 ItemMenu::setLabel('Такси')
                     ->setIcon('icon-location-pin')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.taxi'))
                     ->setRoute(route(self::MANY, 'taxi'))
             )
             ->add('Main',
@@ -311,6 +348,7 @@ class MainMenuComposer
                     ->setSlug('shop')
                     ->setIcon('icon-basket-loaded')
                     ->setChilds(true)
+                    ->setShow(Auth::user()->hasAccess('dashboard.liptur.shop'))
                     ->setActive(
                         route(self::MANY, 'product') . ',' .
                         route(self::MANY, 'shopslider')
@@ -360,6 +398,7 @@ class MainMenuComposer
                 ItemMenu::setLabel('Инвесторам')
                     ->setSlug('investors')
                     ->setIcon('icon-dollar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.investor') || Auth::user()->hasAccess('platform.entities.type.investor-links'))
                     ->setChilds(true)
                     ->setActive(
                         route(self::MANY, 'investor') . ',' .
@@ -369,11 +408,13 @@ class MainMenuComposer
             ->add('investors',
                 ItemMenu::setLabel('Предложения инвесторам')
                     ->setIcon('icon-dollar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.investor'))
                     ->setRoute(route(self::MANY, 'investor'))
             )
             ->add('investors',
                 ItemMenu::setLabel('Наши инвесторы')
                     ->setIcon('icon-dollar')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.investor-links'))
                     ->setRoute(route(self::PAGE, ['investor-links','investor-links']))
             )
 
@@ -391,61 +432,73 @@ class MainMenuComposer
             ->add('another',
                 ItemMenu::setLabel('Главная карусель')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.carousel'))
                     ->setRoute(route(self::MANY, 'carousel'))
             )
             ->add('another',
                 ItemMenu::setLabel('Побочная карусель')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.secondary-carousel'))
                     ->setRoute(route(self::MANY, 'secondary-carousel'))
             )
             ->add('another',
                 ItemMenu::setLabel('Пресса о нас')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.press'))
                     ->setRoute(route(self::MANY, 'press'))
             )
             ->add('another',
                 ItemMenu::setLabel('Контакты в регионах')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.contact'))
                     ->setRoute(route(self::MANY, 'contact'))
             )
             ->add('another',
                 ItemMenu::setLabel('Сувениры и ремесла')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.gift_crafts'))
                     ->setRoute(route(self::MANY, 'gift_crafts'))
             )
             ->add('another',
                 ItemMenu::setLabel('Информация')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.info'))
                     ->setRoute(route(self::MANY, 'info'))
             )
             ->add('another',
                 ItemMenu::setLabel('Фото Галлерея')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.gallery'))
                     ->setRoute(route(self::MANY, 'gallery'))
             )
             ->add('another',
                 ItemMenu::setLabel('Документы')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.docs'))
                     ->setRoute(route(self::MANY, 'docs'))
             )
             ->add('another',
                 ItemMenu::setLabel('Рекламные блоки')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.advertising'))
                     ->setRoute(route(self::MANY, 'advertising'))
             )
             ->add('another',
                 ItemMenu::setLabel('Персональные данные')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.personal-data'))
                     ->setRoute(route(self::PAGE, ['personal-data','personal-data']))
             )
             ->add('another',
                 ItemMenu::setLabel('Правила сервиса')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.terms-of-service'))
                     ->setRoute(route(self::PAGE, ['terms-of-service','terms-of-service']))
             )
             ->add('another',
                 ItemMenu::setLabel('Полезные ссылки')
                     ->setIcon('icon-docs')
+                    ->setShow(Auth::user()->hasAccess('platform.entities.type.carousel-links'))
                     ->setRoute(route(self::PAGE, ['carousel-links','carousel-links']))
             )
         ;

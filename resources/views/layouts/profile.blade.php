@@ -175,7 +175,7 @@
                             </li>
 
 
-                            @if(Auth::user()->hasAccess('dashboard.index'))
+                            @if(Auth::user()->hasAccess('platform.index'))
                                 <li>
                                     <a href="{{url('/dashboard')}}" title="Коммандная панель">
                                         <i class="icon-speedometer"></i>

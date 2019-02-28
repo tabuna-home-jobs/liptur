@@ -66,7 +66,7 @@ class Post extends BasePost
      */
     public function hero()
     {
-        return optional($this->attachment->first)->url ?? '';
+        return optional($this->attachment[0])->url ?? '';
     }
 
 }

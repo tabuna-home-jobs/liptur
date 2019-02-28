@@ -84,7 +84,7 @@ class ConcertsType extends Many
             //RegionFilters::class,
             //DistanceFilters::class,
             //DateFilters::class,
-            //TitzFilter::class,
+            TitzFilter::class,
         ];
     }
 

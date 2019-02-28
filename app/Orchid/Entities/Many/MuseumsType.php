@@ -79,7 +79,7 @@ class MuseumsType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            //TitzFilter::class,
+            TitzFilter::class,
 
             //RegionFilters::class,
             //DistanceFilters::class,

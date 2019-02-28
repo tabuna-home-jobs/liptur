@@ -68,7 +68,7 @@ class GalleryType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            //TitzFilter::class,
+            TitzFilter::class,
             //CfoFilter::class,
         ];
     }
