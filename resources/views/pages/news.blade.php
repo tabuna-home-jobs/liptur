@@ -68,8 +68,7 @@
 
                                 <div class="owl-carousel owl-theme own-content">
                                     @foreach($new->attachment as $image)
-                                        {{-- dd($image->url) --}}
-                                        @if($loop->first)
+                                         @if($loop->first)
                                             <figure class="item">
                                                 <img class="img-responsive" src="{{$image->url('high')}}"
                                                      alt="{{$image->alt}}"

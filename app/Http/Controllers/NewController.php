@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use App\Models\Post;
-//use Orchid\Press\Models\Post;
 
 class NewController extends Controller
 {
