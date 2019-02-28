@@ -44,7 +44,7 @@ class CartController
 
     private function getSberbankClient() {
        return new Client([
-            'token' => 'vm82h0bfbjsdiko8sphlf2utgj',
+            'token' => config('services.sberbank.token'),
             'apiUri' => Client::API_URI_TEST,
         ]);
     }

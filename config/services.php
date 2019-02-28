@@ -75,5 +75,9 @@ return [
                 'token'         => env('OTPRAVKA_API_POCHTA_TOKEN', null)
             ]
         ]
+    ],
+
+    'sberbank' => [
+        'token' => env('SBERBANK_TOKEN', null)
     ]
 ];
