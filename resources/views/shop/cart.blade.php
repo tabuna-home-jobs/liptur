@@ -22,10 +22,18 @@
 
 <section>
   <div class="container padder-v">
-    <div class="block-header m-b-md">
+    <div class="block-header m-b-sm">
       Корзина
     </div>
     <div id="cart" v-cloak>
+      <div class="text-center  text-xl m-b-sm">
+        <a class="btn-link text-green inline m-h-sm" v-bind:class="isPurchase && 'selected'" v-on:click="changeIsPurchase(true)">
+          Товар в наличии @{{ purchaseCount }}
+        </a>
+        <a class="btn-link text-green inline m-h-sm" v-bind:class="!isPurchase && 'selected'" v-on:click="changeIsPurchase(false)">
+          Под заказ @{{ orderCount }}
+        </a>
+      </div>
       <div class="col-md-8 padder-md" id="cart-affix-target">
           <div v-for="product in products" class="row row-flex panel box-shadow-lg pos-rlt">
             <div class="col-sm-4 col-xs-12 no-padder-h">

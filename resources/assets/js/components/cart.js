@@ -22,11 +22,16 @@ $(function () {
     new Vue({
       'el': '#cart',
       data: {
-        products: localCartData.content || [],
-        total: localCartData.total || "0.00",
-        totalCount: localCartData.count || 0
+        products:  [],
+        total:  "0.00",
+        totalCount: 0,
+        purchaseCount: 0,
+        orderCount: 0,
+        data: localCartData,
+        isPurchase: true,
       },
       async mounted() {
+        this.reRender(localCartData);
         $(window).on('load resize', function () {
           reloadCartAffix();
         });
@@ -34,11 +39,49 @@ $(function () {
         this.renderData(body);
       },
       methods: {
-        renderData({total, count, content}, local) {
-          this.total = total;
-          this.totalCount = count;
-          this.products = content;
+        renderData({content, total, count}, local) {
+          this.data = {content, total, count};
+          this.reRender();
           EventBus.$emit('cart-updated', { total, count, content });
+        },
+
+        changeIsPurchase(value) {
+          this.$set(this, 'isPurchase', value);
+          this.reRender();
+        },
+
+        reRender() {
+          const {content = {}} = this.data || {};
+          const {total, totalCount, products, purchaseCount, orderCount} =
+              Object.keys(content).reduce((acc, key) => {
+                const {total, totalCount, products, purchaseCount, orderCount} = acc
+                const product = content[key];
+
+                const qty = parseInt(product.qty) || 0;
+
+                const _purchaseCount = product.qty > 1 ? purchaseCount: purchaseCount + qty;
+                const _orderCount = product.qty > 1 ? orderCount + qty: orderCount;
+
+                if(product.qty > 1 && !this.isPurchase || product.qty < 2 && this.isPurchase) {
+                  return {
+                    total: total + product.subtotal,
+                    totalCount: totalCount + qty,
+                    products: [...products, product],
+                    purchaseCount: _purchaseCount,
+                    orderCount: _orderCount
+                  }
+                }
+                return {
+                  ...acc,
+                  purchaseCount: _purchaseCount,
+                  orderCount: _orderCount
+                };
+              }, {total: 0, totalCount: 0, products: [], purchaseCount: 0, orderCount: 0});
+          this.total = total;
+          this.totalCount = totalCount;
+          this.products = products;
+          this.orderCount = orderCount;
+          this.purchaseCount = purchaseCount;
         },
 
         formatPrice(value) {
