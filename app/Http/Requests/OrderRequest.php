@@ -31,7 +31,7 @@ class OrderRequest extends FormRequest
             'phone'    => 'sometimes|required|max:255',
             'delivery' => 'required|in:mail,courier',
             'comment'  => 'sometimes',
-            'payment'  => 'required|in:cash',
+            'payment'  => 'required|in:cash,card,cashless',
         ];
     }
 }

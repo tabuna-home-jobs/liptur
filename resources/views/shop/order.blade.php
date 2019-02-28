@@ -14,7 +14,7 @@
                         'route' => route('shop.cart'),
                         'name' => 'Корзина',
                 ],
-                'current' => 'Оформление заказа' ]
+                'current' => $purchase ? 'Оформление покупки': 'Оформление заказа' ]
         ])
 @endsection
 
@@ -26,9 +26,10 @@
 <section>
   <div class="container padder-v">
     <div class="block-header m-b-xxl">
-      Оформление заказа
+      {{$purchase ? 'Оформление покупки': 'Оформление заказа'}}
     </div>
     <div id="shop-order" v-cloak>
+      @if ($purchase)
         <div class="row">
           <div class="col-md-8">
             <div class="row">
@@ -78,6 +79,7 @@
             </em>
           </div>
         </div>
+        @endif
       
         @if (Auth::guest()) 
             <div class="row m-h-none">     
@@ -190,7 +192,7 @@
                           name="message" required  v-model="formData.message"></textarea>
             </div>
             <div class="form-group flex-item-bootom">
-                <button :disabled="!aggree" v-on:click="sendOrder()" class="btn btn-success text-u-c w-full">Заказать</button>
+                <button :disabled="!aggree" v-on:click="sendOrder({{$purchase}})" class="btn btn-success text-u-c w-full">Заказать</button>
             </div>
           </div>
         </div>

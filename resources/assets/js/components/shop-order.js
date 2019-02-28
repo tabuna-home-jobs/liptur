@@ -40,7 +40,7 @@ $(function () {
 
           this.$set(this.deliveryPrices, delivery, price);
         },
-        async sendOrder() {
+        async sendOrder(purchase) {
           const formData = this.formData;
           
           if(!this.aggree) {
@@ -48,7 +48,7 @@ $(function () {
           }
 
           try {
-            await this.$http.post('/api/cart/order', {
+            const res = await this.$http.post(`/api/cart/${purchase ? 'purchase' : order}`, {
               email: formData.email || '',
               name: formData.first_name || formData.last_name ? `${formData.first_name||''} ${formData.last_name||''}`: null,
               phone: formData.phone || '',
@@ -59,15 +59,20 @@ $(function () {
               delivery: formData.delivery || '',
               payment: formData.payment || '',
             });
-            swal({
-              title: "Выполнено успешно",
-              text: "Ваш заказ создан!",
-              type: "success",
-              confirmButtonClass: "btn-success",
-              confirmButtonText: "Перейти на главную страницу",
-            }, function () {
-              window.location.href = '/shop';
-            });
+
+            if(res.headers.map.location) {
+              window.open(res.headers.map.location, '_blank');
+            } else {
+              swal({
+                title: "Выполнено успешно",
+                text: "Ваш заказ создан!",
+                type: "success",
+                confirmButtonClass: "btn-success",
+                confirmButtonText: "Перейти на главную страницу",
+              }, function () {
+                // window.location.href = '/shop';
+              });
+            }
           } catch (e) {
             if(e.body.errors) {
               this.$set(this, 'errors', e.body.errors)

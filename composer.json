@@ -27,6 +27,7 @@
     "roumen/feed": "~2.10",
     "rtconner/laravel-likeable": "~1.2",
     "sanmai/cdek-sdk": "^0.6.15",
+    "voronkovich/sberbank-acquiring-client": "^2.3",
     "willvincent/laravel-rateable": "~1.0"
   },
   "require-dev": {

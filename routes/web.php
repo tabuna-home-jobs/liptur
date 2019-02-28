@@ -199,5 +199,6 @@ $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
     $this->get('/products', 'ShopController@newsproducts')->name('shop.newsproducts');
     $this->get('/cart', 'ShopController@cart')->name('shop.cart');
     $this->get('/order', 'ShopController@order')->name('shop.order');
+    $this->get('/purchase', 'ShopController@purchase')->name('shop.purchase');
     $this->get('/', 'ShopController@index')->name('shop');
 });

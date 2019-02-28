@@ -224,6 +224,19 @@ class ShopController extends Controller
      */
     public function order(): View
     {
-        return view('shop.order');
+        return view('shop.order', [
+            'purchase' => false
+        ]);
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function purchase(): View
+    {
+        return view('shop.order', [
+            'purchase' => true
+        ]);
     }
 }

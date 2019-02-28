@@ -92,7 +92,8 @@
                 <span class="text-md">На сумму:&nbsp;</span><em class="text-green text-35px">@{{ formatPrice(total) }}</em>&nbsp;<em class="text-green text-md">руб.</em>
               </div>
             </div>
-            <a href="{{route('shop.order')}}" class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</a>
+            <a v-if="isPurchase" href="{{route('shop.purchase')}}" class="btn btn-success w-full m-t">КУПИТЬ</a>
+            <a v-if="!isPurchase" href="{{route('shop.order')}}" class="btn btn-success w-full m-t">ОФОРМИТЬ ЗАКАЗ</a>
           </div>
           <div class="pos-rlt wrapper-md">
             <div class="row">
