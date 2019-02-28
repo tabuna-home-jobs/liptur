@@ -19,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Dashboard $dashboard)
     {
         View::composer('dashboard::layouts.dashboard', MenuComposer::class);
+        Dashboard::useModel(\Orchid\Press\Models\Post::class,\App\Models\Post::class);
         Paginator::useBootstrapThree();
         $dashboard->registerPermissions($this->registerPermissions());
     }

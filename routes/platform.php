@@ -65,7 +65,6 @@ $this->screen('shop/category', ShopCategoryListScreen::class)->name('platform.sh
 
 
 
-
 $this->screen('shop/product-arrival', ProductArrivalList::class)->name('dashboard.liptur.shop.product-arrival.list');
 
 

@@ -73,11 +73,11 @@
 
                     <article class="col-md-4 padder-v news">
                         <div class="panel panel-default box-shadow-lg" data-mh="main-news">
-
                             <div data-mh="main-news-img">
                                 <div class="news-date">
                                     {{$new->publish_at->formatLocalized("%d %b")}}
                                 </div>
+                                {{-- dd($new->hero('medium')) --}}
                                 <a href="{{route('new',[$new->slug])}}">
                                     <img
                                         src="{{$new->hero('medium') ?? '/img/no-image.jpg'}} "

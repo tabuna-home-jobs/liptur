@@ -80,12 +80,12 @@ class RouteType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            //TitzFilter::class,
+            TitzFilter::class,
 
            //CategoryFilters::class,
             //RegionFilters::class,
             //DistanceFilters::class,
-            //TitzFilter::class,
+            TitzFilter::class,
         ];
     }
 

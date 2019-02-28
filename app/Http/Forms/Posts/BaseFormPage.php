@@ -30,7 +30,7 @@ class BaseFormPage extends Form
             'author'   => (is_null($page)) ? $page : $page->getUser(),
             'post'     => $page,
             'language' => App::getLocale(),
-            'locales'  => config('content.locales'),
+            'locales'  => config('press.locales'),
             'type'     => $page->getBehaviorObject($page->slug),
         ]);
     }

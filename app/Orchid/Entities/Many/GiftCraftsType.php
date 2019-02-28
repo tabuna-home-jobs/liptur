@@ -63,7 +63,7 @@ class GiftCraftsType extends Many
     public function filters(): array
     {
         return [
-            //TitzFilter::class,
+            TitzFilter::class,
         ];
     }
 

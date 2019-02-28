@@ -79,7 +79,7 @@ class ExhibitionsType extends Many
             //CategoryFilters::class,
             //DistanceFilters::class,
             //DateFilters::class,
-            //TitzFilter::class,
+            TitzFilter::class,
         ];
     }
 

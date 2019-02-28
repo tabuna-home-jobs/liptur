@@ -15,11 +15,11 @@ class UpdateNewOrchid extends Migration
     public function up()
     {
 
-        DB::statement('UPDATE `attachmentable` SET `attachmentable_type` = \'Orchid\\Press\\Models\\Post\'  WHERE `attachmentable_type` LIKE \'Orchid\\Platform\\Core\\Models\\Post\' ');
-        DB::statement('UPDATE `tagged` SET `taggable_type` = \'Orchid\\Press\\Models\\Post\'  WHERE `taggable_type` LIKE \'Orchid\\Foundation\\Core\\Models\\Post\' ');
-        DB::statement('UPDATE `tagged` SET `taggable_type` = \'Orchid\\Press\\Models\\Post\'  WHERE `taggable_type` LIKE \'Orchid\\Platform\\Core\\Models\\Post\' ');
-        DB::statement('UPDATE `tags` SET `namespace` = \'Orchid\\Press\\Models\\Post\'  WHERE `namespace` LIKE \'Orchid\\Foundation\\Core\\Models\\Post\' ');
-        DB::statement('UPDATE `tags` SET `namespace` = \'Orchid\\Press\\Models\\Post\'  WHERE `namespace` LIKE \'Orchid\\Platform\\Core\\Models\\Post\' ');
+        DB::statement('UPDATE `attachmentable` SET `attachmentable_type` = \'App\\Models\\Post\'  WHERE `attachmentable_type` LIKE \'Orchid\\\\Platform\\\\Core\\\\Models\\\\Post\' ');
+        DB::statement('UPDATE `tagged` SET `taggable_type` = \'App\\Models\\Post\'  WHERE `taggable_type` LIKE \'Orchid\\\\Foundation\\\\Core\\\\Models\\\\Post\' ');
+        DB::statement('UPDATE `tagged` SET `taggable_type` = \'App\\Models\\Post\'  WHERE `taggable_type` LIKE \'Orchid\\\\Platform\\\\Core\\\\Models\\\\Post\' ');
+        DB::statement('UPDATE `tags` SET `namespace` = \'App\\Models\\Post\'  WHERE `namespace` LIKE \'Orchid\\\\Foundation\\\\Core\\\\Models\\\\Post\' ');
+        DB::statement('UPDATE `tags` SET `namespace` = \'App\\Models\\Post\'  WHERE `namespace` LIKE \'Orchid\\\\Platform\\\\Core\\\\Models\\\\Post\' ');
 
 
 
