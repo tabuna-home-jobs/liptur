@@ -41,7 +41,8 @@
       "files": [
         "app/Helpers/Str.php",
         "app/Helpers/Page.php",
-        "app/Helpers/Dashboard.php"
+        "app/Helpers/Dashboard.php",
+        "app/Helpers/Cart.php"
       ],
         "classmap": [
             "database/seeds",

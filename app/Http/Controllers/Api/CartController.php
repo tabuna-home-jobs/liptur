@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Http\Requests\OrderRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -16,26 +17,6 @@ use Voronkovich\SberbankAcquiring\OrderStatus;
 
 class CartController
 {
-    private function getCartContent($cartContent, $isPurchase) {
-        $content = [];
-        $total = 0;
-        $count = 0;
-
-        foreach ($cartContent as $item) {
-            if($isPurchase && $item->qty == 1 || !$isPurchase && $item->qty > 1) {
-                $content[] = $item;
-                $total += $item->qty * $item->price;
-                $count += $item->qty;
-            }
-        }
-
-        return [
-            "content" => $content,
-            "total" => $total,
-            "count" => $count,
-        ];
-    }
-
     private function clearRows($rows) {
         foreach ($rows as $row) {
             Cart::remove($row->row_id);
@@ -151,7 +132,12 @@ class CartController
             Auth::login($user);
         }
 
-        $cartContent = $this->getCartContent(Cart::content(), true);
+        $cartContent = get_cart_content(Cart::content(), true);
+
+        $toIndex =  $request->get('zip');
+        $deliveryType = $request->get('delivery');
+
+        $deliveryPrice = calcDeliveryCart($toIndex, $deliveryType, true);
 
 
         $order = Order::create([
@@ -159,10 +145,12 @@ class CartController
             'slug'    => strtoupper(str_random(8)),
             'options' => [
                 'payment'  => $request->get('payment'),
-                'delivery' => $request->get('delivery'),
+                'delivery' => $deliveryType,
+                'zip'      => $toIndex,
                 'message'  => $request->get('message'),
                 'content'  => $cartContent['content'],
                 'total'    => $cartContent['total'],
+                'delivery_price'    => $deliveryPrice,
                 'count'    => $cartContent['count'],
                 'status'   => 'new',
             ],
@@ -171,37 +159,52 @@ class CartController
         //$order->slug=$order->id.''.strtoupper(str_random(8));
         //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
 
-        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
-            //$m->from('sender@test.com', 'Sender');
-            $message->to(setting('shop_admin_email'), 'Администратор')
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
+//        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
+//            //$m->from('sender@test.com', 'Sender');
+//            $message->to(setting('shop_admin_email'), 'Администратор')
+//                ->subject('Новый заказ на сайте Liptur.ru');
+//        });
+//
+//        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
+//            $message->to($order->user()->first()->email, $order->user()->first()->name)
+//                ->subject('Новый заказ на сайте Liptur.ru');
+//        });
 
-        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
-            $message->to($order->user()->first()->email, $order->user()->first()->name)
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
         if($request->get('payment') === 'card' && $cartContent['total'] > 0) {
-            return $this->createSberbankOrder($order->id, $cartContent['total'] * 100);
+            return $this->createSberbankOrder($order->id, ($cartContent['total'] + $deliveryPrice) * 100);
         }
-
-        $this->clearRows($cartContent['content']);
+//        $this->clearRows($cartContent['content']);
 
         return response(200);
     }
 
-    public function payedOrder(Order $order)
+    public function payedOrder(Order $order, Request $request)
     {
+        $sberOrderId = $request->get('orderId');
+
         $client = $this->getSberbankClient();
 
-        $result = $client->getOrderStatus($order->id);
+        $result = $client->getOrderStatus($sberOrderId);
+
+        if($result['orderNumber'] != $order->id) {
+            return abort(404);
+        }
+
 
         if (OrderStatus::isDeposited($result['orderStatus'])) {
-            echo "Order #$order->id is deposited!";
+            $options = $order->options;
+            $options['status'] = 'payed';
+            $order->options = $options;
+            $order->save();
+            return view('pages.orderPayed', [
+                'message' => "Ваша покупка оплачена"
+            ]);
         }
 
         if (OrderStatus::isDeclined($result['orderStatus'])) {
-            echo "Order #$order->id was declined!";
+            return view('pages.orderPayed', [
+                'message' => "Не удалось оплатить покупку"
+            ]);
         }
     }
 
@@ -225,7 +228,7 @@ class CartController
             Auth::login($user);
         }
 
-        $cartContent = $this->getCartContent(Cart::content(), false);
+        $cartContent = get_cart_content(Cart::content(), false);
 
         $order = Order::create([
             'user_id' => Auth::id(),

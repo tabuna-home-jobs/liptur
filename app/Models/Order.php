@@ -19,6 +19,7 @@ class Order extends Model
     public $ordervar = [
         'status' => [
             'new'        => 'Новый',
+            'payed'        => 'Оплачен',
             'inwork'     => 'В работе',
             'indelivery' => 'В доставке',
             'delivered'  => 'Доставлен',

@@ -24594,10 +24594,11 @@ $(function () {
               message: formData.message || '',
               delivery: formData.delivery || '',
               payment: formData.payment || '',
+              zip: formData.zip || '',
             });
 
             if(res.headers.map.location) {
-              window.open(res.headers.map.location, '_blank');
+              window.open(res.headers.map.location);
             } else {
               swal({
                 title: "Выполнено успешно",
