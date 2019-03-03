@@ -67,8 +67,19 @@ class CartController
 
         $cartContent = get_cart_content(Cart::content(), $is_purchase);
 
+        // проверка на пустоту корзины
         if($cartContent['count'] === 0) {
             return abort(400);
+        }
+
+        // проверка наличия товаров
+        foreach ($cartContent['content'] as $item) {
+            $product = Post::type('product')->whereId($item->id)->firstOrFail();
+            $count = $product->options['count'] ?? 0;
+
+            if($count < $item->qty) {
+                return abort(400);
+            }
         }
 
         $order = Order::create([
