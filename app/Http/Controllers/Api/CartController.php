@@ -42,7 +42,7 @@ class CartController
 
         $paymentFormUrl = $result['formUrl'];
 
-        header('Location: ' . $paymentFormUrl);
+         return response(200, ['redirect' => $paymentFormUrl]);
     }
 
     /**

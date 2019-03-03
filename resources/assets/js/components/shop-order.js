@@ -61,8 +61,9 @@ $(function () {
               zip: formData.zip || '',
             });
 
-            if(res.headers.map.location) {
-              window.location.href = res.headers.map.location;
+            if(res.body.redirect) {
+              console.log(res);
+              window.location.href = res.body.redirect;
             } else {
               swal({
                 title: "Выполнено успешно",
