@@ -62,7 +62,7 @@ $(function () {
             });
 
             if(res.headers.map.location) {
-              window.open(res.headers.map.location);
+              window.location.href = res.headers.map.location;
             } else {
               swal({
                 title: "Выполнено успешно",
@@ -71,7 +71,7 @@ $(function () {
                 confirmButtonClass: "btn-success",
                 confirmButtonText: "Перейти на главную страницу",
               }, function () {
-                // window.location.href = '/shop';
+                window.location.href = '/shop';
               });
             }
           } catch (e) {
