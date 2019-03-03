@@ -13,3 +13,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="msapplication-starturl" content="/">
 @endpush
+
+<p class="h2 n-m font-thin v-center">
+  <img src="https://liptur.ru/img/new-logo.png" class="img-fluid">
+</p>
