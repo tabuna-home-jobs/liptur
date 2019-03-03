@@ -42,7 +42,7 @@ class CartController
 
         $paymentFormUrl = $result['formUrl'];
 
-         return response(200, ['redirect' => $paymentFormUrl]);
+         return response(200)->json(['redirect' => $paymentFormUrl]);
     }
 
     /**
