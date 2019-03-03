@@ -14,9 +14,9 @@ class UpdateOrchidRoute extends Migration
      */
     public function up()
     {
-        Schema::table('term_taxonomy', function (Blueprint $table) {
+       /* Schema::table('term_taxonomy', function (Blueprint $table) {
             $table->unsignedInteger('parent_id')->nullable();
-        });
+        });*/
 
         DB::statement('UPDATE `term_taxonomy` SET `parent_id`= NULL WHERE `parent_id`= 0');
 
