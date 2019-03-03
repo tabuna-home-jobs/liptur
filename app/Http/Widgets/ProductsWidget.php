@@ -23,7 +23,6 @@ class ProductsWidget extends Widget
         $query = Post::type('product')
             ->select('id', 'content->ru->title as text', 'slug')
             ->where('status', '<>', 'hidden')
-            ->where('options->count', '>', 0)
         ;
 
         if(!empty($this->query)) {
