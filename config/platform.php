@@ -97,7 +97,7 @@ return [
     */
 
     'template' => [
-        'header' => 'platform::layouts.header',
+        'header' => 'dashboard.logo',
         'footer' => 'platform::layouts.footer',
     ],
 
