@@ -19,7 +19,7 @@ class CartController
 {
     private function clearRows($rows) {
         foreach ($rows as $row) {
-            Cart::remove($row->row_id);
+            Cart::remove($row->rowId);
         }
     }
 
@@ -43,6 +43,67 @@ class CartController
         $paymentFormUrl = $result['formUrl'];
 
         header('Location: ' . $paymentFormUrl);
+    }
+
+    /**
+     * @param $request
+     * @param bool $is_purchase
+     * @param float $delivery_price
+     * @return Order
+     */
+    private function createOrder($request,  bool $is_purchase = false, float $delivery_price = null): Order {
+        if (Auth::check()) {
+            Cart::restore(Auth::id());
+        } else {
+            $user = User::create([
+                'name'     => $request->get('name'),
+                'email'    => $request->get('email'),
+                'password' => Hash::make($request->get('password')),
+                'phone'    => $request->get('name'),
+            ]);
+
+            Auth::login($user);
+        }
+
+        $cartContent = get_cart_content(Cart::content(), $is_purchase);
+
+        if($cartContent['count'] === 0) {
+            return abort(400);
+        }
+
+        $order = Order::create([
+            'user_id' => Auth::id(),
+            'slug'    => strtoupper(str_random(8)),
+            'options' => [
+                'payment'  => $request->get('payment'),
+                'zip'     => $request->get('zip'),
+                'delivery' => $request->get('delivery'),
+                'delivery_price' => $delivery_price,
+                'message'  => $request->get('message'),
+                'content'  => $cartContent['content'],
+                'total'    => $cartContent['total'],
+                'count'    => $cartContent['count'],
+                'status'   => 'new',
+            ],
+        ]);
+
+        //$order->slug=$order->id.''.strtoupper(str_random(8));
+        //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
+
+        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
+            //$m->from('sender@test.com', 'Sender');
+            $message->to(setting('shop_admin_email'), 'Администратор')
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
+
+        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
+            $message->to($order->user()->first()->email, $order->user()->first()->name)
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
+
+        $this->clearRows($cartContent['content']);
+
+        return $order;
     }
 
     /**
@@ -119,68 +180,49 @@ class CartController
 
     public function purchase(OrderRequest $request)
     {
-        if (Auth::check()) {
-            Cart::restore(Auth::id());
-        } else {
-            $user = User::create([
-                'name'     => $request->get('name'),
-                'email'    => $request->get('email'),
-                'password' => Hash::make($request->get('password')),
-                'phone'    => $request->get('name'),
-            ]);
-
-            Auth::login($user);
-        }
-
-        $cartContent = get_cart_content(Cart::content(), true);
-
         $toIndex =  $request->get('zip');
         $deliveryType = $request->get('delivery');
-
         $deliveryPrice = calcDeliveryCart($toIndex, $deliveryType, true);
 
+        $order = $this->createOrder($request, true, $deliveryPrice);
 
-        $order = Order::create([
-            'user_id' => Auth::id(),
-            'slug'    => strtoupper(str_random(8)),
-            'options' => [
-                'payment'  => $request->get('payment'),
-                'delivery' => $deliveryType,
-                'zip'      => $toIndex,
-                'message'  => $request->get('message'),
-                'content'  => $cartContent['content'],
-                'total'    => $cartContent['total'],
-                'delivery_price'    => $deliveryPrice,
-                'count'    => $cartContent['count'],
-                'status'   => 'new',
-            ],
-        ]);
+        $options = $order->options;
+        $options['delivery_price'] = $deliveryPrice;
+        $order->options = $options;
 
-        //$order->slug=$order->id.''.strtoupper(str_random(8));
-        //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
+        $order->save();
 
-        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
-            //$m->from('sender@test.com', 'Sender');
-            $message->to(setting('shop_admin_email'), 'Администратор')
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
 
-        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
-            $message->to($order->user()->first()->email, $order->user()->first()->name)
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
-
-        if($request->get('payment') === 'card' && $cartContent['total'] > 0) {
-            return $this->createSberbankOrder($order->id, ($cartContent['total'] + $deliveryPrice) * 100);
+        if($request->get('payment') === 'card' && $order->options['total'] > 0) {
+            return $this->createSberbankOrder($order->id, ($order->options['total'] + $deliveryPrice) * 100);
         }
-
-        $this->clearRows($cartContent['content']);
 
         return response(200);
     }
 
+    /**
+     * @param \App\Http\Requests\OrderRequest $request
+     *
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function order(OrderRequest $request)
+    {
+        $this->createOrder($request);
+
+        return response(200);
+    }
+
+    /**
+     * @param Order $order
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|void
+     */
     public function payedOrder(Order $order, Request $request)
     {
+        if($order->options['status'] === 'payed') {
+            return abort(404);
+        }
+
         $sberOrderId = $request->get('orderId');
 
         $client = $this->getSberbankClient();
@@ -207,60 +249,5 @@ class CartController
                 'message' => "Не удалось оплатить покупку"
             ]);
         }
-    }
-
-    /**
-     * @param \App\Http\Requests\OrderRequest $request
-     *
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
-     */
-    public function order(OrderRequest $request)
-    {
-        if (Auth::check()) {
-            Cart::restore(Auth::id());
-        } else {
-            $user = User::create([
-                'name'     => $request->get('name'),
-                'email'    => $request->get('email'),
-                'password' => Hash::make($request->get('password')),
-                'phone'    => $request->get('name'),
-            ]);
-
-            Auth::login($user);
-        }
-
-        $cartContent = get_cart_content(Cart::content(), false);
-
-        $order = Order::create([
-            'user_id' => Auth::id(),
-            'slug'    => strtoupper(str_random(8)),
-            'options' => [
-                'payment'  => $request->get('payment'),
-                'delivery' => $request->get('delivery'),
-                'message'  => $request->get('message'),
-                'content'  => $cartContent['content'],
-                'total'    => $cartContent['total'],
-                'count'    => $cartContent['count'],
-                'status'   => 'new',
-            ],
-        ]);
-
-        //$order->slug=$order->id.''.strtoupper(str_random(8));
-        //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
-
-        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
-            //$m->from('sender@test.com', 'Sender');
-            $message->to(setting('shop_admin_email'), 'Администратор')
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
-
-        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
-            $message->to($order->user()->first()->email, $order->user()->first()->name)
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
-
-        $this->clearRows($cartContent['content']);
-
-        return response(200);
     }
 }

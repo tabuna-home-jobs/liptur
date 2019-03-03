@@ -48,7 +48,7 @@ $(function () {
           }
 
           try {
-            const res = await this.$http.post(`/api/cart/${purchase ? 'purchase' : order}`, {
+            const res = await this.$http.post(`/api/cart/${purchase ? 'purchase' : 'order'}`, {
               email: formData.email || '',
               name: formData.first_name || formData.last_name ? `${formData.first_name||''} ${formData.last_name||''}`: null,
               phone: formData.phone || '',

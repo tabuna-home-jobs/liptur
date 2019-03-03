@@ -338,7 +338,7 @@
                                     font-weight: 700;">Заказ:</span>
                             </td>
                         </tr>
-                    @foreach ($order->options['content'] as $item) 
+                    @foreach ($order->options['content'] as $item)
                         <tr>
                             <td align="center" valign="top"
                                 style="font-size:13px; padding: 20px 0; border-top: 1px solid #eee">

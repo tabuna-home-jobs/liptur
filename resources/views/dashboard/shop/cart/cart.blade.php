@@ -22,10 +22,23 @@
                     </div>
                 </div>
             @endforeach
-            
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <h5>Итого: {{$order->options['total']}} рублей.</h5>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <h5>Доставка: {{$order->options['delivery_price']??0}} рублей.</h5>
+                    </div>
+                </div>
+
+
                 <div class="row mt-4">
                     <div class="col-md-12">
-                        <h3>Итого: {{$order->options['total']}} рублей.</h3>
+                        <h3>Итого с доставкой: {{$order->options['total'] + ($order->options['delivery_price']??0)}} рублей.</h3>
                     </div>
                 </div>
             </div>

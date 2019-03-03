@@ -8,6 +8,8 @@ use App\Models\Term;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Gloudemans\Shoppingcart\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {

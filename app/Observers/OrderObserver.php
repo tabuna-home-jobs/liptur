@@ -10,7 +10,7 @@ use App\Models\Post;
  */
 class OrderObserver
 {
-    private $negative_statuses = ["inwork", "indelivery", "delivered"];
+    private $negative_statuses = ["payed", "inwork", "indelivery", "delivered"];
 
     /**
      * @param String $status

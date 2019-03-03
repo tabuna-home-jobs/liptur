@@ -32,6 +32,7 @@ class OrderRequest extends FormRequest
             'delivery' => 'required|in:mail,courier',
             'comment'  => 'sometimes',
             'payment'  => 'required|in:cash,card,cashless',
+            'zip'      => 'required|integer'
         ];
     }
 }

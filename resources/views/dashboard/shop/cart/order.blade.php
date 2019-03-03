@@ -27,6 +27,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
+                        <p>Индекс:</p>
+                    </div>
+                    <div class="col-md-8">
+                        <h5>{{$order->options['zip'] ?? 'не указан'}}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
                         <p>Способ оплаты:</p>
                     </div>
                     <div class="col-md-8">

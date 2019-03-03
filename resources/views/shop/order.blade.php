@@ -167,7 +167,7 @@
             </div>
 
               <div class="form-group m-t-sm">
-                  <label class="text-sm text-left">Индекс:</label>
+                  <label class="text-sm text-left">Индекс <span class="text-red">*</span> :</label>
                   <input type="text" name="zip" autofocus class="form-control"
                          maxlength="6"
                          v-model="formData.zip"

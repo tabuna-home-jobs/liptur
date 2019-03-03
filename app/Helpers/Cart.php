@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Auth;
  * @return array
  */
 function get_cart_content($cartContent, $isPurchase) {
-    $content = [];
+    $content = collect([]);
     $total = 0;
     $count = 0;
 
     foreach ($cartContent as $item) {
         if($isPurchase && $item->qty == 1 || !$isPurchase && $item->qty > 1) {
-            $content[] = $item;
+            $content->push($item);
             $total += $item->qty * $item->price;
             $count += $item->qty;
         }
@@ -103,6 +103,7 @@ function calcCdek($fromIndex, $toIndex, $weight, $width, $height, $length)
 
     $client   = new \CdekSDK\CdekClient(config("services.cdek.account"), config('services.cdek.password'));
     $response = $client->sendCalculationRequest($cdek_request);
+
     return $response->getPrice();
 }
 
