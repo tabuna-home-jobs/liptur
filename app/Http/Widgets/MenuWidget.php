@@ -42,6 +42,11 @@ class MenuWidget extends Widget
      */
     public function handler($arrmenu = 'header')
     {
+        //'shop-footer','footer-menu'
+        //'shop-header','mobile'
+        //'shop-header','modal-menu'
+        //'shop-header'
+
         if (is_array($arrmenu)) {
             $this->typemenu = $arrmenu[0];
             $this->view = $arrmenu[1];
@@ -49,9 +54,7 @@ class MenuWidget extends Widget
             $this->typemenu = $arrmenu;
             $this->view = 'menu';
         }
-        //$this->typemenu = $typemenu;
-        //$this->view = 'menu';
-        //dd($this->typemenu);
+
         $this->menu = Cache::remember($this->view.'-'.$this->typemenu.'-'.App::getLocale(), Carbon::now()->addHour(), function () {
             return Menu::where('lang', App::getLocale())
                 ->where('parent', 0)
@@ -60,11 +63,33 @@ class MenuWidget extends Widget
                 ->get();
         });
 
-        //dd($this->menu);
-        //$this->chunk = ceil($this->menu->count() / 4);
+
+        if ($this->view=='modal-menu') {
+            $menuitem = \Cache::remember($this->view.'-'.$this->typemenu.'-'.App::getLocale().'-modal-menuitem', Carbon::now()->addHour(), function () {
+                return view('partials.widgets.menu.modal-menuitem', [
+                    'menu'  => $this->menu,
+                ])->render();
+            });
+        } elseif ($this->view=='footer-menu') {
+            $menuitem = \Cache::remember($this->view.'-'.$this->typemenu.'-'.App::getLocale().'-footer-menuitem', Carbon::now()->addHour(), function () {
+                return view('partials.widgets.menu.footer-menuitem', [
+                    'menu'  => $this->menu,
+                ])->render();
+            });
+        } else {
+            $menuitem = \Cache::remember($this->view.'-'.$this->typemenu.'-'.App::getLocale().'-menuitem', Carbon::now()->addHour(), function () {
+                return view('partials.widgets.menu.menuitem', [
+                    'menu'  => $this->menu,
+                ])->render();
+            });
+        }
+
+
+
 
         return view('partials.widgets.menu.'.$this->view.'-'.$this->typemenu, [
             'menu'  => $this->menu,
+            'menuitem' => $menuitem,
         ]);
     }
 }

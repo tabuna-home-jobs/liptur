@@ -1,6 +1,7 @@
 @php
-    $images = Orchid\Press\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
-    //dd ($images->alt);
+    $images = Cache::remember('partials-shop-index-ad-carousel-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () {
+        return Orchid\Press\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
+    });
 @endphp
 
 <div class="bg-white padder-v" id="ad-carousel">
@@ -18,7 +19,7 @@
         @foreach ($images as $image)
             <figure class="item">
               <a href="{{$image->alt}}" class="btn-opacity block">
-                <img class="owl-lazy img-responsive" data-src="{{$image->url('high')}}" title="{{$image->description}}">
+                <img class="owl-lazy img-responsive" data-src="/image/high{{$image->url()}}" title="{{$image->description}}">
               </a>
             </figure>
         @endforeach

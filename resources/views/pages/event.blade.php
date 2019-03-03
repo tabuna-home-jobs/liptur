@@ -83,11 +83,11 @@
                                         <div class="pos-rlt">
                                             <div class="item-overlay bg-black-opacity r r-2x">
                                                 <div class="center text-center m-t-n w-full">
-                                                    <a data-fancybox="gallery" href="{{$image->url('original')}}"><i
+                                                    <a data-fancybox="gallery" href="/image/original{{$image->url()}}"><i
                                                                 class="fa fa-2x fa-eye text-white"></i></a>
                                                 </div>
                                             </div>
-                                            <img src="{{$image->url('medium')}}"
+                                            <img src="/image/medium{{$image->url()}}"
                                                  alt="{{$image->alt}}"
                                                  class="img-full img-post r r-2x">
                                         </div>

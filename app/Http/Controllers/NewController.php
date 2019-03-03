@@ -20,18 +20,25 @@ class NewController extends Controller
         if ($request->has('date')) {
             $date = Carbon::parse($request->date);
             $hasdate= true;
-            $news = Post::published()->where('type', 'news')
-                ->whereNotNull('options->locale->'.App::getLocale())
-                ->whereDate('publish_at', $date->format('Y-m-d'))
-                ->orderBy('publish_at', 'DESC')
-                ->get();
+            $news =   \Cache::remember('new-controller-index-'.$date->format('Y-m-d').'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($date) {
+                return Post::published()
+                    ->where('type', 'news')
+                    ->whereNotNull('options->locale->' . App::getLocale())
+                    ->whereDate('publish_at', $date->format('Y-m-d'))
+                    ->orderBy('publish_at', 'DESC')
+                    ->get();
+            });
+
         } else {
             $date = Carbon::now();
             $hasdate= false;
-            $news = Post::published()->where('type', 'news')
-                ->whereNotNull('options->locale->'.App::getLocale())
-                ->orderBy('publish_at', 'DESC')
-                ->paginate(14);
+            $news =   \Cache::remember('new-controller-index-'.$date->format('Y-m-d').'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($date) {
+                return Post::published()
+                    ->where('type', 'news')
+                    ->whereNotNull('options->locale->' . App::getLocale())
+                    ->orderBy('publish_at', 'DESC')
+                    ->paginate(14);
+            });
         }
         return view('listings.news', [
             'news' => $news,
@@ -48,19 +55,24 @@ class NewController extends Controller
      */
     public function show(Post $new)
     {
-        $tags = Post::select('id')->find($new->id)->tags->implode('slug', ', ');
+        $similars =   \Cache::remember('new-controller-show-'.$new->id, \Carbon\Carbon::now()->addHour(), function () use ($new) {
+            $tags = $new->tags->implode('slug', ', ');
 
-        $similars = Post::withTag($tags)
-            ->published()
-            ->where('type', 'news')
-            ->where('id', '!=', $new->id)
-            ->orderBy('id', 'Desc')
-            ->limit(2)
-            ->get();
+             return Post::withTag($tags)
+                ->where('type', 'news')
+                ->published()
+                ->where('id', '!=', $new->id)
+                ->orderBy('id', 'Desc')
+                ->limit(2)
+                ->get();
+        });
+
         return view('pages.news', [
-            'new'      => $new,
-            'similars' => $similars,
-        ]);
+                'new' => $new,
+                'similars' => $similars,
+            ]);
+
+
     }
 
     /**

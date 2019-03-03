@@ -18,15 +18,19 @@ class CatalogController extends Controller
     {
         $typeObject = dashboard_posts()->where('slug', $typeRequest)->first() ?? abort(404);
 
-        $query = Post::published()->type($typeRequest)
-            //->orderBy('publish_at', 'ASC')
-            ->whereNotNull('options->locale->'.App::getLocale())
-            ->filtersApply($typeRequest);
+        $elements =   \Cache::remember('catalog-controller-index-'.$typeRequest.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest) {
 
-        if ($typeRequest !== 'festivals') {
-            $query->orderBy('publish_at', 'DESC');
-        }
-        $elements = $query->simplePaginate(10);
+            $query = Post::published()
+                ->type($typeRequest)
+                //->orderBy('publish_at', 'ASC')
+                ->whereNotNull('options->locale->' . App::getLocale())
+                ->filtersApply($typeRequest);
+
+            if ($typeRequest !== 'festivals') {
+                $query->orderBy('publish_at', 'DESC');
+            }
+            return $query->simplePaginate(10);
+        });
 
         $view = property_exists($typeObject, 'listing') ? $typeObject->listing : 'listings.catalog';
 

@@ -115,7 +115,7 @@
                                             <figure class="item" itemprop="image" itemscope
                                                     itemtype="https://schema.org/ImageObject">
                                                 <img class="img-responsive" itemprop="contentUrl"
-                                                     src="{{$image->url('high')}}" alt="{{$image->alt}}"
+                                                     src="/image/high{{$image->url()}}" alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
 
 
@@ -130,7 +130,7 @@
                                             <figure class="item" itemprop="image" itemscope
                                                     itemtype="https://schema.org/ImageObject">
                                                 <img class="img-responsive owl-lazy" itemprop="contentUrl"
-                                                     data-src="{{$image->url('high')}}"
+                                                     data-src="/image/high{{$image->url()}}"
                                                      alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
 

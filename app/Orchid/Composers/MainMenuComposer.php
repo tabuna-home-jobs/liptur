@@ -54,7 +54,6 @@ class MainMenuComposer
             ->add('about',
                 ItemMenu::setLabel('Новости')
                     ->setIcon('icon-paste')
-                    //->setPermission('platform.entities.type.news')
                     ->setPermission('platform.entities.type.news')
                     ->setRoute(route(self::MANY, 'news'))
             )

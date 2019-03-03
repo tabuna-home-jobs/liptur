@@ -54,7 +54,6 @@
                         </div>
 
                         @foreach($events as $event)
-
                             <article class="col-md-4 padder-v">
                                 <div class="panel panel-default box-shadow-lg pos-rlt" data-mh="main-news">
 
@@ -62,15 +61,15 @@
                                         <div class="news-date font-bold">
                                             {{$event->day}}
                                         </div>
-                                        <a href="{{route('item',[$event->type,$event->slug])}}"><img
-                                                    src="{{$event->hero('medium')}}"
+                                        <a href="{{$event->route=route('item',[$event->type,$event->slug])}}"><img
+                                                    src="{{$event->hero('medium') ?? '/img/no-image.jpg'}}"
                                                     class="img-full img-post"
-                                                    alt="{{$event->getContent('name')}}"
+                                                    alt="{{$event->content_name=$event->getContent('name')}}"
                                             ></a>
                                     </div>
                                     <div class="wrapper-md">
                                         <div class="clear" data-mh="main-news-body">
-                                            <a class="h4" href="{{route('item',[$event->type,$event->slug])}}">{{$event->getContent('name')}}</a>
+                                            <a class="h4" href="{{$event->route}}">{{$event->content_name}}</a>
 
                                             <p class="text-xs">
                                                 {!! str_strip_limit_words($event->getContent('body')) !!}

@@ -202,3 +202,6 @@ $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
     $this->get('/purchase', 'ShopController@purchase')->name('shop.purchase');
     $this->get('/', 'ShopController@index')->name('shop');
 });
+
+
+$this->get('image/{image?}', 'ImageController@index')->where('image', '[A-Za-z0-9/.-\_]+');

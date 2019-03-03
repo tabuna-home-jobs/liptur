@@ -5,7 +5,6 @@
 @section('keywords',$new->getContent('keywords'))
 @section('image',config('app.url').$new->hero('high'))
 
-
 @section('header')
     <div id="post-header">
         <div class="bg-white">
@@ -37,7 +36,6 @@
     </div>
 @endsection
 
-
 @section('content')
     <section id="post-{{$new->id}}">
         <div class="container padder-v">
@@ -65,19 +63,19 @@
                                 </div>
                             </div>
                             @if(count($new->attachment) > 0)
-
                                 <div class="owl-carousel owl-theme own-content">
                                     @foreach($new->attachment as $image)
+
                                          @if($loop->first)
                                             <figure class="item">
-                                                <img class="img-responsive" src="{{$image->url('high')}}"
+                                                <img class="img-responsive" src="/image/high{{$image->url('high')}}"
                                                      alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
                                             </figure>
                                         @else
                                             <figure class="item">
                                                 <img class="img-responsive owl-lazy"
-                                                     data-src="{{$image->url('high')}}" alt="{{$image->alt}}"
+                                                     data-src="/image/high{{$image->url()}}" alt="{{$image->alt}}"
                                                      style="width: auto;margin: 0 auto; max-height: 600px;">
                                             </figure>
                                         @endif
@@ -85,7 +83,6 @@
                                 </div>
 
                             @endif
-
 
                             <div class="wrapper-lg">
                                 <main>
@@ -116,7 +113,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="row hidden-xs hidden-sm">
                         @foreach($similars as $similar)
@@ -154,14 +150,8 @@
                       'comments' =>$new->comments,
                       'post' => $new
                      ] )
-                    {{--
-                    @include('partials.comments.comments',[
-                        'id' => $new->id,
-                        'comments' => $new->comments,
-                        'post' => $new
-                    ])
-                    --}}
                 </div>
+
                 <aside class="col-md-4 hidden-xs hidden-sm">
 
                     <div class="aside-affix">
@@ -180,7 +170,6 @@
                             @widget('advertising','side')
 
                         </div>
-
 
                         @widget('EmailSecondary')
 

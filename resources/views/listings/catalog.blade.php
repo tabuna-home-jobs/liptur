@@ -20,7 +20,6 @@
 
 @section('content')
 
-
     <section class="bg-white b-t box-shadow-lg">
         <div class="container padder-v">
 
@@ -54,7 +53,6 @@
                             </div>
                         @endif
                     @endif
-
                     @if($type->slug === 'festivals')
                     <div class="panel b box-shadow-lg" data-mh="main-info-block"
                         style="width: 100%; display: flex; align-items: center; justify-content: center; max-height: 500px; background: rgb(198, 198, 198);">
@@ -71,18 +69,20 @@
 
                     @widget('EmailSecondary')
 
-
                 </div>
 
             </aside>
 
             <div class="col-md-8">
 
-
                 @forelse($elements->chunk(2) as $elementChunk)
 
                     <div class="row padder-v">
                         @foreach($elementChunk as $element)
+                            @php
+                                $element->route=route($type->route(),[$element->type,$element->slug]);
+                                $element->content_name=$element->getContent('name');
+                            @endphp
                             <article class="col-md-6">
                                 <div class="panel panel-default box-shadow-lg pos-rlt" data-mh="main-news">
                                     <div data-mh="main-news-img">
@@ -91,14 +91,14 @@
                                             {{Date::parse($element->getContent('open'))->formatLocalized("%d %b %Y")}}
                                         </div>
                                         @endif
-                                        <a href="{{route($type->route(),[$element->type,$element->slug])}}"><img
+                                        <a href="{{$element->route}}"><img
                                                     src="{{$element->hero('medium') ?? '/img/no-image.jpg'}}"
-                                                    alt="{{$element->getContent('name')}}"
+                                                    alt="{{$element->content_name}}"
                                                     class="img-full img-post "></a>
                                     </div>
                                     <div class="wrapper-md">
                                         <div class="clear" data-mh="main-news-body">
-                                            <a class="h4" href="{{route($type->route(),[$element->type,$element->slug])}}">{{$element->getContent('name')}}</a>
+                                            <a class="h4" href="{{$element->route}}">{{$element->content_name}}</a>
                                             <p class="text-xs">
                                                 {!! str_strip_limit_words($element->getContent('body')) !!}
                                             </p>
@@ -115,7 +115,6 @@
                         </div>
                     </div>
                 @endforelse
-
                 {{--
                                 <div class="row">
                                     <div class="col-xs-12">
@@ -129,15 +128,11 @@
                     </div>
                 </div>
 
-
             </div>
 
         </div>
 
 
     </section>
-
-
-
 
 @endsection

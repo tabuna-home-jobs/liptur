@@ -45,12 +45,16 @@ class TitzController extends Controller
     {
         $typeObject = dashboard_posts()->firstWhere('slug', $typeRequest) ?? abort(404);
 
-        $elements = Post::where('type', $typeRequest)
-            ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->'.App::getLocale())
-            ->orderBy('publish_at', 'DESC')
-            //->filtersApply($typeRequest)
-            ->simplePaginate(5);
+        $elements =   \Cache::remember('titz-controller-listing-'.$typeRequest.'-'.$user->id.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest,$user) {
+            return Post::where('type', $typeRequest)
+                ->where('user_id', $user->id)
+                ->whereNotNull('options->locale->' . App::getLocale())
+                ->orderBy('publish_at', 'DESC')
+                //->filtersApply($typeRequest)
+                ->simplePaginate(5);
+        });
+
+
         return view('titz.catalog', [
             'elements' => $elements,
             'type'     => $typeObject,
@@ -68,13 +72,14 @@ class TitzController extends Controller
     public function news(User $user): View
     {
         $typeObject = dashboard_posts()->firstWhere('slug', 'news') ?? abort(404);
-
-        $elements = Post::where('type', 'news')
-            ->where('user_id', $user->id)
-            ->whereNotNull('options->locale->'.App::getLocale())
-            ->orderBy('publish_at', 'DESC')
-            ->filtersApply('news')
-            ->simplePaginate(5);
+        $elements =   \Cache::remember('titz-controller-listing-news-'.$user->id.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($user) {
+            return Post::where('type', 'news')
+                ->where('user_id', $user->id)
+                ->whereNotNull('options->locale->'.App::getLocale())
+                ->orderBy('publish_at', 'DESC')
+                ->filtersApply('news')
+                ->simplePaginate(5);
+        });
 
         return view('titz.news', [
             'elements' => $elements,
@@ -92,8 +97,17 @@ class TitzController extends Controller
      */
     public function gallery(User $user)
     {
+        $gallery =   \Cache::remember('titz-controller-gallery-'.$user->id.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($user) {
+            return Post::type('gallery')
+                ->where('user_id', $user->id)
+                ->whereNotNull('content->' . App::getLocale())
+                ->orderBy('publish_at', 'DESC')
+                ->with('attachment')
+                ->paginate(20);
+        });
+
         return view('titz.gallery', [
-            'gallery' => Post::type('gallery')->where('user_id', $user->id)->whereNotNull('content->'.App::getLocale())->orderBy('publish_at', 'DESC')->with('attachment')->paginate(20),
+            'gallery' => $gallery,
             'user'    => $user,
         ]);
     }

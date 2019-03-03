@@ -14,11 +14,23 @@ class CalendarEvent extends Controller
      */
     public function index()
     {
-        $elements = Post::published()->where('type', 'event_calendar')
-            ->whereNotNull('options->locale->'.App::getLocale())
-            ->whereDate('publish_at', '<', time())
-            ->orderBy('id', 'DESC')
-            ->get();
+
+        $elements =   \Cache::remember('calendar-controller-index-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function ()   {
+            $elements = Post::published()->where('type', 'event_calendar')
+                ->whereNotNull('options->locale->'.App::getLocale())
+                ->whereDate('publish_at', '<', time())
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            $elements->transform(function ($item, $key) {
+                $open = Carbon::parse($item['content'][App::getLocale()]['open']);
+                $item['month'] = $open->month;
+                $item['day'] = $open->day;
+
+                return $item;
+            });
+          return   $elements;
+        });
 
         $types = dashboard_posts();
 
@@ -34,13 +46,7 @@ class CalendarEvent extends Controller
             abort(404);
         }
 
-        $elements->transform(function ($item, $key) {
-            $open = Carbon::parse($item['content'][App::getLocale()]['open']);
-            $item['month'] = $open->month;
-            $item['day'] = $open->day;
 
-            return $item;
-        });
 
         $time = Carbon::now();
         $Month = [];

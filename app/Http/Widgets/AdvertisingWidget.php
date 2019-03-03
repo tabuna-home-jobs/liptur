@@ -29,14 +29,21 @@ class AdvertisingWidget extends Widget
      */
     public function handler($key = '')
     {
-        $post = Post::type('advertising')->where('options->lang->'.App::getLocale())
-            ->where('options->category', $key)
-            ->where('options->startDate', '<', $this->date->timestamp)
-            ->where('options->endDate', '>', $this->date->timestamp)
-            ->first();
+       return \Cache::remember('widget-advertising-'.App::getLocale().'-'.$key, 60, function () use ($key) {
 
-        if (!is_null($post)) {
-            return $post->getContent('code');
-        }
+            $post = Post::type('advertising')
+                ->where('options->locale->' . App::getLocale(), 'on')
+                ->where('options->category', $key)
+                ->where('options->startDate', '<', $this->date)
+                ->where('options->endDate', '>', $this->date)
+                ->first();
+
+            if (!is_null($post)) {
+                return $post->getContent('code');
+            } else {
+                return '';
+            }
+       });
+
     }
 }

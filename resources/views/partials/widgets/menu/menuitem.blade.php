@@ -1,5 +1,4 @@
 @foreach($menu as $item)
-
 	@if($item->children->count() > 0)
 	  <li class="menu-item dropdown @if($item->children->count() > 3)with-wz @endif">
 		<a  class="dropdown-toggle" data-toggle="dropdown"

@@ -29,7 +29,7 @@ class MapsController extends Controller
      */
     public function index()
     {
-        $types = Cache::remember('main-maps-list', Carbon::now()->addDays(2), function () {
+        $types = Cache::remember('maps-controller-index', Carbon::now()->addDays(2), function () {
             $types = collect(dashboard_posts())->where('maps', true);
             $types->map(function ($item, $key) {
                 $count = Post::select('id')->where('type', $item->slug)->count();
@@ -60,7 +60,7 @@ class MapsController extends Controller
      */
     public function show($type)
     {
-        $place = Cache::remember('global-maps-'.$type, Carbon::now()->addDays(2), function () use ($type) {
+        $place = Cache::remember('maps-controller-show-'.$type, Carbon::now()->addDays(2), function () use ($type) {
             $posts = Post::published()->where('type', $type)
                 ->whereNotNull('content->'.$this->locale.'->place')
                 ->get();

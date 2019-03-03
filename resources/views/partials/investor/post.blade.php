@@ -2,11 +2,7 @@
      role="tabpanel"
      id="{{$offer->slug}}"
      aria-labelledby="{{$offer->slug}}-tab">
-    {{--
-    <div class="page-header m-t-xs">
-        <p class="h3">{{$offer->term->getContent('name')}}</p>
-    </div>
-    --}}
+
     <div>
         {!! $offer->term->getContent('body')!!}
     </div>

@@ -9,7 +9,7 @@
         @foreach ($images as $image)
             <figure class="item">
               <a href="{{$image->alt}}" class="btn-opacity block">
-                <img class="owl-lazy img-responsive" data-src="{{$image->url('high')}}" title="{{$image->description}}">
+                <img class="owl-lazy img-responsive" data-src="/image/high{{$image->url()}}" title="{{$image->description}}">
               </a>
             </figure>
         @endforeach

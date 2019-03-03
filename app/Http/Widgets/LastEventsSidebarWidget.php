@@ -19,7 +19,7 @@ class LastEventsSidebarWidget extends Widget
     {
         $locale = App::getLocale();
 
-        $events = Cache::remember('sidebar-events-'.$locale.'-'.$limit, Carbon::now()->addHour(), function () use ($locale, $limit) {
+        $events = Cache::remember('widget-sidebar-events-'.$locale.'-'.$limit, Carbon::now()->addHour(), function () use ($locale, $limit) {
             return Post::published()
                 ->where('type', 'festivals')
                 ->whereNotNull('content->'.$locale)

@@ -45,7 +45,6 @@
 <body itemscope itemtype="http://schema.org/WebPage">
 
 <header id="header" class="navbar bg-white-only">
-
     @section('top-advertising')
         @widget('advertising','top')
     @stop
@@ -120,9 +119,7 @@
         </div>
 
         <div class="clearfix"></div>
-
         @widget('menuWidget','shop-header')
-
         @section('submenu')
             <div class="submenu visible-xs">
                 <div class="padder-v-micro row b-b"></div>
@@ -156,13 +153,10 @@
 
     </div>
 </header>
-
 <div id="content" class="">
 
     @yield('header')
-
     @yield('content')
-
 
     @section('ad-carousel')
         @include('partials.shop.index-ad-carousel')
@@ -171,12 +165,10 @@
 
     @include('partials.modals.support')
     @include('partials.modals.topmenu')
-
 </div>
 
 @section('footer')
     <!-- footer -->
-
     <footer id="footer" role="footer" class="bg-dark">
 
         <div class="contact-block">
@@ -294,7 +286,6 @@
     <!-- / footer -->
 @stop
 @yield('footer')
-
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript"> (function (d, w, c) {

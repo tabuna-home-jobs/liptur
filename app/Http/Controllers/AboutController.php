@@ -31,7 +31,11 @@ class AboutController extends Controller
      */
     public function docs()
     {
-        $docs = Post::where('type', 'docs')->with('attachment')->get();
+        $docs =   \Cache::remember('about-controller-docs', \Carbon\Carbon::now()->addHour(), function () {
+            return Post::where('type', 'docs')
+                ->with('attachment')
+                ->get();
+        });
 
         return view('listings.docs', [
             'docs' => $docs,
@@ -44,7 +48,12 @@ class AboutController extends Controller
      */
     public function press()
     {
-        $press = Post::where('type', 'press')->orderBy('publish_at', 'desc')->with('attachment')->simplePaginate(10);
+        $press =   \Cache::remember('about-controller-press', \Carbon\Carbon::now()->addHour(), function () {
+            return Post::where('type', 'press')
+                ->orderBy('publish_at', 'desc')
+                ->with('attachment')
+                ->simplePaginate(10);
+        });
 
         return view('listings.press', [
             'press' => $press,
@@ -57,7 +66,11 @@ class AboutController extends Controller
      */
     public function contact()
     {
-        $contacts = Post::where('type', 'contact')->with('attachment')->get();
+        $contacts =   \Cache::remember('about-controller-contact', \Carbon\Carbon::now()->addHour(), function () {
+            return Post::where('type', 'contact')
+                ->with('attachment')
+                ->get();
+        });
 
         return view('pages.regions', [
             'contacts' => $contacts,
@@ -70,12 +83,28 @@ class AboutController extends Controller
      */
     public function investor()
     {
-        $offers = Taxonomy::category()->slug('Investor')->first()->allChildrenTerm()->with(['posts' => function ($query) {
-            $query->orderBy('publish_at', 'desc');
-        }])->get();
+        $offers =   \Cache::remember('about-controller-investor', \Carbon\Carbon::now()->addDay(2), function () {
+            return Taxonomy::category()
+                ->slug('Investor')
+                ->first()
+                ->allChildrenTerm()
+                ->with(['posts' => function ($query) {
+                    $query->orderBy('publish_at', 'desc');
+                }])
+                ->get();
+        });
+
+        $tab_content = \Cache::remember('about-controller-investor-tab-content', \Carbon\Carbon::now()->addDay(2), function () use ($offers) {
+            return view('partials.investor.tab-content', [
+                'offers' => $offers,
+                'locale' => App::getLocale(),
+            ])->render();
+        });
+
 
         return view('pages.investor', [
             'offers' => $offers,
+            'tab_content' =>$tab_content,
             'page'   => getPage('investor'),
             'locale' => App::getLocale(),
         ]);
