@@ -1,5 +1,3 @@
-{{-- dd($items) --}}
-
 <div class="bg-white">
     <div class="row">
         <div class="col-md-12">
@@ -9,9 +7,7 @@
                         <h3>Всего {{$order->options['count']}} товаров</h3>
                     </div>
                 </div>
-                
-            @foreach ($order->options['content'] as $item) 
-                {{-- dd($item) --}}
+            @foreach ($order->options['content'] as $item)
                 <div class="row py-1 @if ($loop->iteration%2) bg-light @endif">
                     <div class="col-md-3 text-center">
                         <a href="{{$item['options']['url']}}" target="_blank"><img height="90" src="{{url('/')}}{{$item['options']['image']}}"></a>

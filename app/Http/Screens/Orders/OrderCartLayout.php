@@ -30,8 +30,6 @@ class OrderCartLayout extends Rows
      */
     public function build($post)
     {
-        //$form = new Builder($this->fields(), $post);
-
         return view($this->template, [
             'order'     => $post->getContent('order'),
         ])->render();

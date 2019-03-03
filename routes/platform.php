@@ -55,7 +55,7 @@ $this->screen('category/create', CategoryEditScreen::class)->name('platform.syst
 $this->screen('category', CategoryListScreen::class)->name('platform.systems.category');
 
 // Shop
-$this->screen('shop/order/{order}/edit', OrderEdit::class)->name('platform.shop.order.edit');
+$this->screen('shop/order/{order_id}/edit', OrderEdit::class)->name('platform.shop.order.edit');
 $this->screen('shop/order', OrderList::class)->name('platform.shop.order.list');
 
 // Categories...

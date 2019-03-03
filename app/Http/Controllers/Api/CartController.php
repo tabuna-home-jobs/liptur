@@ -159,21 +159,22 @@ class CartController
         //$order->slug=$order->id.''.strtoupper(str_random(8));
         //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
 
-//        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
-//            //$m->from('sender@test.com', 'Sender');
-//            $message->to(setting('shop_admin_email'), 'Администратор')
-//                ->subject('Новый заказ на сайте Liptur.ru');
-//        });
-//
-//        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
-//            $message->to($order->user()->first()->email, $order->user()->first()->name)
-//                ->subject('Новый заказ на сайте Liptur.ru');
-//        });
+        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
+            //$m->from('sender@test.com', 'Sender');
+            $message->to(setting('shop_admin_email'), 'Администратор')
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
+
+        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
+            $message->to($order->user()->first()->email, $order->user()->first()->name)
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
 
         if($request->get('payment') === 'card' && $cartContent['total'] > 0) {
             return $this->createSberbankOrder($order->id, ($cartContent['total'] + $deliveryPrice) * 100);
         }
-//        $this->clearRows($cartContent['content']);
+
+        $this->clearRows($cartContent['content']);
 
         return response(200);
     }

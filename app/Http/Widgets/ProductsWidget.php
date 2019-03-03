@@ -21,7 +21,7 @@ class ProductsWidget extends Widget
     public function handler()
     {
         $query = Post::type('product')
-            ->select('id', 'content->ru->title as text')
+            ->select('id', 'content->ru->title as text', 'slug')
             ->where('status', '<>', 'hidden')
             ->where('options->count', '>', 0)
         ;
@@ -35,7 +35,7 @@ class ProductsWidget extends Widget
         return $products->map(function($item) {
             return [
                 'id' => $item['id'],
-                'text'=> stripslashes($item['text'])
+                'text'=> stripslashes($item['text']).' ('.$item['slug'].')'
             ];
         });
 
