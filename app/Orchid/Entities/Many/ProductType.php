@@ -187,19 +187,16 @@ class ProductType extends Many
                 ->title('Количество'),
 
             CheckBoxField::make('new')
-                ->name('new')
-                ->title('Новинка')
-                ->default(1),
+                ->sendTrueOrFalse()
+                ->title('Новинка'),
 
             CheckBoxField::make('special')
-                ->name('special')
-                ->title('Cпецпредложение')
-                ->default(1),
+                ->sendTrueOrFalse()
+                ->title('Cпецпредложение'),
 
             CheckBoxField::make('warning')
-                ->name('warning')
-                ->title('Обратите внимание')
-                ->default(1),
+                ->sendTrueOrFalse()
+                ->title('Обратите внимание'),
         ];
     }
 
