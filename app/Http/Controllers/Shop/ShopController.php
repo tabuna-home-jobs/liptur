@@ -21,8 +21,8 @@ class ShopController extends Controller
         $newsAndSpecial = Post::type('product')
             ->with('attachment')
             ->where(function ($q) {
-                $q->where('options->new', '!=', 0)
-                    ->orWhere('options->special', '!=', 0);
+                $q->where('options->new', '!=', "0")
+                    ->orWhere('options->special', '!=', "0");
             })
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
@@ -31,7 +31,7 @@ class ShopController extends Controller
 
         $warnings = Post::type('product')
             ->with('attachment')
-            ->where('options->warning', '!=', 0)
+            ->where('options->warning', '!=', "0")
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
             ->where('options->count', '>', 0)
@@ -59,8 +59,8 @@ class ShopController extends Controller
         $newsAndSpecial = Post::type('product')
             ->with('attachment')
             ->where(function ($q) {
-                $q->where('options->new', '!=', 0)
-                    ->orWhere('options->special', '!=', 0);
+                $q->where('options->new', '!=', "0")
+                    ->orWhere('options->special', '!=', "0");
             })
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
@@ -93,7 +93,7 @@ class ShopController extends Controller
     {
         $warnings = Post::type('product')
             ->with('attachment')
-            ->where('options->warning', '!=', 0)
+            ->where('options->warning', '!=', "0")
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
             ->where('options->count', '>', 0)
@@ -172,8 +172,8 @@ class ShopController extends Controller
             $products = Post::type('product')
                 ->with('attachment')
                 ->where(function ($q) {
-                    $q->where('options->new', '!=', 0)
-                        ->orWhere('options->special', '!=', 0);
+                    $q->where('options->new', '!=', "0")
+                        ->orWhere('options->special', '!=', "0");
                 })
                 ->whereNotNull('options->count')
                 ->where('options->count', '>', 0)
