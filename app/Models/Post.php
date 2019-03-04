@@ -67,20 +67,20 @@ class Post extends BasePost
      */
     public function hero($size='')
     {
-        try {
-            if (is_null(optional($this->attachment[0])->url)) {
-                return null;
-            }
-
-            if (! empty($size)) {
-                $path='/image/'.$size;
-            } else {
-                $path=$size;
-            }
-            return $path.$this->attachment[0]->url;
-        } catch (\Exception $e) {
+        if(!isset($this->attachment[0])) {
             return null;
         }
+
+        if (is_null(optional($this->attachment[0])->url)) {
+            return null;
+        }
+
+        if (! empty($size)) {
+            $path='/image/'.$size;
+        } else {
+            $path=$size;
+        }
+        return $path.$this->attachment[0]->url;
     }
 
 }
