@@ -5,6 +5,8 @@ namespace App\Http\Filters\Common;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\InputField;
 
 class DateFilters extends Filter
 {
@@ -33,5 +35,12 @@ class DateFilters extends Filter
         return view('partials.filters.common.archive', [
             'request' => $this->request,
         ]);
+    }
+
+    public function display(): Field
+    {
+        return InputField::make('titz')
+            ->type('hidden')
+            ->value('1');
     }
 }

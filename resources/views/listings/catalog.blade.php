@@ -53,6 +53,7 @@
                             </div>
                         @endif
                     @endif
+
                     @if($type->slug === 'festivals')
                     <div class="panel b box-shadow-lg" data-mh="main-info-block"
                         style="width: 100%; display: flex; align-items: center; justify-content: center; max-height: 500px; background: rgb(198, 198, 198);">

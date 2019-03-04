@@ -4,6 +4,8 @@ namespace App\Http\Filters\Gastronomy;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\InputField;
 
 class CategoryFilters extends Filter
 {
@@ -47,5 +49,12 @@ class CategoryFilters extends Filter
             'category' => config('category.gastronomy.category'),
             'kitchens' => config('category.gastronomy.kitchens'),
         ]);
+    }
+
+    public function display(): Field
+    {
+        return InputField::make('titz')
+            ->type('hidden')
+            ->value('1');
     }
 }

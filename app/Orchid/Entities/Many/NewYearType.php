@@ -85,9 +85,9 @@ class NewYearType extends Many
             CreatedFilter::class,
             //CfoFilter::class,
 
-            //RegionFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
-            //DateFilters::class,
+            DateFilters::class,
 
         ];
     }

@@ -180,7 +180,7 @@
                             <td style="padding: 40px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
 
 
-                                <p>{!! $text or ''  !!}</p>
+                                <p>{!! $text ?? ''  !!}</p>
 
                                 <br><br>
                                 <p style="text-align: center">

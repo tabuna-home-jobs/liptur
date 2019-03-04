@@ -77,9 +77,9 @@ class CompetitionType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            //RegionFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
-            //DateFilters::class,
+            DateFilters::class,
         ];
     }
 

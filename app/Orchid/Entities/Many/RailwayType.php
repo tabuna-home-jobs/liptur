@@ -78,7 +78,7 @@ class RailwayType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            //RegionFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

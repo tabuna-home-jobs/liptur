@@ -46,7 +46,7 @@
                         <div class="row v-center">
 
                             <div class="col-md-12 text-center">
-                                <img width="200px" src="{{$user->avatar or '/img/no_avatar.png' }}" alt="{{$user->name}}"
+                                <img width="200px" src="{{$user->avatar ?? '/img/no_avatar.png' }}" alt="{{$user->name}}"
                                      class="m-t-md m-b-lg">
                               <div>
                               </div>

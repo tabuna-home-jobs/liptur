@@ -38,7 +38,7 @@
 
                         <div class="btn-file">
                             <div class="fileinput-preview  pull-left m-r-md">
-                                <img src="{{$user->avatar or '/img/no_avatar.png' }}"
+                                <img src="{{$user->avatar ?? '/img/no_avatar.png' }}"
                                      alt="Нажмите, что бы изменить изображение"
                                      class="img-circle">
                             </div>

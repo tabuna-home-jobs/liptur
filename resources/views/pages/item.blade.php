@@ -27,7 +27,7 @@
                         <div class="pull-bottom text-white padder-v m-l-xl">
                             <h1 class="text-white brand-header" itemprop="headline">{{$item->getContent('name')}}</h1>
                             @if (!empty($item->getContent('place')['name']))
-                                <p class="text-white text-sm"><i class="fa fa-map-marker"></i> {{$item->getContent('place')['name'] or ''}}</p>
+                                <p class="text-white text-sm"><i class="fa fa-map-marker"></i> {{$item->getContent('place')['name'] ?? ''}}</p>
                             @endif
                             <div class="lead hidden-xs v-center">
                                <span id="stars-existing" class="starrr text-warning-lt"

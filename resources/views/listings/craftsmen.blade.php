@@ -49,7 +49,7 @@
                         <div class="row v-center">
 
                             <div class="col-md-4">
-                                <img src="{{$user->avatar or '/img/no_avatar.png' }}" alt="{{$user->name}}"
+                                <img src="{{$user->avatar ?? '/img/no_avatar.png' }}" alt="{{$user->name}}"
                                      class="img-responsive center">
                             </div>
 

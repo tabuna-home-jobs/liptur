@@ -80,8 +80,8 @@ class RecreationCenterType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            //RegionFilters::class,
-            //CategoryFilters::class,
+            RegionFilters::class,
+            CategoryFilters::class,
             //DistanceFilters::class,
         ];
     }

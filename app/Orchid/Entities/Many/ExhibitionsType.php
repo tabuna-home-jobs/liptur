@@ -75,10 +75,10 @@ class ExhibitionsType extends Many
             StatusFilter::class,
             CreatedFilter::class,
 
-            //RegionFilters::class,
-            //CategoryFilters::class,
+            RegionFilters::class,
+            CategoryFilters::class,
             //DistanceFilters::class,
-            //DateFilters::class,
+            DateFilters::class,
             TitzFilter::class,
         ];
     }

@@ -84,7 +84,7 @@ class MonumentsType extends Many
             TitzFilter::class,
             //CfoFilter::class,
 
-            //RegionFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

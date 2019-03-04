@@ -14,11 +14,12 @@ class CatalogController extends Controller
      *
      * @return View
      */
-    public function index($typeRequest): View
+    public function index($typeRequest, Request $request): View
     {
         $typeObject = dashboard_posts()->where('slug', $typeRequest)->first() ?? abort(404);
 
-        $elements =   \Cache::remember('catalog-controller-index-'.$typeRequest.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest) {
+
+        //$elements =   \Cache::remember('catalog-controller-index-'.$typeRequest.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest) {
 
             $query = Post::published()
                 ->type($typeRequest)
@@ -29,8 +30,8 @@ class CatalogController extends Controller
             if ($typeRequest !== 'festivals') {
                 $query->orderBy('publish_at', 'DESC');
             }
-            return $query->simplePaginate(10);
-        });
+            $elements =  $query->simplePaginate(10);
+        //});
 
         $view = property_exists($typeObject, 'listing') ? $typeObject->listing : 'listings.catalog';
 

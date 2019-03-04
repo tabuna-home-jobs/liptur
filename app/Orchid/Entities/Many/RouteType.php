@@ -82,8 +82,8 @@ class RouteType extends Many
             CreatedFilter::class,
             TitzFilter::class,
 
-           //CategoryFilters::class,
-            //RegionFilters::class,
+           CategoryFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
             TitzFilter::class,
         ];

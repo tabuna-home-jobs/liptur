@@ -73,7 +73,7 @@ class AirportType extends Many
     public function filters(): array
     {
         return [
-            //RegionFilters::class,
+            RegionFilters::class,
         ];
     }
 

@@ -1,4 +1,4 @@
-@if($paginate->lastPage()>1) 
+@if($paginate->lastPage()>1)
     <div class="row padder-v paginate">
         <div class="col-xs-4 col-md-2 text-center">
             <a href="{{$paginate->url($paginate->currentPage()-1)}}" class="btn btn-light btn-rounded" @if($paginate->currentPage()==1) disabled @endif ><i class="brand-icon-left"></i>НАЗАД</a>

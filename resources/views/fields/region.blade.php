@@ -5,7 +5,7 @@
     @endif
 
 
-    <select class="form-control {{$class or ''}}"
+    <select class="form-control {{$class ?? ''}}"
 
             @if(isset($prefix))
             name="{{$prefix}}[{{$lang}}]{{$name}}"

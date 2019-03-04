@@ -17,23 +17,24 @@ class NewController extends Controller
      */
     public function index(Request $request)
     {
+        //dd($request->page);
         if ($request->has('date')) {
             $date = Carbon::parse($request->date);
             $hasdate= true;
-            $news =   \Cache::remember('new-controller-index-'.$date->format('Y-m-d').'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($date) {
+            $news =   \Cache::remember('new-controller-index-'.$date->format('Y-m-d').'-'.$request->page.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($date,$request) {
                 return Post::published()
                     ->where('type', 'news')
                     ->whereNotNull('options->locale->' . App::getLocale())
                     ->whereDate('publish_at', $date->format('Y-m-d'))
                     ->orderBy('publish_at', 'DESC')
-                    ->get();
+                    ->paginate(14);
             });
 
         } else {
             $date = Carbon::now();
             $hasdate= false;
-            $news =   \Cache::remember('new-controller-index-'.$date->format('Y-m-d').'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($date) {
-                return Post::published()
+            $news =   \Cache::remember('new-controller-index-'.$date->format('Y-m-d').'-'.$request->page.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($date,$request) {
+                return  Post::published()
                     ->where('type', 'news')
                     ->whereNotNull('options->locale->' . App::getLocale())
                     ->orderBy('publish_at', 'DESC')

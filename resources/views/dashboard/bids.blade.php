@@ -38,7 +38,7 @@
                                                     <b>{{$bird->content['name']}}</b></p>
                                                 <p>
                                                     <small>Вид деятельности:</small>
-                                                    <b>{{$bird->content['activity'] or ''}}</b></p>
+                                                    <b>{{$bird->content['activity'] ?? ''}}</b></p>
 
                                                 <small>Электронная почта:</small>
                                                 <b>{{$bird->content['email']}}</b></p>
@@ -47,7 +47,7 @@
                                                     <b>{{$bird->content['phone']}}</b></p>
                                                 <p>
                                                     <small>Веб-сайт:</small>
-                                                    <b>{{$bird->content['website'] or '-'}}</b></p>
+                                                    <b>{{$bird->content['website'] ?? '-'}}</b></p>
                                                 <p>
                                                     <small>Название компании:</small>
                                                     <b>{{$bird->content['company_name']}}</b></p>
@@ -82,10 +82,10 @@
                                                     <b>{{$bird->content['corporate_account']}}</b></p>
                                                 <p>
                                                     <small>БИК:</small>
-                                                    <b>{{$bird->content['bic']  or '-' }}</b></p>
+                                                    <b>{{$bird->content['bic']  ?? '-' }}</b></p>
                                                 <p>
                                                     <small>ОКПО:</small>
-                                                    <b>{{$bird->content['okpo']  or '-' }}</b></p>
+                                                    <b>{{$bird->content['okpo']  ?? '-' }}</b></p>
                                             </div>
                                         </div>
 

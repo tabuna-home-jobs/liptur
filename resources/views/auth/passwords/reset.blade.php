@@ -25,7 +25,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control  form-control-grey" name="email"
-                                           value="{{ $email or old('email') }}" required autofocus>
+                                           value="{{ $email ?? old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
                                         <span class="help-block">

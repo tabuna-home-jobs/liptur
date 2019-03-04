@@ -42,10 +42,6 @@ class MenuWidget extends Widget
      */
     public function handler($arrmenu = 'header')
     {
-        //'shop-footer','footer-menu'
-        //'shop-header','mobile'
-        //'shop-header','modal-menu'
-        //'shop-header'
 
         if (is_array($arrmenu)) {
             $this->typemenu = $arrmenu[0];

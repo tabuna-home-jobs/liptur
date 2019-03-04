@@ -19,7 +19,7 @@
                             </div>
                             <div class="col-md-10">
                                 <p class="h4 font-thin">{{$item->getContent('name')}} </p>
-                                <address> {{$item->getContent('place')['name'] or ''}} </address>
+                                <address> {{$item->getContent('place')['name'] ?? ''}} </address>
                             </div>
                         </div>
 

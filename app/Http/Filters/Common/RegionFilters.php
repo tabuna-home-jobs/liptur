@@ -4,6 +4,8 @@ namespace App\Http\Filters\Common;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\InputField;
 
 class RegionFilters extends Filter
 {
@@ -31,5 +33,12 @@ class RegionFilters extends Filter
             'region'  => collect(config('region'))->sortBy('sort'),
             'request' => $this->request,
         ]);
+    }
+
+    public function display(): Field
+    {
+        return InputField::make('titz')
+            ->type('hidden')
+            ->value('1');
     }
 }

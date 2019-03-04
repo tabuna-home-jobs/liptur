@@ -7,5 +7,5 @@
         <a href="tel://{{$phone}}"
            class="phone h3 block m-t-md">{{$phone}}</a>
     </p>
-    <p class="m-t padder text-xs">{{$address or ''}}</p>
+    <p class="m-t padder text-xs">{{$address ?? ''}}</p>
 </div>

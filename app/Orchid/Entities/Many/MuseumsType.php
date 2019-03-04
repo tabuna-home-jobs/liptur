@@ -81,7 +81,7 @@ class MuseumsType extends Many
             CreatedFilter::class,
             TitzFilter::class,
 
-            //RegionFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
         ];
     }

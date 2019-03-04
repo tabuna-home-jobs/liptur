@@ -71,7 +71,7 @@ class ContestType extends Many
             CreatedFilter::class,
             TitzFilter::class,
 
-            //RegionFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
             // DateFilters::class,
         ];
