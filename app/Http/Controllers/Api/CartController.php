@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Post;
-use Voronkovich\SberbankAcquiring\Client;
-use Voronkovich\SberbankAcquiring\Currency;
-use Voronkovich\SberbankAcquiring\OrderStatus;
 
+use Voronkovich\SberbankAcquiring\OrderStatus;
+use App\Business\Delivery;
+use App\Business\Sberbank;
 class CartController
 {
     private function clearRows($rows) {
@@ -23,27 +23,6 @@ class CartController
         }
     }
 
-    private function getSberbankClient() {
-       return new Client([
-            'token' => config('services.sberbank.token'),
-            'apiUri' => Client::API_URI_TEST,
-        ]);
-    }
-
-    private function createSberbankOrder($orderId, $orderAmount) {
-        $client = $this->getSberbankClient();
-
-        $returnUrl   = config('app.url').'/api/order/'.$orderId.'/payed';
-
-        $params['currency'] = Currency::RUB;
-        $params['failUrl']  = config('app.url').'/api/order/'.$orderId.'/payed-fail';
-
-        $result = $client->registerOrder($orderId, $orderAmount, $returnUrl, $params);
-
-        $paymentFormUrl = $result['formUrl'];
-
-        return response()->json(['redirect' => $paymentFormUrl]);
-    }
 
     /**
      * @param $request
@@ -193,7 +172,7 @@ class CartController
     {
         $toIndex =  $request->get('zip');
         $deliveryType = $request->get('delivery');
-        $deliveryPrice = calcDeliveryCart($toIndex, $deliveryType, true);
+        $deliveryPrice = Delivery::calcDeliveryCart($toIndex, $deliveryType, true);
 
         $order = $this->createOrder($request, true, $deliveryPrice);
 
@@ -205,7 +184,7 @@ class CartController
 
 
         if($request->get('payment') === 'card' && $order->options['total'] > 0) {
-            return $this->createSberbankOrder($order->id, ($order->options['total'] + $deliveryPrice) * 100);
+            return Sberbank::createSberbankOrder($order->id, ($order->options['total'] + $deliveryPrice) * 100);
         }
 
         return response(200);
@@ -236,9 +215,7 @@ class CartController
 
         $sberOrderId = $request->get('orderId');
 
-        $client = $this->getSberbankClient();
-
-        $result = $client->getOrderStatus($sberOrderId);
+        $result = Sberbank::getOrderStatus($sberOrderId);
 
         if($result['orderNumber'] != $order->id) {
             return abort(404);

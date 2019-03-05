@@ -26,7 +26,7 @@ class ShopController extends Controller
             })
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
-            ->where('options->count', '>', 0)
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0")
             ->get()->take(4);
 
         $warnings = Post::type('product')
@@ -34,7 +34,7 @@ class ShopController extends Controller
             ->where('options->warning', '!=', "0")
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
-            ->where('options->count', '>', 0)
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0")
             ->get()->take(8);
 
         $categories = ShopCategory::all();
@@ -64,7 +64,7 @@ class ShopController extends Controller
             })
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
-            ->where('options->count', '>', 0)
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0")
             ->get();
 
         return view('shop.index', [
@@ -96,7 +96,7 @@ class ShopController extends Controller
             ->where('options->warning', '!=', "0")
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
-            ->where('options->count', '>', 0)
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0")
             ->get();
 
         $category = optional($product->taxonomies()->first())->term ?? new Term();
@@ -124,7 +124,7 @@ class ShopController extends Controller
         $products = $category->posts()
             ->where('status', '<>', 'hidden')
             ->whereNotNull('options->count')
-            ->where('options->count', '>', 0);
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0");
 
         if (!is_null($request->get('sort'))) {
             $sort    = $request->get('sort');
@@ -166,7 +166,7 @@ class ShopController extends Controller
             $products = Post::type('product')
                 ->whereRaw('LOWER(`content`) LIKE \'%' . mb_strtolower($request->get('search')) . '%\' ')
                 ->whereNotNull('options->count')
-                ->where('options->count', '>', 0)
+                ->whereRaw("CAST(options->'$.count' AS SIGNED) >0")
                 ->with('attachment');
         } else {
             $products = Post::type('product')
@@ -176,7 +176,7 @@ class ShopController extends Controller
                         ->orWhere('options->special', '!=', "0");
                 })
                 ->whereNotNull('options->count')
-                ->where('options->count', '>', 0)
+                ->whereRaw("CAST(options->'$.count' AS SIGNED) >0")
                 ->where('status', '<>', 'hidden');
         }
 

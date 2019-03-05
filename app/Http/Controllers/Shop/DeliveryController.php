@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Business\Delivery;
 
 class DeliveryController extends Controller
 {
@@ -16,7 +17,7 @@ class DeliveryController extends Controller
         $toIndex = $request->input('zip');
         $deliveryType = $request->input('delivery');
 
-        $price = calcDeliveryCart($toIndex, $deliveryType, true);
+        $price = Delivery::calcDeliveryCart($toIndex, $deliveryType, true);
 
         return response()->json([
             'price' => $price
