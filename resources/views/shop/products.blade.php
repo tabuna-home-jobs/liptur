@@ -124,7 +124,7 @@
               <div class="panel panel-default box-shadow-lg pos-rlt">
                   <div data-mh="main-news-img">
                       <a href="{{route('shop.product',$product->slug)}}">
-                            <img src="@if (!is_null($product->attachment->first())) {{$product->attachment->first()->url('high')}} @else {{$currentCategory->term->getContent('smallPicture')}} @endif"
+                            <img src="@if (!is_null($product->attachment->first())) {{$product->hero('medium')}} @else {{$currentCategory->term->getContent('smallPicture')}} @endif"
                                class="img-full img-post">
                       </a>
                   </div>

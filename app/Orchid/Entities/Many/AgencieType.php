@@ -220,6 +220,6 @@ class AgencieType extends Many
      */
     public function options(): array
     {
-        return [];
+        return $this->getIconOptions();
     }
 }

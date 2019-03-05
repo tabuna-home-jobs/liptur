@@ -49,7 +49,7 @@
                                 @foreach($product->attachment as $attachment)
                                     <div class="sp-slide">
                                         <img class="sp-image im-responsive img-full" src="{{$attachment->url('high')}}"
-                                             data-src="{{$attachment->url('high')}}"
+                                             data-src="/image/high{{$attachment->url('high')}}"
                                              data-retina="{{$attachment->url()}}"/>
                                     </div>
                                 @endforeach
@@ -61,7 +61,7 @@
                                         <div class="sp-thumbnail">
                                             <div class="sp-thumbnail-image-container">
                                                 <img class="sp-thumbnail-image img-full"
-                                                     src="{{$attachment->url('medium')}}"/>
+                                                     src="/image/medium{{$attachment->url('medium')}}"/>
                                             </div>
                                         </div>
                                     @endforeach

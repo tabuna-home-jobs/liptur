@@ -6,13 +6,16 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Press\Models\Category;
+use Orchid\Screen\Field;
 use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\UploadField;
 use Orchid\Screen\Fields\DateTimerField;
 use Orchid\Screen\Fields\SelectField;
+use Orchid\Screen\Fields\CheckBoxField;
 use App\Models\Term;
 use Orchid\Press\Models\Taxonomy;
+
 
 /**
  * Trait ManyTypeTrait.
@@ -84,5 +87,20 @@ trait ManyTypeTrait
             UploadField::make('attachment')
                 ->title('Upload DropBox'),
         ];
+    }
+
+    public function getIconOptions() {
+        $icons = collect(config('icon.attributes'))->sort();
+
+        $option=[];
+        foreach ($icons as $key=>$icon) {
+            $option[]=CheckBoxField::make('option.'.$key)
+                ->placeholder($icon)
+                ->horizontal();
+        }
+
+        return Field::group([
+            $option,
+        ]);
     }
 }

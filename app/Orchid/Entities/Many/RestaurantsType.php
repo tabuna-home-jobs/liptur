@@ -23,6 +23,8 @@ use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TinyMCEField;
 use Orchid\Screen\TD;
 
+use Illuminate\Database\Eloquent\Model;
+
 class RestaurantsType extends Many
 {
     use ManyTypeTrait;
@@ -102,9 +104,22 @@ class RestaurantsType extends Many
     {
         return [
             'id'              => 'sometimes|integer|unique:posts',
-            'content.ru.name' => 'required|string',
-            'content.ru.body' => 'required|string',
+            //'content.ru.name' => 'required|string',
+            //'content.ru.body' => 'required|string',
         ];
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $model
+     */
+    public function save(Model $model)
+    {
+        //dd($model);
+        $model->save();
+
+        $model->taxonomies()->sync(array_flatten(request(['category'])));
+        $model->setTags(request('tags', []));
+        $model->attachment()->syncWithoutDetaching(request('attachment', []));
     }
 
     /**
@@ -249,6 +264,6 @@ class RestaurantsType extends Many
      */
     public function options(): array
     {
-        return [];
+        return $this->getIconOptions();
     }
 }
