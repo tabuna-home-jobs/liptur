@@ -46,7 +46,7 @@ class RouteController extends Controller
 
         return view('pages.item', [
             'item'         => $item,
-            'type'         => $item->getBehaviorObject(),
+            'type'         => $item->getEntityObject(),
             'displayRoute' => $displayRoute,
             'rating'       => $rating,
         ]);
@@ -139,7 +139,7 @@ class RouteController extends Controller
      */
     private function getItemUrl(Post $item)
     {
-        $categorySlug = $item->getBehaviorObject()->slug;
+        $categorySlug = $item->getEntityObject()->slug;
         $itemSlug = $item['slug'];
         $resultUrl = "/catalog/$categorySlug/$itemSlug";
 

@@ -67,7 +67,8 @@ class MapsController extends Controller
             $place = collect();
 
             if ($posts->count() != 0) {
-                $display = $posts->first()->getBehaviorObject()->display();
+                $display = $posts->first()->getEntityObject()->display();
+
             } else {
                 $display = [];
             }

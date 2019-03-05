@@ -37,7 +37,7 @@ class SearchController extends Controller
             try {
                 $posts[$key]->name = $value->getContent('name');
                 $posts[$key]->description = str_strip_limit_words(($value->getContent('body')));
-                $posts[$key]->url = $value->getBehaviorObject()->route();
+                $posts[$key]->url = $value->getEntityObject()->route();
 
                 if (!empty($posts[$key]->url)) {
                     if ($posts[$key]->url == 'item') {
@@ -84,7 +84,7 @@ class SearchController extends Controller
                 'id'          => $marker->id,
                 'slug'        => $marker->slug,
                 'type'        => $marker->type,
-                'display'     => $marker->getBehaviorObject()->display(),
+                'display'     => $marker->getEntityObject()->display(),
                 'image'       => $marker->hero('medium'),
                 'description' => str_strip_limit_words($marker->getContent('body'), 200),
                 'name'        => $marker->getContent('name'),

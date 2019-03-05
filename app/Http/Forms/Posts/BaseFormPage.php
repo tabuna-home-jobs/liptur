@@ -31,7 +31,7 @@ class BaseFormPage extends Form
             'post'     => $page,
             'language' => App::getLocale(),
             'locales'  => config('press.locales'),
-            'type'     => $page->getBehaviorObject($page->slug),
+            'type'     => $page->getEntityObject($page->slug),
         ]);
     }
 

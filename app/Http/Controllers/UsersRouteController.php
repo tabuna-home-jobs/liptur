@@ -61,7 +61,7 @@ class UsersRouteController extends Controller
                 'id'          => $marker->id,
                 'slug'        => $marker->slug,
                 'type'        => $marker->type,
-                'display'     => $marker->getBehaviorObject()->display(),
+                'display'     => $marker->getEntityObject()->display(),
                 'image'       => $marker->hero('medium'),
                 'description' => str_strip_limit_words($marker->getContent('body'), 200),
                 'name'        => $marker->getContent('name'),
