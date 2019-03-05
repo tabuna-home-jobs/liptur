@@ -37,25 +37,26 @@
     33 => 'Laravel\\Tinker\\TinkerServiceProvider',
     34 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
     35 => 'Carbon\\Laravel\\ServiceProvider',
-    36 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
-    37 => 'Orchid\\Press\\Providers\\PressServiceProvider',
-    38 => 'Orchid\\Widget\\WidgetServiceProvider',
-    39 => 'Orchids\\XSetting\\Providers\\XSettingProvider',
-    40 => 'Watson\\Active\\ActiveServiceProvider',
-    41 => 'willvincent\\Rateable\\RateableServiceProvider',
-    42 => 'CdekSDK\\LaravelCdekServiceProvider',
-    43 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
-    44 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
-    45 => 'App\\Providers\\AppServiceProvider',
-    46 => 'App\\Providers\\AuthServiceProvider',
-    47 => 'App\\Providers\\EventServiceProvider',
-    48 => 'App\\Providers\\RouteServiceProvider',
-    49 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
-    50 => 'Roumen\\Feed\\FeedServiceProvider',
-    51 => 'Conner\\Likeable\\LikeableServiceProvider',
-    52 => 'willvincent\\Rateable\\RateableServiceProvider',
-    53 => 'Jenssegers\\Date\\DateServiceProvider',
-    54 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
+    36 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    37 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
+    38 => 'Orchid\\Press\\Providers\\PressServiceProvider',
+    39 => 'Orchid\\Widget\\WidgetServiceProvider',
+    40 => 'Orchids\\XSetting\\Providers\\XSettingProvider',
+    41 => 'Watson\\Active\\ActiveServiceProvider',
+    42 => 'willvincent\\Rateable\\RateableServiceProvider',
+    43 => 'CdekSDK\\LaravelCdekServiceProvider',
+    44 => 'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider',
+    45 => 'Orchid\\Platform\\Providers\\FoundationServiceProvider',
+    46 => 'App\\Providers\\AppServiceProvider',
+    47 => 'App\\Providers\\AuthServiceProvider',
+    48 => 'App\\Providers\\EventServiceProvider',
+    49 => 'App\\Providers\\RouteServiceProvider',
+    50 => 'Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider',
+    51 => 'Roumen\\Feed\\FeedServiceProvider',
+    52 => 'Conner\\Likeable\\LikeableServiceProvider',
+    53 => 'willvincent\\Rateable\\RateableServiceProvider',
+    54 => 'Jenssegers\\Date\\DateServiceProvider',
+    55 => 'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider',
   ),
   'eager' => 
   array (
@@ -205,6 +206,7 @@
     'DaveJamesMiller\\Breadcrumbs\\BreadcrumbsManager' => 'DaveJamesMiller\\Breadcrumbs\\BreadcrumbsServiceProvider',
     'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
+    'NunoMaduro\\Collision\\Contracts\\Provider' => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     'CdekSDK\\CdekClient' => 'CdekSDK\\LaravelCdekServiceProvider',
   ),
   'when' => 
@@ -252,6 +254,9 @@
     array (
     ),
     'Laravel\\Tinker\\TinkerServiceProvider' => 
+    array (
+    ),
+    'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => 
     array (
     ),
     'CdekSDK\\LaravelCdekServiceProvider' => 

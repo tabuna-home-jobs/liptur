@@ -49,7 +49,6 @@ trait ManyTypeTrait
             InputField::make('slug')
                 ->type('text')
                 ->name('slug')
-                ->required()
                 ->max(255)
                 ->title(__('Semantic URL'))
                 ->placeholder(__('Unique name')),
