@@ -6,7 +6,10 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\Fields\TagsField;
+use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\UploadField;
+use Orchid\Screen\Fields\DateTimerField;
+use Orchid\Screen\Fields\SelectField;
 
 /**
  * Trait ManyTypeTrait.
@@ -43,16 +46,16 @@ trait ManyTypeTrait
     public function main(): array
     {
         return [
-            Input::make('slug')
+            InputField::make('slug')
                 ->type('text')
                 ->name('slug')
                 ->required()
                 ->max(255)
                 ->title(__('Semantic URL'))
                 ->placeholder(__('Unique name')),
-            DateTimer::make('publish_at')
+            DateTimerField::make('publish_at')
                 ->title(__('Time of publication')),
-            Select::make('status')
+            SelectField::make('status')
                 ->options($this->status())
                 ->title(__('Status')),
            TagsField::make('tags')
