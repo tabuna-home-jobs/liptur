@@ -22,23 +22,33 @@ $(function () {
       },
       methods: {
         async tryCalcDelivery() {
-          const {zip, delivery} = this.formData;
+          try {
+            const {zip, delivery} = this.formData;
 
-          if(!delivery || delivery === 'pickup' || !zip || zip.length != 6) {
-            return;
+            if(!delivery || delivery === 'pickup' || !zip || zip.length != 6) {
+              return;
+            }
+
+            if(this.deliveryPrices[delivery]) {
+              return;
+            }
+
+            const req = await this.$http.post(`/shop/delivery/cart`, {
+              zip,
+              delivery
+            });
+            const price = req.body.price || '***';
+
+            this.$set(this.deliveryPrices, delivery, price);
+          } catch (e) {
+            swal({
+              title: "Ошибка расчета доставки",
+              text: e.body.message,
+              timer: 2000,
+              showConfirmButton: false,
+              type: "error",
+            });
           }
-
-          if(this.deliveryPrices[delivery]) {
-            return;
-          }
-
-          const req = await this.$http.post(`/shop/delivery/cart`, {
-            zip,
-            delivery
-          });
-          const price = req.body.price || '***';
-
-          this.$set(this.deliveryPrices, delivery, price);
         },
         async sendOrder(purchase) {
           const formData = this.formData;
@@ -62,7 +72,6 @@ $(function () {
             });
 
             if(res.body.redirect) {
-              console.log(res);
               window.location.href = res.body.redirect;
             } else {
               swal({
@@ -82,7 +91,7 @@ $(function () {
                 this.$set(this, 'errors', {})
                 swal({
                     title: "Ошибка передачи данных",
-                    text: "",
+                    text: e.status === 500 ? 'Ошибка сервера': e.body.message,
                     timer: 2000,
                     showConfirmButton: false,
                     type: "error",

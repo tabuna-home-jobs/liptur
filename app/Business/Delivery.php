@@ -55,6 +55,10 @@ class Delivery
             $height = $product->getOption('height');
             $length = $product->getOption('length');
 
+            if(!$weight || !$width || !$height || !$length) {
+                 return abort(400, 'У товара не указаны габариты/вес');
+            }
+
             if ($deliveryType == "courier") {
                 $_price = self::calcCdek(self::$fromIndex, $toIndex, $weight, $width, $height, $length);
             } else if ($deliveryType == "mail") {

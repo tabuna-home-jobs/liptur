@@ -48,7 +48,7 @@ class CartController
 
         // проверка на пустоту корзины
         if($cartContent['count'] === 0) {
-            return abort(400);
+            return abort(400, "У вас пустая корзина!");
         }
 
         // проверка наличия товаров
