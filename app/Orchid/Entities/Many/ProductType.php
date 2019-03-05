@@ -3,6 +3,7 @@
 namespace App\Orchid\Entities\Many;
 
 use App\Http\Forms\Shop\ProductBaseForm;
+use App\Models\ShopCategory;
 use App\Traits\ManyTypeTrait;
 use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
@@ -22,6 +23,10 @@ use Orchid\Screen\TD;
 class ProductType extends Many
 {
     use ManyTypeTrait;
+
+    private function getCategories() {
+        return ShopCategory::all();
+    }
     /**
      * @var string
      */
