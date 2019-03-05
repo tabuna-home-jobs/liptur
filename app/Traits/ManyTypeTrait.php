@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Orchid\Press\Models\Category;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\TagsField;
@@ -42,6 +43,11 @@ trait ManyTypeTrait
      */
     public function save(Model $model)
     {
+        foreach (request('options.option', []) as $key => $value) {
+            $option[$key] = 1;
+        }
+        $model->options=array_merge($model->options,['option' => $option]);
+
         $model->save();
         $model->setTags(request('tags', []));
         $model->taxonomies()->syncWithoutDetaching(request('categories', []));

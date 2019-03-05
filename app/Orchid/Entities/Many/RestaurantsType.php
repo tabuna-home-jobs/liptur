@@ -141,6 +141,7 @@ class RestaurantsType extends Many
 
             RegionField::make('region')
                 ->title('Регион'),
+
             InputField::make('distance')
                 ->type('number')
                 ->title('Удалённость от Липецка')

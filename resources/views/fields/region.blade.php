@@ -4,14 +4,9 @@
         <label for="field-{{$name}}">{{$title}}</label>
     @endif
 
-
     <select class="form-control {{$class ?? ''}}"
 
-            @if(isset($prefix))
-            name="{{$prefix}}[{{$lang}}]{{$name}}"
-            @else
-            name="{{$lang}}{{$name}}"
-            @endif
+            name="{{$name}}"
 
     >
         @foreach(collect(config('region')) as $key => $item)
