@@ -104,22 +104,9 @@ class RestaurantsType extends Many
     {
         return [
             'id'              => 'sometimes|integer|unique:posts',
-            //'content.ru.name' => 'required|string',
-            //'content.ru.body' => 'required|string',
+            'content.ru.name' => 'required|string',
+            'content.ru.body' => 'required|string',
         ];
-    }
-
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $model
-     */
-    public function save(Model $model)
-    {
-        //dd($model);
-        $model->save();
-
-        $model->taxonomies()->sync(array_flatten(request(['category'])));
-        $model->setTags(request('tags', []));
-        $model->attachment()->syncWithoutDetaching(request('attachment', []));
     }
 
     /**

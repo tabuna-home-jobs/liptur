@@ -6,11 +6,10 @@ use Conner\Likeable\LikeableTrait;
 use Jenssegers\Date\Date;
 use Orchid\Press\Models\Post as BasePost;
 use willvincent\Rateable\Rateable;
-use Orchid\Platform\Traits\MultiLanguageTrait;
 
 class Post extends BasePost
 {
-    use LikeableTrait, Rateable, MultiLanguageTrait;
+    use LikeableTrait, Rateable;
 
     /**
      * @var array
@@ -19,18 +18,6 @@ class Post extends BasePost
         'attachment',
     ];
 
-    public static function boot()
-    {
-        parent::boot();
-
-        self::creating(function ($model) {
-            $model->publish_at = Carbon::now();
-        });
-
-        self::saving(function ($model) {
-            $model->createSlug($model->slug);
-        });
-    }
 
     /**
      * @return string
