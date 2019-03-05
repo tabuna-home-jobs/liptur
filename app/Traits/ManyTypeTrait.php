@@ -50,4 +50,29 @@ trait ManyTypeTrait
                 ->title('Upload DropBox'),
         ]);
     }
+    
+    
+   /**
+     * Registered fields for main.
+     *
+     * @return array
+     * @throws \Throwable|\Orchid\Press\Exceptions\EntityTypeException
+     */
+    public function main(): array
+    {
+        return [
+            Input::make('slug')
+                ->type('text')
+                ->name('slug')
+                ->required()
+                ->max(255)
+                ->title(__('Semantic URL'))
+                ->placeholder(__('Unique name')),
+            DateTimer::make('publish_at')
+                ->title(__('Time of publication')),
+            Select::make('status')
+                ->options($this->status())
+                ->title(__('Status')),
+        ];
+    }
 }
