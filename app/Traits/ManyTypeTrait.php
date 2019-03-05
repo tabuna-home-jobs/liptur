@@ -33,24 +33,6 @@ trait ManyTypeTrait
         $model->setTags(request('tags', []));
         $model->attachment()->syncWithoutDetaching(request('attachment', []));
     }
-
-    /**
-     * @return array
-     * @throws \Orchid\Screen\Exceptions\TypeException
-     * @throws \Throwable
-     */
-    public function main(): array
-    {
-        return array_merge(parent::main(), [
-
-            TagsField::make('tags')
-                ->title('Tags')
-                ->help('Keywords'),
-            UploadField::make('attachment')
-                ->title('Upload DropBox'),
-        ]);
-    }
-    
     
    /**
      * Registered fields for main.
@@ -73,6 +55,11 @@ trait ManyTypeTrait
             Select::make('status')
                 ->options($this->status())
                 ->title(__('Status')),
+           TagsField::make('tags')
+                ->title('Tags')
+                ->help('Keywords'),
+            UploadField::make('attachment')
+                ->title('Upload DropBox'),
         ];
     }
 }
