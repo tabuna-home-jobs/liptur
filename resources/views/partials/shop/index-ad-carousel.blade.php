@@ -1,6 +1,6 @@
 @php
     $images = Cache::remember('partials-shop-index-ad-carousel-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () {
-        return Orchid\Press\Models\Post::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
+        return Orchid\Press\Models\Page::where('slug','carousel-links')->with('attachment')->first()->attachment()->get();
     });
 @endphp
 
