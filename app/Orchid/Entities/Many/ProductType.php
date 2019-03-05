@@ -163,22 +163,22 @@ class ProductType extends Many
             InputField::make('width')
                 ->type('number')
                 ->required()
-                ->title('Ширина'),
+                ->title('Ширина (см)'),
 
             InputField::make('length')
                 ->type('number')
                 ->required()
-                ->title('Длинна'),
+                ->title('Длинна (см)'),
 
             InputField::make('height')
                 ->type('number')
                 ->required()
-                ->title('Высота'),
+                ->title('Высота (см)'),
 
             InputField::make('gravity')
                 ->type('number')
                 ->required()
-                ->title('Вес'),
+                ->title('Вес (г)'),
 
             InputField::make('price')
                 ->type('number')
