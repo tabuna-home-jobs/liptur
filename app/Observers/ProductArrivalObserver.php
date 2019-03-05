@@ -32,7 +32,7 @@ class ProductArrivalObserver
         $product = Post::type('product')->find($model->product_id);
 
 
-        $old_count = $product->getOption('count') ?? 0;
+        $old_count = intval($product->getOption('count')) ?? 0;
         $count = intval($model->count) ?? 0;
         $new_count = $old_count + $count;
 

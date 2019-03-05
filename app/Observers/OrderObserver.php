@@ -52,7 +52,7 @@ class OrderObserver
             $product = Post::type('product')->find($product_id);
 
 
-            $new_count = ($product->getOption('count') ?? 0) + $factor * $count;
+            $new_count = intval($product->getOption('count') ?? 0) + $factor * $count;
 
             $product->setAttribute('options->count', $new_count);
 
