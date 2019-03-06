@@ -4,6 +4,8 @@ namespace App\Http\Filters\Exhibitions;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\InputField;
 
 class CategoryFilters extends Filter
 {
@@ -36,5 +38,12 @@ class CategoryFilters extends Filter
             'request'  => $this->request,
             'category' => config('category.exhibitions.category'),
         ]);
+    }
+
+    public function display(): Field
+    {
+        return InputField::make('catfilter')
+            ->type('hidden')
+            ->value('1');
     }
 }

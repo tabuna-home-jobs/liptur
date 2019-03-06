@@ -42,14 +42,22 @@ trait ManyTypeTrait
      */
     public function save(Model $model)
     {
+        $content=request('content', []);
+        foreach (['ru','en'] as $locale) {
+            if (isset($content[$locale]['keywords'])) {
+                if (is_array($content[$locale]['keywords'])) {
+                    $content[$locale]['keywords'] = implode(", ", $content[$locale]['keywords']);
+                }
+            }
+        }
+        $model->content=$content;
+
         foreach (request('options.option', []) as $key => $value) {
             $option[$key] = 1;
         }
         if (isset($option)) {
             $model->options=array_merge($model->options,['option' => $option]);
         }
-
-
 
         $model->save();
         $model->setTags(request('tags', []));

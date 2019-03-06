@@ -17,7 +17,7 @@ class NewController extends Controller
      */
     public function index(Request $request)
     {
-        //dd($request->page);
+
         if ($request->has('date')) {
             $date = Carbon::parse($request->date);
             $hasdate= true;
@@ -59,7 +59,7 @@ class NewController extends Controller
         $similars =   \Cache::remember('new-controller-show-'.$new->id, \Carbon\Carbon::now()->addHour(), function () use ($new) {
             $tags = $new->tags->implode('slug', ', ');
 
-             return Post::withTag($tags)
+            return   Post::withTag($tags)
                 ->where('type', 'news')
                 ->published()
                 ->where('id', '!=', $new->id)

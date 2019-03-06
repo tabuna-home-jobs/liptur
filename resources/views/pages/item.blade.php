@@ -26,7 +26,7 @@
                     <div class="row m-t-xxl m-b-md padder-v">
                         <div class="pull-bottom text-white padder-v m-l-xl">
                             <h1 class="text-white brand-header" itemprop="headline">{{$item->getContent('name')}}</h1>
-                            @if (!empty($item->getContent('place')['name']))
+                            @if (isset($item->getContent('place')['name']))
                                 <p class="text-white text-sm"><i class="fa fa-map-marker"></i> {{$item->getContent('place')['name'] ?? ''}}</p>
                             @endif
                             <div class="lead hidden-xs v-center">
@@ -263,7 +263,7 @@
                                 <div id="map-event" class="maps"
                                      data-lat="{{$item->getContent('place')['lat']}}"
                                      data-lng="{{$item->getContent('place')['lng']}}"
-                                     data-name="{{$item->getContent('place')['name']}}"
+                                     data-name="{{$item->getContent('place')['name'] ?? ''}}"
                                      style="height: 300px"></div>
                             @endif
 
@@ -298,7 +298,7 @@
                                 @if(!empty($item->getContent('phone')))
                                     @include('partials.item.phone',[
                                         'phone' => $item->getContent('phone'),
-                                        'address' => $item->getContent('place')['name'],
+                                        'address' => $item->getContent('place')['name'] ?? '',
                                     ])
                                 @endif
 

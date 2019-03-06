@@ -37,7 +37,7 @@ class RegionFilters extends Filter
 
     public function display(): Field
     {
-        return InputField::make('titz')
+        return InputField::make('regfilter')
             ->type('hidden')
             ->value('1');
     }

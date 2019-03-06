@@ -6,6 +6,7 @@ use App\Fields\RegionField;
 use App\Http\Forms\Posts\Options;
 use App\Traits\ManyTypeTrait;
 use Illuminate\Support\Facades\App;
+use App\Http\Filters\Common\RegionFilters;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Press\Entities\Many;
