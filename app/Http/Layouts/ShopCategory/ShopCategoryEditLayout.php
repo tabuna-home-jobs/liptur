@@ -32,7 +32,7 @@ class ShopCategoryEditLayout extends Rows
             PictureField::make($categoryContent.'.fullPicture')
                 ->title('Фоновое отображение раздела')
                 ->help('Изображение характеризующее раздел')
-                ->width('100%')
+                ->width(800)
                 ->height(150),
 
             InputField::make($categoryContent.'.name')

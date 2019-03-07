@@ -41,7 +41,7 @@
                 <i class="fa fa-bars"></i>
             </button>
         </li>
-            {{$menuitem}}
+            {!! $menuitem !!}
         {{--
         @include('partials.widgets.menu.menuitem',[
             'menu'=>$menu,

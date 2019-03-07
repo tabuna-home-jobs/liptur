@@ -61,7 +61,8 @@ trait ManyTypeTrait
 
         $model->save();
         $model->setTags(request('tags', []));
-        $model->taxonomies()->syncWithoutDetaching(request('categories', []));
+
+        $model->taxonomies()->sync(array_flatten(request('categories', [])));
         $model->attachment()->syncWithoutDetaching(request('attachment', []));
     }
 

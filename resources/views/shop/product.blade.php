@@ -105,8 +105,6 @@
                             <div class="wrapper b-t">
                                 <ul class="list-unstyled text-sm text-grey">
                                     <li>Артикул: <span>{{$product->getOption('ski')}}</span></li>
-                                    <li class="padder-v-micro">Продавец: <span
-                                                class="text-darkred">{{$product->getContent('seller.name')}}</span></li>
                                 </ul>
 
                             </div>

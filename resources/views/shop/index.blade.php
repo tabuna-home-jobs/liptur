@@ -20,7 +20,7 @@
         <div class="container padder-v">
             <div class="row">
                 <div class="block-header col-xs-12 pt-3">
-                    Новинки и спецпредложения
+                    Новинки
                     <a href="{{route('shop.newsproducts')}}">
                         Самое интересное
                     </a>

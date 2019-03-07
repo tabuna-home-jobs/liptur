@@ -134,7 +134,7 @@
                             <div class="thumb-sm m-r-md">
                                 <img src="/img/shop/feature-4.png" class="img-responsive center">
                             </div>
-                            <span>Все товары и цены - <br>напрямую от производителей</span>
+                            <span>Только ручная работа</span>
                         </div>
                     </div>
                 </div>
