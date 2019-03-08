@@ -25,6 +25,9 @@ use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TinyMCEField;
 use Orchid\Screen\TD;
 
+use Illuminate\Contracts\Pagination\Paginator;
+use App\Models\Post;
+
 class FestivalsType extends Many
 {
     use ManyTypeTrait;

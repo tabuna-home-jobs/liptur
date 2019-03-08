@@ -4,12 +4,9 @@
 @section('description','Изображения Липецкой области')
 @section('keywords','Липецк фото, липецкая область фото')
 
-
-
-
 @section('header')
     <div id="post-header" class="catalog-item">
-        <div style="background:url({{$mostPopular->first()->original_url}}) center center; background-size:cover">
+        <div style="background:url({{$mostPopular->first()->original_url ?? '/img/tour/background/news-bg.jpg'}}) center center; background-size:cover">
             <div class="bg-black-opacity bg-dark">
                 <div class="container pos-rlt min-h-h">
 
@@ -35,6 +32,7 @@
         </section>
     </div>
 @endsection
+
 
 
 

@@ -31,7 +31,14 @@
 
                     @if (App::isLocale('ru'))
                         @php
-                            $filters = $type->getFilters();
+                            $allFilters = $type->getFilters();
+                            $filters=[];
+                            foreach ($allFilters as $filter) {
+                                if (method_exists($filter,'html')) {
+                                    $filters[]=$filter;
+                                }
+                            }
+                        $filters=collect($filters);
                         @endphp
 
                         @if($filters->count() > 0 )

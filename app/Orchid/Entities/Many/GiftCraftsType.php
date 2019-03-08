@@ -4,6 +4,7 @@ namespace App\Orchid\Entities\Many;
 
 use App\Fields\RegionField;
 use App\Http\Filters\Titz\TitzFilter;
+use App\Http\Filters\Common\RegionFilters;
 use App\Http\Forms\Posts\Options;
 use App\Traits\ManyTypeTrait;
 use Illuminate\Support\Facades\App;
@@ -64,6 +65,7 @@ class GiftCraftsType extends Many
     {
         return [
             TitzFilter::class,
+            RegionFilters::class,
         ];
     }
 

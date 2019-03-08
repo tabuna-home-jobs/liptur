@@ -37,7 +37,7 @@ class GalleryController extends Controller
                 return $attach;
             });
 
-            return $popular;
+        return $popular;
         });
         $gallery = Post::type('gallery')
             ->whereNotNull('content->'.App::getLocale())

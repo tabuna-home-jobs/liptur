@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 use Orchid\Platform\Http\Forms\Posts\BasePostForm;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Press\Entities\Many;
+use App\Http\Filters\Common\RegionFilters;
 use Orchid\Press\Http\Filters\CreatedFilter;
 use Orchid\Press\Http\Filters\SearchFilter;
 use Orchid\Press\Http\Filters\StatusFilter;
