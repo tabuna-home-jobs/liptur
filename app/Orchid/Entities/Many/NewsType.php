@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Http\Filters\CreatedFilter;
 use Orchid\Press\Http\Filters\SearchFilter;
-use Orchid\Press\Http\Filters\StatusFilter;
+use App\Http\Filters\StatusFilter;
 use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\TextAreaField;
