@@ -6,7 +6,6 @@ use Conner\Likeable\LikeableTrait;
 use Jenssegers\Date\Date;
 use Orchid\Press\Models\Post as BasePost;
 use willvincent\Rateable\Rateable;
-use Illuminate\Database\Eloquent\Builder;
 
 class Post extends BasePost
 {
