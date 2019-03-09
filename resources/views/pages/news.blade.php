@@ -62,10 +62,10 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(count($new->attachment) > 0)
-                                <div class="owl-carousel owl-theme own-content">
-                                    @foreach($new->attachment as $image)
 
+                            @if(count($new->attachmentWithType('image')) > 0)
+                                <div class="owl-carousel owl-theme own-content">
+                                    @foreach($new->attachmentWithType('image') as $image)
                                          @if($loop->first)
                                             <figure class="item">
                                                 <img class="img-responsive" src="/image/high{{$image->url('high')}}"
@@ -153,9 +153,7 @@
                 </div>
 
                 <aside class="col-md-4 hidden-xs hidden-sm">
-
                     <div class="aside-affix">
-
                         @if($new->attachmentType('docs')->count() > 0)
                             @include('partials.item.attachment',[
                                 'title' => 'Файлы к новости',

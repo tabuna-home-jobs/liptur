@@ -10,14 +10,7 @@ class ImageController extends Controller
     {
         $a_src=(explode('/',$src));
         $path=array_shift($a_src);
-        /*
-        $template = [
-            'low' => \App\Http\Filters\Image\ImageLowFilter::class,
-            'small' => \App\Http\Filters\Image\ImageSmallFilter::class,
-            'medium' => \App\Http\Filters\Image\ImageMediumFilter::class,
-            'standart' => \App\Http\Filters\Image\ImageMediumFilter::class,
-            'high' => \App\Http\Filters\Image\ImageHighFilter::class,
-        ];*/
+
         $template=config('imagecache.templates');
         if (array_key_exists($path, $template)) {
             $filter=$template[$path];

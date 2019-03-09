@@ -34,9 +34,22 @@ trait AttachmentTrait
     {
         if (! is_null($type)) {
             return $this->morphToMany(static::$attachmentModel, 'attachmentable', 'attachmentable', 'attachmentable_id',
-                'attachment_id')->whereIn('extension', config('category.attachment.'.$type));
+                'attachment_id')->whereIn('extension', $this->getArrayWithUpCase(config('category.attachment.'.$type)));
         }
         return $this->morphToMany(static::$attachmentModel, 'attachmentable', 'attachmentable', 'attachmentable_id',
             'attachment_id');
     }
+
+
+    public function attachmentWithType($type = null)
+    {
+        return $this->attachment->whereIn('extension',$this->getArrayWithUpCase(config('category.attachment.'.$type)));
+    }
+
+
+    public function getArrayWithUpCase($array):array {
+        return array_merge($array,array_flip(array_change_key_case(array_flip($array), CASE_UPPER)));
+    }
+
+
 }

@@ -45,7 +45,11 @@ class PlatformScreen extends Screen
      */
     public function commandBar(): array
     {
-        return [];
+        return [
+            Link::name('Liptur.ru')
+                ->link('https://liptur.ru')
+                ->icon('icon-globe-alt'),
+        ];
     }
 
     /**

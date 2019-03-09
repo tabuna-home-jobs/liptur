@@ -64,8 +64,6 @@ class Post extends BasePost
         return \App\Models\Post::class;
     }
 
-
-
     /**
      * @param string $size
      * @return string
