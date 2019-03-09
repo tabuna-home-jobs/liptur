@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\AttachmentTrait;
 use Conner\Likeable\LikeableTrait;
 use Jenssegers\Date\Date;
 use Orchid\Press\Models\Post as BasePost;
@@ -9,7 +10,9 @@ use willvincent\Rateable\Rateable;
 
 class Post extends BasePost
 {
-    use LikeableTrait, Rateable;
+    use LikeableTrait, Rateable, AttachmentTrait;
+
+
 
     /**
      * @var array

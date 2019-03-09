@@ -77,12 +77,12 @@ class AgencieType extends Many
             SearchFilter::class,
             StatusFilter::class,
             CreatedFilter::class,
-            /*
+/*
             TitzFilter::class,
-
             CategoryFilters::class,
             RegionFilters::class,
-            */
+*/
+
         ];
     }
 
@@ -220,6 +220,6 @@ class AgencieType extends Many
      */
     public function options(): array
     {
-        return $this->getIconOptions();
+        return  $this->getIconOptions();
     }
 }

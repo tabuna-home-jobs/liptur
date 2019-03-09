@@ -22,7 +22,9 @@ use Orchid\Screen\Fields\MapField;
 use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\Fields\LabelField;
 use Orchid\Screen\TD;
+use Orchid\Screen\Field;
 
 class HotelsType extends Many
 {
@@ -256,6 +258,6 @@ class HotelsType extends Many
      */
     public function options(): array
     {
-        return $this->getIconOptions();
+        return array_merge($this->getCategoryOptions(), $this->getIconOptions());
     }
 }

@@ -69,7 +69,7 @@
                                         </div>
                                         <a v-on:click="loadAlbom({{$album->id}})"
                                            class="block b box-shadow r r-2x">
-                                            <img src="{{$album->attachment->first()->url('medium')}}" alt=""
+                                            <img src="{{$album->hero('medium') ?? '/img/no-image.jpg'}}" alt=""
                                                  class="img-responsive img-full r r-2x">
                                         </a>
                                     </div>

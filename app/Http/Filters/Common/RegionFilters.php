@@ -5,7 +5,7 @@ namespace App\Http\Filters\Common;
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Platform\Filters\Filter;
 use Orchid\Screen\Field;
-use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Fields\SelectField;
 
 class RegionFilters extends Filter
 {
@@ -21,6 +21,8 @@ class RegionFilters extends Filter
      */
     public function run(Builder $builder): Builder
     {
+        if ($this->request->get('region')=='all') return $builder;
+
         return $builder->where('content->'.$this->lang.'->region', $this->request->get('region'));
     }
 
@@ -37,8 +39,16 @@ class RegionFilters extends Filter
 
     public function display(): Field
     {
-        return InputField::make('regfilter')
-            ->type('hidden')
-            ->value('1');
+        foreach (config('region') as $key => $value) {
+            $region[$key] = $value['name'];
+        }
+        return SelectField::make('region')
+            ->value($this->request->get('region'))
+            ->options(array_merge(
+                ['all' => 'Все регионы'],
+                $region
+            ))
+            ->title(__('Regions'))
+            ->autocomplete('off');
     }
 }

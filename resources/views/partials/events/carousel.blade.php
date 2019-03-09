@@ -25,7 +25,7 @@
     @foreach ($carousel as $item)
         <div class="item">
             <a href="{{$item->getContent('url')}}">
-                <img class="img-responsive" src="{{$item->hero()}}"/>
+                <img class="img-responsive" src="{{$item->hero('high')}}"/>
                 <div class="owl-shop-block container">
                     <div class="row row-flex">
                         <div class="container no-padder">

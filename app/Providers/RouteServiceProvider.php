@@ -49,19 +49,25 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('product', function ($value) {
-            if (is_numeric($value)) {
-                return Post::where('id', $value)
+            return  \Cache::remember('route-product-'.$value, \Carbon\Carbon::now()->addHour(), function () use ($value) {
+                if (is_numeric($value)) {
+                    return Post::where('id', $value)
+                        ->where('status', '<>', 'hidden')
+                        ->where('type', 'product')
+                        ->with(['attachment',
+                            'comments.author',
+                            'likeCounter'])
+                        ->firstOrFail();
+                }
+
+                return Post::where('slug', $value)
                     ->where('status', '<>', 'hidden')
                     ->where('type', 'product')
-                    ->with(['attachment', 'comments.author', 'likeCounter'])
+                    ->with(['attachment',
+                        'comments.author',
+                        'likeCounter'])
                     ->firstOrFail();
-            }
-
-            return Post::where('slug', $value)
-                ->where('status', '<>', 'hidden')
-                ->where('type', 'product')
-                ->with(['attachment', 'comments.author', 'likeCounter'])
-                ->firstOrFail();
+            });
         });
 
         Route::bind('order', function ($value) {

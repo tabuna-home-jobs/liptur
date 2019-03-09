@@ -5,6 +5,7 @@ namespace App\Orchid\Entities\Many;
 use App\Fields\RegionField;
 use App\Http\Filters\Common\RegionFilters;
 use App\Http\Filters\Gastronomy\CategoryFilters;
+use App\Http\Filters\Gastronomy\KitchenFilters;
 use App\Http\Forms\Posts\Category;
 use App\Http\Forms\Posts\Options;
 use App\Traits\ManyTypeTrait;
@@ -21,6 +22,8 @@ use Orchid\Screen\Fields\MapField;
 use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\Fields\CheckBoxField;
+use Orchid\Screen\Fields\LabelField;
 use Orchid\Screen\TD;
 
 use Illuminate\Database\Eloquent\Model;
@@ -91,6 +94,7 @@ class RestaurantsType extends Many
 
             RegionFilters::class,
             CategoryFilters::class,
+            KitchenFilters::class,
             //DistanceFilters::class,
         ];
     }
@@ -246,12 +250,76 @@ class RestaurantsType extends Many
         ];
     }
 
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $model
+     */
+    public function save(Model $model)
+    {
+        $content=request('content', []);
+        foreach (['ru','en'] as $locale) {
+            if (isset($content[$locale]['keywords'])) {
+                if (is_array($content[$locale]['keywords'])) {
+                    $content[$locale]['keywords'] = implode(", ", $content[$locale]['keywords']);
+                }
+            }
+        }
+        $model->content=$content;
+
+        foreach (request('options.option', []) as $key => $value) {
+            $option[$key] = '1';
+        }
+        if (isset($option)) {
+            $model->options=array_merge($model->options,['option' => $option]);
+        }
+        foreach (request('options.category', []) as $key => $value) {
+            $category[$key] = '1';
+        }
+        if (isset($category)) {
+            $model->options=array_merge($model->options,['category' => $category]);
+        }
+
+        foreach (request('options.kitchens', []) as $key => $value) {
+            $kitchens[$key] = '1';
+        }
+        if (isset($category)) {
+            $model->options=array_merge($model->options,['kitchens' => $kitchens]);
+        }
+
+        $model->save();
+        $model->setTags(request('tags', []));
+
+        $model->taxonomies()->sync(array_flatten(request('categories', [])));
+        $model->attachment()->syncWithoutDetaching(request('attachment', []));
+    }
+
+    public function getKitchenOptions() {
+        $categories = collect(config('category.'.$this->slug.'.kitchens'))->sort();
+
+        $options=[];
+        foreach ($categories as $key=>$category) {
+            $options[]=CheckBoxField::make('kitchens.'.$key)
+                ->placeholder($category)
+                ->horizontal();
+        }
+
+        return [
+            LabelField::make('kitchens_label')
+                ->hr(),
+            LabelField::make('kitchens_label')
+                ->title('Кухня')
+                ->horizontal()
+                ->hr(true),
+            $options,
+        ];
+    }
+
     /**
      * @return array
      * @throws \Throwable
      */
     public function options(): array
     {
-        return $this->getIconOptions();
+        return array_merge($this->getCategoryOptions(), $this->getKitchenOptions(), $this->getIconOptions());
     }
 }

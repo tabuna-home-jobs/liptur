@@ -50,10 +50,11 @@ return array(
     */
 
     'templates' => array(
-        'small' => 'Intervention\Image\Templates\Small',
-        'medium' => 'Intervention\Image\Templates\Medium',
-        'standart' => 'Intervention\Image\Templates\Medium',
-        'high' => 'Intervention\Image\Templates\Large',
+        'low' => \App\Http\Filters\Image\ImageLowFilter::class,
+        'small' => \App\Http\Filters\Image\ImageSmallFilter::class,
+        'medium' => \App\Http\Filters\Image\ImageMediumFilter::class,
+        'standart' => \App\Http\Filters\Image\ImageMediumFilter::class,
+        'high' => \App\Http\Filters\Image\ImageHighFilter::class,
     ),
     /*
     |--------------------------------------------------------------------------

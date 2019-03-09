@@ -13,6 +13,7 @@ use Orchid\Screen\Fields\UploadField;
 use Orchid\Screen\Fields\DateTimerField;
 use Orchid\Screen\Fields\SelectField;
 use Orchid\Screen\Fields\CheckBoxField;
+use Orchid\Screen\Fields\LabelField;
 use App\Models\Term;
 use Orchid\Press\Models\Taxonomy;
 
@@ -53,10 +54,16 @@ trait ManyTypeTrait
         $model->content=$content;
 
         foreach (request('options.option', []) as $key => $value) {
-            $option[$key] = 1;
+            $option[$key] = '1';
         }
         if (isset($option)) {
             $model->options=array_merge($model->options,['option' => $option]);
+        }
+        foreach (request('options.category', []) as $key => $value) {
+            $category[$key] = '1';
+        }
+        if (isset($category)) {
+            $model->options=array_merge($model->options,['category' => $category]);
         }
 
         $model->save();
@@ -110,15 +117,42 @@ trait ManyTypeTrait
     public function getIconOptions() {
         $icons = collect(config('icon.attributes'))->sort();
 
-        $option=[];
+        $options=[];
         foreach ($icons as $key=>$icon) {
-            $option[]=CheckBoxField::make('option.'.$key)
+            $options[]=CheckBoxField::make('option.'.$key)
                 ->placeholder($icon)
                 ->horizontal();
         }
 
-        return Field::group([
-            $option,
-        ]);
+        return [
+            LabelField::make('option_label')
+                ->hr(),
+            LabelField::make('option_label')
+                ->title('Опции')
+                ->horizontal()
+                ->hr(),
+            $options,
+        ];
+    }
+
+    public function getCategoryOptions() {
+        $categories = collect(config('category.'.$this->slug.'.category'))->sort();
+
+        $options=[];
+        foreach ($categories as $key=>$category) {
+            $options[]=CheckBoxField::make('category.'.$key)
+                ->placeholder($category)
+                ->horizontal();
+        }
+
+        return [
+            LabelField::make('category_label')
+                ->hr(),
+            LabelField::make('category_label')
+                ->title('Категории')
+                ->horizontal()
+                ->hr(true),
+            $options,
+        ];
     }
 }

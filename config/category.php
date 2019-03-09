@@ -91,4 +91,32 @@ return [
         'investor'   => 'Инвесторы баннера',
     ],
 
+    'attachment' => [
+        'image' => [
+            'png',
+            'jpg',
+            'jpeg',
+            'gif',
+        ],
+        'video' => [
+            'mp4',
+            'mkv',
+        ],
+        'docs'  => [
+            'doc',
+            'docx',
+            'pdf',
+            'xls',
+            'xlsx',
+            'xml',
+            'txt',
+            'zip',
+            'rar',
+            'svg',
+            'ppt',
+            'pptx',
+        ],
+    ],
+
+
 ];

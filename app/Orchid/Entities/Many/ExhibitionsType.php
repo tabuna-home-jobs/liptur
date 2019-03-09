@@ -233,6 +233,6 @@ class ExhibitionsType extends Many
      */
     public function options(): array
     {
-        return $this->getIconOptions();
+        return array_merge($this->getCategoryOptions(), $this->getIconOptions());
     }
 }

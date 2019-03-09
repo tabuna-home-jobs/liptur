@@ -306,13 +306,12 @@
                                     @widget('reservation',['postid'=>$item->id] )
                                 @endif
 
-                                {{--
-                                @if($item->attachment('docs')->count() > 0)
+
+                                @if($item->attachmentType('docs')->count() > 0)
                                     @include('partials.item.attachment',[
-                                        'attachments' => $item->attachment('docs')->get(),
+                                        'attachments' => $item->attachmentType('docs')->get(),
                                     ])
                                 @endif
-                                --}}
 
                                 @if(strlen(strip_tags($item->getContent('body'))) >= 1000)
                                     <div id="adb" class="panel b box-shadow-lg text-center"

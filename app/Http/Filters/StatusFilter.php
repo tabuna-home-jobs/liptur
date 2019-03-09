@@ -25,6 +25,8 @@ class StatusFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
+        if ($this->request->get('status')=='all') return $builder;
+
         return $builder->status($this->request->get('status'));
     }
 
@@ -36,6 +38,7 @@ class StatusFilter extends Filter
         return SelectField::make('status')
             ->value($this->request->get('status'))
             ->options([
+                'all' => __('All'),
                 'publish' => __('Published'),
                 'draft'   => __('Draft'),
             ])

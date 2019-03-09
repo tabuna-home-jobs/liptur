@@ -5,6 +5,8 @@ namespace App\Orchid\Entities\Many;
 use App\Http\Forms\Shop\ProductBaseForm;
 use App\Models\ShopCategory;
 use App\Traits\ManyTypeTrait;
+use Orchid\Press\Http\Filters\CreatedFilter;
+use Orchid\Press\Http\Filters\SearchFilter;
 use Orchid\Platform\Fields\Field;
 use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 use Orchid\Press\Entities\Many;
@@ -55,6 +57,17 @@ class ProductType extends Many
      * @var string
      */
     public $groupname = 'Интернет-магазин';
+
+    /**
+     * @var array
+     */
+    public function filters(): array
+    {
+        return [
+            SearchFilter::class,
+            CreatedFilter::class,
+        ];
+    }
 
 
     /**
@@ -163,22 +176,22 @@ class ProductType extends Many
             InputField::make('width')
                 ->type('number')
                 ->required()
-                ->title('Ширина (см)'),
+                ->title('Ширина'),
 
             InputField::make('length')
                 ->type('number')
                 ->required()
-                ->title('Длинна (см)'),
+                ->title('Длинна'),
 
             InputField::make('height')
                 ->type('number')
                 ->required()
-                ->title('Высота (см)'),
+                ->title('Высота'),
 
             InputField::make('gravity')
                 ->type('number')
                 ->required()
-                ->title('Вес (г)'),
+                ->title('Вес'),
 
             InputField::make('price')
                 ->type('number')
@@ -242,7 +255,6 @@ class ProductType extends Many
 
 
             TD::set('name', 'Название')
-                ->filter('text')
                 ->sort()
                 ->linkPost('name'),
             TD::set('publish_at', 'Date of publication'),

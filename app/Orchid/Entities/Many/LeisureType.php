@@ -78,8 +78,8 @@ class LeisureType extends Many
             CreatedFilter::class,
             TitzFilter::class,
 
-            RegionFilters::class,
             CategoryFilters::class,
+            RegionFilters::class,
             //DistanceFilters::class,
         ];
     }
@@ -259,6 +259,6 @@ class LeisureType extends Many
      */
     public function options(): array
     {
-        return [];
+        return $this->getCategoryOptions();
     }
 }

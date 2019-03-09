@@ -50,7 +50,7 @@
                                     <div class="sp-slide">
                                         <img class="sp-image im-responsive img-full" src="{{$attachment->url('high')}}"
                                              data-src="/image/high{{$attachment->url('high')}}"
-                                             data-retina="{{$attachment->url()}}"/>
+                                             data-retina="/image/high{{$attachment->url('high')}}"/>
                                     </div>
                                 @endforeach
                             </div>
@@ -61,7 +61,7 @@
                                         <div class="sp-thumbnail">
                                             <div class="sp-thumbnail-image-container">
                                                 <img class="sp-thumbnail-image img-full"
-                                                     src="/image/medium{{$attachment->url('medium')}}"/>
+                                                     src="/image/small{{$attachment->url('small')}}"/>
                                             </div>
                                         </div>
                                     @endforeach

@@ -3,47 +3,13 @@
 namespace App\Http\Filters\Hotel;
 
 use Illuminate\Database\Eloquent\Builder;
-use Orchid\Platform\Filters\Filter;
+use App\Http\Filters\MainCategoryFilters;
 use Orchid\Screen\Field;
-use Orchid\Screen\Fields\InputField;
+use Orchid\Screen\Fields\SelectField;
 
-class CategoryFilters extends Filter
+class CategoryFilters extends MainCategoryFilters
 {
-    /**
-     * @param Builder $builder
-     *
-     * @return Builder
-     */
-    public function run(Builder $builder): Builder
-    {
-        $service = (array) $this->request->get('category', []);
 
-        foreach ($service as $key => $item) {
-            if ($key === 0) {
-                $builder = $builder->where('options->category->'.$item, '1');
-            } else {
-                $builder = $builder->orWhere('options->category->'.$item, '1');
-            }
-        }
+    public $slug =  'hostel';
 
-        return $builder;
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function html()
-    {
-        return view('partials.filters.hostel.category', [
-            'request'  => $this->request,
-            'category' => config('category.hostel.category'),
-        ]);
-    }
-
-    public function display(): Field
-    {
-        return InputField::make('catfilter')
-            ->type('hidden')
-            ->value('1');
-    }
 }
