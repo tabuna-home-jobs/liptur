@@ -25,14 +25,44 @@
                         <h5>{{$order->ordervar['delivery'][$order->options['delivery']]}}</h5>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>Индекс:</p>
+                @if ($order->options['delivery'] === 'mail')
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Адрес:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{$order->options['delivery_address'] ?? 'не указан'}}</h5>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <h5>{{$order->options['zip'] ?? 'не указан'}}</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Индекс:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{$order->options['delivery_zip'] ?? 'не указан'}}</h5>
+                        </div>
                     </div>
-                </div>
+                @endif
+
+                @if ($order->options['delivery'] === 'courier')
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Город:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{$order->options['delivery_city_name'] ?? 'не указан'}}</h5>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Пункт доставки:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{$order->options['delivery_pvz_name'] ?? 'не указан'}} ({{$order->options['delivery_pvz_address']}})</h5>
+                        </div>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-4">
                         <p>Способ оплаты:</p>

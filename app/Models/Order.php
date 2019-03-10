@@ -28,8 +28,8 @@ class Order extends Model
         ],
 
         'delivery' => [
-            'pickup'  => 'Самовывоз',
-            'courier' => 'Транспортной компанией',
+            'pickup'  => 'Со склада г. Липецк',
+            'courier' => 'Транспортная компания  СДЕК',
             'mail'    => 'Почта России',
             //'boxberry'    => 'Получение в центрах выдачи boxberry',
         ],

@@ -29,10 +29,9 @@ class OrderRequest extends FormRequest
             'password' => Auth::check() ? 'sometimes' : 'sometimes|required|confirmed|max:255',
             'name'     => 'sometimes|required|max:255',
             'phone'    => 'sometimes|required|max:255',
-            'delivery' => 'required|in:mail,courier',
+            'delivery' => 'required|in:mail,courier,pickup',
             'comment'  => 'sometimes',
             'payment'  => 'required|in:cash,card,cashless',
-            'zip'      => 'required|integer'
         ];
     }
 }

@@ -27,10 +27,10 @@ class CartController
     /**
      * @param $request
      * @param bool $is_purchase
-     * @param float $delivery_price
+     * @param array $custom
      * @return Order
      */
-    private function createOrder($request,  bool $is_purchase = false, float $delivery_price = null): Order {
+    private function createOrder($request,  bool $is_purchase = false, $custom = []): Order {
         if (Auth::check()) {
             Cart::restore(Auth::id());
         } else {
@@ -57,39 +57,43 @@ class CartController
             $count = $product->options['count'] ?? 0;
 
             if($count < $item->qty) {
-                return abort(400);
+                return abort(400, "Товара нет в наличии");
             }
+        }
+
+        $options = [
+            'payment'  => $request->get('payment'),
+            'delivery' => $request->get('delivery'),
+            'message'  => $request->get('message'),
+            'content'  => $cartContent['content'],
+            'total'    => $cartContent['total'],
+            'count'    => $cartContent['count'],
+            'status'   => 'new',
+        ];
+
+        foreach ($custom as $key => $value) {
+            $options[$key] = $value;
         }
 
         $order = Order::create([
             'user_id' => Auth::id(),
             'slug'    => strtoupper(str_random(8)),
-            'options' => [
-                'payment'  => $request->get('payment'),
-                'zip'     => $request->get('zip'),
-                'delivery' => $request->get('delivery'),
-                'delivery_price' => $delivery_price,
-                'message'  => $request->get('message'),
-                'content'  => $cartContent['content'],
-                'total'    => $cartContent['total'],
-                'count'    => $cartContent['count'],
-                'status'   => 'new',
-            ],
+            'options' => $options,
         ]);
 
         //$order->slug=$order->id.''.strtoupper(str_random(8));
         //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
 
-        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
-            //$m->from('sender@test.com', 'Sender');
-            $message->to(setting('shop_admin_email'), 'Администратор')
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
-
-        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
-            $message->to($order->user()->first()->email, $order->user()->first()->name)
-                ->subject('Новый заказ на сайте Liptur.ru');
-        });
+//        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
+//            //$m->from('sender@test.com', 'Sender');
+//            $message->to(setting('shop_admin_email'), 'Администратор')
+//                ->subject('Новый заказ на сайте Liptur.ru');
+//        });
+//
+//        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
+//            $message->to($order->user()->first()->email, $order->user()->first()->name)
+//                ->subject('Новый заказ на сайте Liptur.ru');
+//        });
 
         $this->clearRows($cartContent['content']);
 
@@ -170,17 +174,21 @@ class CartController
 
     public function purchase(OrderRequest $request)
     {
-        $toIndex =  $request->get('zip');
         $deliveryType = $request->get('delivery');
-        $deliveryPrice = Delivery::calcDeliveryCart($toIndex, $deliveryType, true);
+        $deliveryOpts = $request->get('delivery_opts');
 
-        $order = $this->createOrder($request, true, $deliveryPrice);
+        $deliveryData = Delivery::getDeliveryData($deliveryType, $deliveryOpts);
 
-        $options = $order->options;
-        $options['delivery_price'] = $deliveryPrice;
-        $order->options = $options;
+        if(isset($deliveryData['errors'])) {
+            return response()->json($deliveryData, 400);
+        }
 
-        $order->save();
+        $deliveryPrice = Delivery::calcDeliveryCart($deliveryType, $deliveryOpts, true);
+
+        $custom = $deliveryData;
+        $custom['delivery_price'] = $deliveryPrice;
+
+        $order = $this->createOrder($request, true, $custom);
 
 
         if($request->get('payment') === 'card' && $order->options['total'] > 0) {

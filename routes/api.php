@@ -22,4 +22,7 @@ Route::group(['middleware' => ['api'], 'namespace' => 'Api'], function ($router)
     $router->put('cart/{row}/{count?}', 'CartController@update');
     $router->delete('cart/{row}', 'CartController@delete');
     $router->post('shop/{product}/comment', 'CommentController@comment');
+    $router->post('shop/delivery/cart', 'DeliveryController@calcCart')->name('shop.delivery');
+    $router->get('shop/cdek/service', 'DeliveryController@getCdekService')->name('shop.cdekservice');
+
 });

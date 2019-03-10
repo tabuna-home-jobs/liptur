@@ -193,7 +193,6 @@ $router->group([
 
 $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
     $this->get('/product/{product}', 'ShopController@product')->name('shop.product');
-    $this->post('/delivery/cart', 'DeliveryController@calcCart')->name('shop.delivery');
     $this->get('/catalog', 'ShopController@catalog')->name('shop.catalog');
     $this->get('/products/{slug}', 'ShopController@products')->name('shop.products');
     $this->get('/products', 'ShopController@newsproducts')->name('shop.newsproducts');

@@ -226,9 +226,7 @@ class ShopController extends Controller
      */
     public function order(): View
     {
-        return view('shop.order', [
-            'purchase' => false
-        ]);
+        return view('shop.order.order');
     }
 
 
@@ -237,8 +235,6 @@ class ShopController extends Controller
      */
     public function purchase(): View
     {
-        return view('shop.order', [
-            'purchase' => true
-        ]);
+        return view('shop.order.purchase');
     }
 }

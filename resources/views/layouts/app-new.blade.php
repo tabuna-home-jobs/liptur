@@ -39,6 +39,8 @@
 
     <script type="text/javascript" src="{{ elixir('/dist/js/orchid.js') }}"></script>
 
+    @yield('head')
+
 </head>
 
 
