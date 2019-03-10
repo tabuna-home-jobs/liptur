@@ -44,7 +44,7 @@
                     </div>
                 @endif
 
-                @if ($order->options['delivery'] === 'courier')
+                @if ($order->options['delivery'] === 'courier' && isset($order->options['delivery_id']))
                     <div class="row">
                         <div class="col-md-4">
                             <p>Город:</p>

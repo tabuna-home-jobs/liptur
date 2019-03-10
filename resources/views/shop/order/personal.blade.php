@@ -1,4 +1,4 @@
-<form id="personal-form" class="row row-flex" v-on:submit="submitPersonal($event)">
+<div class="row row-flex">
 
   @if (Auth::guest())
     <div class="row m-h-none">
@@ -105,4 +105,4 @@
       </button>
     </div>
   </div>
-</form>
+</div>

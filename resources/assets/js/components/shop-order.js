@@ -155,13 +155,15 @@ $(function () {
           }
         },
 
-        async sendOrder() {
+        async sendOrder(e) {
+          e.preventDefault()
+          e.stopPropagation();
           const formData = this.formData;
 
           this.checkAggree();
 
           try {
-            const res = await this.$http.post(`/api/cart/order`, {
+            await this.$http.post(`/api/cart/order`, {
               email: formData.email || '',
               name: formData.first_name || formData.last_name ? `${formData.first_name||''} ${formData.last_name||''}`: null,
               phone: formData.phone || '',
@@ -172,20 +174,15 @@ $(function () {
               delivery: formData.delivery || '',
               payment: formData.payment || '',
             });
-
-            if(res.body.redirect) {
-              window.location.href = res.body.redirect;
-            } else {
-              swal({
-                title: "Выполнено успешно",
-                text: "Ваш заказ создан!",
-                type: "success",
-                confirmButtonClass: "btn-success",
-                confirmButtonText: "Перейти на главную страницу",
-              }, function () {
-                window.location.href = '/shop';
-              });
-            }
+            swal({
+              title: "Выполнено успешно",
+              text: "Ваш заказ создан!",
+              type: "success",
+              confirmButtonClass: "btn-success",
+              confirmButtonText: "Перейти на главную страницу",
+            }, function () {
+              window.location.href = '/shop';
+            });
           } catch (e) {
            this.catchSend(e)
           }

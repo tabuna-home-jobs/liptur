@@ -41,7 +41,9 @@
               </div>
             </div>
           </div>
-          @include('shop.order.personal')
+          <form v-on:submit="submitPersonal($event)">
+            @include('shop.order.personal')
+          </form>
         </div>
 
         <div v-show="step===1">
