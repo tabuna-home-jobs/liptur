@@ -125,7 +125,7 @@ class AboutController extends Controller
      */
     public function ShopContacts()
     {
-        return view('pages.default', [
+        return view('pages.shop-contacts', [
             'page' => getPage('shop-contacts'),
         ]);
     }
