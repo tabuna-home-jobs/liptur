@@ -34,7 +34,7 @@
           <div class="row">
             <div class="col-md-8">
               <div class="row">
-                <div class="col-md-6 m-b">
+                <div class="col-md-12 m-b">
                   <div class="bg-darkred text-white inline wrapper-sm padder-md m-r-sm">Шаг 1</div>
                   Ввведите ваши персональные данные к заказу:
                 </div>
