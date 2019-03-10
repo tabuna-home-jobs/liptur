@@ -1,16 +1,15 @@
-<div class="row row-flex">
-
-  @if (Auth::guest())
-    <div class="row m-h-none">
-      <div class="bg-yellow b-dashed b-1x wrapper-lg">
-        <div class="font-bold text-center text-black text-lg">
-          Если вы не авторизованы - <a href="{{url('/'.App::getLocale().'/login')}}" class="text-red">авторизуйтесь</a>
-          или заполните поля ниже
-        </div>
+@if (Auth::guest())
+  <div class="row m-h-none">
+    <div class="bg-yellow b-dashed b-1x wrapper-lg">
+      <div class="font-bold text-center text-black text-lg">
+        Если вы не авторизованы - <a href="{{url('/'.App::getLocale().'/login')}}" class="text-red">авторизуйтесь</a>
+        или заполните поля ниже
       </div>
     </div>
-    <div class="clearfix m-b-md"></div>
-  @endif
+  </div>
+  <div class="clearfix m-b-md"></div>
+@endif
+<div class="row row-flex">
 
   <div class="col-md-4 flex-column">
     <div class="form-group m-t-sm" v-bind:class="{ 'has-error': errors.email }">
