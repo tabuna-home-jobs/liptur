@@ -1,4 +1,8 @@
 @extends('layouts.app-new')
+  @section('shop-header')
+    <div class="hidden-xs">@widget('menuWidget','shop-header')</div>
+    <div class="visible-xs">@widget('menuWidget','shop-header-mobile')</div>
+  @endsection
   @section('submenu')
       <div class="visible-xs padder-v-micro row"></div>
       <div id="shop-header" class="row padder-l-xl no-p-xs">

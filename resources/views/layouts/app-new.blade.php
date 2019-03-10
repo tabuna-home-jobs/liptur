@@ -121,7 +121,7 @@
         </div>
 
         <div class="clearfix"></div>
-        @widget('menuWidget','shop-header')
+        @yield('shop-header', (new Orchid\Widget\Widget)->get('menuWidget','shop-header'))
         @section('submenu')
             <div class="submenu visible-xs">
                 <div class="padder-v-micro row b-b"></div>
