@@ -115,6 +115,6 @@ class OrderEdit extends Screen
 
         Alert::info('Заказ удален');
 
-        return redirect()->route('dashboard.liptur.shop.order.list');
+        return redirect()->route('platform.shop.order.list');
     }
 }
