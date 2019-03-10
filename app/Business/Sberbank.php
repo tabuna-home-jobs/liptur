@@ -15,9 +15,7 @@ class Sberbank {
             $clientOptions['apiUri'] = Client::API_URI_TEST;
         }
 
-        return new Client([
-            'token' => config('services.sberbank.token'),
-        ]);
+        return new Client($clientOptions);
     }
 
     public static function createSberbankOrder($orderId, $orderAmount) {

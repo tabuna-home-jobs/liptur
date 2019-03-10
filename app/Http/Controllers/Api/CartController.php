@@ -84,16 +84,16 @@ class CartController
         //$order->slug=$order->id.''.strtoupper(str_random(8));
         //$order->update(['slug'=>$order->id.''.strtoupper(str_random(8))]);
 
-//        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
-//            //$m->from('sender@test.com', 'Sender');
-//            $message->to(setting('shop_admin_email'), 'Администратор')
-//                ->subject('Новый заказ на сайте Liptur.ru');
-//        });
-//
-//        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
-//            $message->to($order->user()->first()->email, $order->user()->first()->name)
-//                ->subject('Новый заказ на сайте Liptur.ru');
-//        });
+        Mail::send('emails.orderadmin', ['order' => $order], function ($message) {
+            //$m->from('sender@test.com', 'Sender');
+            $message->to(setting('shop_admin_email'), 'Администратор')
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
+
+        Mail::send('emails.order', ['order' => $order], function ($message) use ($order) {
+            $message->to($order->user()->first()->email, $order->user()->first()->name)
+                ->subject('Новый заказ на сайте Liptur.ru');
+        });
 
         $this->clearRows($cartContent['content']);
 
@@ -229,10 +229,11 @@ class CartController
             return abort(404);
         }
 
-
         if (OrderStatus::isDeposited($result['orderStatus'])) {
+            dd($result);
             $options = $order->options;
             $options['status'] = 'payed';
+            $options['payed_price'] = $result['amount'] / 100;
             $order->options = $options;
             $order->save();
             return view('pages.orderPayed', [

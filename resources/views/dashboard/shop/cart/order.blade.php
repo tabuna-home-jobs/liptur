@@ -70,7 +70,18 @@
                     <div class="col-md-8">
                         <h5>{{$order->ordervar['payment'][$order->options['payment']]}}</h5>
                     </div>
-                </div>                
+                </div>
+
+                @if (isset($order->options['payed_price']))
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Оплачено:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{$order->options['payed_price']}} руб</h5>
+                        </div>
+                    </div>
+                @endif
             </div>
             
             <div class="wrapper-md">
