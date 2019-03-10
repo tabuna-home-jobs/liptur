@@ -1,6 +1,6 @@
 @extends('layouts.app-new')
   @section('shop-header')
-    <div class="hidden-xs">@widget('menuWidget','shop-header')</div>
+    <div class="hidden-xs container">@widget('menuWidget','shop-header')</div>
     <div class="visible-xs">@widget('menuWidget','shop-header-mobile')</div>
   @endsection
   @section('submenu')
