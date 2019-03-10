@@ -78,6 +78,7 @@ return [
     ],
 
     'sberbank' => [
-        'token' => env('SBERBANK_TOKEN', null)
+        'token' => env('SBERBANK_TOKEN', null),
+        'test' => env('SBERBANK_TEST', true)
     ]
 ];

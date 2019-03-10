@@ -7,9 +7,16 @@ use Voronkovich\SberbankAcquiring\Currency;
 
 class Sberbank {
     private static function getSberbankClient() {
+        $clientOptions = [
+            'token' => config('services.sberbank.token'),
+        ];
+
+        if(config('services.sberbank.test')) {
+            $clientOptions['apiUri'] = Client::API_URI_TEST;
+        }
+
         return new Client([
             'token' => config('services.sberbank.token'),
-            'apiUri' => Client::API_URI_TEST,
         ]);
     }
 
