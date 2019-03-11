@@ -76,8 +76,39 @@ class Delivery
 
         $cart = get_cart_content(Cart::content(), $isPurchase);
 
-        $price = 0;
-        foreach ($cart['content'] as $item) {
+        if ($deliveryType === 'courier') {
+            $price = self::calcCdek(self::$from_index, $opts, $cart);
+            return $price;
+        }
+
+        if ($deliveryType == "mail") {
+            return self::calcRussianPost(self::$from_index, $opts, $cart);
+        }
+
+        return 0;
+    }
+
+    /**
+     * @param $from_index
+     * @param $opts
+     * @param $cartContent
+     * @return float|null
+     */
+    private static function calcCdek($from_index, $opts, $cartContent)
+    {
+        if(!isset($opts['city_id']) || !isset($opts['tarif'])) {
+            return abort(400, "Не выбрана точка СДЕК");
+        }
+
+        $city_id = $opts['city_id'];
+        $tarif = $opts['tarif'];
+
+        $cdek_request = (CalculationRequest::withAuthorization())
+            ->setSenderCityPostCode($from_index)
+            ->setReceiverCityId($city_id ? intval($city_id): null)
+            ->setTariffId($tarif ? intval($tarif): null);
+
+        foreach ($cartContent['content'] as $item) {
             $product_id = $item->id;
 
             $product = Post::type('product')->whereId($product_id)->firstOrFail();
@@ -91,85 +122,71 @@ class Delivery
                  return abort(400, 'У товара не указаны габариты/вес');
             }
 
-            if ($deliveryType == "courier") {
-                $_price = self::calcCdek(self::$from_index, $opts, $weight, $width, $height, $length);
-            } else if ($deliveryType == "mail") {
-                $_price = self::calcRussianPost(self::$from_index, $opts, $weight);
-            } else {
-                return 0;
-            }
-
-            if ($_price) {
-                $price += $_price;
-            }
+            $cdek_request->addPackage([
+                'weight' => $weight / 1000, // кг
+                'length' => $length, // см
+                'width' => $width, // см
+                'height' => $height, // см
+            ]);
         }
 
-        return $price;
+        $client = new \CdekSDK\CdekClient(config("services.cdek.account"), config('services.cdek.password'));
+        $response = $client->sendCalculationRequest($cdek_request);
+        $price = $response->getPrice();
+
+        return $price + $cartContent['count'] * 80; // стоимость коробки
     }
 
     /**
      * @param $from_index
      * @param $opts
-     * @param $weight
-     * @param $width
-     * @param $height
-     * @param $length
-     * @return float|null
-     */
-    private static function calcCdek($from_index, $opts, $weight, $width, $height, $length)
-    {
-        if(!isset($opts['city_id']) || !isset($opts['tarif'])) {
-            return abort(400, "Не выбрана точка СДЕК");
-        }
-
-        $city_id = $opts['city_id'];
-        $tarif = $opts['tarif'];
-
-        return Cache::remember('cdek_delivery_' . $city_id . '_' . $tarif. '_'.$weight . '_' . $width . '_' . $height . '_' . $length, self::$cache_time, function () use ($from_index, $city_id, $tarif, $weight, $width, $height, $length) {
-            $cdek_request = (CalculationRequest::withAuthorization())
-                ->setSenderCityPostCode($from_index)
-                ->setReceiverCityId($city_id ? intval($city_id): null)
-                ->setTariffId($tarif ? intval($tarif): null)
-                ->addPackage([
-                    'weight' => $weight / 1000, // кг
-                    'length' => $length, // см
-                    'width' => $width, // см
-                    'height' => $height, // см
-                ]);
-
-            $client = new \CdekSDK\CdekClient(config("services.cdek.account"), config('services.cdek.password'));
-            $response = $client->sendCalculationRequest($cdek_request);
-            return $response->getPrice();
-        });
-    }
-
-    /**
-     * @param $from_index
-     * @param $to_index
-     * @param $weight
+     * @param $cartContent
      * @return float|int
      */
-    private static function calcRussianPost($from_index, $opts, $weight)
+    private static function calcRussianPost($from_index, $opts, $cartContent)
     {
         $to_index = $opts['zip'];
 
         if(!$to_index) {
             return abort(400, "Не указан почтовый индекс");
         }
-        return Cache::remember('rpost_delivery_' . $to_index . '_' . $weight, self::$cache_time, function () use ($from_index, $to_index, $weight) {
-            $config = config('services.pochta');
-            $OtpravkaApi = new OtpravkaApi($config);
 
-            $parcelInfo = new ParcelInfo();
-            $parcelInfo->setIndexFrom($from_index);
-            $parcelInfo->setIndexTo($to_index);
-            $parcelInfo->setMailCategory('ORDINARY'); // https://otpravka.pochta.ru/specification#/enums-base-mail-category
-            $parcelInfo->setMailType('POSTAL_PARCEL'); // https://otpravka.pochta.ru/specification#/enums-base-mail-type
-            $parcelInfo->setWeight($weight);
-            $parcelInfo->setFragile(true);
+        $price = 0;
 
-            $tariffInfo = $OtpravkaApi->getDeliveryTariff($parcelInfo);
-            return $tariffInfo->getTotalRate() / 100;
-        });
+        foreach ($cartContent['content'] as $item) {
+            $product_id = $item->id;
+            $qty = $item->qty;
+
+            $product = Post::type('product')->whereId($product_id)->firstOrFail();
+
+            $weight = ($product->getOption('gravity') || 0) + self::$boxWeight;
+            $width = $product->getOption('width');
+            $height = $product->getOption('height');
+            $length = $product->getOption('length');
+
+            if(!$weight || !$width || !$height || !$length) {
+                return abort(400, 'У товара не указаны габариты/вес');
+            }
+
+            $_price = Cache::remember('rpost_delivery_' . $to_index . '_' . $weight, self::$cache_time, function () use ($from_index, $to_index, $weight) {
+                $config = config('services.pochta');
+                $OtpravkaApi = new OtpravkaApi($config);
+
+                $parcelInfo = new ParcelInfo();
+                $parcelInfo->setIndexFrom($from_index);
+                $parcelInfo->setIndexTo($to_index);
+                $parcelInfo->setMailCategory('ORDINARY'); // https://otpravka.pochta.ru/specification#/enums-base-mail-category
+                $parcelInfo->setMailType('POSTAL_PARCEL'); // https://otpravka.pochta.ru/specification#/enums-base-mail-type
+                $parcelInfo->setWeight($weight);
+                $parcelInfo->setFragile(true);
+
+                $tariffInfo = $OtpravkaApi->getDeliveryTariff($parcelInfo);
+                $price = $tariffInfo->getTotalRate() / 100;
+                return  $price;
+            });
+
+            $price = $price + ($_price + 100 * $qty);
+        }
+        return $price;
     }
 }

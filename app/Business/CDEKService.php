@@ -43,33 +43,6 @@ class CDEKService
         self::printAnswer();
     }
 
-    public static function dd() {
-        $arData = [];
-        Cart::restore(Auth::id());
-        $cart = get_cart_content(Cart::content(), true);
-        $arData['goods'] = array();
-
-        foreach ($cart['content'] as $item) {
-            $product_id = $item->id;
-
-            $product = Post::type('product')->whereId($product_id)->firstOrFail();
-
-            $weight = (($product->getOption('gravity') || 0) + 300)/ 1000;
-            $width = $product->getOption('width');
-            $height = $product->getOption('height');
-            $length = $product->getOption('length');
-
-            $arData['goods'] [] = array(
-                'weight' => $weight,
-                'length' => $length,
-                'width'  => $width,
-                'height' => $height
-            );
-        }
-
-        dd($arData);
-    }
-
     public static function calc($data)
     {
         if (!$data['shipment']['tarifList']) {
@@ -257,6 +230,7 @@ class CDEKService
         Cart::restore(Auth::id());
         $cart = get_cart_content(Cart::content(), true);
         $arData['goods'] = array();
+        $total_count = $cart['count'];
 
         foreach ($cart['content'] as $item) {
             $product_id = $item->id;
@@ -280,7 +254,11 @@ class CDEKService
 
         if ($result && $result['code'] == 200) {
             if (!is_null(json_decode($result['result']))) {
-                return json_decode($result['result'], true);
+                $encode_res = json_decode($result['result'], true);
+                if(isset($encode_res['result']['price'])) {
+                    $encode_res['result']['price'] = $encode_res['result']['price'] + $total_count * 80;
+                }
+                return $encode_res;
             } else {
                 self::toAnswer(array('error' => 'Wrong server answer'));
                 return false;

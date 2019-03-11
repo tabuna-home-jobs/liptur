@@ -21,7 +21,7 @@ class DeliveryController extends Controller
         $price = Delivery::calcDeliveryCart($deliveryType, $opts,  true);
 
         return response()->json([
-            'price' => $price
+            'price' => round($price, 2)
         ]);
     }
 

@@ -230,7 +230,6 @@ class CartController
         }
 
         if (OrderStatus::isDeposited($result['orderStatus'])) {
-            dd($result);
             $options = $order->options;
             $options['status'] = 'payed';
             $options['payed_price'] = $result['amount'] / 100;
