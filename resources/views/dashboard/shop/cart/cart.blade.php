@@ -36,13 +36,15 @@
                 </div>
 
 
+                @if(isset($order->options['total_with_delivery']))
                 <div class="row mt-2">
                     <div class="col-md-12">
                         <h5>Общая стоимость заказа: {{$order->options['total_with_delivery']??0}} рублей.</h5>
                     </div>
                 </div>
+                @endif
 
-                @if($order->options['payment'] !== 'cash')
+                @if($order->options['payment'] !== 'cash' && isset($order->options['total_with_comission']))
                     <div class="row mt-2">
                         <div class="col-md-12">
                             <h5>Общая стоимость заказа с уч. б.п: {{$order->options['total_with_comission']??0}} рублей.</h5>
