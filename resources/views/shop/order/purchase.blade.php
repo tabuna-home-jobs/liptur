@@ -27,7 +27,7 @@
       <div class="block-header m-b-xxl">
         Оформление покупки
       </div>
-      <div id="shop-order" v-cloak>
+      <div id="shop-order" :total="{{$cart['total']}}" v-cloak>
 
         {{--Personal--}}
         <div v-show="step === 0">
@@ -52,6 +52,16 @@
           <div class="m-t-md">
             @include('shop.order.payment')
           </div>
+          <div class="m-t-md" v-if="total && deliveryData[formData.delivery] && formData.payment">
+            <p>
+              Стоимость товара:          		         @{{ total.toFixed(2) }} руб. </br>
+              Стоимость доставки:            		         @{{ deliveryPrice && deliveryPrice.toFixed(2) || '-'}} руб.</br>
+              Общая стоимость заказа:                                @{{ (total + deliveryPrice).toFixed(2) }} руб.</br>
+              Общая стоимость заказа
+              с учетом банковского перевода:                 @{{ formData.payment !== 'cash' ? (1.02 * (total + deliveryPrice)).toFixed(2): '-'}} руб.</br>
+            </p>
+          </div>
+
           <div class="m-t-md row">
             <div class="col-md-6">
               <button v-on:click="gotoStep(0)" class="btn btn-success text-u-c w-full">Назад

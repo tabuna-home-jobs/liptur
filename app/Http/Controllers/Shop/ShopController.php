@@ -8,7 +8,7 @@ use App\Models\Term;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use Gloudemans\Shoppingcart\Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
@@ -235,6 +235,13 @@ class ShopController extends Controller
      */
     public function purchase(): View
     {
-        return view('shop.order.purchase');
+        if (Auth::check()) {
+            Cart::restore(Auth::id());
+        }
+
+        $cart = get_cart_content(Cart::content(), true);
+        return view('shop.order.purchase', [
+            'cart' => $cart
+        ]);
     }
 }

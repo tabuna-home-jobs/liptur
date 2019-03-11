@@ -26691,6 +26691,7 @@ $(function () {
   if (document.getElementById('shop-order')) {
     new Vue({
       'el': '#shop-order',
+      props: ['total'],
       data: {
         formData: {
           payment: 'card',
@@ -26699,7 +26700,11 @@ $(function () {
           address: null,
         },
         deliveryData: {
-          mail: null
+          mail: null,
+          courier: null,
+          pickup: {
+            price: 0
+          }
         },
 
         step: 0,
@@ -26708,15 +26713,25 @@ $(function () {
         cdekLoaded: false,
         cdekWatData: null
       },
+
+      computed: {
+        deliveryPrice() {
+          return this.deliveryData[this.formData.delivery].price;
+        }
+      },
+
       mounted() {
+        this.total = parseFloat(this.$el.getAttribute('total'));
         this.$set(this.formData, 'email', this.$refs.email.dataset.value || '');
         this.$set(this.formData, 'phone', this.$refs.phone.dataset.value || '');
         this.$set(this.formData, 'first_name', this.$refs.first_name.dataset.value || '');
         this.$set(this.formData, 'last_name', this.$refs.last_name.dataset.value || '');
       },
+
       methods: {
         onChooseCdek(wat) {
           this.$set(this, 'cdekWatData', wat);
+          this.$set(this.deliveryData, 'courier', wat);
         },
         changeDelivery() {
           this.$set(this.formData, 'payment', 'card');
