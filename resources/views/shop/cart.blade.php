@@ -26,7 +26,14 @@
       Корзина
     </div>
     <div id="cart" v-cloak>
-      <div class="text-center  text-xl m-b-sm">
+      <div class="padder-md m-b-sm">
+        <div class="row">
+          <p><small>Изделия в количестве более 1 шт. изготавливаются мастером на заказ.</br>
+            Срок изготовления уточнит менеджер, который свяжется с вами в ближайшее время.</br>
+              Для продолжения оформления такого заказа перейдите в корзину ПОД ЗАКАЗ.</small></p>
+        </div>
+      </div>
+      <div class="text-center text-xl m-b-sm">
         <a class="btn-link text-green inline m-h-sm" v-bind:class="isPurchase && 'selected'" v-on:click="changeIsPurchase(true)">
           Товар в наличии @{{ purchaseCount }}
         </a>

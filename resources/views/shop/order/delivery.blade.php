@@ -53,12 +53,15 @@
   <div class="col-md-12" v-show="formData.delivery === 'courier'">
     <div v-show="cdekWatData===null" id="forpvz" style="width:100%; height:350px;"></div>
     <div v-if="cdekWatData">
-      <h4 class="inline">Выбран пункт выдачи заказа "@{{cdekWatData.PVZ.Name}}"</h4> <a class="inline text-green" v-on:click="cdekWatData = null">выбрать другой</a>
-      <h4>город: @{{cdekWatData.cityName}} (код: @{{cdekWatData.city}})</h4>
-      <h4>адрес: @{{cdekWatData.PVZ.Address}}</h4>
-      <h4>время работы: @{{cdekWatData.PVZ.WorkTime}}</h4>
-      <h4>цена: @{{cdekWatData.price}} руб.</h4>
-      <h4>срок: @{{cdekWatData.term}} дн.</h4>
+      <p>
+        <h4>Доставка осуществляется до пункта выдачи заказа ТК</h4>
+        выбран пункт выдачи заказа "@{{cdekWatData.PVZ.Name}}"  <a class="inline text-green" v-on:click="cdekWatData = null">выбрать другой</a></br>
+        город: @{{cdekWatData.cityName}} (код: @{{cdekWatData.city}})</br>
+        адрес: @{{cdekWatData.PVZ.Address}}</br>
+        время работы: @{{cdekWatData.PVZ.WorkTime}}</br>
+        стоимость доставки: @{{cdekWatData.price}} руб.</br>
+        срок доставки с момента передачи в ТК: @{{cdekWatData.term}} дн.
+      </p>
     </div>
   </div>
 
