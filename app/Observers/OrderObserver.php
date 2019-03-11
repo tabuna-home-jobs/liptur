@@ -28,6 +28,10 @@ class OrderObserver
      * @return int
      */
     private function getStatusesFactor(Order $model) {
+        if (!isset($model->options['purchase']) || !$model->options['purchase']) {
+            return 0;
+        }
+
         $old_status = json_decode($model->getOriginal('options'))->status;
         $new_status = $model->options['status'];
 
@@ -109,12 +113,15 @@ class OrderObserver
      */
     public function deleted(Order $order)
     {
-        $factor = $this->getStatusFactor($order->options['status']);
+        if (isset($order->options['purchase']) && $order->options['purchase']) {
+            $factor = $this->getStatusFactor($order->options['status']);
 
-        // Если в работе - то добавляем к остатку
-        if($factor == -1) {
-            $this->changeProductsCount($order, 1);
+            // Если в работе - то добавляем к остатку
+            if($factor == -1) {
+                $this->changeProductsCount($order, 1);
+            }
         }
+
         return $order;
     }
 }

@@ -56,7 +56,7 @@ class CartController
             $product = Post::type('product')->whereId($item->id)->firstOrFail();
             $count = $product->options['count'] ?? 0;
 
-            if($count < $item->qty) {
+            if($is_purchase && $count < $item->qty) {
                 return abort(400, "Товара нет в наличии");
             }
         }
@@ -69,6 +69,7 @@ class CartController
             'total'    => $cartContent['total'],
             'count'    => $cartContent['count'],
             'status'   => 'new',
+            'purchase' => $is_purchase
         ];
 
         foreach ($custom as $key => $value) {
