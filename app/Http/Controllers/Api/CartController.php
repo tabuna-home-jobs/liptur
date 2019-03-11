@@ -61,12 +61,23 @@ class CartController
             }
         }
 
+        $delivery = $request->get('delivery');
+        $payment = $request->get('payment');
+
+        $total = $cartContent['total'] ?? 0;
+        $delivery_price = isset($custom['delivery_price']) ? $custom['delivery_price']?? 0 : 0;
+
+        $total_with_delivery = $delivery_price + $total;
+        $total_with_comission = $payment === 'cash'? $total_with_delivery: round($total_with_delivery * 1.02, 2);
+
         $options = [
-            'payment'  => $request->get('payment'),
-            'delivery' => $request->get('delivery'),
+            'payment'  => $payment,
+            'delivery' => $delivery,
             'message'  => $request->get('message'),
             'content'  => $cartContent['content'],
-            'total'    => $cartContent['total'],
+            'total'    => $total,
+            'total_with_delivery'    => $total_with_delivery,
+            'total_with_comission'    => $total_with_comission,
             'count'    => $cartContent['count'],
             'status'   => 'new',
             'purchase' => $is_purchase
@@ -185,7 +196,7 @@ class CartController
         }
 
         $delivery_res = Delivery::calcDeliveryCart($delivery_type, $delivery_opts, true);
-        $delivery_price = $delivery_res['price'];
+        $delivery_price = $delivery_res['price'] ?? 0;
 
         $custom = $delivery_data;
         $custom['delivery_price'] = $delivery_price;
@@ -194,7 +205,7 @@ class CartController
 
 
         if($request->get('payment') === 'card' && $order->options['total'] > 0) {
-            return Sberbank::createSberbankOrder($order->id, ($order->options['total'] + $delivery_price) * 100);
+            return Sberbank::createSberbankOrder($order->id, $order->options['total_with_comission'] * 100);
         }
 
         return response(200);

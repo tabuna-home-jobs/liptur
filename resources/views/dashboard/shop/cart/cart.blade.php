@@ -25,22 +25,30 @@
 
                 <div class="row mt-2">
                     <div class="col-md-12">
-                        <h5>Итого: {{$order->options['total']}} рублей.</h5>
+                        <h5>Стоимость товара: {{$order->options['total']}} рублей.</h5>
                     </div>
                 </div>
 
                 <div class="row mt-2">
                     <div class="col-md-12">
-                        <h5>Доставка: {{$order->options['delivery_price']??0}} рублей.</h5>
+                        <h5>Стоимость доставки: {{$order->options['delivery_price']??0}} рублей.</h5>
                     </div>
                 </div>
 
 
-                <div class="row mt-4">
+                <div class="row mt-2">
                     <div class="col-md-12">
-                        <h3>Итого с доставкой: {{$order->options['total'] + ($order->options['delivery_price']??0)}} рублей.</h3>
+                        <h5>Общая стоимость заказа: {{$order->options['total_with_delivery']??0}} рублей.</h5>
                     </div>
                 </div>
+
+                @if($order->options['payment'] !== 'cash')
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <h5>Общая стоимость заказа с уч. б.п: {{$order->options['total_with_comission']??0}} рублей.</h5>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
