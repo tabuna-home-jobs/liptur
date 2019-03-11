@@ -43,6 +43,33 @@ class CDEKService
         self::printAnswer();
     }
 
+    public static function dd() {
+        $arData = [];
+        Cart::restore(Auth::id());
+        $cart = get_cart_content(Cart::content(), true);
+        $arData['goods'] = array();
+
+        foreach ($cart['content'] as $item) {
+            $product_id = $item->id;
+
+            $product = Post::type('product')->whereId($product_id)->firstOrFail();
+
+            $weight = (($product->getOption('gravity') || 0) + 300)/ 1000;
+            $width = $product->getOption('width');
+            $height = $product->getOption('height');
+            $length = $product->getOption('length');
+
+            $arData['goods'] [] = array(
+                'weight' => $weight,
+                'length' => $length,
+                'width'  => $width,
+                'height' => $height
+            );
+        }
+
+        dd($arData);
+    }
+
     public static function calc($data)
     {
         if (!$data['shipment']['tarifList']) {
