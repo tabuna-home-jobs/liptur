@@ -21,15 +21,6 @@
 
   {{--mail--}}
   <form class="col-md-6" v-if="formData.delivery === 'mail'">
-    <div class="form-group m-t-sm" v-bind:class="{ 'has-error': errors.address }">
-      <label class="text-sm text-left">Адрес <span class="text-red">*</span> :</label>
-      <input type="text" name="address" autofocus class="form-control"
-             v-model="formData.address"
-             required
-             ref="address"
-      />
-      <span class="help-block" v-if="errors.address"><strong>@{{ errors.address[0]}}</strong></span>
-    </div>
 
     <div class="form-group m-t-sm" v-bind:class="{ 'has-error': errors.zip }">
       <label class="text-sm text-left">Индекс <span class="text-red">*</span> :</label>
@@ -43,9 +34,21 @@
       <span class="help-block" v-if="errors.zip"><strong>@{{ errors.zip[0]}}</strong></span>
     </div>
 
-    <div class="form-group m-t-sm">
-      <label class="text-sm text-left">Стоимость доставки:</label>
-      <h4>@{{deliveryPrices.mail || '***'}} руб.</h4>
+    <div class="form-group m-t-sm" v-bind:class="{ 'has-error': errors.address }">
+      <label class="text-sm text-left">Адрес <span class="text-red">*</span> :</label>
+      <input type="text" name="address" autofocus class="form-control"
+             v-model="formData.address"
+             required
+             ref="address"
+      />
+      <span class="help-block" v-if="errors.address"><strong>@{{ errors.address[0]}}</strong></span>
+    </div>
+
+    <div v-if="deliveryData.mail" class="form-group m-t-sm">
+      <p>
+        стоимость доставки: @{{deliveryData.mail.price || '***'}} руб.</br>
+        срок доставки с момента передачи в ТК: от @{{deliveryData.mail.min_days || '***'}} до @{{deliveryData.mail.max_days || '***'}} дней
+      </p>
     </div>
   </form>
 
@@ -55,12 +58,12 @@
     <div v-if="cdekWatData">
       <p>
         <h4>Доставка осуществляется до пункта выдачи заказа ТК</h4>
-        выбран пункт выдачи заказа "@{{cdekWatData.PVZ.Name}}"  <a class="inline text-green" v-on:click="cdekWatData = null">выбрать другой</a></br>
-        город: @{{cdekWatData.cityName}} (код: @{{cdekWatData.city}})</br>
-        адрес: @{{cdekWatData.PVZ.Address}}</br>
-        время работы: @{{cdekWatData.PVZ.WorkTime}}</br>
-        стоимость доставки: @{{cdekWatData.price}} руб.</br>
-        срок доставки с момента передачи в ТК: @{{cdekWatData.term}} дн.
+        выбран пункт выдачи заказа "@{{cdekWatData.PVZ.Name || '***'}}"  <a class="inline text-green" v-on:click="cdekWatData = null">выбрать другой</a></br>
+        город: @{{cdekWatData.cityName || '***'}} (код: @{{cdekWatData.city || '***'}})</br>
+        адрес: @{{cdekWatData.PVZ.Address || '***'}}</br>
+        время работы: @{{cdekWatData.PVZ.WorkTime || '***'}}</br>
+        стоимость доставки: @{{cdekWatData.price || '***'}} руб.</br>
+        срок доставки с момента передачи в ТК: @{{cdekWatData.term || '***'}} дн.
       </p>
     </div>
   </div>

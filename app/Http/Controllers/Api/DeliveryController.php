@@ -18,11 +18,9 @@ class DeliveryController extends Controller
         $opts = $request->input('delivery_opts');
         $deliveryType = $request->input('delivery');
 
-        $price = Delivery::calcDeliveryCart($deliveryType, $opts,  true);
+        $data = Delivery::calcDeliveryCart($deliveryType, $opts,  true);
 
-        return response()->json([
-            'price' => round($price, 2)
-        ]);
+        return response()->json($data);
     }
 
     /**

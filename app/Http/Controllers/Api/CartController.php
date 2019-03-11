@@ -175,25 +175,26 @@ class CartController
 
     public function purchase(OrderRequest $request)
     {
-        $deliveryType = $request->get('delivery');
-        $deliveryOpts = $request->get('delivery_opts');
+        $delivery_type = $request->get('delivery');
+        $delivery_opts = $request->get('delivery_opts');
 
-        $deliveryData = Delivery::getDeliveryData($deliveryType, $deliveryOpts);
+        $delivery_data = Delivery::getDeliveryData($delivery_type, $delivery_opts);
 
-        if(isset($deliveryData['errors'])) {
-            return response()->json($deliveryData, 400);
+        if(isset($delivery_data['errors'])) {
+            return response()->json($delivery_data, 400);
         }
 
-        $deliveryPrice = Delivery::calcDeliveryCart($deliveryType, $deliveryOpts, true);
+        $delivery_res = Delivery::calcDeliveryCart($delivery_type, $delivery_opts, true);
+        $delivery_price = $delivery_res['price'];
 
-        $custom = $deliveryData;
-        $custom['delivery_price'] = $deliveryPrice;
+        $custom = $delivery_data;
+        $custom['delivery_price'] = $delivery_price;
 
         $order = $this->createOrder($request, true, $custom);
 
 
         if($request->get('payment') === 'card' && $order->options['total'] > 0) {
-            return Sberbank::createSberbankOrder($order->id, ($order->options['total'] + $deliveryPrice) * 100);
+            return Sberbank::createSberbankOrder($order->id, ($order->options['total'] + $delivery_price) * 100);
         }
 
         return response(200);

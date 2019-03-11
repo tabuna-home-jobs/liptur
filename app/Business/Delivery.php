@@ -85,14 +85,14 @@ class Delivery
             return self::calcRussianPost(self::$from_index, $opts, $cart);
         }
 
-        return 0;
+        return [];
     }
 
     /**
      * @param $from_index
      * @param $opts
      * @param $cartContent
-     * @return float|null
+     * @return array|void
      */
     private static function calcCdek($from_index, $opts, $cartContent)
     {
@@ -113,7 +113,7 @@ class Delivery
 
             $product = Post::type('product')->whereId($product_id)->firstOrFail();
 
-            $weight = ($product->getOption('gravity') || 0) + self::$boxWeight;
+            $weight = ($product->getOption('gravity') || 0);
             $width = $product->getOption('width');
             $height = $product->getOption('height');
             $length = $product->getOption('length');
@@ -121,6 +121,8 @@ class Delivery
             if(!$weight || !$width || !$height || !$length) {
                  return abort(400, 'У товара не указаны габариты/вес');
             }
+
+            $weight += self::$boxWeight; // вес коробки
 
             $cdek_request->addPackage([
                 'weight' => $weight / 1000, // кг
@@ -134,14 +136,16 @@ class Delivery
         $response = $client->sendCalculationRequest($cdek_request);
         $price = $response->getPrice();
 
-        return $price + $cartContent['count'] * 80; // стоимость коробки
+        return [
+            'price' => $price + $cartContent['count'] * 80 // стоимость коробки
+        ];
     }
 
     /**
      * @param $from_index
      * @param $opts
      * @param $cartContent
-     * @return float|int
+     * @return array|void
      */
     private static function calcRussianPost($from_index, $opts, $cartContent)
     {
@@ -151,7 +155,7 @@ class Delivery
             return abort(400, "Не указан почтовый индекс");
         }
 
-        $price = 0;
+        $weight = 0;
 
         foreach ($cartContent['content'] as $item) {
             $product_id = $item->id;
@@ -159,34 +163,48 @@ class Delivery
 
             $product = Post::type('product')->whereId($product_id)->firstOrFail();
 
-            $weight = ($product->getOption('gravity') || 0) + self::$boxWeight;
-            $width = $product->getOption('width');
-            $height = $product->getOption('height');
-            $length = $product->getOption('length');
+            $_weight = ($product->getOption('gravity') || 0);
 
-            if(!$weight || !$width || !$height || !$length) {
+            if(!$_weight) {
                 return abort(400, 'У товара не указаны габариты/вес');
             }
 
-            $_price = Cache::remember('rpost_delivery_' . $to_index . '_' . $weight, self::$cache_time, function () use ($from_index, $to_index, $weight) {
-                $config = config('services.pochta');
-                $OtpravkaApi = new OtpravkaApi($config);
+            $_weight += self::$boxWeight; // вес коробки
 
-                $parcelInfo = new ParcelInfo();
-                $parcelInfo->setIndexFrom($from_index);
-                $parcelInfo->setIndexTo($to_index);
-                $parcelInfo->setMailCategory('ORDINARY'); // https://otpravka.pochta.ru/specification#/enums-base-mail-category
-                $parcelInfo->setMailType('POSTAL_PARCEL'); // https://otpravka.pochta.ru/specification#/enums-base-mail-type
-                $parcelInfo->setWeight($weight);
-                $parcelInfo->setFragile(true);
+            $weight += $_weight;
 
-                $tariffInfo = $OtpravkaApi->getDeliveryTariff($parcelInfo);
-                $price = $tariffInfo->getTotalRate() / 100;
-                return  $price;
-            });
-
-            $price = $price + ($_price + 100 * $qty);
         }
-        return $price;
+
+        $data = Cache::remember('rpost_delivery_' . $to_index . '_' . $weight, self::$cache_time, function () use ($from_index, $to_index, $weight) {
+            $config = config('services.pochta');
+            $OtpravkaApi = new OtpravkaApi($config);
+
+            $parcelInfo = new ParcelInfo();
+            $parcelInfo->setIndexFrom($from_index);
+            $parcelInfo->setIndexTo($to_index);
+            $parcelInfo->setMailCategory('ORDINARY'); // https://otpravka.pochta.ru/specification#/enums-base-mail-category
+            $parcelInfo->setMailType('POSTAL_PARCEL'); // https://otpravka.pochta.ru/specification#/enums-base-mail-type
+            $parcelInfo->setWeight($weight);
+
+            $tariffInfo = $OtpravkaApi->getDeliveryTariff($parcelInfo);
+            $price = $tariffInfo->getTotalRate() / 100;
+            $minDays = $tariffInfo->getDeliveryMinDays();
+            $maxDays = $tariffInfo->getDeliveryMaxDays();
+            return [
+                'price' => $price,
+                'min_days' => $minDays,
+                'max_days' => $maxDays
+            ];
+        });
+
+        $price = $data['price'];
+
+        $count = $cartContent['count'];
+
+        $box_price = 100;
+
+        $data['price'] = $price + $count * $box_price;
+
+        return $data;
     }
 }

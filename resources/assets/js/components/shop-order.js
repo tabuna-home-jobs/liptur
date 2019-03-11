@@ -9,8 +9,7 @@ $(function () {
           zip: null,
           address: null,
         },
-        deliveryPrices: {
-          courier: null,
+        deliveryData: {
           mail: null
         },
 
@@ -42,7 +41,7 @@ $(function () {
               return;
             }
 
-            if(this.deliveryPrices[delivery]) {
+            if(this.deliveryData[delivery] && this.deliveryData[delivery].zip === zip) {
               return;
             }
 
@@ -50,9 +49,9 @@ $(function () {
               delivery_opts: this.getDeliveryOpts(),
               delivery
             });
-            const price = req.body.price;
+            const data = req.body;
 
-            this.$set(this.deliveryPrices, delivery, price);
+            this.$set(this.deliveryData, delivery, {...data, zip});
           } catch (e) {
             swal({
               title: "Ошибка расчета доставки",
