@@ -17,6 +17,16 @@
                         <h5>{{$order->created_at}}</h5>
                     </div>
                 </div>
+                @if(isset($order->options['purchase']))
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>Тип:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{$order->options['purchase'] ? 'Покупка': 'Заказ'}}</h5>
+                        </div>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-4">
                         <p>Способ получения:</p>
