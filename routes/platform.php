@@ -17,8 +17,9 @@ use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Http\Controllers\CRM\BidController;
 use App\Http\Screens\ShopCategory\ShopCategoryListScreen;
 use App\Http\Screens\ShopCategory\ShopCategoryEditScreen;
-use  App\Http\Controllers\Dashboard\AdvertisingController;
-
+use App\Http\Controllers\Dashboard\AdvertisingController;
+use App\Http\Screens\Recycle\RecycleEdit;
+use App\Http\Screens\Recycle\RecycleList;
 use App\Http\Controllers\Dashboard\Shop\CategoryController;
 
 /*
@@ -67,15 +68,8 @@ $this->screen('shop/category', ShopCategoryListScreen::class)->name('platform.sh
 
 $this->screen('shop/product-arrival', ProductArrivalList::class)->name('dashboard.liptur.shop.product-arrival.list');
 
-
-$this->group([
-    'middleware' => config('platform.middleware.private'),
-    'prefix'     => \Orchid\Platform\Dashboard::prefix('/systems'),
-],
-    function (\Illuminate\Routing\Router $router, $path = 'dashboard.systems.recycle.') {
-        $router->screen('recycle/{id}/edit', 'Recycle\RecycleEdit', $path . 'edit');
-        $router->screen('recycle', 'Recycle\RecycleList', $path . 'list');
-    });
+$this->screen('recycle/{id}/edit', RecycleEdit::class)->name('dashboard.systems.recycle.edit');
+$this->screen('recycle', RecycleList::class)->name('dashboard.systems.recycle.list');
 
 
 $this->group([
