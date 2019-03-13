@@ -498,6 +498,13 @@ class MainMenuComposer
                     ->setPermission('platform.entities.type.carousel-links')
                     ->setRoute(route(self::PAGE, ['carousel-links','carousel-links']))
             )
+            ->add('Main',
+                ItemMenu::setLabel('Корзина')
+                    ->setSlug('Recycle')
+                    ->setIcon('icon-trash')
+                    ->setRoute(route('dashboard.systems.recycle.list'))
+                  
+            )
         ;
     }
 }
