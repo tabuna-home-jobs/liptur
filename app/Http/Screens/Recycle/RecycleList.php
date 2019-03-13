@@ -35,6 +35,16 @@ class RecycleList extends Screen
     }
 
     /**
+     * Button commands.
+     *
+     * @return array
+     */
+    public function commandBar() : array
+    {
+        return [];
+    }
+
+    /**
      * Views.
      *
      * @return array

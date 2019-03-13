@@ -20,16 +20,16 @@ class RecycleEditLayout extends Rows
     public function fields(): array
     {
         return [
-            InputField::name('post.id')
+            InputField::make('post.id')
                 ->disabled()
                 ->title('Id'),
 
-            InputField::name('post.type')
+            InputField::make('post.type')
                 ->disabled()
                 ->max(255)
                 ->title('Type'),
 
-            InputField::name('post.slug')
+            InputField::make('post.slug')
                 ->disabled()
                 ->max(255)
                 ->title('Slug'),
@@ -46,7 +46,7 @@ class RecycleEditLayout extends Rows
     public function build(Repository $post)
     {
         $this->query = $post;
-        $form        = new Builder($this->dfields($post), $post);
+        $form        = new Builder($this->fields($post), $post);
 
         return view($this->template, [
             'form' => $form->generateForm(),
