@@ -58,7 +58,7 @@
               Стоимость доставки:            		         @{{ deliveryPrice && deliveryPrice.toFixed(2) || '-'}} руб.</br>
               Общая стоимость заказа:                                @{{ (total + deliveryPrice).toFixed(2) }} руб.</br>
               Общая стоимость заказа
-              с учетом банковского перевода:                 @{{ formData.payment !== 'cash' ? (1.02 * (total + deliveryPrice)).toFixed(2): '-'}} руб.</br>
+              с учетом банковского перевода:                 @{{ formData.payment !== 'cash' ? (1.04 * (total + deliveryPrice)).toFixed(2): '-'}} руб.</br>
             </p>
           </div>
 
