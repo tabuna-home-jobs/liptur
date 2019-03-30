@@ -12,6 +12,7 @@ use App\Orchid\Filters\RoleFilter;
 use Illuminate\Support\Facades\Hash;
 use App\Orchid\Layouts\User\UserEditLayout;
 use App\Orchid\Layouts\User\UserListLayout;
+use App\Orchid\Layouts\UserFiltersLayout;
 
 class UserListScreen extends Screen
 {
@@ -62,6 +63,7 @@ class UserListScreen extends Screen
     public function layout() : array
     {
         return [
+            UserFiltersLayout::class,
             UserListLayout::class,
 
             Layouts::modals([
