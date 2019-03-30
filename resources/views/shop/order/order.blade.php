@@ -48,7 +48,8 @@
                 </div>
               </div>
               @include('shop.order.payment', [
-                'step' => 2
+                'step' => 2,
+                'exclude_variants' => ['card']
               ])
               <div class="row">
                 <div class="col-md-6 m-b">
