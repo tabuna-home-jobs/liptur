@@ -38,14 +38,15 @@ class TitzController extends Controller
     /**
      * @param User $user
      * @param      $typeRequest
-     *
+     * @param Request $request
      * @return View
      */
-    public function listing(User $user, $typeRequest): View
+    public function listing(User $user, $typeRequest, Request $request): View
     {
         $typeObject = dashboard_posts()->firstWhere('slug', $typeRequest) ?? abort(404);
+        $page = $request->input('page','1');
 
-        $elements =   \Cache::remember('titz-controller-listing-'.$typeRequest.'-'.$user->id.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest,$user) {
+        $elements =   \Cache::remember('titz-controller-listing-'.$typeRequest.'-'.$user->id.'_page_'.$page.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest,$user) {
             return Post::where('type', $typeRequest)
                 ->where('user_id', $user->id)
                 ->whereNotNull('options->locale->' . App::getLocale())
@@ -66,13 +67,15 @@ class TitzController extends Controller
 
     /**
      * @param User $user
-     *
+     * @param Request $request
      * @return View
      */
-    public function news(User $user): View
+    public function news(User $user, Request $request): View
     {
         $typeObject = dashboard_posts()->firstWhere('slug', 'news') ?? abort(404);
-        $elements =   \Cache::remember('titz-controller-listing-news-'.$user->id.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($user) {
+        $page = $request->input('page','1');
+
+        $elements =   \Cache::remember('titz-controller-listing-news-'.$user->id.'_page_'.$page.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($user) {
             return Post::where('type', 'news')
                 ->where('user_id', $user->id)
                 ->whereNotNull('options->locale->'.App::getLocale())
