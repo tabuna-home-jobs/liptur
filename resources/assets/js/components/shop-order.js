@@ -28,11 +28,23 @@ $(function () {
       computed: {
         deliveryPrice() {
           return this.deliveryData[this.formData.delivery].price;
+        },
+
+        bankFee() {
+          const payment = this.formData.payment;
+          const bankFeeData = this.bankFeeData;
+
+          if(bankFeeData && bankFeeData[payment]) {
+            return 1 + bankFeeData[payment]
+          }
+
+          return false;
         }
       },
 
       mounted() {
         this.total = parseFloat(this.$el.getAttribute('total'));
+        this.bankFeeData = JSON.parse(this.$el.getAttribute('bank-fee-data'));
         this.$set(this.formData, 'email', this.$refs.email.dataset.value || '');
         this.$set(this.formData, 'phone', this.$refs.phone.dataset.value || '');
         this.$set(this.formData, 'first_name', this.$refs.first_name.dataset.value || '');

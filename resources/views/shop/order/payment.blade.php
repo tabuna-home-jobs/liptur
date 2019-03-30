@@ -7,7 +7,7 @@
     <div class="form-group select-group">
       <select name="payment" class="select2 form-control text-darkred" v-model="formData.payment">
         @foreach ($order['payment'] as $key=>$payment)
-          @if (!in_array($key, $exclude_variants))
+          @if (!isset($exclude_variants) || !in_array($key, $exclude_variants))
             <option :disabled="'{{$key}}'==='cash' && formData.delivery !=='pickup'" value="{{$key}}">{{$payment}}</option>
           @endif
         @endforeach

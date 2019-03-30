@@ -68,7 +68,10 @@ class CartController
         $delivery_price = isset($custom['delivery_price']) ? $custom['delivery_price']?? 0 : 0;
 
         $total_with_delivery = $delivery_price + $total;
-        $total_with_comission = $payment === 'cash'? $total_with_delivery: round($total_with_delivery * 1.04, 2);
+
+        $bank_fee_data = (new Order)->bank_fee;
+        $bank_fee = $bank_fee_data[$payment] ?? null;
+        $total_with_comission = !$bank_fee ? $total_with_delivery: round($total_with_delivery * (1 + $bank_fee), 2);
 
         $options = [
             'payment'  => $payment,

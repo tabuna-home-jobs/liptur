@@ -39,6 +39,15 @@ class Order extends Model
             'cashless' => 'Оплата по счету',
         ],
     ];
+
+    /**
+     * @var array
+     */
+    public $bank_fee = [
+        'card' => 0.04,
+        'cashless' => 0.02
+    ];
+
     /**
      * The database table used by the model.
      *

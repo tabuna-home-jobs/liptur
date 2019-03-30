@@ -19,7 +19,9 @@
 
 @section('shop')
   @php
-    $order=(new App\Models\Order)->ordervar;
+    $model = (new App\Models\Order);
+    $order=$model->ordervar;
+    $bankFee = $model->bank_fee;
   @endphp
 
   <section>
@@ -27,7 +29,7 @@
       <div class="block-header m-b-xxl">
         Оформление покупки
       </div>
-      <div id="shop-order" :total="{{$cart['total']}}" v-cloak>
+      <div id="shop-order" :total="{{$cart['total']}}" bank-fee-data="{{json_encode($bankFee)}}" v-cloak>
 
         {{--Personal--}}
         <div v-show="step === 0">
@@ -58,7 +60,7 @@
               Стоимость доставки:            		         @{{ deliveryPrice && deliveryPrice.toFixed(2) || '-'}} руб.</br>
               Общая стоимость заказа:                                @{{ (total + deliveryPrice).toFixed(2) }} руб.</br>
               Общая стоимость заказа
-              с учетом банковского перевода:                 @{{ formData.payment !== 'cash' ? (1.04 * (total + deliveryPrice)).toFixed(2): '-'}} руб.</br>
+              с учетом банковского перевода:                 @{{ bankFee ? (bankFee * (total + deliveryPrice)).toFixed(2): '-'}} руб.</br>
             </p>
           </div>
 
