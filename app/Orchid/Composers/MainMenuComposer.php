@@ -7,6 +7,7 @@ namespace App\Orchid\Composers;
 use Orchid\Platform\ItemMenu;
 use Orchid\Platform\Dashboard;
 use Illuminate\Support\Facades\Auth;
+use App\Orchid\Entities\Many\LeisureType;
 
 class MainMenuComposer
 {
@@ -132,7 +133,7 @@ class MainMenuComposer
                     ->setRoute(route(self::MANY, 'museums'))
             )
             ->add('sights',
-                ItemMenu::setLabel('Активный отдых')
+                ItemMenu::setLabel((new LeisureType)->name)
                     ->setIcon('icon-building')
                     ->setPermission('platform.entities.type.leisure')
                     ->setRoute(route(self::MANY, 'leisure'))

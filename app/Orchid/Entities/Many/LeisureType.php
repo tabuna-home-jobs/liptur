@@ -68,7 +68,7 @@ class LeisureType extends Many
     }
 
     /**
-     * @var array
+     * @return array
      */
     public function filters(): array
     {
