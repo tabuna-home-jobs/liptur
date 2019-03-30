@@ -33,7 +33,7 @@ class AccountRequest extends FormRequest
             'name'         => 'sometimes|required|max:255',
             'email'        => 'sometimes|email|required|unique:users,email,'.$user->id,
             'avatar'       => 'mimes:jpeg,bmp,png|sometimes',
-            'website'      => 'sometimes|active_url|max:255',
+            'website'      => 'sometimes|nullable|active_url|max:255',
             'about'        => 'sometimes|max:65000',
             'notification' => 'sometimes|boolean',
             'sex'          => 'sometimes|boolean',
