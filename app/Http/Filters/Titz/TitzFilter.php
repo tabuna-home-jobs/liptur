@@ -24,7 +24,7 @@ class TitzFilter extends Filter
     {
         $user = Auth::user();
 
-        if ($user->inRole('titz')) {
+        if ($user && $user->inRole('titz')) {
             return $builder->where('user_id', $user->id);
         }
 

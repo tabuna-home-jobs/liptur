@@ -22,7 +22,7 @@ class CfoFilter extends Filter
     {
         $user = Auth::user();
 
-        if ($user->inRole('cfo')) {
+        if ($user && $user->inRole('cfo')) {
             return $builder->where('user_id', $user->id);
         }
 
