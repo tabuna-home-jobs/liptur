@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\ShopCategory;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Orchid\Support\Facades\Dashboard;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -26,7 +27,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        parent::boot();
+        $this->app->booted(function () {
+            parent::boot();
+        });
     }
 
     /**
@@ -46,6 +49,16 @@ class RouteServiceProvider extends ServiceProvider
             }
 
             return ShopCategory::findOrFail($value);
+        });
+
+        Route::bind('post', function ($value) {
+            $post = Dashboard::modelClass(Post::class);
+            return is_numeric($value)
+                ? $post->where(function ($q) use ($value){
+                    $q->where('slug', $value)
+                        ->orWhere('id', $value);
+                })->firstOrFail()
+                : $post->where('slug', $value)->firstOrFail();
         });
 
         Route::bind('product', function ($value) {
