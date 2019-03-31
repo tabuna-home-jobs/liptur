@@ -53,12 +53,17 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('post', function ($value) {
             $post = Dashboard::modelClass(Post::class);
-            return is_numeric($value)
-                ? $post->where(function ($q) use ($value){
-                    $q->where('slug', $value)
-                        ->orWhere('id', $value);
-                })->firstOrFail()
-                : $post->where('slug', $value)->firstOrFail();
+
+            if(is_numeric($value)) {
+                $slug_post = $post->where('slug', $value)->first();
+
+                if($slug_post) {
+                    return $slug_post;
+                }
+
+                return $post->where('id', $value)->firstOrFail();
+            }
+            return $post->where('slug', $value)->firstOrFail();
         });
 
         Route::bind('product', function ($value) {
