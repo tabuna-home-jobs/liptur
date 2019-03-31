@@ -3,7 +3,6 @@
 namespace App\Orchid\Entities\Many;
 
 use App\Fields\RegionField;
-use App\Http\Filters\Agencie\CategoryFilters;
 use App\Http\Filters\Common\RegionFilters;
 use App\Http\Filters\Titz\TitzFilter;
 use App\Http\Forms\Posts\Category;
@@ -82,10 +81,8 @@ class RouteType extends Many
             CreatedFilter::class,
             TitzFilter::class,
 
-           CategoryFilters::class,
             RegionFilters::class,
             //DistanceFilters::class,
-            TitzFilter::class,
         ];
     }
 
