@@ -84,17 +84,9 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('news', function ($value) {
             return  \Cache::remember('route-news-'.$value, \Carbon\Carbon::now()->addHour(), function () use ($value) {
-                if (is_numeric($value)) {
-                    return Post::where('id', $value)
-                        ->where('type', 'news')
-                        ->with('comments.author')
-                        ->firstOrFail();
-                }
-
-                return Post::where('slug', $value)
-                    ->where('type', 'news')
+                return Post::where('type', 'news')
                     ->with(['comments.author', 'likeCounter'])
-                    ->firstOrFail();
+                    ->findBySlugOrId();
             });
         });
 
