@@ -38,7 +38,7 @@ class CartController
                 'name'     => $request->get('name'),
                 'email'    => $request->get('email'),
                 'password' => Hash::make($request->get('password')),
-                'phone'    => $request->get('name'),
+                'phone'    => $request->get('phone'),
             ]);
 
             Auth::login($user);

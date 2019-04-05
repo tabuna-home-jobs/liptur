@@ -53,17 +53,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('post', function ($value) {
             $post = Dashboard::modelClass(Post::class);
-
-            if(is_numeric($value)) {
-                $slug_post = $post->where('slug', $value)->first();
-
-                if($slug_post) {
-                    return $slug_post;
-                }
-
-                return $post->where('id', $value)->firstOrFail();
-            }
-            return $post->where('slug', $value)->firstOrFail();
+            return $post->findBySlugOrId($value);
         });
 
         Route::bind('product', function ($value) {
@@ -123,15 +113,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('item', function ($value) {
-            //   return  Cache::remember('item-'.$value, 5, function () use ($value) {
-            if (is_numeric($value)) {
-                return Post::where('id', $value)
-                    ->firstOrFail();
-            }
-
-            return Post::where('slug', $value)
-                ->firstOrFail();
-            // });
+            return Post::findBySlugOrId($value);
         });
 
         Route::bind('advertising', function ($value) {

@@ -19,8 +19,9 @@
                 <nav>
                     <div class="container">
                         @include('partials.breadcrumb',[
-                            'breadcrumb' => [
-                                 '../titz'=> 'Туристско-Информационные центры'
+                            'base' => [
+                                'route' => route('titz'),
+                                'name' => 'Туристско-Информационные центры',
                             ],
                             'current' => $user->name
                         ])

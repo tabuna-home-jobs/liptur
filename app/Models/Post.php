@@ -86,4 +86,18 @@ class Post extends BasePost
         return $path.$this->attachment[0]->url;
     }
 
+    public function scopeFindBySlugOrId($query, $value)
+    {
+        if(is_numeric($value)) {
+            $slug_post = $query->where('slug', $value)->first();
+
+            if($slug_post) {
+                return $slug_post;
+            }
+
+            return $query->where('id', $value)->firstOrFail();
+        }
+        return $query->where('slug', $value)->firstOrFail();
+    }
+
 }

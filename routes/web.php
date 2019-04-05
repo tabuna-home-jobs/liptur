@@ -149,7 +149,7 @@ $router->group([
     $this->get('/', 'AboutController@welcome');
 
     $this->group(['prefix' => 'titz', 'namespace' => 'Titz'], function () {
-        $this->get('/', 'TitzController@index');
+        $this->get('/', 'TitzController@index')->name('titz');
         $this->get('/edit', 'TitzController@edit')->name('titz.edit');
         $this->put('/edit', 'TitzController@update')->name('titz.update');
 
