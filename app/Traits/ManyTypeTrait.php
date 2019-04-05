@@ -60,6 +60,7 @@ trait ManyTypeTrait
         foreach (request('options.option', []) as $key => $value) {
             $option[$key] = '1';
         }
+
         if (isset($option)) {
             $model->options=array_merge($model->options,['option' => $option]);
         }
@@ -69,6 +70,8 @@ trait ManyTypeTrait
         if (isset($category)) {
             $model->options=array_merge($model->options,['category' => $category]);
         }
+
+        $model->options=array_merge($model->options,['locale' => request('options.locale', [])]);
 
         $model->save();
         $model->setTags(request('tags', []));
