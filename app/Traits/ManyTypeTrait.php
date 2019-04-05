@@ -41,7 +41,7 @@ trait ManyTypeTrait
      */
     public function save(Model $model)
     {
-        if($model->exists()) {
+        if(!$model->exists()) {
             $attrs = $model->getAttributes();
             $model = new Post;
             $model->fill($attrs);
