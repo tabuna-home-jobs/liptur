@@ -86,7 +86,7 @@ class RouteServiceProvider extends ServiceProvider
             return  \Cache::remember('route-news-'.$value, \Carbon\Carbon::now()->addHour(), function () use ($value) {
                 return Post::where('type', 'news')
                     ->with(['comments.author', 'likeCounter'])
-                    ->findBySlugOrId();
+                    ->findBySlugOrId($value);
             });
         });
 
