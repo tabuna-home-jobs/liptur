@@ -6,7 +6,6 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Press\Models\Category;
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\UploadField;
@@ -14,8 +13,7 @@ use Orchid\Screen\Fields\DateTimerField;
 use Orchid\Screen\Fields\SelectField;
 use Orchid\Screen\Fields\CheckBoxField;
 use Orchid\Screen\Fields\LabelField;
-use App\Models\Term;
-use Orchid\Press\Models\Taxonomy;
+use App\Models\Post;
 
 
 /**
@@ -43,6 +41,12 @@ trait ManyTypeTrait
      */
     public function save(Model $model)
     {
+        if($model->exists()) {
+            $attrs = $model->getAttributes();
+            $model = new Post;
+            $model->fill($attrs);
+        }
+
         $content=request('content', []);
         foreach (['ru','en'] as $locale) {
             if (isset($content[$locale]['keywords'])) {
