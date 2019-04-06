@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Traits;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Press\Models\Category;
 use Orchid\Screen\Fields\TagsField;
@@ -33,6 +34,16 @@ trait ManyTypeTrait
             return $item->id;
         })->toArray();
 
+        if (Auth::user()->inRole('titz') && isset($this->status()['titz']) && !$model->id) {
+            $model->options = array_merge($model->options ?? [] +  [
+                'locale' => [
+                    'ru' => 'true'
+                ],
+            ]);
+            $model->status = $model->status ?? 'titz';
+        }
+
+
         return $model;
     }
 
@@ -41,10 +52,13 @@ trait ManyTypeTrait
      */
     public function save(Model $model)
     {
-        if(!$model->exists()) {
+        if(!$model->id) {
             $attrs = $model->getAttributes();
-            $model = new Post;
-            $model->fill($attrs);
+            $options = $model->options;
+            $content = $model->content;
+            $model = (new Post)->fill($attrs);
+            $model->options = $options;
+            $model->content = $content;
         }
 
         $content=request('content', []);
@@ -68,10 +82,10 @@ trait ManyTypeTrait
             $category[$key] = '1';
         }
         if (isset($category)) {
-            $model->options=array_merge($model->options,['category' => $category]);
+            $model->options=array_merge($model->options, ['category' => $category]);
         }
 
-        $model->options=array_merge($model->options,['locale' => request('options.locale', [])]);
+        $model->options=array_merge($model->options ?? [], ['locale' => request('options.locale', [])]);
 
         $model->save();
         $model->setTags(request('tags', []));
