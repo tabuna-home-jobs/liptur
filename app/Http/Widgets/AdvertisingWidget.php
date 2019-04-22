@@ -32,7 +32,7 @@ class AdvertisingWidget extends Widget
        return \Cache::remember('widget-advertising-'.App::getLocale().'-'.$key, 60, function () use ($key) {
 
             $post = Post::type('advertising')
-                ->where('options->locale->' . App::getLocale(), 'on')
+                ->where('options->locale->' . App::getLocale(), 'true')
                 ->where('options->category', $key)
                 ->where('options->startDate', '<', $this->date)
                 ->where('options->endDate', '>', $this->date)
