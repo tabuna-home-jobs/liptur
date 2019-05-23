@@ -1,4 +1,4 @@
-  <div class="wrapper bg-white main-category">
+  <div class="wrapper">
   <div class="block-header container pt-3 padder-v">
     Мастера земли липецкой
   </div>
