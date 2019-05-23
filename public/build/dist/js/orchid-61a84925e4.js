@@ -25445,39 +25445,8 @@ $(function () {
             }
         }
     });
-        
-$('.master-carousel').owlCarousel({
-        
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        lazyLoad: true,
-		nav: true,
-        center: false,
-        navText: [
-            '<i class="icon-arrow-left"></i>',
-            '<i class="icon-arrow-right"></i>'
-        ],
-        responsive: {
-            0: {
-                items: 1,
-                margin: 50,
-                stagePadding: 20,
-				nav:false,
-            },
-            767: {
-                items: 2,
-                margin: 20,
-                stagePadding: 15,
-              },
-            1200: {
-                items: 4,
-                margin: 40,
-                stagePadding: 15,
-            }
-        }
-    });
-	
-	$('.attention-carousel').owlCarousel({
+    
+		$('.master-carousel').owlCarousel({
         
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
@@ -25494,7 +25463,7 @@ $('.master-carousel').owlCarousel({
                 stagePadding: 20,
             },
             767: {
-                items: 2,
+                items: 3,
                 margin: 20,
                 stagePadding: 15,
               },
@@ -25505,7 +25474,7 @@ $('.master-carousel').owlCarousel({
             }
         }
     });
-	
+    
     $('.category-carousel').owlCarousel({
         
         animateOut: 'fadeOut',
@@ -25535,10 +25504,6 @@ $('.master-carousel').owlCarousel({
         }
     });
 	
-
-	
-    
-
     
     $('.main-carousel').owlCarousel({
         animateOut: 'fadeOut',
