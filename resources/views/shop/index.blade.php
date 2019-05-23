@@ -4,7 +4,7 @@
 @section('keywords','Магазин')
 @section('shop')
 
-    <section class="container-lg hidden-xs">
+    <section class="container-lg hidden-xs">	
         <div class="pos-abt bg-white left w-full h-sm"></div>
             @include('partials.shop.topslider',[
                 'slides'=>$topslider
@@ -16,7 +16,7 @@
             </nav>
     </section>
 
-    <section>
+    <section>       
         <div class="container padder-v">
             <div class="row">
                 <div class="block-header col-xs-12 pt-3">
@@ -25,7 +25,7 @@
                         Самое интересное
                     </a>
                 </div>
-            </div>
+            </div> 
             
             <div  id="shop" class="row">
                 @foreach($newsAndSpecial as $product)
@@ -62,9 +62,9 @@
                 @endforeach
             </div>
         </div>
- 
-        @include('partials.shop.index-category',[
-            'categories'=>$categories
+        
+        @include('partials.shop.index-masters',[
+            'regionlists'=>$regionlists
         ])
         
         
@@ -112,5 +112,12 @@
                 @endforeach
             </div>
         </div>
+         @include('partials.shop.index-attantion',[
+            'categories'=>$categories
+        ])
+        
+        @include('partials.shop.index-category',[
+            'categories'=>$categories
+        ])
     </section>
 @endsection

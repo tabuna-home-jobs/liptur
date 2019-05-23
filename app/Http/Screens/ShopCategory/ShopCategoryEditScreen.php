@@ -99,7 +99,7 @@ class ShopCategoryEditScreen extends Screen
 
         Alert::info(__('Category was saved'));
 
-        return redirect()->route('platform.systems.category');
+        return redirect()->route('platform.shop.category');
     }
 
     /**
@@ -114,6 +114,6 @@ class ShopCategoryEditScreen extends Screen
 
         Alert::info(__('Category was removed'));
 
-        return redirect()->route('platform.systems.category');
+        return redirect()->route('platform.shop.category');
     }
 }

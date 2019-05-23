@@ -18936,8 +18936,9 @@ input.list-view-search {
   background: #fff;
   border-bottom: 1px solid rgba(237, 241, 242, 0.7);
   border-top: 0px;
-  padding: 20px;
+  /*padding: 20px;*/
   font-size: 13.5px;
+  min-width: 80px;
 }
 .table tbody tr td .btn-tag {
   background: rgba(58, 63, 81, 0.07);

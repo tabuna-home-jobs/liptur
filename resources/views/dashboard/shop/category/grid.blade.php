@@ -26,7 +26,7 @@
 
                 @include('platform::container.posts.filter')
 
-                <div class="table-responsive">
+                <div class="table-responsive">				
                         <table class="table table-striped">
                             <thead>
                             <tr>

@@ -17,6 +17,8 @@ use App\Orchid\Screens\Category\CategoryListScreen;
 use App\Http\Controllers\CRM\BidController;
 use App\Http\Screens\ShopCategory\ShopCategoryListScreen;
 use App\Http\Screens\ShopCategory\ShopCategoryEditScreen;
+use App\Http\Screens\ShopCategory\ShopMastersListScreen;
+use App\Http\Screens\ShopCategory\ShopMastersEditScreen;
 use App\Http\Controllers\Dashboard\AdvertisingController;
 use App\Http\Screens\Recycle\RecycleEdit;
 use App\Http\Screens\Recycle\RecycleList;
@@ -64,6 +66,11 @@ $this->screen('shop/category/{shopcat}/edit', ShopCategoryEditScreen::class)->na
 $this->screen('shop/category/create', ShopCategoryEditScreen::class)->name('platform.shop.category.create');
 $this->screen('shop/category', ShopCategoryListScreen::class)->name('platform.shop.category');
 
+
+// Masters...
+$this->screen('shop/masters/{shopcat}/edit', ShopMastersEditScreen::class)->name('platform.shop.masters.edit');
+$this->screen('shop/masters/create', ShopMastersEditScreen::class)->name('platform.shop.masters.create');
+$this->screen('shop/masters', ShopMastersListScreen::class)->name('platform.shop.masters');
 
 
 $this->screen('shop/product-arrival', ProductArrivalList::class)->name('dashboard.liptur.shop.product-arrival.list');

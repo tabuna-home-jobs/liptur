@@ -74,6 +74,16 @@ class MenuComposer
             'permission' => 'dashboard.liptur.shop',
             'sort'       => 1,
         ]);
+		
+		$dashboard->menu->add('Shop', [
+            'slug'       => 'shop-masters',
+            'icon'       => 'icon-briefcase',
+            'route'      => route('dashboard.liptur.shop.masters'),
+            'groupname'  => 'Интернет-магазин',
+            'label'      => 'Ремесленники',
+            'permission' => 'dashboard.liptur.shop',
+            'sort'       => 2,
+        ]);
 
         $dashboard->menu->add('Shop', [
             'slug'       => 'shop-product',

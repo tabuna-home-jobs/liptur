@@ -17,6 +17,7 @@ use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TinyMCEField;
 use Orchid\Screen\TD;
+use App\Models\Master;
 
 
 /**
@@ -58,6 +59,9 @@ class ProductType extends Many
      */
     public $groupname = 'Интернет-магазин';
 
+    /*Для пустого значения мастеров
+    */
+	public $zerroMasters = 0;
     /**
      * @var array
      */
@@ -104,6 +108,7 @@ class ProductType extends Many
      */
     public function fields(): array
     {
+		
         return [
             InputField::make('name')
                 ->type('text')
@@ -136,13 +141,9 @@ class ProductType extends Many
             TagsField::make('keywords')
                 ->title('Ключевые слова'),
 
-            SelectField::make('maintainer')
-                ->options([
-                    '0' => 'Нет',
-                    '1' => 'Производитель 1',
-                    '2' => 'Производитель 2',
-                ])
-                ->title('Производитель товара'),
+            SelectField::make('maintainer')			    
+                ->options($this->getMasterList())
+                ->title('Мастер-изготовитель'),
 
             InputField::make('seller.name')
                 ->type('text')
@@ -162,6 +163,19 @@ class ProductType extends Many
                 ->help('place for google maps'),
             */
         ];
+    }
+	
+	public function getMasterList()
+    {
+		$masterList = Master::select('id', 'fio')->orderBy('fio')->get();
+		
+		$simpleList = array();
+		$simpleList[0] = 'Мастер не выбран';
+		foreach($masterList as $item){
+			$simpleList[$item->id] = $item->fio;
+		}
+
+		return $simpleList;
     }
 
     /**

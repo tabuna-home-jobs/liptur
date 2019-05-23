@@ -77,7 +77,7 @@ class ShopCategoryListScreen extends Screen
         return [
             Link::name(__('Add'))
                 ->icon('icon-plus')
-                ->link(route('platform.systems.category.create')),
+                ->link(route('platform.shop.category.create')),
         ];
     }
 

@@ -200,7 +200,16 @@ $this->group(['prefix' => 'shop', 'namespace' => 'Shop'], function () {
     $this->get('/order', 'ShopController@order')->name('shop.order');
     $this->get('/purchase', 'ShopController@purchase')->name('shop.purchase');
     $this->get('/', 'ShopController@index')->name('shop');
+	$this->get('/test/{slug}', 'ShopController@test')->name('shop.test');
+	$this->get('/masters/{slug}', 'ShopController@masters')->name('shop.masters');
+	$this->get('/masterpage/{slug}', 'ShopController@masterpage')->name('shop.masterpage');
 });
 
 
 $this->get('image/{image?}', 'ImageController@index')->where('image', '[A-Za-z0-9/.-\_]+');
+
+Route::get('/clear', function(){
+	Artisan::call('cache:clear'); 	
+	Artisan::call('view:clear');
+	Artisan::call('route:clear'); 
+	return '<h1>Кэш очищен.</h1>';});

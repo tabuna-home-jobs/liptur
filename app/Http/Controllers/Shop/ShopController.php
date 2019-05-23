@@ -8,6 +8,8 @@ use App\Models\Term;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Region;
+use App\Models\Master;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +20,7 @@ class ShopController extends Controller
      */
     public function index(): View
     {
+		$regionl = Region::all();
         $newsAndSpecial = Post::type('product')
             ->with('attachment')
             ->where(function ($q) {
@@ -48,6 +51,7 @@ class ShopController extends Controller
             'warnings'       => $warnings,
             'categories'     => $categories,
             'topslider'      => $topslider,
+			'regionlists'    => $regionl,
         ]);
     }
 
@@ -146,7 +150,7 @@ class ShopController extends Controller
 
         $products = $products->paginate($request->get('perpage') ?? 15)
             ->appends($request->all());
-
+			
         return view('shop.products', [
             'categories'      => $categories,
             'currentCategory' => $category,
@@ -242,6 +246,164 @@ class ShopController extends Controller
         $cart = get_cart_content(Cart::content(), true);
         return view('shop.order.purchase', [
             'cart' => $cart
+        ]);
+    }
+	/* public function test(int $id, Request $request): View
+    {
+		$slug = 'suvenirnaya-produkciya';
+        $categories = ShopCategory::all();
+        $category   = ShopCategory::slug($slug)->first();
+		
+		$masterCategory = $id;
+		$categoriesMaster = Region::orderBy('content')->get();
+		$catregion = Region::all();
+		$categoryname = $catregion[$id-1]->content;
+		$categoryimg = $catregion[$id-1]->photo;
+		$masterlist = Master::all();
+		$masterlistCur = $masterlist
+		->where('region_id', '==', $id);
+			
+			
+			$products = $category->posts()
+            ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0");
+
+        if (!is_null($request->get('sort'))) {
+            $sort    = $request->get('sort');
+            $asort   = [
+                'price_asc'  => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
+                'price_desc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'desc', true],
+                'name_asc'   => ['content->ru->name', 'asc', false],
+                'name_desc'  => ['content->ru->name', 'desc', false],
+            ];
+            $orderBy = $asort[$sort];
+        } else {
+            $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true];
+        }
+        if ($orderBy[2]) {
+            $products = $products->orderByRaw($orderBy[0] . $orderBy[1]);
+        } else {
+            $products = $products->orderBy($orderBy[0], $orderBy[1]);
+        }
+
+        $products = $products->paginate($request->get('perpage') ?? 15)
+            ->appends($request->all());
+
+
+        return view('shop.test', [
+            'categories'      => $categories,
+			'categoriesMaster' => $categoriesMaster,
+			'curentMasterCategory' => $id,
+            'currentCategory' => $category,
+			'currentCategoryName' => $categoryname,
+			'currentCategoryImg' => $categoryimg,
+            'products'        => $products,
+            'request'         => $request->all(),
+			'masterlist' => $masterlistCur,
+        ]);
+    }*/
+	
+	public function test(int $curId, Request $request): View
+    {
+		$slug = 'suvenirnaya-produkciya';
+		$categories = ShopCategory::all();
+        $category   = ShopCategory::slug($slug)->first();
+
+        $products = $category->posts()
+            ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0");
+			
+			
+		if (!is_null($request->get('sort'))) {
+            $sort    = $request->get('sort');
+            $asort   = [
+                'price_asc'  => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true],
+                'price_desc' => ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'desc', true],
+                'name_asc'   => ['content->ru->name', 'asc', false],
+                'name_desc'  => ['content->ru->name', 'desc', false],
+            ];
+            $orderBy = $asort[$sort];
+        } else {
+            $orderBy = ["CAST(options->'$.price' AS DECIMAL(10,2)) ", 'asc', true];
+        }
+        if ($orderBy[2]) {
+            $products = $products->orderByRaw($orderBy[0] . $orderBy[1]);
+        } else {
+            $products = $products->orderBy($orderBy[0], $orderBy[1]);
+        }
+
+        $products = $products->paginate($request->get('perpage') ?? 15)
+            ->appends($request->all());
+			
+		$masterlist = Master::all();
+        /*$curmaster = $masterlist
+		->where('id', '==', $id);*/		
+		
+		$warnings = Post::type('product')
+		->where('content->ru->maintainer', '=', (string)$curId)
+		->get();
+
+        return view('shop.test', [
+		    'products' => $products,
+			'categories'      => $categories,
+            'currentCategory' => $category,
+			'masterlist' => $masterlist,
+            'curId' => $curId-1,
+			/*'request' => $request->all(),*/
+			'warnings' => $warnings,
+        ]);
+    }
+	
+    public function masters(int $id, Request $request): View
+    {
+		$slug = 'suvenirnaya-produkciya';
+        $categories = ShopCategory::all();
+        $category   = ShopCategory::slug($slug)->first();
+		
+		$masterCategory = $id;
+		$categoriesMaster = Region::orderBy('content')->get();
+		$catregion = Region::all();
+		$categoryname = $catregion[$id-1]->content;
+		$categoryimg = $catregion[$id-1]->photo;
+		$masterlist = Master::all();
+		$masterlistCur = $masterlist
+		->where('region_id', '==', $id);
+			
+		
+        $products = $category->posts()
+            ->where('status', '<>', 'hidden')
+            ->whereNotNull('options->count')
+            ->whereRaw("CAST(options->'$.count' AS SIGNED) >0");
+
+
+        $products = $products->paginate($request->get('perpage') ?? 15)
+            ->appends($request->all());
+
+
+        return view('shop.masters', [
+            'categories'      => $categories,
+			'categoriesMaster' => $categoriesMaster,
+			'curentMasterCategory' => $id,
+            'currentCategory' => $category,
+			'currentCategoryName' => $categoryname,
+			'currentCategoryImg' => $categoryimg,
+            'products'        => $products,
+            'request'         => $request->all(),
+			'masterlist' => $masterlistCur,
+        ]);
+    }
+	
+	 public function masterpage(int $curId): View
+    {
+		$masterlist = Master::all();
+        /*$curmaster = $masterlist
+		->where('id', '==', $id);*/
+
+        return view('shop.masterpage', [
+			'masterlist' => $masterlist,
+            'curId' => $curId-1,
         ]);
     }
 }

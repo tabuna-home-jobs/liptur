@@ -371,6 +371,11 @@ class MainMenuComposer
                     ->setIcon('icon-basket-loaded')
                     ->setRoute('platform.shop.category')
             )
+			->add('shop',
+                ItemMenu::setLabel('Мастера')
+                    ->setIcon('icon-basket-loaded')
+                    ->setRoute('platform.shop.masters')
+            )
             ->add('shop',
                 ItemMenu::setLabel('Заказы')
                     ->setIcon('icon-basket-loaded')

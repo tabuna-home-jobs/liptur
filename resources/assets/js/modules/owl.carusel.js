@@ -67,6 +67,34 @@ $(function () {
         }
     });
     
+		$('.master-carousel').owlCarousel({
+        
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        lazyLoad: true,
+        // center: true,
+        navText: [
+            '<i class="icon-arrow-left"></i>',
+            '<i class="icon-arrow-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1,
+                margin: 50,
+                stagePadding: 20,
+            },
+            767: {
+                items: 3,
+                margin: 20,
+                stagePadding: 15,
+              },
+            1200: {
+                items: 3,
+                margin: 40,
+                stagePadding: 15,
+            }
+        }
+    });
     
     $('.category-carousel').owlCarousel({
         
@@ -96,8 +124,7 @@ $(function () {
             }
         }
     });
-    
-
+	
     
     $('.main-carousel').owlCarousel({
         animateOut: 'fadeOut',
