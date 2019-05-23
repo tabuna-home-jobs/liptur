@@ -58,7 +58,7 @@ $router->group([
     |--------------------------------------------------------------------------
     |
      */
-    $this->get('calendar-event', 'Other\CalendarEvent@index')->name('calendar-event');
+//    $this->get('calendar-event', 'Other\CalendarEvent@index')->name('calendar-event');
 
     /*
     |--------------------------------------------------------------------------
