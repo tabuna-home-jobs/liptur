@@ -62,12 +62,16 @@
                 @endforeach
             </div>
         </div>
-        
+
+        @include('partials.shop.index-category',[
+           'categories'=>$categories
+       ])
+
         @include('partials.shop.index-masters',[
             'regionlists'=>$regionlists
         ])
-        
-        
+
+
         <div class="container padder-v">
             <div class="row">
                 <div class="block-header  col-xs-12 pt-3">
@@ -113,10 +117,6 @@
             </div>
         </div>
          @include('partials.shop.index-attantion',[
-            'categories'=>$categories
-        ])
-        
-        @include('partials.shop.index-category',[
             'categories'=>$categories
         ])
     </section>
