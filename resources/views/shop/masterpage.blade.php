@@ -27,7 +27,7 @@
             <div class="row">
 				<div class="col-sm-4 padder-v shop_master">
                                         					  
-					  <img src="@if (file_exists(public_path().$masterlist[$curId]->photo)|(file_exists(base_path().$masterlist[$curId]->photo))) {{$masterlist[$curId]->photo}} @else https://liptur.ru/image/medium/storage/masters/no-photo.jpg @endif"
+					  <img src="@if ((file_exists(public_path().$masterlist[$curId]->photo)|(file_exists(base_path().$masterlist[$curId]->photo))) & $masterlist[$curId]->photo!='')) {{$masterlist[$curId]->photo}} @else https://liptur.ru/image/medium/storage/masters/no-photo.jpg @endif"
                                class="img-full img-master">				  
                       
 					

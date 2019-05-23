@@ -343,6 +343,8 @@ class ShopController extends Controller
 		
 		$warnings = Post::type('product')
 		->where('content->ru->maintainer', '=', (string)$curId)
+		->where('status', '<>', 'hidden')
+        ->whereNotNull('options->count')
 		->get();
 
         return view('shop.test', [

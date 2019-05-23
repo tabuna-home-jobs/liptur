@@ -112,7 +112,7 @@
 					  
 					  
 							   
-							   <img src="@if (file_exists(public_path().$mastera->photo)|(file_exists(base_path().$mastera->photo))) {{$mastera->photo}} @else https://liptur.ru/image/medium/storage/masters/no-photo.jpg @endif"
+							   <img src="@if ((file_exists(public_path().$mastera->photo)| file_exists(base_path().$mastera->photo)) & $mastera->photo!='') {{$mastera->photo}} @else https://liptur.ru/image/medium/storage/masters/no-photo.jpg @endif"
                                class="img-full img-master">
                             
                       </a>

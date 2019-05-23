@@ -25,8 +25,9 @@
               
             </div>
             <div class="row">
-				<div class="col-sm-3 padder-v shop_master">                     
-					  <img src="@if (file_exists(public_path().$masterlist[$curId]->photo)|(file_exists(base_path().$masterlist[$curId]->photo))) {{$masterlist[$curId]->photo}} @else https://liptur.ru/image/medium/storage/masters/no-photo.jpg @endif"
+				<div class="col-sm-3 padder-v shop_master">   
+				
+					  <img src="@if ((file_exists(public_path().$masterlist[$curId]->photo)|(file_exists(base_path().$masterlist[$curId]->photo)))& $masterlist[$curId]->photo!='') {{$masterlist[$curId]->photo}} @else https://liptur.ru/image/medium/storage/masters/no-photo.jpg @endif"
                                class="img-full img-master">
 		  
 					  
@@ -111,7 +112,7 @@
 			  
 						<div class="back_header_master">	
 						<a href="{{route('shop.product',$product->slug)}}" title="{{$product->getContent('name')}}">{{$product->getContent('name')}}</a>
-						</div>							
+						</div>											
 						<div class="back_master_info product">
 						<span>{{$product->getContent('annotation')}}</span>				 
 					 	</div>

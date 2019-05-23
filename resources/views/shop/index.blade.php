@@ -63,10 +63,10 @@
             </div>
         </div>
         
-        @include('partials.shop.index-masters',[
-            'regionlists'=>$regionlists
+		@include('partials.shop.index-category',[
+            'categories'=>$categories
         ])
-        
+		 
         
         <div class="container padder-v">
             <div class="row">
@@ -116,8 +116,9 @@
             'categories'=>$categories
         ])
         
-        @include('partials.shop.index-category',[
-            'categories'=>$categories
+		@include('partials.shop.index-masters',[
+            'regionlists'=>$regionlists
         ])
+        
     </section>
 @endsection

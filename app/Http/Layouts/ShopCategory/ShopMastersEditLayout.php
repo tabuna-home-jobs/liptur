@@ -68,9 +68,7 @@ class ShopMastersEditLayout extends Rows
             TinyMCEField::make('category.description')
 			    ->required()
                 ->title(__('Description'))
-				->entity_encoding('raw')
-				->forced_root_block('false')
-				//->valid_children(',-p')
+				->entity_encoding('raw')				
                 ->theme('modern'),
 
         ];
