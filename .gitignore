@@ -9,4 +9,4 @@ Homestead.yaml
 /public/panoram/
 *.lock
 public/orchid
-public/dist
+#public/dist
