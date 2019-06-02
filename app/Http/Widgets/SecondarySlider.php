@@ -37,7 +37,7 @@ class SecondarySlider extends Widget
                 })
                 ->whereNotNull('options->locale->'.App::getLocale())
                 ->where('content->'.App::getLocale().'->open', '>=', Carbon::today()->toDateString())
-                ->orderBy('content->'.App::getLocale().'->open', 'DESC')
+                ->orderBy('content->'.App::getLocale().'->open', 'ASC')
                 ->limit(3)
                 ->get();
         });
