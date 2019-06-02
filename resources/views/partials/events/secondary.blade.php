@@ -20,7 +20,7 @@
             </div>
 
 
-            <div class="col-md-4 col-xs-12 padder-sm">
+            <div class="col-md-4 col-xs-12 padder-sm" style="padding-right: 0px">
                 <div class="vbox row">
                   @foreach($tours as $index => $item)
                     @if ($index == 0)
