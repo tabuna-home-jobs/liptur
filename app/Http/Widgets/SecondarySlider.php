@@ -26,7 +26,7 @@ class SecondarySlider extends Widget
                 ->get();
         });
 
-        $tours = Cache::remember('tours-'.App::getLocale(), 0, function () {
+        $tours = Cache::remember('tours-'.App::getLocale(), 5, function () {
             return Post::where('type', 'tour')
                 ->with(['attachment'])
                 ->whereHas('attachment', function ($q) {
@@ -36,7 +36,7 @@ class SecondarySlider extends Widget
                     $q->where('group', 'sub');
                 })
                 ->whereNotNull('options->locale->'.App::getLocale())
-                ->whereDate('content->'.App::getLocale().'->open', '>=', Carbon::today()->toDateString())
+//                ->whereDate('content->'.App::getLocale().'->open', '>=', Carbon::today()->toDateString())
                 ->orderBy('content->'.App::getLocale().'->open', 'DESC')
                 ->limit(3)
                 ->get();
