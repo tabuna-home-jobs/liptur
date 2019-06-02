@@ -20,7 +20,9 @@ use Orchid\Screen\Fields\InputField;
 use Orchid\Screen\Fields\TagsField;
 use Orchid\Screen\Fields\TextAreaField;
 use Orchid\Screen\Fields\TinyMCEField;
+use Orchid\Screen\Fields\UploadField;
 use Orchid\Screen\TD;
+use Illuminate\Database\Eloquent\Model;
 
 class TourType extends Many
 {
@@ -61,6 +63,32 @@ class TourType extends Many
      * @var bool
      */
     public $category = true;
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $model
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function create(Model $model) : Model
+    {
+        $attachments = $model['attachment'];
+        $model['mainattachment'] = $attachments->where('group','main');
+        $model['subattachment'] = $attachments->where('group','sub');
+
+        return $model->load(['tags', 'taxonomies'])
+            ->setAttribute('category', $model->taxonomies->map(function ($item) {
+                return $item->id;
+            })->toArray());
+    }
+    /**
+     * @param \Illuminate\Database\Eloquent\Model $model
+     */
+    public function save(Model $model)
+    {
+        $model->save();
+        $model->attachment()->syncWithoutDetaching(request('mainattachment', []));
+        $model->attachment()->syncWithoutDetaching(request('subattachment', []));
+    }
 
     /**
      * @var array
@@ -105,6 +133,7 @@ class TourType extends Many
                 ->max(255)
                 ->rows(10)
                 ->theme('modern'),
+
             DateTimerField::make('open')
                 ->max(255)
                 ->title('Дата открытия')
@@ -144,6 +173,26 @@ class TourType extends Many
 
         ];
     }
+
+    /**
+     * @throws \Orchid\Screen\Exceptions\TypeException
+     * @throws \Throwable
+     *
+     * @return array
+     */
+    public function main(): array
+    {
+        return array_merge(parent::main(), [
+            UploadField::make('mainattachment')
+                ->groups('main')
+                ->title('Большое изображение тура'),
+
+            UploadField::make('subattachment')
+                ->groups('sub')
+                ->title('Малое изображение тура'),
+        ]);
+    }
+
 
     /**
      * Grid View for post type.

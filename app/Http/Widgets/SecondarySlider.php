@@ -19,16 +19,32 @@ class SecondarySlider extends Widget
         $carousel = Cache::remember('secondary-carousel-'.App::getLocale(), 5, function () {
             return Post::where('type', 'secondary-carousel')
                 ->whereNotNull('options->locale->'.App::getLocale())
-                ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
+                ->has('attachment')
+//                ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
                 ->orderBy('publish_at', 'ASC')
                 ->limit(10)
+                ->get();
+        });
+
+        $tours = Cache::remember('tours-'.App::getLocale(), 0, function () {
+            return Post::where('type', 'tour')
+                ->with(['attachment'])
+                ->whereHas('attachment', function ($q) {
+                    $q->where('group', 'main');
+                })
+                ->whereHas('attachment', function ($q) {
+                    $q->where('group', 'sub');
+                })
+                ->whereNotNull('options->locale->'.App::getLocale())
+                ->orderBy('publish_at', 'ASC')
+                ->limit(3)
                 ->get();
         });
 
         if ($carousel->count() != 0) {
             return view('partials.events.secondary', [
                 'carousel' => $carousel,
-                'weather'  => Setting::get('weather'),
+                'tours'  => $tours,
             ]);
         }
     }

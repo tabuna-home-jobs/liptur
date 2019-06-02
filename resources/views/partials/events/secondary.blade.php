@@ -20,34 +20,30 @@
             </div>
 
 
-            <div class="col-md-4 col-xs-12">
-                <div class="vbox">
-                    <img src="/img/weather/{{$weather['weather'][0]['icon']}}.jpg" alt="" class="img-responsive weather-img">
-                    <div class="wrapper-sm">
+            <div class="col-md-4 col-xs-12 padder-sm">
+                <div class="vbox row">
+                  @foreach($tours as $index => $item)
+                    @if ($index == 0)
+                      <div class="col-xs-12 m-b-md">
+                        <a href="{{$item->getContent('url')}}">
+                          <img class="img-responsive" src="{{$item->attachment->where('group', 'main')->first()->url()}}" alt="">
+                        </a>
+                      </div>
+                    @elseif ($index == 1)
+                      <div class="col-xs-6 padder-r-10">
+                        <a href="{{$item->getContent('url')}}">
+                          <img class="img-responsive" src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="">
+                        </a>
+                      </div>
+                    @else
+                      <div class="col-xs-6 padder-l-10">
+                        <a href="{{$item->getContent('url')}}">
+                          <img class="img-responsive" src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="">
+                        </a>
+                      </div>
+                    @endif
 
-                        {{--
-                        <div class="m-t-xxl text-center">
-                            <span class="h3 text-uppercase">{{$weather['weather'][0]['description']}}</span>
-                        </div>
-                        --}}
-
-                        <div class="text-center v-h-center">
-                            <div>
-                                <p class="small text-muted m-b-n-xs">
-                                    <nobr>{{round($weather['wind']['speed'],0)}} м/с</nobr>
-                                </p>
-                                <p class="small text-muted  m-b-n-xs">
-                                    <nobr>{{round($weather['main']['pressure'],0)}} hPa</nobr>
-                                </p>
-                            </div>
-
-                            <div class="m-l-md">
-                                <span class="h1"> <nobr>{{round($weather['main']['temp'],0)}}&#176;</nobr> </span>
-                            </div>
-                        </div>
-
-
-                    </div>
+                  @endforeach
                 </div>
             </div>
 
