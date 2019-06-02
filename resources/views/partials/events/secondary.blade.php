@@ -25,19 +25,19 @@
                   @foreach($tours as $index => $item)
                     @if ($index == 0)
                       <div class="col-xs-12 m-b-md">
-                        <a href="{{$item->getContent('url')}}">
+                        <a href="{{route('item', ['tour', $item->slug])}}">
                           <img class="img-responsive" src="{{$item->attachment->where('group', 'main')->first()->url()}}" alt="">
                         </a>
                       </div>
                     @elseif ($index == 1)
                       <div class="col-xs-6 padder-r-10">
-                        <a href="{{$item->getContent('url')}}">
+                        <a href="{{route('item', ['tour', $item->slug])}}">
                           <img class="img-responsive" src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="">
                         </a>
                       </div>
                     @else
                       <div class="col-xs-6 padder-l-10">
-                        <a href="{{$item->getContent('url')}}">
+                        <a href="{{route('item', ['tour', $item->slug])}}">
                           <img class="img-responsive" src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="">
                         </a>
                       </div>
