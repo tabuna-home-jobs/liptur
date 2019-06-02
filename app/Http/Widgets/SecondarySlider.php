@@ -20,7 +20,7 @@ class SecondarySlider extends Widget
             return Post::where('type', 'secondary-carousel')
                 ->whereNotNull('options->locale->'.App::getLocale())
                 ->has('attachment')
-//                ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
+                ->whereDate('publish_at', '>=', Carbon::today()->toDateString())
                 ->orderBy('publish_at', 'ASC')
                 ->limit(10)
                 ->get();
@@ -36,7 +36,8 @@ class SecondarySlider extends Widget
                     $q->where('group', 'sub');
                 })
                 ->whereNotNull('options->locale->'.App::getLocale())
-                ->orderBy('publish_at', 'ASC')
+                ->whereDate('content->'.App::getLocale().'->open', '>=', Carbon::today()->toDateString())
+                ->orderBy('content->'.App::getLocale().'->open', 'DESC')
                 ->limit(3)
                 ->get();
         });
