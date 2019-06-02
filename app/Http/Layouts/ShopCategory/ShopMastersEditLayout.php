@@ -24,6 +24,7 @@ class ShopMastersEditLayout extends Rows
     {
         $categoryContent = 'category.term.content.'.app()->getLocale();
 //dd($categoryContent);
+
         return [           
 
             InputField::make('category.fio')
@@ -46,13 +47,12 @@ class ShopMastersEditLayout extends Rows
                 ->mask('(999) 999-9999')
                 ->title(__('Телефон')),
 						    	
-			SelectField::make('category.remeslo')
-			    ->required()
-                ->options(function () {
-                    $options = $this->query->getContent('catselectShop');
-
-                    return array_replace([0=> __('Выберите ремесло')], $options);
-                })
+			SelectField::make('category.remeslo.')			    
+			    ->options(function () {
+                    $options = $this->query->getContent('catselectShop'); //dd($options);
+					return $options; 
+                })				
+				->multiple()				
                 ->title(__('Ремесло')),
 				
 
@@ -62,13 +62,13 @@ class ShopMastersEditLayout extends Rows
                     $options = $this->query->getContent('catselect');
 
                     return array_replace([0=> __('Район не указан')], $options);
-                })
+                })								
                 ->title(__('Район мастера')),
 
             TinyMCEField::make('category.description')
 			    ->required()
                 ->title(__('Description'))
-				->entity_encoding('raw')				
+				->entity_encoding('raw')                				
                 ->theme('modern'),
 
         ];

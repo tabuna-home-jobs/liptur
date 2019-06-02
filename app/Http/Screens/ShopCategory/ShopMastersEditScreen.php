@@ -42,7 +42,7 @@ class ShopMastersEditScreen extends Screen
 		 
 		$slug = 'suvenirnaya-produkciya';
         $categoryShop =ShopCategory::slug($slug)->first();
-        //dd($categoryShop->getAllCategories());
+        //dd($categoryShop->getAllCategoriesTerm());
 		//'catselect'=> $category->getAllCategories(),
 
         //if (! $category->exists) {
@@ -55,11 +55,12 @@ class ShopMastersEditScreen extends Screen
 		foreach($allRegionList as $item){
 			$regionList[$item->id] = $item->content;
 		}
+		
 //dd($simpleList);
         return [
             'category' => $category,
-            'catselect'=> $regionList,
 			'catselectShop'=> $categoryShop->getAllCategories(),
+            'catselect'=> $regionList,			
         ];
     }
 
@@ -100,13 +101,23 @@ class ShopMastersEditScreen extends Screen
      */
     public function save(Master $category, Request $request)
     {
+		
         $attributes = $request->get('category');
+		
+		
+		
 		
 		$slug = 'suvenirnaya-produkciya';
         $categoryShop = ShopCategory::slug($slug)->first();
-		$categoryName = $categoryShop->getAllCategories();
+		$categoryNames = $categoryShop->getAllCategories();
 		$category = new Master;
-		//dd($attributes ['region_id']);
+		$remesloList = '';		
+	
+	    foreach($attributes ['remeslo'] as $item){
+			$remesloList .= $categoryNames[$item].'; ';
+		}
+		//dd($remesloList);
+		
 		$catregion = Region::all();
 		if($attributes ['region_id']!=0)
 		{
@@ -120,16 +131,16 @@ class ShopMastersEditScreen extends Screen
 		$category->region_id = $attributes ['region_id']; 
 		$category->adress = $categoryname;
 		$category->contacts = $attributes ['contacts'];
-		$category->description = $attributes ['description'];
+		$category->description =  str_replace("&nbsp;", '', $attributes ['description']);
 		$category->photo = $attributes ['photo'];
-		$category->remeslo = $categoryName [$attributes ['remeslo']];
+		$category->remeslo = $remesloList;
 		$category->created_at = 2019-04-30;
 		$category->id = Master::orderBy('id', 'desc')->first()->id+1;
 		
 		$category->save();		
 		
 
-        Alert::info(__('Category was saved'));
+        Alert::info(__('Masters was saved'));
 
         return redirect()->route('platform.shop.masters');
     }
@@ -143,7 +154,7 @@ class ShopMastersEditScreen extends Screen
     {
         $category->delete();
 
-        Alert::info(__('Category was removed'));
+        Alert::info(__('Мастер удалён'));
 
         return redirect()->route('platform.shop.masters');
     }

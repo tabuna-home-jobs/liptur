@@ -1,5 +1,6 @@
   <div class="container shop-categories-widget">
-    <div class="owl-carousel attention-carousel">	
+    
+<div class="owl-carousel master-carousel category-carousel">	
 	  @foreach($categories as $category)        
          <article  class="col-md-12 master-reg">
                         <a href="{{route('shop.products',$category->slug)}}" >
