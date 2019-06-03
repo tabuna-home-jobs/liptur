@@ -9,9 +9,9 @@
                         @foreach($carousel as $item)
                             <figure class="item">
                                 <a href="{{$item->getContent('url')}}">
-                                    <img class="owl-lazy img-responsive" data-src="{{ $item->hero('high') }}" alt=""
-                                         width="800px"
-                                         height="534px">
+                                    <img class="owl-lazy" data-src="{{ $item->hero('high') }}" alt=""
+                                         width="766px"
+                                         height="511px">
                                 </a>
                             </figure>
                         @endforeach
@@ -24,21 +24,21 @@
                 <div class="vbox row">
                   @foreach($tours as $index => $item)
                     @if ($index == 0)
-                      <div class="col-xs-12 m-b-md">
+                      <div class="col-xs-12" style="margin-bottom: 28px">
                         <a href="{{route('item', ['tour', $item->slug])}}">
-                          <img class="img-responsive" src="{{$item->attachment->where('group', 'main')->first()->url()}}" alt="">
+                          <img src="{{$item->attachment->where('group', 'main')->first()->url()}}" alt="" width="366px" height="312px">
                         </a>
                       </div>
                     @elseif ($index == 1)
                       <div class="col-xs-6 padder-r-10">
                         <a href="{{route('item', ['tour', $item->slug])}}">
-                          <img class="img-responsive" src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="">
+                          <img src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="" width="171px" height="171px">
                         </a>
                       </div>
                     @else
                       <div class="col-xs-6 padder-l-10">
                         <a href="{{route('item', ['tour', $item->slug])}}">
-                          <img class="img-responsive" src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="">
+                          <img src="{{$item->attachment->where('group', 'sub')->first()->url()}}" alt="" width="171px" height="171px">
                         </a>
                       </div>
                     @endif
