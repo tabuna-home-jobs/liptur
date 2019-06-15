@@ -508,6 +508,7 @@ class MainMenuComposer
                 ItemMenu::setLabel('Корзина')
                     ->setSlug('Recycle')
                     ->setIcon('icon-trash')
+                    ->setPermission('platform.systems.index')
                     ->setRoute(route('dashboard.systems.recycle.list'))
                   
             )
