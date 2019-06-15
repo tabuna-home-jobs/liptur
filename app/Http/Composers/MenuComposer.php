@@ -144,7 +144,7 @@ class MenuComposer
             'icon'       => 'icon-trash',
             'route'      => route('dashboard.systems.recycle.list'),
             'label'      => 'Корзина',
-            'permission' => 'platform.systems',
+            'permission' => 'platform.systems.index',
             'divider'    => true,
             'sort'       => 1,
         ]);
