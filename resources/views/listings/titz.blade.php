@@ -45,12 +45,12 @@
                     <div class="panel panel-default  m-t-md m-b-md">
                         <div class="row v-center">
 
-                            <div class="col-md-4">
+                            <div class="col-xs-5 col-sm-4 col-md-4">
                                 <img src="{{$user->avatar ?? '/img/no_avatar.png' }}" alt="{{$user->name}}"
                                      class="img-responsive center">
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-xs-7 col-sm-5 col-md-6">
 
                                 <div class="padder">
 
@@ -65,9 +65,12 @@
                                     </p>
 
                                 </div>
+                                <div class="padder visible-xs">
+                                    <a href="{{route('titz.catalog',[$user->id,'festivals'])}}" class="btn btn-success">Подробнее</a>
+                                </div>
                             </div>
 
-                            <div class="col-md-2">
+                            <div class="hidden-xs  col-sm-3  col-md-2">
 
                                 <div class="padder">
                                     <a href="{{route('titz.catalog',[$user->id,'festivals'])}}" class="btn btn-success">Подробнее</a>

@@ -265,7 +265,7 @@
             <div class="container">
                 <div class="padder-v m-t-md m-b-md v-center">
                     <div class="col-xs-12 col-md-6">
-                        <p class="text-copyright m-b-n">© 2016-2018 {{__('Center of cluster development of tourism of the Lipetsk region')}}</p>
+                        <p class="text-copyright m-b-n">{!! setting('site_informer','') !!}© 2016-2018 {{__('Center of cluster development of tourism of the Lipetsk region')}}</p>
                     </div>
                     <div class="col-xs-12 col-md-3 col-md-offset-3 text-right no-padder">
                         <div class="pull-right">

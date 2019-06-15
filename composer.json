@@ -23,7 +23,7 @@
     "mcamara/laravel-localization": "1.2.*",
     "orchid/platform": "^3.9.6",
     "orchid/widget": "^1.2",
-    "orchids/xsetting": "^1.0",
+    "orchids/xsetting": "1.1",
     "predis/predis": "^1.1",
     "roumen/feed": "~2.10",
     "rtconner/laravel-likeable": "~1.2",
