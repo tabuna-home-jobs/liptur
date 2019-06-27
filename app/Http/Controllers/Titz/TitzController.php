@@ -48,15 +48,17 @@ class TitzController extends Controller
         $page = $request->input('page','1');
 
         $elements =   \Cache::remember('titz-controller-listing-'.$typeRequest.'-'.$user->id.'_page_'.$page.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest,$user) {
-            return Post::where('type', $typeRequest)
+            return  Post::where('type', $typeRequest)
                 ->where('user_id', $user->id)
-                //->where('content->'.App::getLocale().'->close', '>=', Carbon::today()->toDateString())
+                ->where(function($query){
+                    $query->where('content->'.App::getLocale().'->close', '>=', Carbon::today()->toDateString())
+                        ->orWhereNull('content->'.App::getLocale().'->close');
+                 })
                 ->whereNotNull('options->locale->' . App::getLocale())
                 ->orderBy('publish_at', 'ASC')
                 //->filtersApply($typeRequest)
                 ->simplePaginate(5);
         });
-
 
         return view('titz.catalog', [
             'elements' => $elements,
