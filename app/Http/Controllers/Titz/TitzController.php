@@ -46,11 +46,11 @@ class TitzController extends Controller
     {
         $typeObject = dashboard_posts()->firstWhere('slug', $typeRequest) ?? abort(404);
         $page = $request->input('page','1');
-        //dd(Carbon::now());
+
         $elements =   \Cache::remember('titz-controller-listing-'.$typeRequest.'-'.$user->id.'_page_'.$page.'-'.App::getLocale(), \Carbon\Carbon::now()->addHour(), function () use ($typeRequest,$user) {
             return Post::where('type', $typeRequest)
                 ->where('user_id', $user->id)
-                ->where('content->'.App::getLocale().'->close', '>=', Carbon::today()->toDateString())
+                //->where('content->'.App::getLocale().'->close', '>=', Carbon::today()->toDateString())
                 ->whereNotNull('options->locale->' . App::getLocale())
                 ->orderBy('publish_at', 'ASC')
                 //->filtersApply($typeRequest)

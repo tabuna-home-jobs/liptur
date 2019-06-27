@@ -51,8 +51,8 @@ trait ManyTypeTrait
      * @param \Illuminate\Database\Eloquent\Model $model
      */
     public function save(Model $model)
-    {		
-	
+    {
+        \Cache::flush();
         if(!$model->id) {
             $attrs = $model->getAttributes();
             $options = $model->options;
