@@ -31,7 +31,7 @@ $(function () {
     });
 
 
-    $('.ad-carousel').owlCarousel({
+    $('.bt-carousel').owlCarousel({
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         loop: true,

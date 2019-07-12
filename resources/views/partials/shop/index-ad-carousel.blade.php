@@ -4,7 +4,7 @@
     });
 @endphp
 
-<div class="bg-white padder-v" id="ad-carousel">
+<div class="bg-white padder-v" id="bt-carousel">
     <div class="container no-padder">
       {{--
       <svg class="defs-only">
@@ -15,7 +15,7 @@
         </filter>
       </svg>
       --}}
-      <div class="owl-carousel ad-carousel">
+      <div class="owl-carousel bt-carousel">
         @foreach ($images as $image)
             <figure class="item">
               <a href="{{$image->alt}}" class="btn-opacity block">

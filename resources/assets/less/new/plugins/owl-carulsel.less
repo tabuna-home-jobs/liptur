@@ -95,7 +95,12 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    visibility: hidden;
+    &.active {
+      visibility: inherit;
+    }
   }
+  
   &.owl-grab {
     cursor: move;
     cursor: grab;
@@ -349,15 +354,15 @@
 }    
 
 
-.owl-carousel.ad-carousel .owl-nav i {
+.owl-carousel.bt-carousel .owl-nav i {
     color: #a5b526;
 }
 
-.owl-carousel.ad-carousel .owl-nav i:hover{
+.owl-carousel.bt-carousel .owl-nav i:hover{
     color: #577c36;
 }
 /*
-.owl-carousel.ad-carousel figure {
+.owl-carousel.bt-carousel figure {
     margin-left: -5px;
     margin-right: -17px;
 }
@@ -389,7 +394,7 @@
 .defs-only {
     display:none;
 }
-.ad-carousel {
+.bt-carousel {
     padding: 0 40px;
     /*
     img.img-responsive {

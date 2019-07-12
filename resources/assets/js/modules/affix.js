@@ -18,8 +18,8 @@ $(document).ready(function () {
                 return (this.top = $('#header').outerHeight(true) + top + 15)
             },
             bottom: function () {
-                if (document.getElementById('ad-carousel')) {
-                    var bottom = $('#ad-carousel').outerHeight(true)
+                if (document.getElementById('bt-carousel')) {
+                    var bottom = $('#bt-carousel').outerHeight(true)
                 } else {
                     var bottom = 0;
                 }
